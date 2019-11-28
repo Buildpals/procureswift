@@ -39,12 +39,23 @@ class Order < ApplicationRecord
     else
       item_shipping_cost = myus_shipping_cost
     end
+
     insurance = items_cost * INSURANCE_RATE
     handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
     item_shipping_cost + insurance + handling_fee
+      # TODO: Include region in delivery_Cost
+  end
+
+  def estimated_delivery_date
+    if by_sea?
+      "31st January, 2018"
+    else
+      "9th December, 2018"
+    end
   end
 
   def myus_shipping_cost
+    # TODO Confirm these values by entering the ranges in https://www.myus.com/pricing/
     case item_weight_in_pounds
     when 0..1
       16.99

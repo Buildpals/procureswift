@@ -91,7 +91,9 @@
             <br>
             <%= @order.delivery_region.titleize %> Region:
             <br>
-            <span class="text-success">28th November</span>
+            <span class="text-success">
+              <%= @order.estimated_delivery_date %>
+            </span>
             <br>
           </div>
 
