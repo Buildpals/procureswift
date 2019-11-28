@@ -1,0 +1,49 @@
+const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
+var txref = Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+
+payWithRave()
+
+function payWithRave() {
+    var reference = txref;
+    var phone = $('#phone_number').val();
+    var name = $('#full_name').val();
+    var email = $('#email').val();
+    if (phone = "" || name == "" || email == "") {
+        alert("Please fill out your name, email and phone number");
+        return;
+    }
+    var shiping = "<%=  @order.shipping_and_handling %>";
+    var price = "<%= @order.order_total %>";
+    var quantity = "<%= @order.item_quantity %>";
+    var orderId = "<%= @order.id %>";
+    var x = getpaidSetup({
+        PBFPubKey: publicKey,
+        customer_email: email,
+        amount: price,
+        customer_phone: phone,
+        currency: "USD",
+        country: 'NG',
+        txref: txref,
+        meta: [{
+            metaname: "shiping-to-ghana",
+            metavalue: "AP1234"
+        }],
+        onclose: function () {
+        },
+        callback: function (response) {
+            var txref = response.tx.txRef; // collect txRef returned and pass to a 					server page to complete status check.
+            console.log("This is the response returned after a charge", response);
+            if (
+                response.tx.chargeResponseCode == "00" ||
+                response.tx.chargeResponseCode == "0"
+            ) {
+                //show success modal
+                window.location.href = '/payment?' + 'txtref=' + reference + '&order_id=' + orderId + '&email=' + email + '&phone_number=' + phone + '&name=' + name + '';
+            } else {
+                // show failure modal
+            }
+
+            x.close();
+        }
+    });
+}

@@ -1,3 +1,9 @@
+<style>
+  .container {
+    max-width: 70rem;
+  }
+</style>
+
 <div class="container">
 
   <div class="row mt-3">
@@ -9,9 +15,9 @@
              class="card-img-top p-2 img-fluid" alt="...">
 
         <div class="card-body">
-          <h5 class="card-title">
+          <h6 class="card-title">
             <%= @order.zinc_product_details["title"] %>
-          </h5>
+          </h6>
         </div>
 
       </div>
@@ -31,24 +37,24 @@
         <div class="card-body">
           <h5 class="card-title">Order Summary</h5>
           <dl class="row mt-4">
-            <dt class="col-9">Items (<%= @order.item_quantity %>):</dt>
-            <dd class="col-3 text-right">
+            <dt class="col-8">Items (<%= @order.item_quantity %>):</dt>
+            <dd class="col-4 text-right">
               <%= number_to_currency @order.items_cost %>
             </dd>
 
-            <dt class="col-9">Shipping and Handling:</dt>
-            <dd class="col-3 text-right">
+            <dt class="col-8">Shipping and Handling:</dt>
+            <dd class="col-4 text-right">
               <%= number_to_currency @order.shipping_and_handling %>
               <hr>
             </dd>
 
-            <dt class="col-9">Total before duty:</dt>
-            <dd class="col-3 text-right">
+            <dt class="col-8">Total before duty:</dt>
+            <dd class="col-4 text-right">
               <%= number_to_currency @order.total_before_duty %>
             </dd>
 
-            <dt class="col-9">Estimated duty to be collected:</dt>
-            <dd class="col-3 text-right">
+            <dt class="col-8">Estimated duty to be collected:</dt>
+            <dd class="col-4 text-right">
               <%= number_to_currency @order.estimated_duty %>
             </dd>
 
@@ -56,8 +62,8 @@
               <hr>
             </div>
 
-            <dt class="col-9 text-truncate">Order Total:</dt>
-            <dd class="col-3 text-right">
+            <dt class="col-8 text-truncate">Order Total:</dt>
+            <dd class="col-4 text-right">
               <%= number_to_currency @order.order_total %>
             </dd>
           </dl>
@@ -74,11 +80,53 @@
             <br>
           </div>
 
+          <hr>
 
-          <div class="actions mt-3">
-            <a class="btn  btn-success btn-block" onClick="payWithRave()">Make Payment</a>
-          </div>
+          <%= form_with(model: @order, local: false) do |form| %>
+            <% if @order.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
+                <ul>
+                  <% @order.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label :full_name %>
+              <%= form.text_field :full_name,
+                                  id: 'full_name',
+                                  required: true,
+                                  class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :email %>
+              <%= form.text_field :email,
+                                  id: 'email',
+                                  required: true,
+                                  class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :phone_number %>
+              <%= form.text_field :phone_number,
+                                  id: 'phone_number',
+                                  required: true,
+                                  class: "form-control" %>
+              <small id="phone_help" class="form-text text-muted">
+                This number should be active so we can reach you when we're delivering your item
+              </small>
+            </div>
+
+
+            <div class="actions">
+              <%= form.submit "Make Payment", class: "btn btn-accent btn-block" %>
+            </div>
+          <% end %>
         </div>
       </div>
 
@@ -90,50 +138,3 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-<script>
-  const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
-  var txref = Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
-  function payWithRave() {
-      var reference = txref;
-      var phone = $('#phone_number').val();
-      var name = $('#full_name').val();
-      var email = $('#email').val();
-      if (phone = "" || name == "" || email == "") {
-        alert("Please fill out your name, email and phone number");
-        return;
-      }
-      var shiping = "<%=  @order.shipping_and_handling %>";
-      var price = "<%= @order.order_total %>";
-      var quantity = "<%= @order.item_quantity %>";
-      var orderId = "<%= @order.id %>"; 
-      var x = getpaidSetup({
-          PBFPubKey: publicKey,
-          customer_email: email,
-          amount: price,
-          customer_phone: phone,
-          currency: "USD",
-          country: 'NG',
-          txref: txref,
-          meta: [{
-              metaname: "shiping-to-ghana",
-              metavalue: "AP1234"
-          }],
-          onclose: function() {},
-          callback: function(response) {
-              var txref = response.tx.txRef; // collect txRef returned and pass to a 					server page to complete status check.
-              console.log("This is the response returned after a charge", response);
-              if (
-                  response.tx.chargeResponseCode == "00" ||
-                  response.tx.chargeResponseCode == "0"
-              ) {
-                  //show success modal
-                  window.location.href = '/payment?' + 'txtref=' + reference  + '&order_id=' + orderId + '&email=' + email + '&phone_number=' + phone + '&name=' + name + ''; 
-              } else {
-                  // show failure modal
-              }
-
-              x.close(); 
-          }
-      });
-  }
-</script>

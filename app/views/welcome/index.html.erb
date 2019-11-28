@@ -36,37 +36,40 @@
               </div>
               <div class="form-group">
                 <%= form.label :item_quantity, "How many do you want to buy?" %>
-                <%= form.number_field :item_quantity,
-                                      class: "form-control",
-                                      required: true,
-                                      min: 1,
-                                      placeholder: "Enter Quantity" %>
+                <%= form.select :item_quantity,
+                                choices = (1..50).map { |w| [w, w] },
+                                options = {
+                                    include_blank: false
+                                },
+                                html_options = {
+                                    class: "form-control"
+                                } %>
 
               </div>
 
               <div class="form-group">
                 <%= form.label :delivery_method, "Delivery Method" %>
                 <%= form.select :delivery_method,
-                                choices = Order.delivery_methods.keys.map { |w| [w.humanize, w] },
+                                choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
                                 options = {
-                                    selected: :by_sea
+                                    selected: :by_sea,
+                                    include_blank: false
                                 },
                                 html_options = {
-                                    class: "form-control",
-                                    required: true
+                                    class: "form-control"
                                 } %>
               </div>
 
               <div class="form-group">
                 <%= form.label :delivery_region, "Region" %>
                 <%= form.select :delivery_region,
-                                choices = Order.delivery_regions.keys.map { |w| [w.humanize, w] },
+                                choices = Order.delivery_regions.keys.map { |w| [w.titleize, w] },
                                 options = {
-                                    selected: :greater_accra
+                                    selected: :greater_accra,
+                                    include_blank: false
                                 },
                                 html_options = {
-                                    class: "form-control",
-                                    required: true
+                                    class: "form-control"
                                 } %>
               </div>
 

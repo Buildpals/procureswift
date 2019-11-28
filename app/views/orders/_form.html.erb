@@ -1,4 +1,4 @@
-<%= form_with(model: order, local: true) do |form| %>
+<%= form_with(model: order, local: false) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -18,77 +18,48 @@
                                       value_method = :last,
                                       text_method = :first do |b| %>
       <div class="form-check">
-        <%= b.radio_button class: "form-check-input" %>
-        <%= b.label class: "form-check-label" %>
+        <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
+        <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
       </div>
     <% end %>
   </div>
 
   <div class="form-group">
     <%= form.label :item_quantity, "Quantity" %>
-    <%= form.number_field :item_quantity,
-                          class: "form-control",
-                          required: true,
-                          min: 1,
-                          placeholder: "Enter Quantity" %>
-
+    <%= form.select :item_quantity,
+                    choices = (1..50).map { |w| [w, w] },
+                    options = {
+                        include_blank: false
+                    },
+                    html_options = {
+                        class: "form-control",
+                        onchange: 'this.form.submit();'
+                    } %>
   </div>
 
   <div class="form-group">
     <%= form.label :delivery_method, "Delivery Method" %>
     <%= form.select :delivery_method,
-                    choices = Order.delivery_methods.keys.map { |w| [w.humanize, w] },
+                    choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
                     options = {
-                        selected: :by_sea
+                        include_blank: false
                     },
                     html_options = {
                         class: "form-control",
-                        required: true
+                        onchange: 'this.form.submit();'
                     } %>
   </div>
 
   <div class="form-group">
     <%= form.label :delivery_region, "Region" %>
     <%= form.select :delivery_region,
-                    choices = Order.delivery_regions.keys.map { |w| [w.humanize, w] },
+                    choices = Order.delivery_regions.keys.map { |w| [w.titleize, w] },
                     options = {
-                        selected: :greater_accra
+                        include_blank: false
                     },
                     html_options = {
                         class: "form-control",
-                        required: true
+                        onchange: 'this.form.submit();'
                     } %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name,
-                        id: 'full_name', 
-                        required: true,
-                        class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email,
-                        id: 'email', 
-                        required: true,
-                        class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number,
-                        id: 'phone_number',
-                        required: true,
-                        class: "form-control" %>
-    <small id="phone_help" class="form-text text-muted">
-      This number should be active so we can reach you when we're delivering your item
-    </small>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-accent btn-block" %>
   </div>
 <% end %>
