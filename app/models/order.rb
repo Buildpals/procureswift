@@ -7,10 +7,11 @@ class Order < ApplicationRecord
 
   SHIPPING_AND_HANDLING_RATIO = 0.1
   DUTY_RATIO = 0.1
-  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token]
+  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token] 6F844E3BDC76C7910DA9744F
 
   enum delivery_method: {by_air: 0, by_sea: 1}
   enum delivery_region: {greater_accra: 0, ashanti: 1, eastern: 2}
+  enum status: {pending: 0, failure: 1, success: 3}
 
 
   def price_dollars

@@ -62,6 +62,22 @@ class OrdersController < ApplicationController
     end
   end
 
+  def payment
+    @order = Order.find(params['order_id'])
+    @order.txtref = params['txtref']
+    @order.full_name = params['full_name']
+    @order.phone_number = params['phone_number']
+    @order.email = params['email']
+    @order.status = 0
+    @order.save!
+  end
+  
+
+  def payment_status
+    
+  end
+  
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
