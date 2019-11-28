@@ -11,42 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :item_url %>
-    <%= form.text_field :item_url %>
+  <div class="form-group">
+    <%= form.label :item_quantity, "Quantity" %>
+    <%= form.number_field :item_quantity,
+                          class: "form-control",
+                          required: true,
+                          min: 1,
+                          placeholder: "Enter Quantity" %>
+
   </div>
 
-  <div class="field">
-    <%= form.label :item_quantity %>
-    <%= form.number_field :item_quantity %>
+  <div class="form-group">
+    <%= form.label :delivery_method, "Delivery Method" %>
+    <%= form.select :delivery_method,
+                    choices = Order.delivery_methods.keys.map { |w| [w.humanize, w] },
+                    options = {
+                        selected: :by_sea
+                    },
+                    html_options = {
+                        class: "form-control",
+                        required: true
+                    } %>
   </div>
 
-  <div class="field">
-    <%= form.label :delivery_method %>
-    <%= form.number_field :delivery_method %>
+  <div class="form-group">
+    <%= form.label :delivery_region, "Region" %>
+    <%= form.select :delivery_region,
+                    choices = Order.delivery_regions.keys.map { |w| [w.humanize, w] },
+                    options = {
+                        selected: :greater_accra
+                    },
+                    html_options = {
+                        class: "form-control",
+                        required: true
+                    } %>
   </div>
 
-  <div class="field">
-    <%= form.label :delivery_region %>
-    <%= form.number_field :delivery_region %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zinc_product_details %>
-    <%= form.text_field :zinc_product_details %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :full_name %>
-    <%= form.text_field :full_name %>
+    <%= form.text_field :full_name,
+                        required: true,
+                        class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+    <%= form.text_field :phone_number,
+                        required: true,
+                        class: "form-control" %>
+    <small id="phone_help" class="form-text text-muted">
+      This number should be active so we can reach you when we're delivering your item
+    </small>
   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-accent btn-block" %>
   </div>
 <% end %>

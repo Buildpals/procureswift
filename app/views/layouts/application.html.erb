@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Ds03Server</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link href="https://res.cloudinary.com/tenderswift/image/upload/c_scale,h_32/v1564315094/ProcureSwiftLogos/procureswift-square.png"
+        rel="icon">
 
-  <body>
-    <%= yield %>
-  </body>
+  <title>ProcureSwift</title>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= javascript_include_tag '/main.js', 'data-turbolinks-track': 'reload' %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<!-- Just an image -->
+<nav class="navbar navbar-light bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag "/img/Procurewift-17.png", height: "60", alt: "" %>
+    </a>
+  </div>
+</nav>
+
+<section class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+  </div>
+</section>
+
+<%= yield %>
+</body>
 </html>

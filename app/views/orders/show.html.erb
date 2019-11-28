@@ -1,39 +1,85 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Item url:</strong>
-  <%= @order.item_url %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Item quantity:</strong>
-  <%= @order.item_quantity %>
-</p>
+  <div class="row mt-5">
+    <div class="col-lg-7 mx-auto">
 
-<p>
-  <strong>Delivery method:</strong>
-  <%= @order.delivery_method %>
-</p>
+      <div class="card mb-3">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51xkXVGpYdL._AC_SL1280_.jpg"
+             class="card-img-top p-2 img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Eyekepper Computer Reading Glasses-0.00x, Tortoise-Red</h5>
+          <div class="text-danger">$10.00</div>
+          <div class="text-small text-success">In Stock</div>
 
-<p>
-  <strong>Delivery region:</strong>
-  <%= @order.delivery_region %>
-</p>
+          <hr>
 
-<p>
-  <strong>Zinc product details:</strong>
-  <%= @order.zinc_product_details %>
-</p>
+          <%= render 'form', order: @order %>
 
-<p>
-  <strong>Full name:</strong>
-  <%= @order.full_name %>
-</p>
+        </div>
+      </div>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @order.phone_number %>
-</p>
+    </div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+    <div class="col-lg-5 mx-auto">
+
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Order Summary</h5>
+          <dl class="row mt-4">
+            <dt class="col-9">Items (5):</dt>
+            <dd class="col-3 text-right">
+              $50.00
+            </dd>
+
+            <dt class="col-9">Shipping and Handling:</dt>
+            <dd class="col-3 text-right">
+              $40.00
+              <hr>
+            </dd>
+
+            <dt class="col-9">Total before duty:</dt>
+            <dd class="col-3 text-right">
+              $90.00
+            </dd>
+
+            <dt class="col-9">Estimated duty to be collected:</dt>
+            <dd class="col-3 text-right">
+              $10.00
+            </dd>
+
+            <div class="col-12">
+              <hr>
+            </div>
+
+            <dt class="col-9 text-truncate">Order Total:</dt>
+            <dd class="col-3 text-right">
+              $100.00
+            </dd>
+          </dl>
+          <div class="small text-center">
+            Estimated delivery
+            <strong>
+              <%= @order.delivery_method.titleize %>
+            </strong>
+            to
+            <br>
+            <%= @order.delivery_region.titleize %> Region:
+            <br>
+            <span class="text-success">28th November</span>
+            <br>
+          </div>
+
+
+          <div class="actions mt-3">
+            <a href="#" class="btn  btn-success btn-block">Make Payment</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

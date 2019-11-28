@@ -1,0 +1,177 @@
+<header class="bg-primary pt-3 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-9 mx-auto">
+        <div class="text-light">
+          <div class="h2 text-center">
+            Purchase items from
+          </div>
+          <div class="h1 text-center mb-5">
+            Amazon to Ghana
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <%= form_with(model: @order, local: true) do |form| %>
+
+              <% if @order.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited this @order from being saved:</h2>
+
+                  <ul>
+                    <% @order.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="form-group">
+                <%= form.label :item_url, "What item do you want to purchase?" %>
+                <%= form.text_field :item_url,
+                                    class: "form-control",
+                                    required: true,
+                                    placeholder: "Enter Amazon URL" %>
+              </div>
+              <div class="form-group">
+                <%= form.label :item_quantity, "How many do you want to buy?" %>
+                <%= form.number_field :item_quantity,
+                                      class: "form-control",
+                                      required: true,
+                                      min: 1,
+                                      placeholder: "Enter Quantity" %>
+
+              </div>
+
+              <div class="form-group">
+                <%= form.label :delivery_method, "Delivery Method" %>
+                <%= form.select :delivery_method,
+                                choices = Order.delivery_methods.keys.map { |w| [w.humanize, w] },
+                                options = {
+                                    selected: :by_sea
+                                },
+                                html_options = {
+                                    class: "form-control",
+                                    required: true
+                                } %>
+              </div>
+
+              <div class="form-group">
+                <%= form.label :delivery_region, "Region" %>
+                <%= form.select :delivery_region,
+                                choices = Order.delivery_regions.keys.map { |w| [w.humanize, w] },
+                                options = {
+                                    selected: :greater_accra
+                                },
+                                html_options = {
+                                    class: "form-control",
+                                    required: true
+                                } %>
+              </div>
+
+              <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Icons Grid -->
+<section class="features-icons text-center py-5">
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon d-flex mb-3">
+            <i class="fab fa-amazon fa-5x m-auto text-accent"></i>
+          </div>
+          <h3>Enter your Amazon link</h3>
+          <p class="mb-0">Enter the Amazon link for the item you want to buy</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon d-flex mb-3">
+            <i class="fas fa-hand-holding-usd fa-5x m-auto text-accent"></i>
+          </div>
+          <h3>Make payment</h3>
+          <p class="mb-0">Pay via card or mobile money through ProcureSwift</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="features-icons-icon d-flex mb-3">
+            <i class="fas fa-truck fa-5x m-auto fa-fw text-accent"></i>
+          </div>
+          <h3>We purchase & deliver</h3>
+          <p class="mb-0">ProcureSwift purchases the item and delivers it to you in Ghana</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials text-center bg-primary text-light py-5">
+  <div class="container">
+    <h2 class="mb-5">What people are saying...</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3 px-5" src="img/1.jpg" alt="">
+          <h5>Michael E.</h5>
+          <p class="font-weight-light mb-0">
+            "This is fantastic! Thanks so much guys!"
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3 px-5" src="img/2.jpg" alt="">
+          <h5>Fred S.</h5>
+          <p class="font-weight-light mb-0">
+            "Thanks so much for opening up the world to us!"
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3 px-5" src="img/3.jpg" alt="">
+          <h5>Sarah W.</h5>
+          <p class="font-weight-light mb-0">
+            "Procureswift is amazing. I've been using it to ship all our agric products."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+        <p class="text-muted small mb-4 mb-lg-0">&copy; ProcureSwift 2019. All Rights Reserved.</p>
+      </div>
+      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item mr-3">
+            <a href="https://web.facebook.com/procureswift/">
+              <i class="fab fa-facebook fa-2x fa-fw text-accent"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/procureswift/">
+              <i class="fab fa-instagram fa-2x fa-fw text-accent"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
