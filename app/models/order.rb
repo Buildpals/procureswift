@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   SHIPPING_AND_HANDLING_RATIO = 0.1
   DUTY_RATIO = 0.1
-  ZINC_API_KEY = '6F844E3BDC76C7910DA9744F'
+  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token]
 
   enum delivery_method: {by_air: 0, by_sea: 1}
   enum delivery_region: {greater_accra: 0, ashanti: 1, eastern: 2}
@@ -94,10 +94,18 @@ class Order < ApplicationRecord
   end
 
   def zinc_product_details_url
-    "https://api.zinc.io/v1/products/#{item_url}?retailer=amazon"
+    puts "ASIN", asin
+    "https://api.zinc.io/v1/products/#{asin}?retailer=amazon"
   end
 
   def zinc_product_offers_url
-    "https://api.zinc.io/v1/products/#{item_url}/offers?retailer=amazon"
+    puts "ASIN", asin
+    "https://api.zinc.io/v1/products/#{asin}/offers?retailer=amazon"
+  end
+
+  private
+
+  def asin
+    Amazon.get_asin_from_url(item_url)
   end
 end
