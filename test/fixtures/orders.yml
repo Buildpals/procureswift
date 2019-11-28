@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_url: MyString
+  item_quantity: 1
+  delivery_method: 1
+  delivery_region: 1
+  zinc_product_details: 
+  full_name: MyString
+  phone_number: MyString
+
+two:
+  item_url: MyString
+  item_quantity: 1
+  delivery_method: 1
+  delivery_region: 1
+  zinc_product_details: 
+  full_name: MyString
+  phone_number: MyString

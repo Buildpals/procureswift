@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item url:</strong>
+  <%= @order.item_url %>
+</p>
+
+<p>
+  <strong>Item quantity:</strong>
+  <%= @order.item_quantity %>
+</p>
+
+<p>
+  <strong>Delivery method:</strong>
+  <%= @order.delivery_method %>
+</p>
+
+<p>
+  <strong>Delivery region:</strong>
+  <%= @order.delivery_region %>
+</p>
+
+<p>
+  <strong>Zinc product details:</strong>
+  <%= @order.zinc_product_details %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @order.full_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @order.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
