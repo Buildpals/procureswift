@@ -1,51 +1,55 @@
-
 <div class="container">
 
-  <div class="row mt-5">
-    <div class="col-lg-7 mx-auto">
+  <div class="row mt-3">
 
+    <div class="col-lg-4">
       <div class="card mb-3">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/51xkXVGpYdL._AC_SL1280_.jpg"
+
+        <img src="<%= @order.zinc_product_details["main_image"] %>"
              class="card-img-top p-2 img-fluid" alt="...">
+
         <div class="card-body">
-          <h5 class="card-title">Eyekepper Computer Reading Glasses-0.00x, Tortoise-Red</h5>
-          <div class="text-danger">$10.00</div>
-          <div class="text-small text-success">In Stock</div>
-
-          <hr>
-
-          <%= render 'form', order: @order %>
-
+          <h5 class="card-title">
+            <%= @order.zinc_product_details["title"] %>
+          </h5>
         </div>
-      </div>
 
+      </div>
     </div>
 
-    <div class="col-lg-5 mx-auto">
+    <div class="col-lg-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <%= render 'form', order: @order %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
 
       <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">Order Summary</h5>
           <dl class="row mt-4">
-            <dt class="col-9">Items (5):</dt>
+            <dt class="col-9">Items (<%= @order.item_quantity %>):</dt>
             <dd class="col-3 text-right">
-              $50.00
+              <%= number_to_currency @order.items_cost %>
             </dd>
 
             <dt class="col-9">Shipping and Handling:</dt>
             <dd class="col-3 text-right">
-              $40.00
+              <%= number_to_currency @order.shipping_and_handling %>
               <hr>
             </dd>
 
             <dt class="col-9">Total before duty:</dt>
             <dd class="col-3 text-right">
-              $90.00
+              <%= number_to_currency @order.total_before_duty %>
             </dd>
 
             <dt class="col-9">Estimated duty to be collected:</dt>
             <dd class="col-3 text-right">
-              $10.00
+              <%= number_to_currency @order.estimated_duty %>
             </dd>
 
             <div class="col-12">
@@ -54,7 +58,7 @@
 
             <dt class="col-9 text-truncate">Order Total:</dt>
             <dd class="col-3 text-right">
-              $100.00
+              <%= number_to_currency @order.order_total %>
             </dd>
           </dl>
           <div class="small text-center">

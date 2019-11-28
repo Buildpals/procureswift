@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order.fetch_item_information
   end
 
   # GET /orders/new
@@ -62,13 +63,14 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.require(:order).permit(:item_url, :item_quantity, :delivery_method, :delivery_region, :zinc_product_details, :full_name, :phone_number)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def order_params
+    params.require(:order).permit(:item_url, :item_quantity, :delivery_method, :delivery_region, :zinc_product_details, :full_name, :phone_number, :chosen_offer_id)
+  end
 end
