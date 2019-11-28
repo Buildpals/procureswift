@@ -2,6 +2,7 @@
   <dictionary name="peter">
     <words>
       <w>turbolinks</w>
+      <w>zincapi</w>
     </words>
   </dictionary>
 </component>
