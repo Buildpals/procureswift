@@ -161,7 +161,15 @@ class Order < ApplicationRecord
 
   def depth
     # TODO: Convert to inches
-    zinc_product_details['package_dimensions']['size']['depth']['amount']
+    if zinc_product_details['package_dimensions']
+      if zinc_product_details['package_dimensions']['size']
+        if zinc_product_details['package_dimensions']['size']['depth']
+          zinc_product_details['package_dimensions']['size']['depth']['amount']
+        end
+      end
+    end
+
+    nil
   end
 
   def depth_unit
@@ -170,7 +178,15 @@ class Order < ApplicationRecord
 
   def length
     # TODO: Convert to inches
-    zinc_product_details['package_dimensions']['size']['length']['amount']
+    if zinc_product_details['package_dimensions']
+      if zinc_product_details['package_dimensions']['size']
+        if zinc_product_details['package_dimensions']['size']['length']
+          zinc_product_details['package_dimensions']['size']['length']['amount']
+        end
+      end
+    end
+
+    nil
   end
 
   def length_unit
@@ -179,7 +195,15 @@ class Order < ApplicationRecord
 
   def width
     # TODO: Convert to inches
-    zinc_product_details['package_dimensions']['size']['width']['amount']
+    if zinc_product_details['package_dimensions']
+      if zinc_product_details['package_dimensions']['size']
+        if zinc_product_details['package_dimensions']['size']['width']
+          zinc_product_details['package_dimensions']['size']['width']['amount']
+        end
+      end
+    end
+
+    nil
   end
 
   def width_unit
@@ -191,7 +215,13 @@ class Order < ApplicationRecord
   end
 
   def weight
-    zinc_product_details['package_dimensions']['weight']['amount']
+    if zinc_product_details['package_dimensions']
+      if zinc_product_details['package_dimensions']['weight']
+        zinc_product_details['package_dimensions']['weight']['amount']
+      end
+    end
+
+    nil
   end
 
   def item_weight_in_pounds
