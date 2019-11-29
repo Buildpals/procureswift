@@ -219,7 +219,6 @@ class Order < ApplicationRecord
   def asin
     Amazon.get_asin_from_url(item_url)
   end
-  
 
   def fetch_item_information
     return unless zinc_product_details.nil? || zinc_product_offers.nil?
@@ -231,10 +230,10 @@ class Order < ApplicationRecord
   private
 
   def is_valid_amazon_url
-    asin_number = self.asin
+    asin_number = asin
     if asin_number == false
-      errors.add(:item_url, ": Please enter a valid amazon url")
-    end 
+      errors.add(:item_link, ': Please enter a valid amazon link')
+    end
   end
 
   def fetch_product_details

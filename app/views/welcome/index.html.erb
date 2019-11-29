@@ -16,10 +16,10 @@
             <%= form_with(model: @order, local: true) do |form| %>
 
               <% if @order.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited this @order from being saved:</h2>
+                <div id="error_explanation mb-3">
+                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited your order from being processed:</h2>
 
-                  <ul>
+                  <ul class="error-text">
                     <% @order.errors.full_messages.each do |message| %>
                       <li><%= message %></li>
                     <% end %>
@@ -28,11 +28,16 @@
               <% end %>
 
               <div class="form-group">
-                <%= form.label :item_url, "What item do you want to purchase?" %>
+                <%= form.label :item_url, "Link to the item on Amazon" %>
                 <%= form.text_field :item_url,
                                     class: "form-control",
                                     required: true,
-                                    placeholder: "Enter Amazon URL" %>
+                                    placeholder: "eg. https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R/ref=gbps_rlm_m-6_323c_ac092e40?smid=ATVPDKIKX0DER" %>
+                <small id="item_url_help" class="form-text text-muted">
+                  Find the item you want to purchase on
+                  <a href="www.amazon.com" target="_blank">www.amazon.com</a>,
+                  copy the link to it, and past it above.
+                </small>
               </div>
               <div class="form-group">
                 <%= form.label :item_quantity, "How many do you want to buy?" %>
