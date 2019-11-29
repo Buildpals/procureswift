@@ -17,7 +17,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <% if Rails.env.production? %>
+  <% if Rails.env.production? %>
     <script>
       window['_fs_debug'] = false
       window['_fs_host'] = 'fullstory.com'
@@ -53,6 +53,7 @@
         g.clearUserCookie = function () {}
       })(window, document, window['_fs_namespace'], 'script', 'user')
     </script>
+  <% end %>
 </head>
 
 <body>
