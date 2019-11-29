@@ -20,11 +20,24 @@
 
 <body>
 <!-- Just an image -->
-<nav class="navbar navbar-light bg-primary">
+<nav class="navbar navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">
       <%= image_tag "/img/Procurewift-17.png", height: "60", alt: "" %>
     </a>
+
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class=nav-item">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+        </li>
+      <% else %>
+        <li class=nav-item">>
+          <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+        </li>
+      <% end %>
+    </ul>
+
   </div>
 </nav>
 
@@ -32,6 +45,15 @@
   <% if notice %>
     <div class="alert alert-info mt-3" role="alert">
       <%= notice %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="alert alert-danger mt-3" role="alert">
+      <%= alert %>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
