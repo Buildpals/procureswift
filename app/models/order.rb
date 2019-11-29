@@ -45,7 +45,11 @@ class Order < ApplicationRecord
     chosen_offer = zinc_product_offers['offers'].find do |offer|
       offer['offer_id'] == chosen_offer_id
     end
-    chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
+    if chosen_offer
+      chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
+    else
+      0.00
+    end
   end
 
   def items_cost
