@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   require 'net/http'
   require 'uri'
 
-  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token]
+  ZINC_API_KEY = '6F844E3BDC76C7910DA9744F'
 
   CENTS_TO_DOLLARS_RATIO = 0.01
   DUTY_RATIO = 0.07
@@ -40,6 +40,8 @@ class Order < ApplicationRecord
   }
 
   enum status: { pending: 0, failure: 1, success: 3 }
+
+  validate :is_valid_amazon_url
 
   def price_dollars
     chosen_offer = zinc_product_offers['offers'].find do |offer|
@@ -217,6 +219,7 @@ class Order < ApplicationRecord
   def asin
     Amazon.get_asin_from_url(item_url)
   end
+  
 
   def fetch_item_information
     return unless zinc_product_details.nil? || zinc_product_offers.nil?
@@ -226,6 +229,13 @@ class Order < ApplicationRecord
   end
 
   private
+
+  def is_valid_amazon_url
+    asin_number = self.asin
+    if asin_number == false
+      errors.add(:item_url, ": Please enter a valid amazon url")
+    end 
+  end
 
   def fetch_product_details
     uri = URI.parse(zinc_product_details_url)
