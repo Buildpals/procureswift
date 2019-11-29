@@ -78,6 +78,16 @@
                                 } %>
               </div>
 
+              <div class="form-group">
+                <%= form.label :phone_number %>
+                <%= form.text_field :phone_number,
+                                    required: true,
+                                    class: "form-control" %>
+                <small id="phone_help" class="form-text text-muted">
+                  This number should be active so we can reach you when we're delivering your item
+                </small>
+              </div>
+
               <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block" %>
             <% end %>
           </div>
