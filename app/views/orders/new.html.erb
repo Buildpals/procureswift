@@ -17,7 +17,7 @@
 
               <% if @order.errors.any? %>
                 <div id="error_explanation mb-3">
-                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited your from being processed:</h2>
+                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited your order from being processed:</h2>
 
                   <ul class="error-text">
                     <% @order.errors.full_messages.each do |message| %>
