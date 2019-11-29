@@ -1,39 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-md-12">
+      <table class="table table-hover mb-5">
+        <thead>
+        <tr>
+          <th>Item image</th>
+          <th>Item url</th>
+          <th>Item quantity</th>
+          <th>Delivery method</th>
+          <th>Delivery region</th>
+          <th>Order total</th>
+          <th>Payment status</th>
+          <th>Contact</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
 
-<h1>Orders</h1>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td style="width: 100px">
+              <a href="<%= order.item_url %>" target="_blank">
+                <img src="<%= order.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+              </a>
+            </td>
+            <td class="small" style="width: 200px;">
+              <%= truncate order.title, length: 200 %>
+            </td>
+            <td><%= order.item_quantity %></td>
+            <td><%= order.delivery_method.titleize %></td>
+            <td><%= order.delivery_region.titleize %></td>
+            <td>
+              <%= number_to_currency order.order_total %>
+            </td>
+            <td>
+              <%= order.status %>
+              <%= order.txtref %>
+            </td>
+            <td>
+              <%= order.full_name %>
+              (<%= order.phone_number %>)
+            </td>
+            <td>
+              <%= link_to "Show", order %>
+            </td>
+            <td><%= link_to 'Destroy', order, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Item url</th>
-      <th>Item quantity</th>
-      <th>Delivery method</th>
-      <th>Delivery region</th>
-      <th>Zinc product details</th>
-      <th>Full name</th>
-      <th>Phone number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.item_url %></td>
-        <td><%= order.item_quantity %></td>
-        <td><%= order.delivery_method %></td>
-        <td><%= order.delivery_region %></td>
-        <td><%= order.zinc_product_details %></td>
-        <td><%= order.full_name %></td>
-        <td><%= order.phone_number %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+    </div>
+  </div>
+</div>

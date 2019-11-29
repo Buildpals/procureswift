@@ -17,10 +17,27 @@ class Order < ApplicationRecord
 
   SHIPPING_AND_HANDLING_RATIO = 0.25
 
+  enum delivery_method: { by_air: 0, by_sea: 1 }
+  enum delivery_region: {
+    greater_accra_region: 0,
+    ashanti_region: 1,
+    central_region: 2,
+    eastern_region: 3,
+    oti_region: 4,
+    bono_east_region: 5,
+    ahafo_region: 6,
+    bono_region: 7,
+    north_east_region: 8,
+    savanna_region: 9,
+    western_region: 10 ,
+    western_north_region: 11,
+    volta_region: 12,
+    northern_region: 13,
+    upper_east_region: 14,
+    upper_west_region: 15
+  }
 
-  enum delivery_method: {by_air: 0, by_sea: 1}
-  enum delivery_region: {greater_accra: 0, ashanti: 1, eastern: 2}
-  enum status: {pending: 0, failure: 1, success: 3}
+  enum status: { pending: 0, failure: 1, success: 3 }
 
   def price_dollars
     chosen_offer = zinc_product_offers['offers'].find do |offer|
@@ -43,19 +60,19 @@ class Order < ApplicationRecord
     insurance = items_cost * INSURANCE_RATE
     handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
     item_shipping_cost + insurance + handling_fee
-      # TODO: Include region in delivery_Cost
+    # TODO: Include region in delivery_Cost
   end
 
   def estimated_delivery_date
     if by_sea?
-      "31st January, 2018"
+      '31st January, 2018'
     else
-      "9th December, 2018"
+      '9th December, 2018'
     end
   end
 
   def myus_shipping_cost
-    # TODO Confirm these values by entering the ranges in https://www.myus.com/pricing/
+    # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
     case item_weight_in_pounds
     when 0..1
       16.99
@@ -96,67 +113,21 @@ class Order < ApplicationRecord
     total_before_duty + estimated_duty
   end
 
+  def title
+    zinc_product_details['title']
+  end
+
+  def main_image
+    zinc_product_details['main_image']
+  end
+
   def offers
     zinc_product_offers['offers'].map do |offer|
       [
-          "#{number_to_currency(offer['price'] * CENTS_TO_DOLLARS_RATIO)} #{offer['condition']} #{offer['handling_days.max']} #{offer['seller.name']}",
-          offer['offer_id']
+        "#{number_to_currency(offer['price'] * CENTS_TO_DOLLARS_RATIO)} #{offer['condition']} #{offer['handling_days.max']} #{offer['seller.name']}",
+        offer['offer_id']
       ]
     end
-  end
-
-  def fetch_item_information
-    return unless zinc_product_details.nil? || zinc_product_offers.nil?
-
-    fetch_product_details
-    fetch_product_offers
-  end
-
-  def fetch_product_details
-    uri = URI.parse(zinc_product_details_url)
-    request = Net::HTTP::Get.new(uri)
-    request.basic_auth(ZINC_API_KEY, '')
-
-    req_options = {
-        use_ssl: uri.scheme == 'https'
-    }
-
-    puts "Fetching product details via #{uri}..."
-
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-      http.request(request)
-    end
-
-    puts "Saving details from #{uri} so we don't have to fetch it next time..."
-
-    response_json = ActiveSupport::JSON.decode(response.body)
-    update(zinc_product_details: response_json)
-  end
-
-  def fetch_product_offers
-    uri = URI.parse(zinc_product_offers_url)
-    request = Net::HTTP::Get.new(uri)
-    request.basic_auth(ZINC_API_KEY, '')
-
-    req_options = {
-        use_ssl: uri.scheme == 'https'
-    }
-
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-      http.request(request)
-    end
-
-    response_json = ActiveSupport::JSON.decode(response.body)
-    update(zinc_product_offers: response_json,
-           chosen_offer_id: response_json['offers'][0]['offer_id'])
-  end
-
-  def zinc_product_details_url
-    "https://api.zinc.io/v1/products/#{asin}?retailer=amazon"
-  end
-
-  def zinc_product_offers_url
-    "https://api.zinc.io/v1/products/#{asin}/offers?retailer=amazon"
   end
 
   def depth
@@ -239,5 +210,61 @@ class Order < ApplicationRecord
 
   def asin
     Amazon.get_asin_from_url(item_url)
+  end
+
+  def fetch_item_information
+    return unless zinc_product_details.nil? || zinc_product_offers.nil?
+
+    fetch_product_details
+    fetch_product_offers
+  end
+
+  private
+
+  def fetch_product_details
+    uri = URI.parse(zinc_product_details_url)
+    request = Net::HTTP::Get.new(uri)
+    request.basic_auth(ZINC_API_KEY, '')
+
+    req_options = {
+      use_ssl: uri.scheme == 'https'
+    }
+
+    puts "Fetching product details via #{uri}..."
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    puts "Saving details from #{uri} so we don't have to fetch it next time..."
+
+    response_json = ActiveSupport::JSON.decode(response.body)
+    update(zinc_product_details: response_json)
+  end
+
+  def fetch_product_offers
+    uri = URI.parse(zinc_product_offers_url)
+    request = Net::HTTP::Get.new(uri)
+    request.basic_auth(ZINC_API_KEY, '')
+
+    req_options = {
+      use_ssl: uri.scheme == 'https'
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    response_json = ActiveSupport::JSON.decode(response.body)
+    update(zinc_product_offers: response_json,
+           chosen_offer_id: response_json['offers'][0]['offer_id'])
+  end
+
+  def zinc_product_details_url
+    "https://api.zinc.io/v1/products/#{asin}?retailer=amazon"
+  end
+
+  def zinc_product_offers_url
+    "https://api.zinc.io/v1/products/#{asin}/offers?retailer=amazon"
   end
 end
