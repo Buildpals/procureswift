@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
+  has_paper_trail
+
   include ActionView::Helpers::NumberHelper
 
   require 'net/http'
@@ -29,7 +31,7 @@ class Order < ApplicationRecord
     bono_region: 7,
     north_east_region: 8,
     savanna_region: 9,
-    western_region: 10 ,
+    western_region: 10,
     western_north_region: 11,
     volta_region: 12,
     northern_region: 13,
