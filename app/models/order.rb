@@ -17,8 +17,6 @@ class Order < ApplicationRecord
   BASE_HANDLING_FEE = 5.00
   HANDLING_FEE_RATE = 0.01
 
-  SHIPPING_AND_HANDLING_RATIO = 0.25
-
   enum delivery_method: { by_air: 0, by_sea: 1 }
   enum delivery_region: {
     greater_accra_region: 0,
@@ -65,23 +63,44 @@ class Order < ApplicationRecord
   end
 
   def shipping_and_handling
+    if by_sea?
+      shipping_and_handling_by_sea
+    else
+      shipping_and_handling_by_air
+    end
+  end
+
+  def shipping_and_handling_by_air
     return nil if items_cost.nil?
 
-    if by_sea? && width.present? && length.present? && depth.present?
-      item_shipping_cost = volume * COST_PER_INCHES_CUBED
-    else
-      item_shipping_cost = myus_shipping_cost
-    end
+    item_shipping_cost = myus_shipping_cost
+
+    return nil if item_shipping_cost.nil?
 
     insurance = items_cost * INSURANCE_RATE
     handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
     item_shipping_cost + insurance + handling_fee
+
+    # TODO: Include region in delivery_Cost
+  end
+
+  def shipping_and_handling_by_sea
+    return nil if items_cost.nil?
+    return shipping_and_handling_by_air if volume.nil?
+
+    item_shipping_cost = volume * COST_PER_INCHES_CUBED
+
+    insurance = items_cost * INSURANCE_RATE
+    handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
+    item_shipping_cost + insurance + handling_fee
+
     # TODO: Include region in delivery_Cost
   end
 
   def myus_shipping_cost
     # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
     return nil if items_cost.nil?
+    return nil if item_weight_in_pounds.nil?
 
     case item_weight_in_pounds
     when 0..1
@@ -106,8 +125,14 @@ class Order < ApplicationRecord
       74.99
     when 10..11
       94.99
+    when 11..12
+      95.99
+    when 12..13
+      100.99
+    when 13..14
+      107.99
     else
-      items_cost * SHIPPING_AND_HANDLING_RATIO
+      5 * item_weight_in_pounds + 59
     end
   end
 
@@ -121,6 +146,7 @@ class Order < ApplicationRecord
 
   def total_before_duty
     return nil if items_cost.nil?
+    return nil if shipping_and_handling.nil?
 
     items_cost + shipping_and_handling
   end
@@ -156,80 +182,125 @@ class Order < ApplicationRecord
   end
 
   def depth
-    # TODO: Convert to inches
-    if zinc_product_details['package_dimensions']
-      if zinc_product_details['package_dimensions']['size']
-        if zinc_product_details['package_dimensions']['size']['depth']
-          zinc_product_details['package_dimensions']['size']['depth']['amount']
-        end
-      end
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['depth'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['depth']['amount'].nil?
+      return nil
     end
 
-    nil
+    zinc_product_details['package_dimensions']['size']['depth']['amount']
   end
 
   def depth_unit
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['depth'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['depth']['unit'].nil?
+      return nil
+    end
+
     zinc_product_details['package_dimensions']['size']['depth']['unit']
   end
 
   def length
-    # TODO: Convert to inches
-    if zinc_product_details['package_dimensions']
-      if zinc_product_details['package_dimensions']['size']
-        if zinc_product_details['package_dimensions']['size']['length']
-          zinc_product_details['package_dimensions']['size']['length']['amount']
-        end
-      end
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['length'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['length']['amount'].nil?
+      return nil
     end
 
-    nil
+    zinc_product_details['package_dimensions']['size']['length']['amount']
   end
 
   def length_unit
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['length'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['length']['unit'].nil?
+      return nil
+    end
+
     zinc_product_details['package_dimensions']['size']['length']['unit']
   end
 
   def width
-    # TODO: Convert to inches
-    if zinc_product_details['package_dimensions']
-      if zinc_product_details['package_dimensions']['size']
-        if zinc_product_details['package_dimensions']['size']['width']
-          zinc_product_details['package_dimensions']['size']['width']['amount']
-        end
-      end
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['width'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['width']['amount'].nil?
+      return nil
     end
 
-    nil
+    zinc_product_details['package_dimensions']['size']['width']['amount']
   end
 
   def width_unit
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['size'].nil?
+    if zinc_product_details['package_dimensions']['size']['width'].nil?
+      return nil
+    end
+    if zinc_product_details['package_dimensions']['size']['width']['unit'].nil?
+      return nil
+    end
+
     zinc_product_details['package_dimensions']['size']['width']['unit']
   end
 
   def volume
+    return nil if width.nil?
+    return nil if length.nil?
+    return nil if depth.nil?
+
     width * length * depth
   end
 
   def weight
-    if zinc_product_details['package_dimensions']
-      if zinc_product_details['package_dimensions']['weight']
-        zinc_product_details['package_dimensions']['weight']['amount']
-      end
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['weight'].nil?
+    if zinc_product_details['package_dimensions']['weight']['amount'].nil?
+      return nil
     end
 
-    nil
+    zinc_product_details['package_dimensions']['weight']['amount']
   end
 
   def item_weight_in_pounds
-    # TODO: Convert to pounds
-    weight
+    case weight_unit
+    when 'pounds'
+      weight
+    when 'ounces'
+      weight * 0.0625
+    else
+      weight
+    end
   end
 
   def weight_unit
+    return nil if zinc_product_details['package_dimensions'].nil?
+    return nil if zinc_product_details['package_dimensions']['weight'].nil?
+    if zinc_product_details['package_dimensions']['weight']['unit'].nil?
+      return nil
+    end
+
     zinc_product_details['package_dimensions']['weight']['unit']
   end
 
   def product_details
+    return nil if zinc_product_details['product_details'].nil?
+
     zinc_product_details['product_details'].first
   end
 
@@ -242,6 +313,12 @@ class Order < ApplicationRecord
 
     fetch_product_details
     fetch_product_offers
+  end
+
+  def save_product_details_to_file
+    File.open("public/#{id}.json", 'w') do |f|
+      f.write(zinc_product_details.to_json)
+    end
   end
 
   private

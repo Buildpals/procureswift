@@ -2,16 +2,20 @@
   <div class="row mt-3">
     <div class="col-md-12">
 
-      <table class="table table-hover mb-5" id="orders_table">
+      <table class="table table-responsive table-striped table-hover mb-5" id="orders_table">
         <thead>
         <tr>
           <th>Item image</th>
           <th>Title</th>
+          <th>Details</th>
           <th>Qty</th>
           <th>Price</th>
-          <th>Order Total</th>
+          <th>Fees by Air</th>
+          <th>Fees by Sea</th>
+          <th>Total</th>
           <th>Method</th>
           <th>Paid?</th>
+          <th>Bought?</th>
           <th>Region</th>
           <th>Contact</th>
           <th></th>
@@ -30,17 +34,46 @@
             <td class="small" style="width: 200px;">
               <%= truncate order.title, length: 200 %>
             </td>
+            <td class="small" style="min-width: 200px;">
+              <div class="mb-2">
+              <div>width: <%= number_with_precision order.width, precision: 2 %>  <%= order.width_unit %></div>
+              <div>length: <%= number_with_precision order.length, precision: 2 %>  <%= order.length_unit %></div>
+              <div>depth: <%= number_with_precision order.depth, precision: 2 %>  <%= order.depth_unit %></div>
+              <div>volume: <%= number_with_precision order.volume, precision: 2 %> cubic inches</div>
+              </div>
+
+              <div>
+              <div>weight: <%= number_with_precision order.weight, precision: 2 %> <%= order.weight_unit %></div>
+              <div>
+                weight_in_pounds: <%= number_with_precision order.item_weight_in_pounds, precision: 2 %> pounds
+              </div>
+              </div>
+
+            </td>
             <td><%= order.item_quantity %></td>
             <td>
               <%= number_to_currency order.price_dollars %>
             </td>
+
+            <td>
+              <%= number_to_currency order.shipping_and_handling_by_air %>
+            </td>
+
+            <td>
+              <%= number_to_currency order.shipping_and_handling_by_sea %>
+            </td>
+
             <td>
               <%= number_to_currency order.order_total %>
             </td>
             <td><%= order.delivery_method.titleize %></td>
             <td>
-              <%= order.status %>
-              <%= order.txtref %>
+              pending_payment
+              <!--              paid-->
+            </td>
+            <td>
+              pending_purchase
+              <!--              purchased-->
             </td>
             <td><%= order.delivery_region.titleize %></td>
             <td class="" style="width: 200px;">
@@ -65,10 +98,11 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
-    $(document).ready( function () {
+    $(document).ready(function () {
         console.log($('#orders_table'))
         $('#orders_table').DataTable({
-            paging: false
+            paging: false,
+            fixedHeader: true
         });
-    } );
+    });
 </script>
