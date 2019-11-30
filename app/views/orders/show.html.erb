@@ -73,11 +73,11 @@
           <div class="small text-center">
             Estimated delivery
             <strong>
-              <%= @order.delivery_method.titleize %>
+              <%= @order.delivery_method&.titleize %>
             </strong>
             to
             <br>
-            <%= @order.delivery_region.titleize %> Region:
+            <%= @order.delivery_region&.titleize %> Region:
             <br>
             <span class="text-success">
               <%= @order.estimated_delivery_date %>
@@ -85,53 +85,10 @@
             <br>
           </div>
 
-          <hr>
+          <br>
 
-          <%= form_with(model: @order, local: false) do |form| %>
-            <% if @order.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+          <a href="<%= checkout_path @order %>" class="btn btn-block btn-accent" id="checkout_button">Checkout</a>
 
-                <ul>
-                  <% @order.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
-            <div class="form-group">
-              <%= form.label :full_name %>
-              <%= form.text_field :full_name,
-                                  id: 'full_name',
-                                  required: true,
-                                  class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :email %>
-              <%= form.text_field :email,
-                                  id: 'email',
-                                  required: true,
-                                  class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :phone_number %>
-              <%= form.text_field :phone_number,
-                                  id: 'phone_number',
-                                  required: true,
-                                  class: "form-control" %>
-              <small id="phone_help" class="form-text text-muted">
-                This number should be active so we can reach you when we're delivering your item
-              </small>
-            </div>
-
-
-            <div class="actions">
-              <%= form.submit "Make Payment", class: "btn btn-accent btn-block", id: "make_payment_button" %>
-            </div>
-          <% end %>
         </div>
       </div>
 

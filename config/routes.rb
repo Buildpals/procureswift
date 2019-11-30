@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :orders
 
+  get 'orders/:id/checkout', to: 'orders#checkout', as: :checkout
+
   post 'orders/payment_status'
 
   get '/payment', to: 'orders#payment'

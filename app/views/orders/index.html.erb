@@ -5,19 +5,18 @@
       <table class="table table-responsive table-striped table-hover mb-5" id="orders_table">
         <thead>
         <tr>
-          <th>Item image</th>
+          <th>Item</th>
           <th>Title</th>
           <th>Details</th>
           <th>Qty</th>
           <th>Price</th>
-          <th>Fees by Air</th>
-          <th>Fees by Sea</th>
+          <th>By Air</th>
+          <th>By Sea</th>
           <th>Total</th>
           <th>Method</th>
           <th>Paid?</th>
           <th>Bought?</th>
-          <th>Region</th>
-          <th>Contact</th>
+          <th>Address</th>
           <th></th>
           <th></th>
         </tr>
@@ -48,8 +47,8 @@
                 weight_in_pounds: <%= number_with_precision order.item_weight_in_pounds, precision: 2 %> pounds
               </div>
               </div>
-
             </td>
+
             <td><%= order.item_quantity %></td>
             <td>
               <%= number_to_currency order.price_dollars %>
@@ -66,21 +65,32 @@
             <td>
               <%= number_to_currency order.order_total %>
             </td>
-            <td><%= order.delivery_method.titleize %></td>
+            <td><%= order.delivery_method&.titleize %></td>
             <td>
-              pending_payment
-              <!--              paid-->
+              <%= order.status&.titleize %>
             </td>
             <td>
               pending_purchase
               <!--              purchased-->
             </td>
-            <td><%= order.delivery_region.titleize %></td>
-            <td class="" style="width: 200px;">
-              <%= order.full_name %>
-              <br>
-              (<%= order.phone_number %>)
+
+            <td class="small" style="width: 200px;">
+              <address>
+                <%= order.delivery_region&.titleize %>
+                <br>
+                <br>
+                <strong><%= order.full_name %></strong>
+                <br>
+                <%= order.address %>
+                <br>
+                <%= order.city_or_town %>
+                <br>
+                <%= order.email %>
+                <br>
+                <a href="tel:<%= order.phone_number %>"><%= order.phone_number %></a>
+              </address>
             </td>
+
             <td>
               <%= link_to "Show", order %>
             </td>

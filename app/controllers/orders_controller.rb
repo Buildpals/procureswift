@@ -2,7 +2,7 @@
 
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :set_order, only: %i[show edit update destroy]
+  before_action :set_order, only: %i[show checkout edit update destroy]
 
   # GET /orders
   # GET /orders.json
@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
   def show
     @order.fetch_item_information
   end
+
+  def checkout; end
 
   # GET /orders/new
   def new
@@ -43,7 +45,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    if params[:commit] == 'Make Payment'
+    if params[:commit] && params[:commit][0, 12] == 'Make Payment'
       respond_to do |format|
         if @order.update(order_params)
           format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -103,6 +105,8 @@ class OrdersController < ApplicationController
                                   :delivery_method,
                                   :delivery_region,
                                   :full_name,
+                                  :address,
+                                  :city_or_town,
                                   :email,
                                   :phone_number,
                                   :chosen_offer_id)

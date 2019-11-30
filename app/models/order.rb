@@ -21,20 +21,14 @@ class Order < ApplicationRecord
   enum delivery_region: {
     greater_accra_region: 0,
     ashanti_region: 1,
-    central_region: 2,
-    eastern_region: 3,
-    oti_region: 4,
-    bono_east_region: 5,
-    ahafo_region: 6,
-    bono_region: 7,
-    north_east_region: 8,
-    savanna_region: 9,
-    western_region: 10,
-    western_north_region: 11,
-    volta_region: 12,
-    northern_region: 13,
-    upper_east_region: 14,
-    upper_west_region: 15
+    brong_ahafo_region: 2,
+    central_region: 3,
+    eastern_region: 4,
+    northern_region: 5,
+    upper_east_region: 6,
+    upper_west_region: 7,
+    volta_region: 8,
+    western_region: 9
   }
 
   enum status: { pending: 0, failure: 1, success: 3 }

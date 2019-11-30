@@ -5,22 +5,12 @@ payWithRave()
 
 function payWithRave() {
     var reference = txref;
-    var phone = $('#phone_number').val();
-    var name = $('#full_name').val();
-    var email = $('#email').val();
-    if (phone = "" || name == "" || email == "") {
-        alert("Please fill out your name, email and phone number");
-        return;
-    }
-    var shipping = "<%=  @order.shipping_and_handling %>";
     var price = parseInt("<%= @order.order_total %>") * 5.71;
-    var quantity = "<%= @order.item_quantity %>";
-    var orderId = "<%= @order.id %>";
     var x = getpaidSetup({
         PBFPubKey: publicKey,
-        customer_email: email,
+        customer_email: "<%= escape_javascript @order.email %>",
         amount: price,
-        customer_phone: phone,
+        customer_phone: "<%= escape_javascript @order.phone_number %>",
         currency: "GHS",
         country: 'GH',
         payment_options: "mobilemoneyghana,card",
@@ -33,8 +23,8 @@ function payWithRave() {
             price: "<%= escape_javascript number_to_currency @order.price_dollars %>",
             quantity: "<%= escape_javascript @order.item_quantity %>",
             items_cost: "<%= escape_javascript number_to_currency @order.items_cost %>",
-            delivery_method: "<%= escape_javascript @order.delivery_method.titleize %>",
-            delivery_region: "<%= escape_javascript @order.delivery_region.titleize %>",
+            delivery_method: "<%= escape_javascript @order.delivery_method&.titleize %>",
+            delivery_region: "<%= escape_javascript @order.delivery_region&.titleize %>",
             shipping_and_handling: "<%= escape_javascript number_to_currency @order.shipping_and_handling %>",
             estimated_duty: "<%= escape_javascript number_to_currency @order.estimated_duty %>",
             order_total: "<%= escape_javascript number_to_currency @order.order_total %>",
@@ -45,14 +35,19 @@ function payWithRave() {
         onclose: function () {
         },
         callback: function (response) {
-            var txref = response.tx.txRef; // collect txRef returned and pass to a 					server page to complete status check.
+            var txref = response.tx.txRef; // collect txRef returned and pass to a server page to complete status check.
             console.log("This is the response returned after a charge", response);
             if (
                 response.tx.chargeResponseCode == "00" ||
                 response.tx.chargeResponseCode == "0"
             ) {
                 //show success modal
-                window.location.href = '/payment?' + 'txtref=' + reference + '&order_id=' + orderId + '&email=' + email + '&phone_number=' + phone + '&name=' + name + '';
+                window.location.href = '/payment?' + 'txtref='
+                    + reference
+                    + '&order_id=' + "<%= @order.id %>"
+                    + '&email=' + "<%= escape_javascript @order.email %>"
+                    + '&phone_number=' + "<%= escape_javascript @order.phone_number %>"
+                    + '&name=' + "<%= escape_javascript @order.full_name %>" + '';
             } else {
                 // show failure modal
             }
