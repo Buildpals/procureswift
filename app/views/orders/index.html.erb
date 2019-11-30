@@ -1,18 +1,21 @@
 <div class="container-fluid">
-  <div class="row ">
+  <div class="row mt-3">
     <div class="col-md-12">
-      <table class="table table-hover mb-5">
+
+      <table class="table table-hover mb-5" id="orders_table">
         <thead>
         <tr>
           <th>Item image</th>
-          <th>Item url</th>
-          <th>Item quantity</th>
-          <th>Delivery method</th>
-          <th>Delivery region</th>
-          <th>Order total</th>
-          <th>Payment status</th>
+          <th>Title</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Order Total</th>
+          <th>Method</th>
+          <th>Paid?</th>
+          <th>Region</th>
           <th>Contact</th>
-          <th colspan="2"></th>
+          <th></th>
+          <th></th>
         </tr>
         </thead>
 
@@ -28,17 +31,21 @@
               <%= truncate order.title, length: 200 %>
             </td>
             <td><%= order.item_quantity %></td>
-            <td><%= order.delivery_method.titleize %></td>
-            <td><%= order.delivery_region.titleize %></td>
             <td>
-              <%#= number_to_currency order.order_total %>
+              <%= number_to_currency order.price_dollars %>
             </td>
+            <td>
+              <%= number_to_currency order.order_total %>
+            </td>
+            <td><%= order.delivery_method.titleize %></td>
             <td>
               <%= order.status %>
               <%= order.txtref %>
             </td>
-            <td>
+            <td><%= order.delivery_region.titleize %></td>
+            <td class="" style="width: 200px;">
               <%= order.full_name %>
+              <br>
               (<%= order.phone_number %>)
             </td>
             <td>
@@ -53,3 +60,15 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready( function () {
+        console.log($('#orders_table'))
+        $('#orders_table').DataTable({
+            paging: false
+        });
+    } );
+</script>

@@ -44,6 +44,10 @@ class Order < ApplicationRecord
   validate :is_valid_amazon_url
 
   def price_dollars
+    return nil if zinc_product_offers.nil?
+    return nil if zinc_product_offers['offers'].nil?
+    return nil if chosen_offer_id.nil?
+
     chosen_offer = zinc_product_offers['offers'].find do |offer|
       offer['offer_id'] == chosen_offer_id
     end
@@ -55,10 +59,14 @@ class Order < ApplicationRecord
   end
 
   def items_cost
+    return nil if price_dollars.nil?
+
     price_dollars * item_quantity
   end
 
   def shipping_and_handling
+    return nil if items_cost.nil?
+
     if by_sea? && width.present? && length.present? && depth.present?
       item_shipping_cost = volume * COST_PER_INCHES_CUBED
     else
@@ -71,16 +79,10 @@ class Order < ApplicationRecord
     # TODO: Include region in delivery_Cost
   end
 
-  def estimated_delivery_date
-    if by_sea?
-      '31st January, 2018'
-    else
-      '9th December, 2018'
-    end
-  end
-
   def myus_shipping_cost
     # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
+    return nil if items_cost.nil?
+
     case item_weight_in_pounds
     when 0..1
       16.99
@@ -109,15 +111,30 @@ class Order < ApplicationRecord
     end
   end
 
+  def estimated_delivery_date
+    if by_sea?
+      '31st January, 2018'
+    else
+      '9th December, 2018'
+    end
+  end
+
   def total_before_duty
+    return nil if items_cost.nil?
+
     items_cost + shipping_and_handling
   end
 
   def estimated_duty
+    return nil if items_cost.nil?
+
     items_cost * DUTY_RATIO
   end
 
   def order_total
+    return nil if total_before_duty.nil?
+    return nil if estimated_duty.nil?
+
     total_before_duty + estimated_duty
   end
 
