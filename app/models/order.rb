@@ -132,9 +132,9 @@ class Order < ApplicationRecord
 
   def estimated_delivery_date
     if by_sea?
-      '31st January, 2018'
+      2.months.from_now.to_date
     else
-      '9th December, 2018'
+      2.weeks.from_now.to_date
     end
   end
 

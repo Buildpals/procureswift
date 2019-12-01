@@ -80,7 +80,7 @@
             <%= @order.delivery_region&.titleize %> Region:
             <br>
             <span class="text-success">
-              <%= @order.estimated_delivery_date %>
+              <%= @order.estimated_delivery_date.to_formatted_s(:long) %>
             </span>
             <br>
           </div>
