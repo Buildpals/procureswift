@@ -1,5 +1,9 @@
+<% if Rails.env.development? || Rails.env.test? %>
+const publicKey = "FLWPUBK_TEST-5d111ed01ffb9d0a9b6a0d0811ceb591-X";
+<% else %>
 const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
-var txref = "Product_<%= @product.id %>_" + Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+<% end %>
+var txref = "Product_<%= @product.id %>_" + Math.random().toString().split('.')[1];
 
 payWithRave()
 
@@ -42,7 +46,7 @@ function payWithRave() {
                 response.tx.chargeResponseCode == "0"
             ) {
                 //show success modal
-                window.location.href = '/payment?' + 'txtref='
+                window.location.href = '/payment?' + 'txRef='
                     + reference
                     + '&product_id=' + "<%= @product.id %>"
                     + '&email=' + "<%= escape_javascript @product.email %>"

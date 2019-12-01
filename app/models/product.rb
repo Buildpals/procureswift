@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   require 'net/http'
   require 'uri'
 
-  ZINC_API_KEY = '6F844E3BDC76C7910DA9744F'
+  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token]
 
   CENTS_TO_DOLLARS_RATIO = 0.01
   DUTY_RATIO = 0.07

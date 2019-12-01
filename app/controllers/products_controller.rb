@@ -80,16 +80,38 @@ class ProductsController < ApplicationController
   end
 
   def payment
+    rave = RavePay.new
+    response = rave.call(params[:txRef])
+    response_charge_code = response['data']['chargecode']
+    purchase_request_status = response['data']['status']
     @product = Product.find(params['product_id'])
-    @product.txtref = params['txtref']
+    @product.txtref = params['txRef']
     @product.full_name = params['full_name']
     @product.phone_number = params['phone_number']
     @product.email = params['email']
-    @product.status = 0
-    @product.save!
+    if response_charge_code == '00' || response_charge_code == '0'
+      @product.status = 3
+      @product.save!
+    elsif response_charge_code == '02'
+      @product.status = 0
+      @product.save!
+    else
+      flash[:notice] = 'We could not complete your payment at this time. Please try again.'
+      redirect_to action: 'checkout', id: @product.id
+    end
   end
+  
 
-  def payment_status; end
+  def payment_status
+    product = Product.where(txRef: params['txRef'])
+    if params['status'] == 'successful'
+      product.status = 3
+      product.save!
+    elsif params['status'] == 'failed'
+      product.status = 1
+      product.save!
+    end
+  end
 
   private
 
