@@ -3,12 +3,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
-  resources :orders
+  resources :products
 
-  get 'orders/:id/checkout', to: 'orders#checkout', as: :checkout
+  get 'products/:id/checkout', to: 'products#checkout', as: :checkout
 
-  post 'orders/payment_status'
+  post 'products/payment_status'
 
-  get '/payment', to: 'orders#payment'
+  get '/payment', to: 'products#payment'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

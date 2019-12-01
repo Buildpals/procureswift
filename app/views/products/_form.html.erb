@@ -1,10 +1,10 @@
-<%= form_with(model: order, local: false) do |form| %>
-  <% if order.errors.any? %>
+<%= form_with(model: product, local: false) do |form| %>
+  <% if product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-        <% order.errors.full_messages.each do |message| %>
+        <% product.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -14,7 +14,7 @@
   <div class="form-group">
     <%= form.label :chosen_offer_id, "Price Offers" %>
     <%= form.collection_radio_buttons :chosen_offer_id,
-                                      @order.offers,
+                                      @product.offers,
                                       value_method = :last,
                                       text_method = :first do |b| %>
       <div class="form-check">
@@ -40,7 +40,7 @@
   <div class="form-group">
     <%= form.label :delivery_method, "Delivery Method" %>
     <%= form.select :delivery_method,
-                    choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
+                    choices = Product.delivery_methods.keys.map { |w| [w.titleize, w] },
                     options = {
                         include_blank: false
                     },
@@ -53,7 +53,7 @@
   <div class="form-group">
     <%= form.label :delivery_region, "Region" %>
     <%= form.select :delivery_region,
-                    choices = Order.delivery_regions.keys.map { |w| [w.titleize, w] },
+                    choices = Product.delivery_regions.keys.map { |w| [w.titleize, w] },
                     options = {
                         include_blank: false
                     },

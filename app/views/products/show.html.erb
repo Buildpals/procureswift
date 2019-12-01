@@ -11,14 +11,14 @@
     <div class="col-lg-4">
       <div class="card mb-3">
 
-        <img src="<%= @order.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+        <img src="<%= @product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
 
         <div class="card-body">
           <h6 class="card-title">
-            <%= @order.title %>
+            <%= @product.title %>
           </h6>
 
-          <a href="<%= @order.item_url %>" target="_blank">View in Amazon</a>
+          <a href="<%= @product.item_url %>" target="_blank">View in Amazon</a>
 
 
         </div>
@@ -29,7 +29,7 @@
     <div class="col-lg-4">
       <div class="card mb-3">
         <div class="card-body">
-          <%= render 'form', order: @order %>
+          <%= render 'form', product: @product %>
         </div>
       </div>
     </div>
@@ -38,56 +38,56 @@
 
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title">Order Summary</h5>
+          <h5 class="card-title">Product Summary</h5>
           <dl class="row mt-4">
-            <dt class="col-8">Items (<%= @order.item_quantity %>):</dt>
+            <dt class="col-8">Items (<%= @product.item_quantity %>):</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @order.items_cost %>
+              <%= number_to_currency @product.items_cost %>
             </dd>
 
             <dt class="col-8">Shipping and Handling:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @order.shipping_and_handling %>
+              <%= number_to_currency @product.shipping_and_handling %>
               <hr>
             </dd>
 
             <dt class="col-8">Total before duty:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @order.total_before_duty %>
+              <%= number_to_currency @product.total_before_duty %>
             </dd>
 
             <dt class="col-8">Estimated duty to be collected:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @order.estimated_duty %>
+              <%= number_to_currency @product.estimated_duty %>
             </dd>
 
             <div class="col-12">
               <hr>
             </div>
 
-            <dt class="col-8 text-truncate">Order Total:</dt>
+            <dt class="col-8 text-truncate">Product Total:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @order.order_total %>
+              <%= number_to_currency @product.product_total %>
             </dd>
           </dl>
           <div class="small text-center">
             Estimated delivery
             <strong>
-              <%= @order.delivery_method&.titleize %>
+              <%= @product.delivery_method&.titleize %>
             </strong>
             to
             <br>
-            <%= @order.delivery_region&.titleize %> Region:
+            <%= @product.delivery_region&.titleize %> Region:
             <br>
             <span class="text-success">
-              <%= @order.estimated_delivery_date.to_formatted_s(:long) %>
+              <%= @product.estimated_delivery_date.to_formatted_s(:long) %>
             </span>
             <br>
           </div>
 
           <br>
 
-          <a href="<%= checkout_path @order %>" class="btn btn-block btn-accent" id="checkout_button">Checkout</a>
+          <a href="<%= checkout_path @product %>" class="btn btn-block btn-accent" id="checkout_button">Checkout</a>
 
         </div>
       </div>

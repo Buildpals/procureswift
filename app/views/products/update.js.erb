@@ -1,0 +1,58 @@
+const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
+var txref = "Product_<%= @product.id %>_" + Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+
+payWithRave()
+
+function payWithRave() {
+    var reference = txref;
+    var price = parseInt("<%= @product.product_total %>") * 5.71;
+    var x = getpaidSetup({
+        PBFPubKey: publicKey,
+        customer_email: "<%= escape_javascript @product.email %>",
+        amount: price,
+        customer_phone: "<%= escape_javascript @product.phone_number %>",
+        currency: "GHS",
+        country: 'GH',
+        payment_options: "mobilemoneyghana,card",
+        txref: txref,
+        meta: [{
+            product_id: "<%= @product.id %>",
+            link_to_product: "<%= product_url @product %>",
+            title: "<%= escape_javascript @product.title %>",
+            item_url: "<%= escape_javascript @product.item_url %>",
+            price: "<%= escape_javascript number_to_currency @product.price_dollars %>",
+            quantity: "<%= escape_javascript @product.item_quantity %>",
+            items_cost: "<%= escape_javascript number_to_currency @product.items_cost %>",
+            delivery_method: "<%= escape_javascript @product.delivery_method&.titleize %>",
+            delivery_region: "<%= escape_javascript @product.delivery_region&.titleize %>",
+            shipping_and_handling: "<%= escape_javascript number_to_currency @product.shipping_and_handling %>",
+            estimated_duty: "<%= escape_javascript number_to_currency @product.estimated_duty %>",
+            product_total: "<%= escape_javascript number_to_currency @product.product_total %>",
+            full_name: "<%= escape_javascript @product.full_name %>",
+            email: "<%= escape_javascript @product.email %>",
+            phone_number: "<%= escape_javascript @product.phone_number %>"
+        }],
+        onclose: function () {
+        },
+        callback: function (response) {
+            var txref = response.tx.txRef; // collect txRef returned and pass to a server page to complete status check.
+            console.log("This is the response returned after a charge", response);
+            if (
+                response.tx.chargeResponseCode == "00" ||
+                response.tx.chargeResponseCode == "0"
+            ) {
+                //show success modal
+                window.location.href = '/payment?' + 'txtref='
+                    + reference
+                    + '&product_id=' + "<%= @product.id %>"
+                    + '&email=' + "<%= escape_javascript @product.email %>"
+                    + '&phone_number=' + "<%= escape_javascript @product.phone_number %>"
+                    + '&name=' + "<%= escape_javascript @product.full_name %>" + '';
+            } else {
+                // show failure modal
+            }
+
+            x.close();
+        }
+    });
+}

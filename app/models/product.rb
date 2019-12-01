@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Order < ApplicationRecord
+class Product < ApplicationRecord
   has_paper_trail
 
   include ActionView::Helpers::NumberHelper
@@ -151,7 +151,7 @@ class Order < ApplicationRecord
     items_cost * DUTY_RATIO
   end
 
-  def order_total
+  def product_total
     return nil if total_before_duty.nil?
     return nil if estimated_duty.nil?
 

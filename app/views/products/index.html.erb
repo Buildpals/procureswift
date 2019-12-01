@@ -2,7 +2,7 @@
   <div class="row mt-3">
     <div class="col-md-12">
 
-      <table class="table table-responsive table-striped table-hover mb-5" id="orders_table">
+      <table class="table table-responsive table-striped table-hover mb-5" id="products_table">
         <thead>
         <tr>
           <th>Item</th>
@@ -23,51 +23,51 @@
         </thead>
 
         <tbody>
-        <% @orders.each do |order| %>
+        <% @products.each do |product| %>
           <tr>
             <td style="width: 100px">
-              <a href="<%= order.item_url %>" target="_blank">
-                <img src="<%= order.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+              <a href="<%= product.item_url %>" target="_blank">
+                <img src="<%= product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
               </a>
             </td>
             <td class="small" style="width: 200px;">
-              <%= truncate order.title, length: 200 %>
+              <%= truncate product.title, length: 200 %>
             </td>
             <td class="small" style="min-width: 200px;">
               <div class="mb-2">
-              <div>width: <%= number_with_precision order.width, precision: 2 %>  <%= order.width_unit %></div>
-              <div>length: <%= number_with_precision order.length, precision: 2 %>  <%= order.length_unit %></div>
-              <div>depth: <%= number_with_precision order.depth, precision: 2 %>  <%= order.depth_unit %></div>
-              <div>volume: <%= number_with_precision order.volume, precision: 2 %> cubic inches</div>
+              <div>width: <%= number_with_precision product.width, precision: 2 %>  <%= product.width_unit %></div>
+              <div>length: <%= number_with_precision product.length, precision: 2 %>  <%= product.length_unit %></div>
+              <div>depth: <%= number_with_precision product.depth, precision: 2 %>  <%= product.depth_unit %></div>
+              <div>volume: <%= number_with_precision product.volume, precision: 2 %> cubic inches</div>
               </div>
 
               <div>
-              <div>weight: <%= number_with_precision order.weight, precision: 2 %> <%= order.weight_unit %></div>
+              <div>weight: <%= number_with_precision product.weight, precision: 2 %> <%= product.weight_unit %></div>
               <div>
-                weight_in_pounds: <%= number_with_precision order.item_weight_in_pounds, precision: 2 %> pounds
+                weight_in_pounds: <%= number_with_precision product.item_weight_in_pounds, precision: 2 %> pounds
               </div>
               </div>
             </td>
 
-            <td><%= order.item_quantity %></td>
+            <td><%= product.item_quantity %></td>
             <td>
-              <%= number_to_currency order.price_dollars %>
+              <%= number_to_currency product.price_dollars %>
             </td>
 
             <td>
-              <%= number_to_currency order.shipping_and_handling_by_air %>
+              <%= number_to_currency product.shipping_and_handling_by_air %>
             </td>
 
             <td>
-              <%= number_to_currency order.shipping_and_handling_by_sea %>
+              <%= number_to_currency product.shipping_and_handling_by_sea %>
             </td>
 
             <td>
-              <%= number_to_currency order.order_total %>
+              <%= number_to_currency product.product_total %>
             </td>
-            <td><%= order.delivery_method&.titleize %></td>
+            <td><%= product.delivery_method&.titleize %></td>
             <td>
-              <%= order.status&.titleize %>
+              <%= product.status&.titleize %>
             </td>
             <td>
               pending_purchase
@@ -76,25 +76,25 @@
 
             <td class="small" style="width: 200px;">
               <address>
-                <%= order.delivery_region&.titleize %>
+                <%= product.delivery_region&.titleize %>
                 <br>
                 <br>
-                <strong><%= order.full_name %></strong>
+                <strong><%= product.full_name %></strong>
                 <br>
-                <%= order.address %>
+                <%= product.address %>
                 <br>
-                <%= order.city_or_town %>
+                <%= product.city_or_town %>
                 <br>
-                <%= order.email %>
+                <%= product.email %>
                 <br>
-                <a href="tel:<%= order.phone_number %>"><%= order.phone_number %></a>
+                <a href="tel:<%= product.phone_number %>"><%= product.phone_number %></a>
               </address>
             </td>
 
             <td>
-              <%= link_to "Show", order %>
+              <%= link_to "Show", product %>
             </td>
-            <td><%= link_to 'Destroy', order, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %></td>
           </tr>
         <% end %>
         </tbody>
@@ -109,8 +109,8 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-        console.log($('#orders_table'))
-        $('#orders_table').DataTable({
+        console.log($('#products_table'))
+        $('#products_table').DataTable({
             paging: false,
             fixedHeader: true
         });
