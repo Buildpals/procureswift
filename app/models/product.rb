@@ -298,7 +298,7 @@ class Product < ApplicationRecord
     zinc_product_details['product_details'].first
   end
 
-  def asin
+  def retailers_product_id
     Amazon.get_asin_from_url(item_url)
   end
 
@@ -313,12 +313,15 @@ class Product < ApplicationRecord
     File.open("public/#{id}.json", 'w') do |f|
       f.write(zinc_product_details.to_json)
     end
+    File.open("public/#{id}_offers.json", 'w') do |f|
+      f.write(zinc_product_offers.to_json)
+    end
   end
 
   private
 
   def is_valid_amazon_url
-    asin_number = asin
+    asin_number = retailers_product_id
     if asin_number == false
       errors.add(:item_link, ': Please enter a valid amazon link')
     end
@@ -364,10 +367,10 @@ class Product < ApplicationRecord
   end
 
   def zinc_product_details_url
-    "https://api.zinc.io/v1/products/#{asin}?retailer=amazon"
+    "https://api.zinc.io/v1/products/#{retailers_product_id}?retailer=amazon"
   end
 
   def zinc_product_offers_url
-    "https://api.zinc.io/v1/products/#{asin}/offers?retailer=amazon"
+    "https://api.zinc.io/v1/products/#{retailers_product_id}/offers?retailer=amazon"
   end
 end
