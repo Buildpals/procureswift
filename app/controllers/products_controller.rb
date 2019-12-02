@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
   before_action :set_product, only: %i[show checkout edit update destroy]
 
   # GET /products

@@ -39,31 +39,6 @@
                   copy the link to it, and paste it above.
                 </small>
               </div>
-              <div class="form-group">
-                <%= form.label :item_quantity, "How many do you want to buy?" %>
-                <%= form.select :item_quantity,
-                                choices = (1..50).map { |w| [w, w] },
-                                options = {
-                                    include_blank: false
-                                },
-                                html_options = {
-                                    class: "form-control"
-                                } %>
-
-              </div>
-
-              <div class="form-group">
-                <%= form.label :delivery_method, "Delivery Method" %>
-                <%= form.select :delivery_method,
-                                choices = Product.delivery_methods.keys.map { |w| [w.titleize, w] },
-                                options = {
-                                    selected: :by_sea,
-                                    include_blank: false
-                                },
-                                html_options = {
-                                    class: "form-control"
-                                } %>
-              </div>
 
               <div class="form-group">
                 <%= form.label :full_name %>

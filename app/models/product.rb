@@ -17,25 +17,11 @@ class Product < ApplicationRecord
   BASE_HANDLING_FEE = 5.00
   HANDLING_FEE_RATE = 0.01
 
-  enum delivery_method: { by_air: 0, by_sea: 1 }
-  enum delivery_region: {
-    greater_accra_region: 0,
-    ashanti_region: 1,
-    brong_ahafo_region: 2,
-    central_region: 3,
-    eastern_region: 4,
-    northern_region: 5,
-    upper_east_region: 6,
-    upper_west_region: 7,
-    volta_region: 8,
-    western_region: 9
-  }
-
-  enum status: { pending: 0, failure: 1, success: 3 }
+  has_many :orders, inverse_of: :product
 
   validate :is_valid_amazon_url
 
-  def price_dollars
+  def default_price
     return nil if zinc_product_offers.nil?
     return nil if zinc_product_offers['offers'].nil?
     return nil if chosen_offer_id.nil?
@@ -43,57 +29,33 @@ class Product < ApplicationRecord
     chosen_offer = zinc_product_offers['offers'].find do |offer|
       offer['offer_id'] == chosen_offer_id
     end
-    if chosen_offer
-      chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
-    else
-      0.00
-    end
+
+    return nil if chosen_offer.nil?
+
+    chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
   end
 
-  def items_cost
-    return nil if price_dollars.nil?
-
-    price_dollars * item_quantity
-  end
-
-  def shipping_and_handling
-    if by_sea?
-      shipping_and_handling_by_sea
-    else
-      shipping_and_handling_by_air
-    end
-  end
-
-  def shipping_and_handling_by_air
-    return nil if items_cost.nil?
+  def shipping_and_handling_by_air(price, quantity)
+    return nil if price.nil?
 
     item_shipping_cost = myus_shipping_cost
 
     return nil if item_shipping_cost.nil?
 
-    insurance = items_cost * INSURANCE_RATE
-    handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
-    item_shipping_cost + insurance + handling_fee
-
-    # TODO: Include region in delivery_Cost
+    shipping_and_handling(item_shipping_cost, price, quantity)
   end
 
-  def shipping_and_handling_by_sea
-    return nil if items_cost.nil?
-    return shipping_and_handling_by_air if volume.nil?
+  def shipping_and_handling_by_sea(price, quantity)
+    return nil if price.nil?
+    return shipping_and_handling_by_air(price, quantity) if volume.nil?
 
     item_shipping_cost = volume * COST_PER_INCHES_CUBED
 
-    insurance = items_cost * INSURANCE_RATE
-    handling_fee = BASE_HANDLING_FEE + (items_cost * HANDLING_FEE_RATE)
-    item_shipping_cost + insurance + handling_fee
-
-    # TODO: Include region in delivery_Cost
+    shipping_and_handling(item_shipping_cost, price, quantity)
   end
 
   def myus_shipping_cost
     # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
-    return nil if items_cost.nil?
     return nil if item_weight_in_pounds.nil?
 
     case item_weight_in_pounds
@@ -128,34 +90,6 @@ class Product < ApplicationRecord
     else
       5 * item_weight_in_pounds + 59
     end
-  end
-
-  def estimated_delivery_date
-    if by_sea?
-      2.months.from_now.to_date
-    else
-      2.weeks.from_now.to_date
-    end
-  end
-
-  def total_before_duty
-    return nil if items_cost.nil?
-    return nil if shipping_and_handling.nil?
-
-    items_cost + shipping_and_handling
-  end
-
-  def estimated_duty
-    return nil if items_cost.nil?
-
-    items_cost * DUTY_RATIO
-  end
-
-  def product_total
-    return nil if total_before_duty.nil?
-    return nil if estimated_duty.nil?
-
-    total_before_duty + estimated_duty
   end
 
   def title
@@ -319,6 +253,19 @@ class Product < ApplicationRecord
   end
 
   private
+
+  def shipping_and_handling(item_shipping_cost, price, quantity)
+    insurance = price * INSURANCE_RATE
+    handling_fee = price * HANDLING_FEE_RATE + BASE_HANDLING_FEE
+    unit_shipping_cost = item_shipping_cost + insurance + handling_fee + estimated_duty(price)
+    unit_shipping_cost * quantity
+  end
+
+  def estimated_duty(price)
+    return nil if price.nil?
+
+    price * DUTY_RATIO
+  end
 
   def is_valid_amazon_url
     asin_number = retailers_product_id

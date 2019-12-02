@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row mt-3">
     <div class="col-md-12">
 
@@ -8,17 +8,12 @@
           <th>Item</th>
           <th>Title</th>
           <th>Details</th>
-          <th>Qty</th>
           <th>Price</th>
           <th>By Air</th>
           <th>By Sea</th>
-          <th>Total</th>
-          <th>Method</th>
-          <th>Paid?</th>
-          <th>Bought?</th>
-          <th>Address</th>
-          <th></th>
-          <th></th>
+          <% if current_user&.admin? %>
+            <th></th>
+          <% end %>
         </tr>
         </thead>
 
@@ -26,7 +21,7 @@
         <% @products.each do |product| %>
           <tr>
             <td style="width: 100px">
-              <a href="<%= product.item_url %>" target="_blank">
+              <a href="<%= product_path product %>">
                 <img src="<%= product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
               </a>
             </td>
@@ -35,66 +30,37 @@
             </td>
             <td class="small" style="min-width: 200px;">
               <div class="mb-2">
-              <div>width: <%= number_with_precision product.width, precision: 2 %>  <%= product.width_unit %></div>
-              <div>length: <%= number_with_precision product.length, precision: 2 %>  <%= product.length_unit %></div>
-              <div>depth: <%= number_with_precision product.depth, precision: 2 %>  <%= product.depth_unit %></div>
-              <div>volume: <%= number_with_precision product.volume, precision: 2 %> cubic inches</div>
+                <div>width: <%= number_with_precision product.width, precision: 2 %>  <%= product.width_unit %></div>
+                <div>length: <%= number_with_precision product.length, precision: 2 %>  <%= product.length_unit %></div>
+                <div>depth: <%= number_with_precision product.depth, precision: 2 %>  <%= product.depth_unit %></div>
+                <div>volume: <%= number_with_precision product.volume, precision: 2 %> cubic inches</div>
               </div>
 
               <div>
-              <div>weight: <%= number_with_precision product.weight, precision: 2 %> <%= product.weight_unit %></div>
-              <div>
-                weight_in_pounds: <%= number_with_precision product.item_weight_in_pounds, precision: 2 %> pounds
+                <div>weight: <%= number_with_precision product.weight, precision: 2 %> <%= product.weight_unit %></div>
+                <div>
+                  weight_in_pounds: <%= number_with_precision product.item_weight_in_pounds, precision: 2 %> pounds
+                </div>
               </div>
-              </div>
-            </td>
-
-            <td><%= product.item_quantity %></td>
-            <td>
-              <%= number_to_currency product.price_dollars %>
             </td>
 
             <td>
-              <%= number_to_currency product.shipping_and_handling_by_air %>
+              <%= number_to_currency product.default_price %>
             </td>
 
             <td>
-              <%= number_to_currency product.shipping_and_handling_by_sea %>
+              <%= number_to_currency product.shipping_and_handling_by_air(product.default_price, 1) %>
             </td>
 
             <td>
-              <%= number_to_currency product.product_total %>
-            </td>
-            <td><%= product.delivery_method&.titleize %></td>
-            <td>
-              <%= product.status&.titleize %>
-            </td>
-            <td>
-              pending_purchase
-              <!--              purchased-->
+              <%= number_to_currency product.shipping_and_handling_by_sea(product.default_price, 1) %>
             </td>
 
-            <td class="small" style="width: 200px;">
-              <address>
-                <%= product.delivery_region&.titleize %>
-                <br>
-                <br>
-                <strong><%= product.full_name %></strong>
-                <br>
-                <%= product.address %>
-                <br>
-                <%= product.city_or_town %>
-                <br>
-                <%= product.email %>
-                <br>
-                <a href="tel:<%= product.phone_number %>"><%= product.phone_number %></a>
-              </address>
-            </td>
-
-            <td>
-              <%= link_to "Show", product %>
-            </td>
-            <td><%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>

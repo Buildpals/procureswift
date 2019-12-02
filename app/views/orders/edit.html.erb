@@ -1,0 +1,23 @@
+<style>
+  .container {
+    max-width: 70rem;
+  }
+</style>
+
+<div class="container">
+
+  <div class="row mt-3">
+
+    <div class="col-md-8">
+
+      <h1>Editing Order</h1>
+
+      <%= render 'form', order: @order %>
+
+      <%= link_to 'Show', [@order.product, @order] %> |
+      <%= link_to 'Back', orders_path %>
+    </div>
+
+  </div>
+
+</div>

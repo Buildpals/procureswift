@@ -23,7 +23,47 @@
 
         <div class="card-body">
 
-          <%= render 'form', product: @product %>
+          <%= form_with(model: [@product, @order], local: true) do |form| %>
+            <div class="form-group">
+              <%= form.label :chosen_offer_id, "Price Offers" %>
+              <%= form.collection_radio_buttons :chosen_offer_id,
+                                                @product.offers,
+                                                value_method = :last,
+                                                text_method = :first do |b| %>
+                <div class="form-check">
+                  <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
+                  <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :quantity, "Quantity" %>
+              <%= form.select :quantity,
+                              choices = (1..50).map { |w| [w, w] },
+                              options = {
+                                  include_blank: false
+                              },
+                              html_options = {
+                                  class: "form-control",
+                                  onchange: 'this.form.submit();'
+                              } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :delivery_method, "Delivery Method" %>
+              <%= form.select :delivery_method,
+                              choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
+                              options = {
+                                  include_blank: false
+                              },
+                              html_options = {
+                                  class: "form-control",
+                                  onchange: 'this.form.submit();'
+                              } %>
+            </div>
+          <% end %>
+
 
         </div>
 
@@ -35,33 +75,33 @@
         <div class="card-body">
           <h5 class="card-title">Product Summary</h5>
           <dl class="row mt-4">
-            <dt class="col-8">Items (<%= @product.item_quantity %>):</dt>
+            <dt class="col-8">Items (<%= @order.quantity %>):</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @product.items_cost %>
+              <%= number_to_currency @order.items_cost %>
             </dd>
 
             <dt class="col-8">Shipping and Handling:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @product.shipping_and_handling %>
+              <%= number_to_currency @order.shipping_and_handling %>
               <hr>
             </dd>
 
             <dt class="col-8 text-truncate">Product Total:</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @product.order_total %>
+              <%= number_to_currency @order.order_total %>
             </dd>
           </dl>
           <div class="small text-center">
             Estimated delivery
             <strong>
-              <%= @product.delivery_method&.titleize %>
+              <%= @order.delivery_method&.titleize %>
             </strong>
             to
             <br>
-            <%= @product.delivery_region&.titleize %> Region:
+            <%= @order.region&.titleize %> Region:
             <br>
             <span class="text-success">
-              <%= @product.estimated_delivery_date.to_s(:long) %>
+              <%= @order.estimated_delivery_date.to_s(:long) %>
             </span>
             <br>
           </div>
@@ -76,14 +116,13 @@
         <div class="card-body">
           <h5 class="card-title">Delivery Details</h5>
 
-
-          <%= form_with(model: @product, local: false) do |form| %>
-            <% if @product.errors.any? %>
+          <%= form_with(model: [@product, @order], local: false) do |form| %>
+            <% if @order.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
                 <ul>
-                  <% @product.errors.full_messages.each do |message| %>
+                  <% @order.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>
                 </ul>
@@ -93,7 +132,6 @@
             <div class="form-group">
               <%= form.label :full_name %>
               <%= form.text_field :full_name,
-                                  id: 'full_name',
                                   required: true,
                                   class: "form-control" %>
             </div>
@@ -118,9 +156,9 @@
             </div>
 
             <div class="form-group">
-              <%= form.label :delivery_region, "Region" %>
-              <%= form.select :delivery_region,
-                              choices = Product.delivery_regions.keys.map { |w| [w.titleize, w] },
+              <%= form.label :region, "Region" %>
+              <%= form.select :region,
+                              choices = Order.regions.keys.map { |w| [w.titleize, w] },
                               options = {
                                   include_blank: false
                               },
@@ -131,8 +169,7 @@
 
             <div class="form-group">
               <%= form.label :email %>
-              <%= form.text_field :email,
-                                  id: 'email',
+              <%= form.email_field :email,
                                   autocomplete: 'email',
                                   required: true,
                                   class: "form-control" %>
@@ -150,9 +187,11 @@
             </div>
 
             <div class="actions">
-              <%= form.submit "Make Payment (#{number_to_currency @product.order_total})", class: "btn btn-accent btn-block", id: "make_payment_button" %>
+              <%= form.submit "Make Payment (#{number_to_currency @order.order_total})", class: "btn btn-accent btn-block", id: "make_payment_button" %>
             </div>
           <% end %>
+
+
         </div>
       </div>
 

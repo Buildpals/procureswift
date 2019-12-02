@@ -49,17 +49,4 @@
                         onchange: 'this.form.submit();'
                     } %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :delivery_region, "Region" %>
-    <%= form.select :delivery_region,
-                    choices = Product.delivery_regions.keys.map { |w| [w.titleize, w] },
-                    options = {
-                        include_blank: false
-                    },
-                    html_options = {
-                        class: "form-control",
-                        onchange: 'this.form.submit();'
-                    } %>
-  </div>
 <% end %>

@@ -3,7 +3,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
-  resources :products
+
+  resources :products do
+    resources :orders
+  end
+
+  resources :orders
 
   get 'products/:id/checkout', to: 'products#checkout', as: :checkout
 

@@ -41,6 +41,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+  gem 'capybara-screenshot'
+  gem 'launchy'
 end
 
 group :development do
