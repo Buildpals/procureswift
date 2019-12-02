@@ -29,26 +29,15 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    retailers_product_id = Amazon.get_asin_from_url(product_params[:item_url])
+    @product = Product.new(product_params)
 
-    @product = Product.find_by("zinc_product_details->>'product_id' = ?", retailers_product_id)
-
-    if @product
-      respond_to do |format|
-        format.html { redirect_to @product, notice: 'Looks like this product is very popular this season!' }
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
-      end
-    else
-      @product = Product.new(product_params)
-
-      respond_to do |format|
-        if @product.save
-          format.html { redirect_to @product, notice: 'Product was successfully created.' }
-          format.json { render :show, status: :created, location: @product }
-        else
-          format.html { render 'welcome/index' }
-          format.json { render json: @product.errors, status: :unprocessable_entity }
-        end
+      else
+        format.html { render 'welcome/index' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -111,7 +100,6 @@ class ProductsController < ApplicationController
       redirect_to action: 'checkout', id: @product.id
     end
   end
-  
 
   def payment_status
     product = Product.where(txRef: params['txRef'])
