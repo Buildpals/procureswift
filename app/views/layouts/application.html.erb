@@ -17,6 +17,18 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js" defer></script>
+  <script type="text/javascript" charset="utf-8" defer>
+      document.addEventListener("turbolinks:load", function() {
+          $('#products_table').DataTable({
+              paging: false,
+              fixedHeader: true
+          });
+      });
+  </script>
+
   <% if Rails.env.production? %>
     <script>
         window['_fs_debug'] = false
@@ -110,6 +122,11 @@
 
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= admin_orders_path %>">All Orders</a>
+            </li>
+          <% end %>
           <li class="nav-item">
             <a class="nav-link" href="<%= orders_path %>">My Orders</a>
           </li>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  get 'products/:id/checkout', to: 'products#checkout', as: :checkout
+  get 'admin/orders/', to: 'orders#admin_index', as: :admin_orders
 
   post 'products/payment_status', to: 'products#payment_status', as: :payment_status
 

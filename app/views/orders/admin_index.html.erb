@@ -14,7 +14,9 @@
           <th>Total</th>
           <th>Method</th>
           <th>Payment Status</th>
+          <th>Purchase Status</th>
           <th>Address</th>
+          <th></th>
           <th></th>
           <th></th>
         </tr>
@@ -64,6 +66,10 @@
             <td>
               <%= order.status&.titleize %>
             </td>
+            <td>
+              pending_purchase
+              <!--              purchased-->
+            </td>
 
             <td class="small" style="width: 200px;">
               <address>
@@ -84,6 +90,9 @@
 
             <td>
               <%= link_to "Show", product_order_path(order.product, order) %>
+            </td>
+            <td>
+              <%= link_to "Edit", edit_product_order_path(order.product, order) %>
             </td>
             <td><%= link_to 'Destroy', [order.product, order], method: :delete, data: {confirm: 'Are you sure?'} %></td>
           </tr>

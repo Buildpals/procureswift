@@ -3,12 +3,20 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: %i[show edit update destroy]
-  before_action :set_product, except: %i[index]
+  before_action :set_product, except: %i[admin_index index]
 
   # GET /orders
   # GET /orders.json
   def index
     @orders = current_user.orders
+  end
+
+  def admin_index
+    @orders = if current_user.admin?
+                Order.all
+              else
+                current_user.orders
+              end
   end
 
   # GET /orders/1
@@ -28,7 +36,6 @@ class OrdersController < ApplicationController
   def create
     @order = @product.orders.build(order_params)
     @order.user = current_user
-
 
     respond_to do |format|
       if @order.save
