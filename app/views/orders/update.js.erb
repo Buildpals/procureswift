@@ -9,7 +9,7 @@ payWithRave()
 
 function payWithRave() {
     var reference = txref;
-    var price = parseInt("<%= @order.order_total %>") * 5.71;
+    var price = parseInt("<%= @order.order_total %>") * 5.75;
     var x = getpaidSetup({
         PBFPubKey: publicKey,
         customer_email: "<%= escape_javascript @order.email %>",

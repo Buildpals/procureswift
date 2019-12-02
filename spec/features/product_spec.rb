@@ -66,7 +66,5 @@ RSpec.feature 'Product Management', js: true do
     fill_in :order_phone_number, with: new_order.phone_number
 
     click_button "Make Payment #{number_to_currency new_order.order_total}"
-
-    expect(page).to have_content new_order.email
   end
 end
