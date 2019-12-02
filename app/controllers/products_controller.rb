@@ -100,7 +100,6 @@ class ProductsController < ApplicationController
       redirect_to action: 'checkout', id: @product.id
     end
   end
-  
 
   def payment_status
     product = Product.where(txRef: params['txRef'])
@@ -123,14 +122,14 @@ class ProductsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
     params.require(:product).permit(:item_url,
-                                  :item_quantity,
-                                  :delivery_method,
-                                  :delivery_region,
-                                  :full_name,
-                                  :address,
-                                  :city_or_town,
-                                  :email,
-                                  :phone_number,
-                                  :chosen_offer_id)
+                                    :item_quantity,
+                                    :delivery_method,
+                                    :delivery_region,
+                                    :full_name,
+                                    :address,
+                                    :city_or_town,
+                                    :email,
+                                    :phone_number,
+                                    :chosen_offer_id)
   end
 end
