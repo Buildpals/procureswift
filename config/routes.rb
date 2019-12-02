@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'products/:id/checkout', to: 'products#checkout', as: :checkout
 
-  post 'products/payment_status'
+  post 'products/payment_status', to: 'products#payment_status', as: :payment_status
 
   get '/payment', to: 'products#payment'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
