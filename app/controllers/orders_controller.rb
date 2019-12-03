@@ -8,14 +8,14 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order(created_at: :desc)
   end
 
   def admin_index
     @orders = if current_user.admin?
-                Order.all
+                Order.all.order(created_at: :desc)
               else
-                current_user.orders
+                current_user.orders.order(created_at: :desc)
               end
   end
 
