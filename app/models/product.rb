@@ -311,8 +311,12 @@ class Product < ApplicationRecord
     end
 
     response_json = ActiveSupport::JSON.decode(response.body)
+
+    return if response_json['offers'].nil?
+    return if response_json['offers'].empty?
+
     update(zinc_product_offers: response_json,
-           chosen_offer_id: response_json['offers'][0]['offer_id'])
+           chosen_offer_id: response_json['offers'].first['offer_id'])
   end
 
   def zinc_product_details_url
