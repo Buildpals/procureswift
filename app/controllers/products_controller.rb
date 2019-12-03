@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
   end
 
   # GET /products/1
@@ -28,15 +28,26 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    retailers_product_id = Amazon.get_asin_from_url(product_params[:item_url])
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+    @product = Product.find_by("zinc_product_details->>'product_id' = ?", retailers_product_id)
+
+    if @product
+      respond_to do |format|
+        format.html { redirect_to @product, notice: 'Looks like this product is very popular this season!' }
         format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render 'welcome/index' }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    else
+      @product = Product.new(product_params)
+
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to @product, notice: 'Product was successfully created.' }
+          format.json { render :show, status: :created, location: @product }
+        else
+          format.html { render 'welcome/index' }
+          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
