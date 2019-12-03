@@ -110,7 +110,29 @@
     </small>
   </div>
 
+  <div class="form-row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :status, "Payment Status" %>
+        <%= form.select :status,
+                        choices = Order.statuses.keys.map { |w| [w.titleize, w] },
+                        options = {
+                            include_blank: false
+                        },
+                        html_options = {
+                            class: "form-control"
+                        } %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :txtref %>
+        <%= form.text_field :txtref, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= form.submit class: "btn btn-accent btn-block" %>
+    <%= form.submit class: "btn btn-accent btn-block", data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
