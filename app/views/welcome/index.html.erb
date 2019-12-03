@@ -155,20 +155,24 @@
         <% group.each do |product| %>
           <% unless product.nil? %>
             <div class="col-md-4 mb-2">
-              <div class="card" style="height: 350px">
+              <div class="card" style="height: 330px">
                 <img class="card-img-top img-fluid" src="<%= product.main_image %>" alt="<%= product.title %>">
                 <div class="card-body">
                   <a class="card-title h6 stretched-link text-decoration-none" href="<%= product_path product %>">
                     <%= truncate product.title, length: 60 %>
                   </a>
                   <div class="mb-1">
-                    <small class="text-danger">
+                    <small class="text-danger mr-2">
                       <%= number_to_currency product.default_price %>
                     </small>
+                  </div>
+                  <div class="mb-1 w-100 d-flex justify-content-start">
                     <div class="small mr-2">
                       <%= number_to_currency product.shipping_and_handling_by_air(product.default_price, 1) %>
                       by Air
                     </div>
+
+                    <div class="mr-2">&middot;</div>
                     <div class="small">
                       <%= number_to_currency product.shipping_and_handling_by_sea(product.default_price, 1) %>
                       by Sea
