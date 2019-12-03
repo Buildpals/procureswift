@@ -101,6 +101,8 @@ class Product < ApplicationRecord
   end
 
   def offers
+    return [] if zinc_product_offers.nil?
+
     zinc_product_offers['offers'].map do |offer|
       [
         "#{number_to_currency(offer['price'] * CENTS_TO_DOLLARS_RATIO)} #{offer['condition']} #{offer['handling_days.max']} #{offer['seller.name']}",

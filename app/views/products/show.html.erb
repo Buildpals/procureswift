@@ -37,6 +37,12 @@
             <a href="<%= @product.item_url %>" target="_blank">View in Amazon</a>
           </div>
 
+          <% if current_user&.admin? %>
+            <br>
+
+            <%= link_to 'Delete Product', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
+          <% end %>
+
         </div>
 
       </div>

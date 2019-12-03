@@ -1,84 +1,38 @@
 <div class="container">
   <div class="row mt-3">
-    <div class="col-md-12">
+    <div class="col-md-7 mx-auto px-0">
 
-      <table class="table table-responsive table-striped table-hover mb-5" id="products_table">
-        <thead>
-        <tr>
-          <th>Item</th>
-          <th>Title</th>
-          <th>Details</th>
-          <th>Price</th>
-          <th>By Air</th>
-          <th>By Sea</th>
-          <% if current_user&.admin? %>
-            <th></th>
-          <% end %>
-        </tr>
-        </thead>
+      <div class="card mb-4">
+        <div class="list-group list-group-flush">
+          <% @products.each do |product| %>
+            <a href="<%= product_path product %>" class="list-group-item list-group-item-action d-flex flex-row align-items-start">
 
-        <tbody>
-        <% @products.each do |product| %>
-          <tr>
-            <td style="width: 100px">
-              <a href="<%= product_path product %>">
-                <img src="<%= product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
-              </a>
-            </td>
-            <td class="small" style="width: 200px;">
-              <%= truncate product.title, length: 200 %>
-            </td>
-            <td class="small" style="min-width: 200px;">
-              <div class="mb-2">
-                <div>width: <%= number_with_precision product.width, precision: 2 %>  <%= product.width_unit %></div>
-                <div>length: <%= number_with_precision product.length, precision: 2 %>  <%= product.length_unit %></div>
-                <div>depth: <%= number_with_precision product.depth, precision: 2 %>  <%= product.depth_unit %></div>
-                <div>volume: <%= number_with_precision product.volume, precision: 2 %> cubic inches</div>
+              <div class="product-image">
+                <img class="mr-3" src="<%= product.main_image %>" width="120" alt="Generic placeholder image">
               </div>
 
               <div>
-                <div>weight: <%= number_with_precision product.weight, precision: 2 %> <%= product.weight_unit %></div>
-                <div>
-                  weight_in_pounds: <%= number_with_precision product.item_weight_in_pounds, precision: 2 %> pounds
+                <h6 class="mb-1"><%= truncate product.title, length: 60 %></h6>
+                <div class="mb-1">
+                  <small class="text-danger">
+                    <%= number_to_currency product.default_price %>
+                  </small>
+                  <div class="small mr-2">
+                    <%= number_to_currency product.shipping_and_handling_by_air(product.default_price, 1) %>
+                    by Air
+                  </div>
+                  <div class="small">
+                    <%= number_to_currency product.shipping_and_handling_by_sea(product.default_price, 1) %>
+                    by Sea
+                  </div>
                 </div>
               </div>
-            </td>
 
-            <td>
-              <%= number_to_currency product.default_price %>
-            </td>
-
-            <td>
-              <%= number_to_currency product.shipping_and_handling_by_air(product.default_price, 1) %>
-            </td>
-
-            <td>
-              <%= number_to_currency product.shipping_and_handling_by_sea(product.default_price, 1) %>
-            </td>
-
-            <% if current_user&.admin? %>
-              <td>
-                <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %>
-              </td>
-            <% end %>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+            </a>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function () {
-        console.log($('#products_table'))
-        $('#products_table').DataTable({
-            paging: false,
-            fixedHeader: true
-        });
-    });
-</script>
