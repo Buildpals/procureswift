@@ -21,7 +21,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   # GET /orders/1.json
-  def show; end
+  def show;
+  end
 
   # GET /orders/new
   def new
@@ -29,7 +30,8 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1/edit
-  def edit; end
+  def edit;
+  end
 
   # POST /orders
   # POST /orders.json
@@ -98,6 +100,19 @@ class OrdersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
-    params.require(:order).permit(:product_id, :user_id, :chosen_offer_id, :quantity, :delivery_method, :full_name, :address, :region, :city_or_town, :phone_number, :email, :txtref, :status)
+    params.require(:order).permit(:product_id,
+                                  :user_id,
+                                  :chosen_offer_id,
+                                  :quantity,
+                                  :delivery_method,
+                                  :full_name,
+                                  :address,
+                                  :region,
+                                  :city_or_town,
+                                  :phone_number,
+                                  :email,
+                                  :txtref,
+                                  :status,
+                                  :purchased)
   end
 end
