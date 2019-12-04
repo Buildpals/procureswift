@@ -11,111 +11,26 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-md-6 mb-5">
 
-  <div class="form-group">
-    <%= form.label :chosen_offer_id, "Price Offers" %>
-    <%= form.collection_radio_buttons :chosen_offer_id,
-                                      @product.offers,
-                                      value_method = :last,
-                                      text_method = :first do |b| %>
-      <div class="form-check">
-        <%= b.radio_button class: "form-check-input" %>
-        <%= b.label class: "form-check-label" %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :quantity, "Quantity" %>
-    <%= form.select :quantity,
-                    choices = (1..50).map { |w| [w, w] },
-                    options = {
-                        include_blank: false
-                    },
-                    html_options = {
-                        class: "form-control"
-                    } %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :delivery_method, "Delivery Method" %>
-    <%= form.select :delivery_method,
-                    choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
-                    options = {
-                        include_blank: false
-                    },
-                    html_options = {
-                        class: "form-control"
-                    } %>
-  </div>
-
-  <hr>
-
-  <div class="form-group">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name,
-                        id: 'full_name',
-                        required: true,
-                        class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address,
-                        required: true,
-                        autocomplete: 'street-address',
-                        class: "form-control" %>
-    <small>
-      Eg. Total Filling Station behind the Kanda Overhead, House no. 5
-    </small>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :town_or_city, "City/Town" %>
-    <%= form.text_field :city_or_town,
-                        required: true,
-                        placeholder: "eg. Accra",
-                        class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :region, "Region" %>
-    <%= form.select :region,
-                    choices = Order.regions.keys.map { |w| [w.titleize, w] },
-                    options = {
-                        include_blank: false
-                    },
-                    html_options = {
-                        class: "form-control"
-                    } %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email,
-                        id: 'email',
-                        autocomplete: 'email',
-                        required: true,
-                        class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :phone_number %>
-    <%= form.telephone_field :phone_number,
-                             required: true,
-                             autocomplete: 'tel',
-                             class: "form-control" %>
-    <small id="phone_help" class="form-text text-muted">
-      This number should be active so we can reach you when we're delivering your item
-    </small>
-  </div>
-
-  <div class="form-row">
-    <div class="col-md-6">
       <div class="form-group">
-        <%= form.label :status, "Payment Status" %>
-        <%= form.select :status,
-                        choices = Order.statuses.keys.map { |w| [w.titleize, w] },
+        <%= form.label :chosen_offer_id, "Price Offers" %>
+        <%= form.collection_radio_buttons :chosen_offer_id,
+                                          @product.offers,
+                                          value_method = :last,
+                                          text_method = :first do |b| %>
+          <div class="form-check">
+            <%= b.radio_button class: "form-check-input" %>
+            <%= b.label class: "form-check-label" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :quantity, "Quantity" %>
+        <%= form.select :quantity,
+                        choices = (1..50).map { |w| [w, w] },
                         options = {
                             include_blank: false
                         },
@@ -123,14 +38,122 @@
                             class: "form-control"
                         } %>
       </div>
-    </div>
-    <div class="col-md-6">
+
       <div class="form-group">
-        <%= form.label :txtref %>
-        <%= form.text_field :txtref, class: 'form-control' %>
+        <%= form.label :delivery_method, "Delivery Method" %>
+        <%= form.select :delivery_method,
+                        choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
+                        options = {
+                            include_blank: false
+                        },
+                        html_options = {
+                            class: "form-control"
+                        } %>
       </div>
+
+
+      <hr class="my-5">
+
+
+      <div class="form-row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :status, "Payment Status", class: 'text-danger' %>
+            <%= form.select :status,
+                            choices = Order.statuses.keys.map { |w| [w.titleize, w] },
+                            options = {
+                                include_blank: false
+                            },
+                            html_options = {
+                                class: "form-control"
+                            } %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :txtref, class: 'text-danger' %>
+            <%= form.text_field :txtref, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :purchased, class: 'text-danger' %>
+        <%= form.select :status,
+                        choices = [['False', false], ['True', true]],
+                        options = {
+                            include_blank: false
+                        },
+                        html_options = {
+                            class: "form-control"
+                        } %>
+      </div>
+
+    </div>
+
+    <div class="col-md-6 mb-5">
+
+      <div class="form-group">
+        <%= form.label :full_name %>
+        <%= form.text_field :full_name,
+                            id: 'full_name',
+                            required: true,
+                            class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_field :address,
+                            required: true,
+                            autocomplete: 'street-address',
+                            class: "form-control" %>
+        <small>
+          Eg. Total Filling Station behind the Kanda Overhead, House no. 5
+        </small>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :town_or_city, "City/Town" %>
+        <%= form.text_field :city_or_town,
+                            required: true,
+                            placeholder: "eg. Accra",
+                            class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :region, "Region" %>
+        <%= form.select :region,
+                        choices = Order.regions.keys.map { |w| [w.titleize, w] },
+                        options = {
+                            include_blank: false
+                        },
+                        html_options = {
+                            class: "form-control"
+                        } %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email,
+                            id: 'email',
+                            autocomplete: 'email',
+                            required: true,
+                            class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :phone_number %>
+        <%= form.telephone_field :phone_number,
+                                 required: true,
+                                 autocomplete: 'tel',
+                                 class: "form-control" %>
+      </div>
+
     </div>
   </div>
+
+
+
 
   <div class="actions">
     <%= form.submit class: "btn btn-accent btn-block", data: {confirm: 'Are you sure?'} %>

@@ -14,7 +14,7 @@
           <th>Total</th>
           <th>Method</th>
           <th>Payment Status</th>
-          <th>Purchase Status</th>
+          <th>Purchased?</th>
           <th>Address</th>
           <th></th>
           <th></th>
@@ -67,8 +67,7 @@
               <%= order.status&.titleize %>
             </td>
             <td>
-              pending_purchase
-              <!--              purchased-->
+              <%= order.purchased?.titleize %>
             </td>
 
             <td class="small" style="width: 200px;">

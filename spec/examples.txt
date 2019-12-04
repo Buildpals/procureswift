@@ -12,8 +12,8 @@ example_id                                            | status  | run_time      
 ./spec/controllers/orders_controller_spec.rb[1:6:2:1] | pending | 0.00083 seconds |
 ./spec/controllers/orders_controller_spec.rb[1:7:1]   | pending | 0.00073 seconds |
 ./spec/controllers/orders_controller_spec.rb[1:7:2]   | pending | 0.00076 seconds |
-./spec/features/order_spec.rb[1:1]                    | pending | 0.00002 seconds |
-./spec/features/product_spec.rb[1:1]                  | passed  | 26.49 seconds   |
+./spec/features/order_spec.rb[1:1]                    | pending | 0.00001 seconds |
+./spec/features/product_spec.rb[1:1]                  | passed  | 25.73 seconds   |
 ./spec/helpers/orders_helper_spec.rb[1:1]             | pending | 0.00001 seconds |
 ./spec/models/order_spec.rb[1:1]                      | pending | 0 seconds       |
 ./spec/requests/orders_spec.rb[1:1:1]                 | failed  | 0.0455 seconds  |
