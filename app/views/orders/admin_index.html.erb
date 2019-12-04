@@ -67,7 +67,7 @@
               <%= order.status&.titleize %>
             </td>
             <td>
-              <%= order.purchased?.titleize %>
+              <%= order.purchased?.to_s.titleize %>
             </td>
 
             <td class="small" style="width: 200px;">
