@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   DUTY_RATIO = 0.07
   COST_PER_INCHES_CUBED = 0.0283
   INSURANCE_RATE = 0.03
-  BASE_HANDLING_FEE = 5.00
+  BASE_HANDLING_FEE = 10.00
   HANDLING_FEE_RATE = 0.01
 
   has_many :orders, inverse_of: :product
