@@ -42,25 +42,26 @@
                   copy the link to it, and paste it above.
                 </small>
               </div>
+              <% unless user_signed_in? %>
+                <div class="form-group">
+                  <%= form.label :full_name %>
+                  <%= form.text_field :full_name,
+                                      required: true,
+                                      autocomplete: 'name',
+                                      class: "form-control" %>
+                </div>
 
-              <div class="form-group">
-                <%= form.label :full_name %>
-                <%= form.text_field :full_name,
-                                    required: true,
-                                    autocomplete: 'name',
-                                    class: "form-control" %>
-              </div>
-
-              <div class="form-group">
-                <%= form.label :phone_number %>
-                <%= form.telephone_field :phone_number,
-                                         required: true,
-                                         autocomplete: 'tel',
-                                         class: "form-control" %>
-                <small id="phone_help" class="form-text text-muted">
-                  This number should be active so we can reach you when we're delivering your item
-                </small>
-              </div>
+                <div class="form-group">
+                  <%= form.label :phone_number %>
+                  <%= form.telephone_field :phone_number,
+                                          required: true,
+                                          autocomplete: 'tel',
+                                          class: "form-control" %>
+                  <small id="phone_help" class="form-text text-muted">
+                    This number should be active so we can reach you when we're delivering your item
+                  </small>
+                </div>
+              <% end %>
 
               <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block" %>
             <% end %>
