@@ -85,17 +85,19 @@ class ProductsController < ApplicationController
     response = rave.call(params[:txRef])
     response_charge_code = response['data']['chargecode']
     purchase_request_status = response['data']['status']
-    @product = Product.find(params['product_id'])
-    @product.txtref = params['txRef']
-    @product.full_name = params['full_name']
-    @product.phone_number = params['phone_number']
-    @product.email = params['email']
+    product = Product.find(params['product_id'])
+    @order = Order.find(params['order_id'])
+    @order.txtref = params['txRef']
+    @order.full_name = params['name']
+    @order.phone_number = params['phone_number']
+    @order.email = params['email']
+    @order.product = product
     if response_charge_code == '00' || response_charge_code == '0'
-      @product.status = 3
-      @product.save!
+      @order.status = 3
+      @order.save!
     elsif response_charge_code == '02'
-      @product.status = 0
-      @product.save!
+      @order.status = 0
+      @order.save!
     else
       flash[:notice] = 'We could not complete your payment at this time. Please try again.'
       redirect_to action: 'checkout', id: @product.id
