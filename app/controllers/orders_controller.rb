@@ -3,13 +3,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: %i[show edit update destroy]
-  before_action :set_product, except: %i[admin_index index]
+  before_action :set_product, except: %i[admin_index index destroy]
 
   # GET /orders
   # GET /orders.json
   def index
     @pending_orders = current_user.orders.where(status: 0).order(created_at: :desc)
     @purchased_orders = current_user.orders.where("status > ?", 0).order(created_at: :desc)
+    @product = Product.new
   end
 
   def admin_index
@@ -22,7 +23,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   # GET /orders/1.json
-  def show;
+  def show
+    @product = Product.new
   end
 
   # GET /orders/new

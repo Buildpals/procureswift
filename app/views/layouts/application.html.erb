@@ -120,6 +120,11 @@
             <a class="nav-link" href="<%= admin_orders_path %>">All Orders</a>
           </li>
         <% end %>
+        <% if user_signed_in? && controller_name != 'welcome' %>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#getShippingCostModal">Purchase new item</a>
+          </li>
+        <% end %>
       </ul>
 
       <ul class="navbar-nav ml-auto">
