@@ -22,3 +22,8 @@
  .no-border {
      border: none;
  }
+
+ footer ul li {
+    font-size: .75rem;
+ }
+ 

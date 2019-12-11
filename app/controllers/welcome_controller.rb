@@ -6,4 +6,9 @@ class WelcomeController < ApplicationController
                     .order(created_at: :desc)
                     .limit(6)
   end
+
+  def privacy_policy; end
+
+  def terms; end
+
 end
