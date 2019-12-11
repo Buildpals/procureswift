@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product.fetch_item_information
+    @item = Product.new
   end
 
   def checkout; end

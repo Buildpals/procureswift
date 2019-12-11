@@ -84,9 +84,6 @@
         </div>
       </div>
 
-      <div class="w-100 d-flex justify-content-between">
-        <a href="/">Find another product</a>
-      </div>
     </div>
 
     <div class="col-lg-4">
@@ -136,6 +133,10 @@
   </div>
 
 </div>
+
+
+<!-- Modal for purcashing new item -->
+<%= render :partial => 'application/get_shipping_modal_form', locals: { product: @item } %>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
