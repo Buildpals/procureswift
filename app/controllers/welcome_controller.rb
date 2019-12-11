@@ -11,4 +11,8 @@ class WelcomeController < ApplicationController
 
   def terms; end
 
+  def refund_policy; end
+
+  def careers; end
+
 end
