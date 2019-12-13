@@ -13,8 +13,13 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product.fetch_item_information
-    @item = Product.new
+    result = @product.fetch_item_information
+    if result == false
+      flash[:notice] = 'We are unable to process your request at this time. Please Try again later.'
+      redirect_to root_path
+    else
+      @item = Product.new
+    end
   end
 
   def checkout; end
@@ -31,30 +36,35 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     retailers_product_id = Amazon.get_asin_from_url(product_params[:item_url])
-
-    @product = Product.find_by("zinc_product_details->>'product_id' = ?", retailers_product_id)
-
-    if @product
-      respond_to do |format|
-        format.html { redirect_to @product, notice: 'Looks like this product is very popular this season!' }
-        format.json { render :show, status: :created, location: @product }
-      end
-    else
-      @product = Product.new(product_params)
-      unless current_user.nil?
-        @product.full_name = current_user.full_name
-        @product.phone_number = current_user.phone_number
-      end
-      respond_to do |format|
-        if @product.save
-          format.html { redirect_to @product, notice: 'Product was successfully created.' }
+    if retailers_product_id != false
+      @product = Product.find_by("zinc_product_details->>'product_id' = ?", retailers_product_id)
+      if @product
+        respond_to do |format|
+          format.html { redirect_to @product, notice: 'Looks like this product is very popular this season!' }
           format.json { render :show, status: :created, location: @product }
-        else
-          format.html { render 'welcome/index' }
-          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
+      else
+        @product = Product.new(product_params)
+        unless current_user.nil?
+          @product.full_name = current_user.full_name
+          @product.phone_number = current_user.phone_number
+        end
+        respond_to do |format|
+          if @product.save
+            format.html { redirect_to @product, notice: 'Product was successfully created.' }
+            format.json { render :show, status: :created, location: @product }
+          else
+            format.html { render 'welcome/index' }
+            format.json { render json: @product.errors, status: :unprocessable_entity }
+          end
         end
       end
+    else
+      flash[:notice] = 'Please provide a valid Amazon url'
+      redirect_to root_path
     end
+
+
   end
 
   # PATCH/PUT /products/1

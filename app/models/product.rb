@@ -240,9 +240,12 @@ class Product < ApplicationRecord
 
   def fetch_item_information
     return unless zinc_product_details.nil? || zinc_product_offers.nil?
-
-    fetch_product_details
-    fetch_product_offers
+    begin
+      fetch_product_details
+      fetch_product_offers
+    rescue Net::OpenTimeout, SocketError
+      false
+    end
   end
 
   def save_product_details_to_file
@@ -252,6 +255,10 @@ class Product < ApplicationRecord
     File.open("public/#{id}_offers.json", 'w') do |f|
       f.write(zinc_product_offers.to_json)
     end
+  end
+
+  def add_custom_error(object = :base, error_message = 'Please provide a valid input')
+    errors.add(object, error_message)
   end
 
   private
@@ -272,25 +279,25 @@ class Product < ApplicationRecord
   def is_valid_amazon_url
     asin_number = retailers_product_id
     if asin_number == false
-      errors.add(:item_link, ': Please enter a valid amazon link')
+      errors.add(:item_url, ': Please enter a valid amazon link')
     end
+    puts errors.inspect
   end
 
   def fetch_product_details
     uri = URI.parse(zinc_product_details_url)
     request = Net::HTTP::Get.new(uri)
     request.basic_auth(ZINC_API_KEY, '')
+    # request.read_timeout = 0.001
 
     req_options = {
       use_ssl: uri.scheme == 'https'
     }
 
     puts "Fetching product details via #{uri}..."
-
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
-
     puts "Saving details from #{uri} so we don't have to fetch it next time..."
 
     response_json = ActiveSupport::JSON.decode(response.body)
