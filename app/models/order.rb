@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   belongs_to :user, inverse_of: :orders
   belongs_to :product, inverse_of: :orders
 
-  enum delivery_method: { by_air: 0, by_sea: 1 }
+  enum delivery_method: { by_air: 0 }
   enum region: {
     greater_accra_region: 0,
     ashanti_region: 1,
@@ -38,11 +38,11 @@ class Order < ApplicationRecord
   end
 
   def shipping_and_handling
-    if by_sea?
-      product.shipping_and_handling_by_sea(price, quantity)
-    else
-      product.shipping_and_handling_by_air(price, quantity)
-    end
+    # if by_sea?
+    #  product.shipping_and_handling_by_sea(price, quantity)
+    # else
+    product.shipping_and_handling_by_air(price, quantity)
+    # end
   end
 
   def price
@@ -60,10 +60,10 @@ class Order < ApplicationRecord
   end
 
   def estimated_delivery_date
-    if by_sea?
-      2.months.from_now.to_date
-    else
-      2.weeks.from_now.to_date
-    end
+    # if by_sea?
+    #  2.months.from_now.to_date
+    # else
+    2.weeks.from_now.to_date
+   # end
   end
 end

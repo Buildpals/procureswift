@@ -100,10 +100,10 @@
               <%= number_to_currency @product.shipping_and_handling_by_air(@product.default_price, 1) %>
             </dd>
 
-            <dt class="col-8">By Sea (6-8 weeks)</dt>
+            <!--<dt class="col-8">By Sea (6-8 weeks)</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @product.shipping_and_handling_by_sea(@product.default_price, 1) %>
-            </dd>
+              <% number_to_currency @product.shipping_and_handling_by_sea(@product.default_price, 1) %>
+            </dd>-->
           </dl>
           <div class="small text-center">
             Duty charges may apply
