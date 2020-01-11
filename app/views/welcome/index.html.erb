@@ -169,14 +169,8 @@
                   </div>
                   <div class="mb-1 w-100 d-flex justify-content-start">
                     <div class="small mr-2">
-                      <%= number_to_currency product.shipping_and_handling_by_air(product.default_price, 1) %>
+                      <%= number_to_currency product.shipping_cost %>
                       by Air
-                    </div>
-
-                    <div class="mr-2">&middot;</div>
-                    <div class="small">
-                      <%= number_to_currency product.shipping_and_handling_by_sea(product.default_price, 1) %>
-                      by Sea
                     </div>
                   </div>
                 </div>

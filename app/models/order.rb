@@ -38,11 +38,7 @@ class Order < ApplicationRecord
   end
 
   def shipping_and_handling
-    # if by_sea?
-    #  product.shipping_and_handling_by_sea(price, quantity)
-    # else
-    product.shipping_and_handling_by_air(price, quantity)
-    # end
+    product.shipping_cost
   end
 
   def price
@@ -60,10 +56,6 @@ class Order < ApplicationRecord
   end
 
   def estimated_delivery_date
-    # if by_sea?
-    #  2.months.from_now.to_date
-    # else
     2.weeks.from_now.to_date
-   # end
   end
 end

@@ -73,12 +73,12 @@
 
           <div class="row">
             <div class="col-4">Weight:</div>
-            <div class="col-8 text-right"><%= number_with_precision @product.weight, precision: 2 %> <%= @product.weight_unit %></div>
+            <div class="col-8 text-right"><%= number_with_precision @product.weight_in_pounds, precision: 2 %> <%= @product.weight_unit %></div>
             <div class="col-7">
               Weight in pounds:
             </div>
             <div class="col-5 text-right">
-              <%= number_with_precision @product.item_weight_in_pounds, precision: 2 %> pounds
+              <%= number_with_precision @product.weight_in_pounds, precision: 2 %> pounds
             </div>
           </div>
         </div>
@@ -97,13 +97,8 @@
           <dl class="row mt-4">
             <dt class="col-8">By Air (10-14 days)</dt>
             <dd class="col-4 text-right">
-              <%= number_to_currency @product.shipping_and_handling_by_air(@product.default_price, 1) %>
+              <%= number_to_currency @product.shipping_cost %>
             </dd>
-
-            <!--<dt class="col-8">By Sea (6-8 weeks)</dt>
-            <dd class="col-4 text-right">
-              <% number_to_currency @product.shipping_and_handling_by_sea(@product.default_price, 1) %>
-            </dd>-->
           </dl>
           <div class="small text-center">
             Duty charges may apply

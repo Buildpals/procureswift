@@ -22,11 +22,10 @@ RSpec.feature 'Product Management', js: true do
     expect(page).to have_content new_product.title
     expect(page).to have_content 'Product was successfully created.'
 
-    choose '$278.00 New', match: :first
+    choose '$298.00 New', match: :first
     expect(page).to have_content 'Product was successfully updated.'
 
-    expect(page).to have_content '$64.57'
-    expect(page).to have_content '$40.96'
+    expect(page).to have_content '$50.27'
 
     click_link 'Purchase through ProcureSwift'
 
@@ -47,7 +46,9 @@ RSpec.feature 'Product Management', js: true do
 
     expect(page).to have_content 'Order was successfully created.'
 
-    choose '$278.00 New', match: :first
+    save_and_open_page
+
+    choose '$298.00 New', match: :first
     expect(page).to have_content 'Order was successfully updated.'
 
     select new_order.quantity, from: :order_quantity

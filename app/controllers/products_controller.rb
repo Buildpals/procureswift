@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    result = @product.fetch_item_information
+    result = ItemInformationFetcher.new(@product).fetch_item_information
     if result == false
       flash[:notice] = 'We are unable to process your request at this time. Please Try again later.'
       redirect_to root_path
@@ -63,8 +63,6 @@ class ProductsController < ApplicationController
       flash[:notice] = 'Please provide a valid Amazon url'
       redirect_to root_path
     end
-
-
   end
 
   # PATCH/PUT /products/1

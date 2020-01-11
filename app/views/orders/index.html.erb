@@ -2,9 +2,9 @@
   
   <div class="row mt-3">
 
-    <div class="col-md-6 mx-auto px-0">
+    <div class="col-md-6">
 
-      <div class="card mb-4 mr-3">
+      <div class="card mb-4">
 
         <div class="card-header text-center">Pending Orders</div>
 
@@ -26,7 +26,7 @@
                   </small>
 
                   <div class="small mr-2">
-                    <%= number_to_currency order.shipping_and_handling %>
+                    <%= number_to_currency order.price %>
                     <%= order.delivery_method&.titleize %>
                   </div>
 
@@ -47,7 +47,7 @@
 
     </div>
 
-    <div class="col-md-6 mx-auto px-0">
+    <div class="col-md-6">
 
       <div class="card mb-4">
 
@@ -71,7 +71,7 @@
                   </small>
 
                   <div class="small mr-2">
-                    <%= number_to_currency order.shipping_and_handling %>
+                    <%= number_to_currency order.price %>
                     <%= order.delivery_method&.titleize %>
                   </div>
 

@@ -29,7 +29,7 @@ function payWithRave() {
             items_cost: "<%= escape_javascript number_to_currency @order.items_cost %>",
             delivery_method: "<%= escape_javascript @order.delivery_method&.titleize %>",
             delivery_region: "<%= escape_javascript @order.region&.titleize %>",
-            shipping_and_handling: "<%= escape_javascript number_to_currency @order.shipping_and_handling %>",
+            shipping_and_handling: "<%= escape_javascript number_to_currency @order.price %>",
             order_total: "<%= escape_javascript number_to_currency @order.order_total %>",
             full_name: "<%= escape_javascript @order.full_name %>",
             email: "<%= escape_javascript @order.email %>",

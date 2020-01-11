@@ -13,17 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- .new-product-header {
-     background-color: #2a3e55;
-     color: white;
- }
-
- .no-border {
-     border: none;
- }
-
- footer ul li {
-    font-size: .75rem;
- }
- 
