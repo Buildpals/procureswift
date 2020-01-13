@@ -22,8 +22,6 @@ class Product < ApplicationRecord
            :volume,
            :weight_in_pounds, to: :dimensions
 
-  delegate :cost, to: :shipping, prefix: true
-
   def retailers_product_id
     Amazon.get_asin_from_url(item_url)
   end
@@ -65,10 +63,6 @@ class Product < ApplicationRecord
     return nil if chosen_offer.nil?
 
     chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
-  end
-
-  def shipping
-    @shipping ||= Shipping.new(dimensions.weight_in_pounds, default_price)
   end
 
   def dimensions

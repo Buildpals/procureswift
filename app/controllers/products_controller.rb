@@ -45,10 +45,8 @@ class ProductsController < ApplicationController
         end
       else
         @product = Product.new(product_params)
-        unless current_user.nil?
-          @product.full_name = current_user.full_name
-          @product.phone_number = current_user.phone_number
-        end
+        session[:full_name] = @product.full_name
+        session[:phone_number] = @product.phone_number
         respond_to do |format|
           if @product.save
             format.html { redirect_to @product, notice: 'Product was successfully created.' }

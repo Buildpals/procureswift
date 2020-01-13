@@ -11,6 +11,7 @@ class ItemInformationFetcher
   end
 
   def fetch_item_information
+    return
     fetch_product_details
     fetch_product_offers
   rescue Net::OpenTimeout, SocketError

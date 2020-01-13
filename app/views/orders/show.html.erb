@@ -49,19 +49,6 @@
                                   onchange: 'this.form.submit();'
                               } %>
             </div>
-
-            <div class="form-group">
-              <%= form.label :delivery_method, "Delivery Method" %>
-              <%= form.select :delivery_method,
-                              choices = Order.delivery_methods.keys.map { |w| [w.titleize, w] },
-                              options = {
-                                  include_blank: false
-                              },
-                              html_options = {
-                                  class: "form-control",
-                                  onchange: 'this.form.submit();'
-                              } %>
-            </div>
           <% end %>
 
 
@@ -71,137 +58,12 @@
     </div>
 
     <div class="col-lg-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Order Summary</h5>
-          <dl class="row mt-4">
-            <dt class="col-8">Items (<%= @order.quantity %>):</dt>
-            <dd class="col-4 text-right">
-              <%= number_to_currency @order.items_cost %>
-            </dd>
-
-            <dt class="col-8">Shipping, handling and insurance:</dt>
-            <dd class="col-4 text-right">
-              <%= number_to_currency @order.price %>
-              <hr>
-            </dd>
-
-            <dt class="col-8 text-truncate">Order Total:</dt>
-            <dd class="col-4 text-right">
-              <span id="order_total"><%= number_to_currency @order.order_total %></span>
-            </dd>
-          </dl>
-          <div class="small text-center">
-            Estimated delivery
-            <strong>
-              <%= @order.delivery_method&.titleize %>
-            </strong>
-            to
-            <br>
-            <%= @order.region&.titleize %> Region:
-            <br>
-            <span class="text-success">
-              <%= @order.estimated_delivery_date.to_s(:long) %>
-            </span>
-          </div>
-        </div>
-      </div>
+      <%= render(partial: 'orders/costs_card', locals: { order: @order }) %>
     </div>
 
     <div class="col-lg-4">
 
-      <div class="card mb-3">
-
-        <div class="card-body">
-          <h5 class="card-title">Delivery Details</h5>
-
-          <%= form_with(model: [@order.product, @order], local: false) do |form| %>
-            <% if @order.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-                <ul>
-                  <% @order.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
-            <div class="form-group">
-              <%= form.label :full_name %>
-              <%= form.text_field :full_name,
-                                  required: true,
-                                  class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :address %>
-              <%= form.text_field :address,
-                                  required: true,
-                                  autocomplete: 'street-address',
-                                  class: "form-control" %>
-              <small>
-                Eg. Total Filling Station behind the Kanda Overhead, House no. 5
-              </small>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :town_or_city, "City/Town" %>
-              <%= form.text_field :city_or_town,
-                                  required: true,
-                                  placeholder: "eg. Accra",
-                                  class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :region, "Region" %>
-              <%= form.select :region,
-                              choices = Order.regions.keys.map { |w| [w.titleize, w] },
-                              options = {
-                                  include_blank: false
-                              },
-                              html_options = {
-                                  class: "form-control"
-                              } %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :email %>
-              <%= form.email_field :email,
-                                   autocomplete: 'email',
-                                   required: true,
-                                   class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :phone_number %>
-              <%= form.telephone_field :phone_number,
-                                       required: true,
-                                       autocomplete: 'tel',
-                                       class: "form-control" %>
-              <small id="phone_help" class="form-text text-muted">
-                This number should be active so we can reach you when we're delivering your item
-              </small>
-            </div>
-
-            <div class="actions">
-              <%= form.submit "Make Payment (#{number_to_currency @order.order_total})", class: "btn btn-accent btn-block", id: "make_payment_button" %>
-            </div>
-
-          <% end %>
-
-          <% if current_user&.admin? %>
-            <% unless @order.success? %>
-              <div class="text-center mt-3">
-                <%= link_to 'Delete Order ', @order, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-secondary' %>
-              </div>
-            <% end %>
-          <% end %>
-
-
-        </div>
-      </div>
+      <%= render 'address_info_card' %>
 
     </div>
 

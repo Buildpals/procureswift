@@ -62,22 +62,19 @@
             </div>
 
             <div class="col-4">Length:</div>
-            <div class="col-8 text-right"><%= number_with_precision @product.length, precision: 2 %> <%= @product.length_unit %></div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.length, precision: 2 %> <%= @product.length_unit %>
+            </div>
 
             <div class="col-4">Depth:</div>
-            <div class="col-8 text-right"><%= number_with_precision @product.depth, precision: 2 %>  <%= @product.depth_unit %></div>
-
-            <div class="col-4">Volume:</div>
-            <div class="col-8 text-right"><%= number_with_precision @product.volume, precision: 2 %> inches&sup3;</div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.depth, precision: 2 %>  <%= @product.depth_unit %>
+            </div>
           </div>
 
           <div class="row">
             <div class="col-4">Weight:</div>
-            <div class="col-8 text-right"><%= number_with_precision @product.weight_in_pounds, precision: 2 %> <%= @product.weight_unit %></div>
-            <div class="col-7">
-              Weight in pounds:
-            </div>
-            <div class="col-5 text-right">
+            <div class="col-8 text-right">
               <%= number_with_precision @product.weight_in_pounds, precision: 2 %> pounds
             </div>
           </div>
@@ -87,42 +84,20 @@
     </div>
 
     <div class="col-lg-4">
-
-      <div class="card mb-3">
-        <div class="card-body">
-          <h6 class="card-title">
-            Delivery Costs
-          </h6>
-
-          <dl class="row mt-4">
-            <dt class="col-8">By Air (10-14 days)</dt>
-            <dd class="col-4 text-right">
-              <%= number_to_currency @product.shipping_cost %>
-            </dd>
-          </dl>
-          <div class="small text-center">
-            Duty charges may apply
-          </div>
-
-          <br>
-
-          <% if current_user %>
-            <%= form_with(model: [@product, @product.orders.build], local: true) do |form| %>
-              <%= form.hidden_field :chosen_offer_id, value: @product.chosen_offer_id %>
-              <%= form.submit 'Purchase through ProcureSwift', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
-            <% end %>
-          <% else %>
-              <%= link_to 'Purchase through ProcureSwift',
-                          new_user_session_path,
-                          class: 'btn btn-block btn-accent',
-                          id: 'checkout_button',
-              notice: 'You need to login before you can purchase'%>
+      <%= render(layout: 'orders/costs_card', locals: { order: @product.orders.build(quantity: 1) }) do %>
+        <% if current_user %>
+          <%= form_with(model: [@product, @product.orders.build], local: true) do |form| %>
+            <%= form.hidden_field :chosen_offer_id, value: @product.chosen_offer_id %>
+            <%= form.submit 'Purchase through ProcureSwift', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
           <% end %>
-
-
-        </div>
-      </div>
-
+        <% else %>
+          <%= link_to 'Purchase through ProcureSwift',
+                      new_user_session_path,
+                      class: 'btn btn-block btn-accent',
+                      id: 'checkout_button',
+                      notice: 'You need to login before you can purchase'%>
+        <% end %>
+      <% end %>
     </div>
 
   </div>

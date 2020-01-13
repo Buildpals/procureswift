@@ -24,21 +24,30 @@ class Order < ApplicationRecord
 
   enum status: { pending: 0, failure: 1, success: 3 }
 
-  def order_total
-    return nil if items_cost.nil?
-    return nil if shipping_and_handling.nil?
-
-    items_cost + shipping_and_handling
+  def items_cost
+    product.default_price * quantity
   end
 
-  def items_cost
-    return nil if price.nil?
+  def shipping
+    Shipping.new(product.dimensions.weight_in_pounds,
+                               product.default_price,
+                               quantity)
+  end
 
-    price * quantity
+  def handling
+    Handling.new(product.default_price, quantity)
+  end
+
+  def duty
+    Duty.new(product.default_price, shipping.cost, quantity)
   end
 
   def shipping_and_handling
-    product.shipping_cost
+    shipping.cost + handling.cost
+  end
+
+  def total_cost
+    items_cost + shipping_and_handling + duty.cost
   end
 
   def price

@@ -163,15 +163,7 @@
                     <%= truncate product.title, length: 60 %>
                   </a>
                   <div class="mb-1">
-                    <small class="text-danger mr-2">
-                      <%= number_to_currency product.default_price %>
-                    </small>
-                  </div>
-                  <div class="mb-1 w-100 d-flex justify-content-start">
-                    <div class="small mr-2">
-                      <%= number_to_currency product.shipping_cost %>
-                      by Air
-                    </div>
+                    <small class="mr-2"><%= render partial: 'total_cost', locals: { order: product.orders.build(quantity: 1) } %></small>
                   </div>
                 </div>
               </div>
