@@ -8,54 +8,6 @@
 
   <div class="row mt-3">
 
-    <div class="col-lg-4">
-      <div class="card mb-3">
-
-        <div class="card-body bproduct-bottom">
-          <div class="media">
-            <img src="<%= @order.product.main_image %>" class="mr-3" width="64">
-            <div class="media-body">
-              <%= @order.product.title %>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="card-body">
-
-          <%= form_with(model: [@order.product, @order], local: true) do |form| %>
-            <div class="form-group">
-              <%= form.label :chosen_offer_id, "Price Offers" %>
-              <%= form.collection_radio_buttons :chosen_offer_id,
-                                                @order.product.offers,
-                                                value_method = :last,
-                                                text_method = :first do |b| %>
-                <div class="form-check">
-                  <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
-                  <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :quantity, "Quantity" %>
-              <%= form.select :quantity,
-                              choices = (1..50).map { |w| [w, w] },
-                              options = {
-                                  include_blank: false
-                              },
-                              html_options = {
-                                  class: "form-control",
-                                  onchange: 'this.form.submit();'
-                              } %>
-            </div>
-          <% end %>
-
-
-        </div>
-
-      </div>
-    </div>
 
     <div class="col-lg-4">
       <%= render(partial: 'orders/costs_card', locals: { order: @order }) %>

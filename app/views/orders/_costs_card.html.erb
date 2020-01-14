@@ -2,9 +2,9 @@
   <div class="card-body">
     <h5 class="card-title">Order Summary</h5>
     <dl class="row mt-4">
-      <dd class="col-8">Items (<%= order.quantity %>):</dd>
+      <dd class="col-8">Items (<%= order.number_of_items %>):</dd>
       <dd class="col-4 text-right">
-        <%= number_to_currency(order.items_cost) %>
+        <%= number_to_currency(order.subtotal) %>
       </dd>
 
       <dd class="col-8">Shipping & handling:</dd>
@@ -14,20 +14,20 @@
 
       <dd class="col-8 border-bottom">Estimated Duty:</dd>
       <dd class="col-4 text-right border-bottom">
-        <%= number_to_currency order.duty.cost %>
+        <%= number_to_currency order.duty %>
       </dd>
 
-      <dd class="col-6 text-truncate font-weight-bold">Total Cost:</dd>
-      <dd class="col-6 text-right font-weight-bold">
-        <span id="order_total"><%= number_to_currency order.total_cost %></span>
+      <dd class="col-6 text-truncate font-weight-bold text-danger">Order Total:</dd>
+      <dd class="col-6 text-right font-weight-bold text-danger">
+        <span id="order_total"><%= number_to_currency order.order_total %></span>
         <br>
-        <span class="small">(<%= number_to_currency_gh dollar_to_cedi order.total_cost %>)</span>
+        <span class="small">(<%= number_to_currency_gh dollar_to_cedi order.order_total %>)</span>
       </dd>
     </dl>
     <div class="text-center">
       Estimated delivery
       <span class="text-success">
-              <%= 2.weeks.from_now.to_date.to_s(:long) %>
+              <%= 2.weeks.from_now.to_date.to_s(:short) %>
             </span>
     </div>
     <div class="small text-center">

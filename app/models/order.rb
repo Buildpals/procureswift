@@ -5,6 +5,7 @@ class Order < ApplicationRecord
 
   include ActionView::Helpers::NumberHelper
 
+  belongs_to :cart
   belongs_to :user, inverse_of: :orders
   belongs_to :product, inverse_of: :orders
 
@@ -24,45 +25,11 @@ class Order < ApplicationRecord
 
   enum status: { pending: 0, failure: 1, success: 3 }
 
-  def items_cost
-    product.default_price * quantity
-  end
-
-  def shipping
-    Shipping.new(product.dimensions.weight_in_pounds,
-                               product.default_price,
-                               quantity)
-  end
-
-  def handling
-    Handling.new(product.default_price, quantity)
-  end
-
-  def duty
-    Duty.new(product.default_price, shipping.cost, quantity)
-  end
-
-  def shipping_and_handling
-    shipping.cost + handling.cost
-  end
-
-  def total_cost
-    items_cost + shipping_and_handling + duty.cost
-  end
-
-  def price
-    return nil if product.zinc_product_offers.nil?
-    return nil if product.zinc_product_offers['offers'].nil?
-    return nil if product.chosen_offer_id.nil?
-
-    chosen_offer = product.zinc_product_offers['offers'].find do |offer|
-      offer['offer_id'] == chosen_offer_id
-    end
-
-    return nil if chosen_offer.nil?
-
-    chosen_offer['price'] * Product::CENTS_TO_DOLLARS_RATIO
-  end
+  delegate :number_of_items,
+           :subtotal,
+           :shipping_and_handling,
+           :duty,
+           :order_total, to: :cart
 
   def estimated_delivery_date
     2.weeks.from_now.to_date

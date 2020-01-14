@@ -10,41 +10,104 @@
 
     <div class="col-lg-4">
       <div class="card mb-3">
+        <div class="card-body pb-0">
+          <div class="h6 card-title mb-0">
+            <%= @product.title %>
+          </div>
+        </div>
 
-        <img src="<%= @product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+        <a href="<%= @product.item_url %>" target="_blank">
+          <img src="<%= @product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+        </a>
+
 
         <div class="card-body">
-          <h6 class="card-title">
-            <%= @product.title %>
-          </h6>
-
-          <%= form_with(model: @product, local: false) do |form| %>
-            <div class="form-group">
-              <%= form.label :chosen_offer_id, "Price Offers" %>
-              <%= form.collection_radio_buttons :chosen_offer_id,
-                                                @product.offers,
-                                                value_method = :last,
-                                                text_method = :first do |b| %>
-                <div class="form-check">
-                  <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
-                  <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-
-          <div class="w-100 d-flex justify-content-between">
-            <a href="<%= @product.item_url %>" target="_blank">View in Amazon</a>
+          <div class="mb-4">
+            <%= form_with(model: @product, local: false) do |form| %>
+              <div class="form-group">
+                <%= form.label :chosen_offer_id, "Price Offers" %>
+                <%= form.collection_radio_buttons :chosen_offer_id,
+                                                  collection = @product.offers,
+                                                  value_method = :last,
+                                                  text_method = :first,
+                                                  options = {},
+                                                  html_options = {} do |b| %>
+                  <div class="form-check">
+                    <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
+                    <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
 
           <% if current_user&.admin? %>
-            <br>
-
             <%= link_to 'Delete Product', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
           <% end %>
-
         </div>
 
+      </div>
+    </div>
+
+    <div class="col-lg-4 order-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <dl class="row mb-2">
+            <dd class="col-8">Price:</dd>
+            <dd class="col-4 text-right">
+              <%= number_to_currency(@product.default_price) %>
+            </dd>
+
+            <dd class="col-8">Shipping & handling:</dd>
+            <dd class="col-4 text-right">
+              <%= number_to_currency @product.shipping_and_handling %>
+            </dd>
+
+            <dd class="col-8 border-bottom">Estimated Duty:</dd>
+            <dd class="col-4 text-right border-bottom">
+              <%= number_to_currency @product.duty %>
+            </dd>
+
+            <dd class="col-6 text-truncate font-weight-bold text-danger">Total:</dd>
+            <dd class="col-6 text-right font-weight-bold text-danger">
+              <span id="order_total"><%= number_to_currency @product.total_cost %></span>
+              <br>
+              <span class="small">(<%= number_to_currency_gh dollar_to_cedi @product.total_cost %>)</span>
+            </dd>
+          </dl>
+
+
+          <div class="mb-4">
+            <div class="text-center">
+              Will be delivered by
+              <span class="text-success">
+              <%= 2.weeks.from_now.strftime("%A, %b. %e") %>
+              </span>
+              <br>
+              (2 weeks)
+            </div>
+
+            <div class="small text-center">
+              Duty charges are subject to changes by customs.
+            </div>
+          </div>
+
+
+          <div class="mb-4">
+            <% if current_user %>
+              <%= form_with(model: CartItem.new, local: false) do |form| %>
+                <%= form.hidden_field :product_id, value: @product.id %>
+                <%= form.submit 'Add to Cart', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
+              <% end %>
+            <% else %>
+              <%= link_to 'Add to Cart',
+                          new_user_session_path,
+                          class: 'btn btn-block btn-accent',
+                          id: 'checkout_button',
+                          notice: 'You need to login before you can purchase' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -83,30 +146,13 @@
 
     </div>
 
-    <div class="col-lg-4">
-      <%= render(layout: 'orders/costs_card', locals: { order: @product.orders.build(quantity: 1) }) do %>
-        <% if current_user %>
-          <%= form_with(model: [@product, @product.orders.build], local: true) do |form| %>
-            <%= form.hidden_field :chosen_offer_id, value: @product.chosen_offer_id %>
-            <%= form.submit 'Purchase through ProcureSwift', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
-          <% end %>
-        <% else %>
-          <%= link_to 'Purchase through ProcureSwift',
-                      new_user_session_path,
-                      class: 'btn btn-block btn-accent',
-                      id: 'checkout_button',
-                      notice: 'You need to login before you can purchase'%>
-        <% end %>
-      <% end %>
-    </div>
-
   </div>
 
 </div>
 
 
 <!-- Modal for purcashing new item -->
-<%= render :partial => 'application/get_shipping_modal_form', locals: { product: @item } %>
+<%= render :partial => 'application/get_shipping_modal_form', locals: {product: Product.new } %>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>

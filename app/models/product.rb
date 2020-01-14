@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  include Shippable
+
   has_paper_trail
 
   include ActionView::Helpers::NumberHelper
@@ -77,8 +79,6 @@ class Product < ApplicationRecord
       f.write(zinc_product_offers.to_json)
     end
   end
-
-  private
 
   private
 

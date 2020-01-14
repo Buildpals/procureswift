@@ -4,18 +4,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
-  resources :products do
-    resources :orders
-  end
+  resources :products
 
   resources :orders
+
+  resources :carts
+  resources :cart_items
 
   get 'admin/orders/', to: 'orders#admin_index', as: :admin_orders
 
   post 'products/payment_status', to: 'products#payment_status', as: :payment_status
 
   get '/payment', to: 'products#payment'
-
 
   # static pages
   get '/privacy_policy', to: 'welcome#privacy_policy', as: :privacy_policy

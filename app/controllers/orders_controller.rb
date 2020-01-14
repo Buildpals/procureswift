@@ -3,14 +3,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: %i[show edit update destroy]
-  before_action :set_product, except: %i[admin_index index destroy]
+  before_action :set_cart, except: %i[admin_index index destroy]
 
   # GET /orders
   # GET /orders.json
   def index
     @pending_orders = current_user.orders.where(status: 0).order(created_at: :desc)
     @purchased_orders = current_user.orders.where("status > ?", 0).order(created_at: :desc)
-    @product = Product.new
   end
 
   def admin_index
@@ -24,12 +23,12 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @product = Product.new
+    @order = Order.new
   end
 
   # GET /orders/new
   def new
-    @order = @product.orders.build
+    @order = @cart.build_order
   end
 
   # GET /orders/1/edit
@@ -39,7 +38,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = @product.orders.build(order_params)
+    @order = @cart.build_order(order_params)
     @order.user = current_user
 
     respond_to do |format|
@@ -95,10 +94,6 @@ class OrdersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_order
     @order = Order.find(params[:id])
-  end
-
-  def set_product
-    @product = Product.find(params[:product_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

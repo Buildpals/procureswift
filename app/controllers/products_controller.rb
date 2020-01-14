@@ -13,12 +13,16 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    result = ItemInformationFetcher.new(@product).fetch_item_information
-    if result == false
-      flash[:notice] = 'We are unable to process your request at this time. Please Try again later.'
-      redirect_to root_path
+    if session["has_viewed_product_#{@product.id}"].nil?
+      unless ItemInformationFetcher.new(@product).fetch_item_information
+        redirect_to root_path, notice: 'We are unable to process your request at this time. Please Try again later.'
+      end
+      session["has_viewed_product_#{@product.id}"] = true
     else
-      @item = Product.new
+      puts
+      puts "=============================================="
+      puts "Skipped fetching product information because session has not expired yet..."
+      puts
     end
   end
 
@@ -45,8 +49,6 @@ class ProductsController < ApplicationController
         end
       else
         @product = Product.new(product_params)
-        session[:full_name] = @product.full_name
-        session[:phone_number] = @product.phone_number
         respond_to do |format|
           if @product.save
             format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -132,13 +134,7 @@ class ProductsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
     params.require(:product).permit(:item_url,
-                                    :item_quantity,
-                                    :delivery_method,
-                                    :delivery_region,
                                     :full_name,
-                                    :address,
-                                    :city_or_town,
-                                    :email,
                                     :phone_number,
                                     :chosen_offer_id)
   end

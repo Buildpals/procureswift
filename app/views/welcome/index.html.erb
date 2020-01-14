@@ -13,7 +13,7 @@
 
         <div class="card mb-4">
           <div class="card-body">
-            <%= form_with(model: @product, local: true) do |form| %>
+            <%= form_with(model: @product, local: false) do |form| %>
 
               <% if @product.errors.any? %>
                 <div id="error_explanation mb-3">
@@ -22,7 +22,7 @@
                     processed:
                   </h2>
 
-                  <ul class="error-text">
+                  <ul class="text-danger">
                     <% @product.errors.full_messages.each do |message| %>
                       <li><%= message %></li>
                     <% end %>
@@ -42,26 +42,6 @@
                   copy the link to it, and paste it above.
                 </small>
               </div>
-              <% unless user_signed_in? %>
-                <div class="form-group">
-                  <%= form.label :full_name %>
-                  <%= form.text_field :full_name,
-                                      required: true,
-                                      autocomplete: 'name',
-                                      class: "form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= form.label :phone_number %>
-                  <%= form.telephone_field :phone_number,
-                                          required: true,
-                                          autocomplete: 'tel',
-                                          class: "form-control" %>
-                  <small id="phone_help" class="form-text text-muted">
-                    This number should be active so we can reach you when we're delivering your item
-                  </small>
-                </div>
-              <% end %>
 
               <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block", data: { disable_with: 'Please wait...' } %>
             <% end %>
@@ -163,7 +143,12 @@
                     <%= truncate product.title, length: 60 %>
                   </a>
                   <div class="mb-1">
-                    <small class="mr-2"><%= render partial: 'total_cost', locals: { order: product.orders.build(quantity: 1) } %></small>
+                    <small class="mr-2">
+                      Total cost:
+                      <span class="text-danger"><%= number_to_currency product.total_cost %></span>
+                      &nbsp;
+                      (<%= number_to_currency_gh dollar_to_cedi product.total_cost %>)
+                    </small>
                   </div>
                 </div>
               </div>

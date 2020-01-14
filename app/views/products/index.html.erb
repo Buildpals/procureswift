@@ -49,7 +49,7 @@
             <em>Search for the product on <a href="www.amazon.com">Amazon</a> and put the link to it in the form below:</em>
           </p>
 
-          <%= form_with(model: @product, local: true) do |form| %>
+          <%= form_with(model: @product, local: false) do |form| %>
 
             <% if @product.errors.any? %>
               <div id="error_explanation mb-3">
@@ -58,7 +58,7 @@
                   processed:
                 </h2>
 
-                <ul class="error-text">
+                <ul class="text-danger">
                   <% @product.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>

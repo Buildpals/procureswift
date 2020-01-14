@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="card mb-4 border-0">
                     <div class="card-body">
-                    <%= form_with(model: product, local: true) do |form| %>
+                    <%= form_with(model: product, local: false) do |form| %>
 
                         <% if @product.errors.any? %>
                         <div id="error_explanation mb-3">
@@ -20,7 +20,7 @@
                             processed:
                             </h2>
 
-                            <ul class="error-text">
+                            <ul class="text-danger">
                             <% product.errors.full_messages.each do |message| %>
                                 <li><%= message %></li>
                             <% end %>
