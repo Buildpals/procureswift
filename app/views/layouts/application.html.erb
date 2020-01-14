@@ -17,11 +17,18 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous" defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js" defer></script>
+
+  <% if Rails.env.development? || Rails.env.test? %>
+    <script src="https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+  <% else %>
+    <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+  <% end %>
+
   <script type="text/javascript" charset="utf-8" defer>
-      document.addEventListener("turbolinks:load", function() {
+      document.addEventListener("turbolinks:load", function () {
           $('#products_table').DataTable({
               paging: false,
               fixedHeader: true
@@ -84,13 +91,23 @@
 
   <!-- Facebook Pixel Code -->
   <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
+      !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+              n.callMethod ?
+                  n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = '2.0';
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
           'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '468824533768359');
       fbq('track', 'PageView');
@@ -141,6 +158,15 @@
               <div class="dropdown-divider"></div>
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= cart_path @cart %>">
+              <span class="fa-layers fa-fw">
+                <i class="fas fa-truck"></i>
+                <span class="fa-layers-counter fa-layers-top-left fa-2x"><%= @cart.number_of_items %></span>
+              </span>
+              Cart
+            </a>
           </li>
         <% else %>
           <li class="nav-item">

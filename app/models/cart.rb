@@ -45,18 +45,4 @@ class Cart < ApplicationRecord
   def order_total
     subtotal + shipping_and_handling + duty
   end
-
-  def price
-    return nil if product.zinc_product_offers.nil?
-    return nil if product.zinc_product_offers['offers'].nil?
-    return nil if product.chosen_offer_id.nil?
-
-    chosen_offer = product.zinc_product_offers['offers'].find do |offer|
-      offer['offer_id'] == chosen_offer_id
-    end
-
-    return nil if chosen_offer.nil?
-
-    chosen_offer['price'] * Product::CENTS_TO_DOLLARS_RATIO
-  end
 end

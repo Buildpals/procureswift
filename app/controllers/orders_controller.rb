@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @pending_orders = current_user.orders.where(status: 0).order(created_at: :desc)
-    @purchased_orders = current_user.orders.where("status > ?", 0).order(created_at: :desc)
+    @purchased_orders = current_user.orders.where('status > ?', 0).order(created_at: :desc)
   end
 
   def admin_index
@@ -32,8 +32,7 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1/edit
-  def edit;
-  end
+  def edit; end
 
   # POST /orders
   # POST /orders.json

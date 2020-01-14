@@ -24,10 +24,3 @@
 </div>
 
 <%= render :partial => 'application/get_shipping_modal_form', locals: { product: @product } %>
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<% if Rails.env.development? || Rails.env.test? %>
-  <script src="https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-<% else %>
-  <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-<% end %>
