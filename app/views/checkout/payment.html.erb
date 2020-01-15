@@ -2,14 +2,14 @@
   <div class="row mt-3">
 
     <div class="col-lg-8">
-      <%= render partial: 'orders/address_info_card', locals: { cart: current_cart } %>
+      <%= render partial: 'orders/address_info_card', locals: { order: @order } %>
 
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Items in Your Cart</h5>
 
           <ul class="list-group list-group-flush">
-            <% current_cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+            <% @order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
               <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
                 <a href="<%= product_path cart_item.product %>">
                   <div class="d-flex w-100 justify-content-start">
@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render(layout: 'orders/costs_card', locals: { cart: current_cart }) do %>
+      <%= render(layout: 'orders/costs_card', locals: { order: @order }) do %>
         <button class="btn btn-accent btn-block" onclick="payWithRave()">
           Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
         </button>
@@ -54,8 +54,10 @@
     <% else %>
     const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
     <% end %>
+    var txref = "Cart_<%= current_cart.id %>_" + Math.random().toString().split('.')[1];
 
     function payWithRave() {
+        var reference = txref;
         var price = parseInt("<%= dollar_to_cedi current_cart.order_total %>");
         var x = getpaidSetup({
             PBFPubKey: publicKey,
@@ -65,7 +67,7 @@
             currency: "GHS",
             country: 'GH',
             payment_options: "mobilemoneyghana,card",
-            txref: "<%= current_cart.tx_ref %>",
+            txref: txref,
             meta: [{
                 cart_id: "<%= current_cart.id %>",
                 subtotal: "<%= escape_javascript number_to_currency current_cart.subtotal %>",
@@ -85,18 +87,11 @@
                     response.tx.chargeResponseCode == "00" ||
                     response.tx.chargeResponseCode == "0"
                 ) {
-                    // Attempt to create the order
-                    verifyPayment()
-                    verifyPayment()
+                    // Submit the billing address
+                    // TODO: Set payment success for order
+                    $('#order_form').submit()
                 } else {
-                    $('#alert_container').html(
-                        '    <div class="alert alert-danger mt-3" role="alert">' +
-                        '      There was an issue while trying to process your payment' +
-                        '      <button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                        '        <span aria-hidden="true">&times;</span>' +
-                        '      </button>' +
-                        '    </div>'
-                    )
+                    // show failure modal
                 }
 
                 x.close();

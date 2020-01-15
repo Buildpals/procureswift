@@ -7,14 +7,19 @@ class ApplicationController < ActionController::Base
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
-  before_action :set_cart
-
-  def set_cart
-    @cart = Cart.find(session[:cart_id])
-  rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create!(user: current_user)
-    session[:cart_id] = @cart.id
+  def current_cart
+    if session[:cart_id]
+      @current_cart ||= Cart.find(session[:cart_id])
+      session[:cart_id] = nil if @current_cart.purchased_at
+    end
+    if session[:cart_id].nil?
+      @current_cart = Cart.create!(user: current_user)
+      session[:cart_id] = @current_cart.id
+    end
+    @current_cart
   end
+
+  helper_method :current_cart
 
   protected
 

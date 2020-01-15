@@ -2,104 +2,43 @@
   
   <div class="row mt-3">
 
-    <div class="col-md-6">
+    <div class="col-md-12">
 
-      <div class="card mb-4">
+      <h1>Your Orders</h1>
+      <hr>
 
-        <div class="card-header text-center">Pending Orders</div>
-
-        <div class="list-group list-group-flush">
-
-          <% @pending_orders.each do |order| %>
-            <a href="<%= product_order_path(order.product, order) %>" class="list-group-item list-group-item-action d-flex flex-row align-items-start">
-
-              <div class="product-image">
-                <img class="mr-3" src="<%= order.product.main_image %>" width="120" alt="Generic placeholder image">
-              </div>
-
+      <% @orders.each do |order| %>
+        <div class="card mb-4">
+          <div class="card-header">
+            <div class="d-flex w-100 justify-content-between flex-wrap">
+              <div>Order Placed: <%= order.cart.purchased_at.to_date.to_s(:long) %></div>
+              <div>Total: <%= number_to_currency_gh dollar_to_cedi order.order_total %></div>
+              <div>Ship To: <%= order.cart.full_name %></div>
               <div>
-                <h6 class="mb-1"><%= truncate order.product.title, length: 60 %></h6>
-                <div class="mb-1">
-                  <small class="">
-                    <span class="text-danger"><%= number_to_currency order.price %></span>
-                    (x<%= order.quantity %>)
-                  </small>
-
-                  <div class="small mr-2">
-                    <%= number_to_currency order.price %>
-                    <%= order.delivery_method&.titleize %>
-                  </div>
-
-                  <div class="small mr-2">
-                    Total: <%= number_to_currency order.order_total %>
-                  </div>
-
-                </div>
-
+                <a href="<%= order_path order %>">Order Details</a>
               </div>
+            </div>
+          </div>
 
-            </a>
-          <% end %>
-
+          <ul class="list-group list-group-flush">
+            <% order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+              <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
+                <a href="<%= product_path cart_item.product %>">
+                  <div class="d-flex w-100 justify-content-start">
+                    <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                    <div>
+                      <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
+                      <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
+                      <div>Qty: <%= cart_item.quantity %></div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            <% end %>
+          </ul>
         </div>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-6">
-
-      <div class="card mb-4">
-
-        <div class="card-header text-center">Purchased Orders</div>
-
-        <div class="list-group list-group-flush">
-
-          <% @purchased_orders.each do |order| %>
-            <a href="<%= product_order_path(order.product, order) %>" class="list-group-item list-group-item-action d-flex flex-row align-items-start">
-
-              <div class="product-image">
-                <img class="mr-3" src="<%= order.product.main_image %>" width="120" alt="Generic placeholder image">
-              </div>
-
-              <div>
-                <h6 class="mb-1"><%= truncate order.product.title, length: 60 %></h6>
-                <div class="mb-1">
-                  <small class="">
-                    <span class="text-danger"><%= number_to_currency order.price %></span>
-                    (x<%= order.quantity %>)
-                  </small>
-
-                  <div class="small mr-2">
-                    <%= number_to_currency order.price %>
-                    <%= order.delivery_method&.titleize %>
-                  </div>
-
-                  <div class="small mr-2">
-                    Total: <%= number_to_currency order.order_total %>
-                  </div>
-
-                  <div class="small mr-2 float-right">
-                    <% if order.status.eql?('success') %>
-                      <div class="p-1 mb-1 bg-success text-white"><%= order.status %></div>
-                    <% else %>
-                      <div class="p-1 mb-1 bg-danger text-white"><%= order.status %></div>
-                    <% end %>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </a>
-          <% end %>
-
-        </div>
-
-      </div>
+      <% end %>
 
     </div>
   </div>
 </div>
-
-<%= render :partial => 'application/get_shipping_modal_form', locals: { product: @product } %>

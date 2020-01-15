@@ -44,8 +44,6 @@ function payWithRave() {
                 response.tx.chargeResponseCode == "00" ||
                 response.tx.chargeResponseCode == "0"
             ) {
-                $('#order_form').formTarget.submit()
-
                 //show success modal
                 window.location.href = '/payment?' + 'txRef='
                     + reference

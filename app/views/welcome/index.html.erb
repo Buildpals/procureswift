@@ -130,34 +130,6 @@
   <div class="container">
     <h2 class="mb-5 text-center">What people bought recently</h2>
 
-    <% @products.in_groups_of(3).each do |group| %>
-      <div class="row">
-
-        <% group.each do |product| %>
-          <% unless product.nil? %>
-            <div class="col-md-4 mb-2">
-              <div class="card" style="height: 330px">
-                <img class="card-img-top img-fluid" src="<%= product.main_image %>" alt="<%= product.title %>">
-                <div class="card-body">
-                  <a class="card-title h6 stretched-link text-decoration-none" href="<%= product_path product %>">
-                    <%= truncate product.title, length: 60 %>
-                  </a>
-                  <div class="mb-1">
-                    <small class="mr-2">
-                      Total cost:
-                      <span class="text-danger"><%= number_to_currency product.total_cost %></span>
-                      &nbsp;
-                      (<%= number_to_currency_gh dollar_to_cedi product.total_cost %>)
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-
-      </div>
-    <% end %>
 
   </div>
 </section>

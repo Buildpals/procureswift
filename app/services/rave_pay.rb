@@ -16,9 +16,9 @@ class RavePay
 
   def call(txref)
     if Rails.env.development? || Rails.env.test?
-      payload = { 'SECKEY': TEST_SECRET_KEY, 'txref': txref }
+      payload = {'SECKEY': TEST_SECRET_KEY, tx_ref: txref }
     else
-      payload = { 'SECKEY': SECRET_KEY, 'txref': txref }
+      payload = {'SECKEY': SECRET_KEY, tx_ref: txref }
     end
     json = payload.to_json
     ActiveSupport::JSON.decode(send_request_to_rave_pay(json))

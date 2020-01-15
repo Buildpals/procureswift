@@ -9,8 +9,6 @@ class Product < ApplicationRecord
 
   CENTS_TO_DOLLARS_RATIO = 0.01
 
-  has_many :orders, inverse_of: :product
-
   validate :valid_amazon_url?
 
   delegate :weight,
@@ -85,7 +83,7 @@ class Product < ApplicationRecord
   def valid_amazon_url?
     return unless retailers_product_id == false
 
-    errors.add(:item_url, ': Please enter a valid amazon link')
+    errors.add(:item_url, ': Please enter a valid Amazon link')
   end
 
   def add_custom_error(object = :base, error_message = 'Please provide a valid input')

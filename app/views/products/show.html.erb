@@ -101,7 +101,7 @@
               <% end %>
             <% else %>
               <%= link_to 'Add to Cart',
-                          new_user_session_path,
+                          new_user_registration_path,
                           class: 'btn btn-block btn-accent',
                           id: 'checkout_button',
                           notice: 'You need to login before you can purchase' %>
@@ -149,10 +149,6 @@
   </div>
 
 </div>
-
-
-<!-- Modal for purcashing new item -->
-<%= render :partial => 'application/get_shipping_modal_form', locals: {product: Product.new } %>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>

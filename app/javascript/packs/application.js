@@ -15,3 +15,15 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+console.log("This shit was supposed to have run")
+function verifyPayment(txref) {
+    Rails.ajax({
+        url: "/orders",
+        type: "POST",
+        data: "txtref=" + txref,
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}

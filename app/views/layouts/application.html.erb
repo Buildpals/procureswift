@@ -21,12 +21,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js" defer></script>
 
-  <% if Rails.env.development? || Rails.env.test? %>
-    <script src="https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-  <% else %>
-    <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-  <% end %>
-
   <script type="text/javascript" charset="utf-8" defer>
       document.addEventListener("turbolinks:load", function () {
           $('#products_table').DataTable({
@@ -123,7 +117,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">
-      <%= image_tag "/img/Procurewift-17.png", height: "60", alt: "" %>
+      <%= image_tag "/img/Procurewift-17.png", height: "60", style: "margin: -0.5rem;" %>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,7 +133,9 @@
         <% end %>
         <% if user_signed_in? && controller_name != 'welcome' %>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#getShippingCostModal">Purchase new item</a>
+            <a class="nav-link" href="<%= root_path %>">
+              Purchase new item
+            </a>
           </li>
         <% end %>
       </ul>
@@ -160,12 +156,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= cart_path @cart %>">
-              <span class="fa-layers fa-fw">
-                <i class="fas fa-truck"></i>
-                <span class="fa-layers-counter fa-layers-top-left fa-2x"><%= @cart.number_of_items %></span>
-              </span>
+            <a class="nav-link" href="<%= cart_path(current_cart) %>">
+              <span class="fa fa-shopping-cart"></span>
               Cart
+              (<%= current_cart.number_of_items %>)
             </a>
           </li>
         <% else %>
@@ -182,7 +176,7 @@
   </div>
 </nav>
 
-<section class="container">
+<section class="container" id="alert_container">
   <% if notice %>
     <div class="alert alert-info mt-3" role="alert">
       <%= notice %>
@@ -208,5 +202,6 @@
 
 <!-- Footer -->
 <%= render :partial => 'application/footer' %>
+
 </body>
 </html>

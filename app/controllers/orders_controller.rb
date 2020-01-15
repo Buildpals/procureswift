@@ -3,56 +3,41 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: %i[show edit update destroy]
-  before_action :set_cart, except: %i[admin_index index destroy]
 
   # GET /orders
-  # GET /orders.json
   def index
-    @pending_orders = current_user.orders.where(status: 0).order(created_at: :desc)
-    @purchased_orders = current_user.orders.where('status > ?', 0).order(created_at: :desc)
-  end
-
-  def admin_index
-    @orders = if current_user.admin?
-                Order.all.order(created_at: :desc)
-              else
-                current_user.orders.order(created_at: :desc)
-              end
+    @orders = Order.all
   end
 
   # GET /orders/1
-  # GET /orders/1.json
-  def show
-    @order = Order.new
-  end
+  def show; end
 
   # GET /orders/new
   def new
-    @order = @cart.build_order
+    @order = current_cart.build_order
   end
 
-  # GET /orders/1/edit
-  def edit; end
-
   # POST /orders
-  # POST /orders.json
   def create
-    @order = @cart.build_order(order_params)
+    @order = current_cart.build_order(order_params)
     @order.user = current_user
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to product_order_path(@product, @order), notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.purchased?(current_cart) == false
+      flash.now[:alert] = 'There was an issue while trying to process your payment'
+      render :new
+      return
+    else
+      flash.now[:notice] = 'Payment would have been successful'
+      render :new
+      return
     end
+
+    #@order.cart.update!(purchased_at: Time.current)
+    #@order.save!
+    #redirect_to @order, notice: 'Order was successfully placed.'
   end
 
   # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
   def update
     if params[:commit] && params[:commit][0, 12] == 'Make Payment'
       respond_to do |format|
@@ -78,16 +63,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -97,17 +72,13 @@ class OrdersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
-    params.require(:order).permit(:product_id,
-                                  :user_id,
-                                  :chosen_offer_id,
-                                  :quantity,
+    params.require(:order).permit(:user_id,
                                   :delivery_method,
                                   :full_name,
                                   :address,
                                   :region,
                                   :city_or_town,
                                   :phone_number,
-                                  :email,
                                   :txtref,
                                   :status,
                                   :purchased)
