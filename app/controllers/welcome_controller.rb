@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
     @product = Product.new
     @recent_products = Product
                        .where.not(zinc_product_details: nil)
+                       .where(featured: true)
                        .last(6)
   end
 

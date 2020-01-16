@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_190211) do
+ActiveRecord::Schema.define(version: 2020_01_16_132304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_190211) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "cart_id"
-
-    t.string "txtref"
-    t.integer "status", default: 0, null: false
-    t.boolean "purchased", default: false, null: false
-
     t.integer "delivery_method", default: 0, null: false
     t.string "full_name"
     t.string "address"
@@ -55,9 +49,12 @@ ActiveRecord::Schema.define(version: 2020_01_15_190211) do
     t.string "city_or_town"
     t.string "phone_number"
     t.string "email"
-
+    t.string "txtref"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cart_id"
+    t.boolean "purchased", default: false, null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -69,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_190211) do
     t.datetime "updated_at", precision: 6, null: false
     t.json "zinc_product_offers"
     t.string "chosen_offer_id"
+    t.boolean "featured", default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|
