@@ -95,7 +95,7 @@
 
           <div class="mb-4">
             <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-block btn-accent' %>
-            <%= link_to 'Delete Product', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
+            <%= link_to 'Delete Product', admin_product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
             <%= link_to 'Back', admin_products_path, class: 'btn btn-block btn-info' %>
           </div>
         </div>

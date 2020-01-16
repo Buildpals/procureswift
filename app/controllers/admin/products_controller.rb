@@ -54,6 +54,6 @@ class Admin::ProductsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
-    params.require(:product).permit(:item_url, :zinc_product_details, :zinc_product_offers, :featured)
+    params.require(:product).permit(:featured)
   end
 end
