@@ -23,14 +23,6 @@ RSpec.describe OrdersController, type: :routing do
       expect(:post => "/orders").to route_to("orders#create")
     end
 
-    it "routes to #update via PUT" do
-      expect(:put => "/orders/1").to route_to("orders#update", :id => "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(:patch => "/orders/1").to route_to("orders#update", :id => "1")
-    end
-
     it "routes to #destroy" do
       expect(:delete => "/orders/1").to route_to("orders#destroy", :id => "1")
     end

@@ -11,7 +11,7 @@ class CartItem < ApplicationRecord
   end
 
   def shipping_and_handling
-    quantity * product.shipping_and_handling
+    quantity * product.freight_insurance_handling
   end
 
   def duty

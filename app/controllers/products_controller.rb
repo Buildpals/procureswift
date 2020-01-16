@@ -5,7 +5,9 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all.order(created_at: :desc).limit(50)
+    @products = Product
+                .where.not(zinc_product_details: nil)
+                .order(created_at: :desc)
   end
 
   # GET /products/1

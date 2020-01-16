@@ -3,6 +3,9 @@
 class WelcomeController < ApplicationController
   def index
     @product = Product.new
+    @recent_products = Product
+                       .where.not(zinc_product_details: nil)
+                       .last(6)
   end
 
   def privacy_policy; end

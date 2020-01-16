@@ -12,7 +12,7 @@ class Order < ApplicationRecord
 
   delegate :number_of_items,
            :subtotal,
-           :shipping_and_handling,
+           :freight_insurance_handling,
            :duty,
            :order_total, to: :cart
 end

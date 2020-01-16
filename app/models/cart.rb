@@ -48,7 +48,7 @@ class Cart < ApplicationRecord
 
   def shipping_and_handling
     cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.shipping_and_handling
+      sum + cart_item.freight_insurance_handling
     end
   end
 

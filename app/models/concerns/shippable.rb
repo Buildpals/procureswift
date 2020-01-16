@@ -23,11 +23,11 @@ module Shippable
     Handling.new(default_price).cost
   end
 
-  def shipping_and_handling
-    insurance + freight + handling
+  def freight_insurance_handling
+    freight + insurance + handling
   end
 
   def total_cost
-    cost + shipping_and_handling + duty
+    cost + freight_insurance_handling + duty
   end
 end

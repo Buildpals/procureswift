@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :orders
 
-  get 'payment/:id', to: 'checkout#payment', as: :payment
-
   # static pages
   get '/privacy_policy', to: 'welcome#privacy_policy', as: :privacy_policy
   get '/terms', to: 'welcome#terms', as: :terms_and_conditions

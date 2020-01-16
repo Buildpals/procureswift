@@ -34,7 +34,7 @@
 
 
     <div class="col-lg-8">
-      <%= render partial: 'address_info_card', locals: {cart: @order.cart} %>
+      <%= render partial: 'carts/address_info_card', locals: {cart: @order.cart} %>
 
       <div class="card mb-4">
         <div class="card-body pb-2">
@@ -62,7 +62,7 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render(partial: 'orders/costs_card', locals: {cart: @order.cart}) %>
+      <%= render(partial: 'carts/costs_card', locals: {cart: @order.cart}) %>
     </div>
 
   </div>

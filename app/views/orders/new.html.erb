@@ -2,7 +2,7 @@
   <div class="row mt-3">
 
     <div class="col-lg-8">
-      <%= render partial: 'orders/address_info_card', locals: {cart: current_cart} %>
+      <%= render partial: 'carts/address_info_card', locals: {cart: current_cart} %>
 
       <div class="card mb-4">
         <div class="card-body">
@@ -36,7 +36,7 @@
         <%= form.hidden_field :txtref %>
       <% end %>
 
-      <%= render(layout: 'orders/costs_card', locals: {cart: current_cart}) do %>
+      <%= render(layout: 'carts/costs_card', locals: {cart: current_cart}) do %>
         <button class="btn btn-accent btn-block" onclick="payWithRave()">
           Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
         </button>
@@ -75,7 +75,7 @@
             meta: [{
                 cart_id: "<%= current_cart.id %>",
                 subtotal: "<%= escape_javascript number_to_currency current_cart.subtotal %>",
-                shipping_and_handling: "<%= escape_javascript number_to_currency current_cart.shipping_and_handling %>",
+                shipping_and_handling: "<%= escape_javascript number_to_currency current_cart.freight_insurance_handling %>",
                 duty: "<%= escape_javascript number_to_currency current_cart.duty %>",
                 total_cost: "<%= escape_javascript number_to_currency current_cart.order_total %>",
                 full_name: "<%= escape_javascript current_user.full_name %>",
