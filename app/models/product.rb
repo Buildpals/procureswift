@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   include Shippable
   include ActionView::Helpers::NumberHelper
 
+  has_many :cart_items, dependent: :destroy
+
   CENTS_TO_DOLLARS_RATIO = 0.01
 
   validate :valid_amazon_url?

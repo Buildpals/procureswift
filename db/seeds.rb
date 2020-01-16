@@ -15,9 +15,20 @@
 #  order.cart_id = cart.id
 #  order.save!
 #end
+#
+#CartItem.all.each do |cart_item|
+#  puts "updating"
+#  cart_item.unit_price = cart_item.product.default_price
+#  cart_item.save!
+#end
+#
 
-CartItem.all.each do |cart_item|
-  puts "updating"
-  cart_item.unit_price = cart_item.product.default_price
-  cart_item.save!
+Product.where(zinc_product_details: nil).destroy_all
+
+Product.all.each do |product|
+  begin
+    puts product.total_cost
+  rescue ArgumentError
+    product.destroy
+  end
 end

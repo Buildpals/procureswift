@@ -94,18 +94,9 @@
 
 
           <div class="mb-4">
-            <% if current_user %>
-              <%= form_with(model: CartItem.new, local: false) do |form| %>
-                <%= form.hidden_field :product_id, value: @product.id %>
-                <%= form.submit 'Add to Cart', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
-              <% end %>
-            <% else %>
-              <%= link_to 'Add to Cart',
-                          new_user_registration_path,
-                          class: 'btn btn-block btn-accent',
-                          id: 'checkout_button',
-                          notice: 'You need to login before you can purchase' %>
-            <% end %>
+            <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-block btn-accent' %>
+            <%= link_to 'Delete Product', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
+            <%= link_to 'Back', admin_products_path, class: 'btn btn-block btn-info' %>
           </div>
         </div>
       </div>
