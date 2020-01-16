@@ -10,7 +10,7 @@ class CartItem < ApplicationRecord
     quantity * product.default_price
   end
 
-  def shipping_and_handling
+  def freight_insurance_handling
     quantity * product.freight_insurance_handling
   end
 
@@ -19,6 +19,6 @@ class CartItem < ApplicationRecord
   end
 
   def total_cost
-    subtotal + shipping_and_handling + duty
+    subtotal + freight_insurance_handling + duty
   end
 end

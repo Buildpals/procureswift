@@ -75,7 +75,7 @@
             meta: [{
                 cart_id: "<%= current_cart.id %>",
                 subtotal: "<%= escape_javascript number_to_currency current_cart.subtotal %>",
-                shipping_and_handling: "<%= escape_javascript number_to_currency current_cart.freight_insurance_handling %>",
+                shipping_and_insurance: "<%= escape_javascript number_to_currency current_cart.freight_insurance_handling %>",
                 duty: "<%= escape_javascript number_to_currency current_cart.duty %>",
                 total_cost: "<%= escape_javascript number_to_currency current_cart.order_total %>",
                 full_name: "<%= escape_javascript current_user.full_name %>",
