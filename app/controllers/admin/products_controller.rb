@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
   before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products

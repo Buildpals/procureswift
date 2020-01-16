@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::CartsController < ApplicationController
+class Admin::CartsController < AdminController
   before_action :set_cart, only: %i[show edit update destroy]
 
   # GET /carts
