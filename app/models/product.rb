@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  include Shippable
-
   has_paper_trail
 
+  include Shippable
   include ActionView::Helpers::NumberHelper
 
   CENTS_TO_DOLLARS_RATIO = 0.01

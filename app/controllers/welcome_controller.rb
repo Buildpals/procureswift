@@ -1,10 +1,8 @@
+# frozen_string_literal: true
+
 class WelcomeController < ApplicationController
   def index
     @product = Product.new
-    @products = Product.joins(:orders)
-                    .where(orders: { status: :success })
-                    .order(created_at: :desc)
-                    .limit(6)
   end
 
   def privacy_policy; end
@@ -14,5 +12,4 @@ class WelcomeController < ApplicationController
   def refund_policy; end
 
   def careers; end
-
 end

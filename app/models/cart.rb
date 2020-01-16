@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Cart < ApplicationRecord
-  require 'securerandom'
+  has_paper_trail
 
   belongs_to :user
   has_many :cart_items
@@ -20,10 +20,6 @@ class Cart < ApplicationRecord
     volta_region: 8,
     western_region: 9
   }
-
-  def tx_ref
-    "#{id}_#{SecureRandom.uuid}"
-  end
 
   def add_product(cart_item_params)
     product = Product.find(cart_item_params[:product_id])

@@ -2,7 +2,7 @@
   <div class="row mt-3">
 
     <div class="col-lg-8">
-      <%= render partial: 'orders/address_info_card', locals: { cart: current_cart } %>
+      <%= render partial: 'orders/address_info_card', locals: {cart: current_cart} %>
 
       <div class="card mb-4">
         <div class="card-body">
@@ -32,7 +32,11 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render(layout: 'orders/costs_card', locals: { cart: current_cart }) do %>
+      <%= form_with(model: @order, local: false, id: 'order_form') do |form| %>
+        <%= form.hidden_field :txtref %>
+      <% end %>
+
+      <%= render(layout: 'orders/costs_card', locals: {cart: current_cart}) do %>
         <button class="btn btn-accent btn-block" onclick="payWithRave()">
           Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
         </button>
@@ -49,11 +53,13 @@
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-    <% if Rails.env.development? || Rails.env.test? %>
-    const publicKey = "FLWPUBK_TEST-5d111ed01ffb9d0a9b6a0d0811ceb591-X";
+    <% if Rails.env.production? %>
+    const publicKey = "<%= Rails.application.credentials.config[:ravepay][:live][:public_key] %>";
     <% else %>
-    const publicKey = "FLWPUBK-8289a3561ffe0c40c4904e20d550db77-X";
+    const publicKey = "<%= Rails.application.credentials.config[:ravepay][:test][:public_key] %>";
     <% end %>
+    var transactionReference = "Cart_<%= current_cart.id %>_" + Math.random().toString().split('.')[1];
+
 
     function payWithRave() {
         var price = parseInt("<%= dollar_to_cedi current_cart.order_total %>");
@@ -65,7 +71,7 @@
             currency: "GHS",
             country: 'GH',
             payment_options: "mobilemoneyghana,card",
-            txref: "<%= current_cart.tx_ref %>",
+            txref: transactionReference,
             meta: [{
                 cart_id: "<%= current_cart.id %>",
                 subtotal: "<%= escape_javascript number_to_currency current_cart.subtotal %>",
@@ -79,24 +85,23 @@
             onclose: function () {
             },
             callback: function (response) {
-                var txref = response.tx.txRef; // collect txRef returned and pass to a server page to complete status check.
+                var transactionReference = response.tx.txRef; // collect txRef returned and pass to a server page to complete status check.
                 console.log("This is the response returned after a charge", response);
-                if (
-                    response.tx.chargeResponseCode == "00" ||
-                    response.tx.chargeResponseCode == "0"
-                ) {
+                console.log(transactionReference);
+                if (response.tx.chargeResponseCode == "00" || response.tx.chargeResponseCode == "0") {
                     // Attempt to create the order
-                    verifyPayment()
-                    verifyPayment()
+                    document.getElementById("order_txtref").value = transactionReference;
+                    $('#order_form').submit();
                 } else {
+                    console.log("Displaying ravepay inline javascript error");
                     $('#alert_container').html(
                         '    <div class="alert alert-danger mt-3" role="alert">' +
-                        '      There was an issue while trying to process your payment' +
+                        '      There was an issue while trying to process your payment.' +
                         '      <button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                         '        <span aria-hidden="true">&times;</span>' +
                         '      </button>' +
                         '    </div>'
-                    )
+                    );
                 }
 
                 x.close();

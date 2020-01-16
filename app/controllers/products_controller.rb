@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show checkout edit update destroy]
+  before_action :set_product, only: %i[show update]
 
   # GET /products
   def index
@@ -17,14 +17,6 @@ class ProductsController < ApplicationController
       session["has_viewed_product_#{@product.id}"] = true
     end
   end
-
-  # GET /products/new
-  def new
-    @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit; end
 
   # POST /products
   def create
@@ -52,12 +44,6 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  # DELETE /products/1
-  def destroy
-    @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
   end
 
   private
