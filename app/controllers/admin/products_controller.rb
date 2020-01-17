@@ -9,7 +9,9 @@ class Admin::ProductsController < AdminController
   end
 
   # GET /products/1
-  def show; end
+  def show
+    ItemInformationFetcher.new(@product).fetch_item_information
+  end
 
   # GET /products/new
   def new

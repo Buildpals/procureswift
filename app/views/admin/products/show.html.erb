@@ -40,10 +40,6 @@
               </div>
             <% end %>
           </div>
-
-          <% if current_user&.admin? %>
-            <%= link_to 'Delete Product', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
-          <% end %>
         </div>
 
       </div>
