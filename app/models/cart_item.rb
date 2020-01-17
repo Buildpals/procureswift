@@ -3,8 +3,8 @@
 class CartItem < ApplicationRecord
   has_paper_trail
 
-  belongs_to :cart
-  belongs_to :product
+  belongs_to :cart, inverse_of: :cart_items
+  belongs_to :product, inverse_of: :cart_items
 
   def subtotal
     quantity * product.default_price

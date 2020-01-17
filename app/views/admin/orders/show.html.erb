@@ -62,10 +62,10 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render(partial: 'carts/costs_card', locals: {cart: @order.cart}) %>
-
-      <%= link_to 'Edit', edit_admin_order_path(@order), class: 'btn btn-block btn-accent' %>
-      <%= link_to 'Back', admin_orders_path, class: 'btn btn-block btn-info' %>
+      <%= render(layout: 'carts/costs_card', locals: {cart: @order.cart}) do %>
+        <%= link_to 'Edit', edit_admin_order_path(@order), class: 'btn btn-block btn-accent' %>
+        <%= link_to 'Back', admin_orders_path, class: 'btn btn-block btn-info' %>
+      <% end %>
     </div>
 
   </div>
