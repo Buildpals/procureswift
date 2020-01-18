@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_paper_trail
 
+  has_many :carts, inverse_of: :user, dependent: :destroy
   has_many :orders, inverse_of: :user, dependent: :destroy
 end
