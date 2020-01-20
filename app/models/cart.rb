@@ -3,7 +3,8 @@
 class Cart < ApplicationRecord
   has_paper_trail
 
-  belongs_to :user, inverse_of: :cart
+  belongs_to :user, inverse_of: :carts
+
   has_many :cart_items, inverse_of: :cart, dependent: :destroy
   has_one :order, inverse_of: :cart, dependent: :destroy
 

@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   include Shippable
   include ActionView::Helpers::NumberHelper
 
-  has_many :cart_items, dependent: :destroy
+  has_many :cart_items, inverse_of: :product, dependent: :destroy
 
   CENTS_TO_DOLLARS_RATIO = 0.01
 
