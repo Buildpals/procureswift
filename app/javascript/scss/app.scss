@@ -1,0 +1,5 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+$flagsImagePath: '~intl-tel-input/build/img/';
+@import '~intl-tel-input/src/css/intlTelInput';

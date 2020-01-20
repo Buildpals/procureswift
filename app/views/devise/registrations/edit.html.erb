@@ -12,6 +12,11 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
+        <div class="form-group">
+          <%= f.label :phone_number %><br />
+          <%= f.phone_field :phone_number, autocomplete: "phone", required: true, class: "form-control phone-input" %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
