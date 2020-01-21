@@ -4,7 +4,7 @@
 
     <div class="col-lg-12">
       <% if flash[:thanks_for_shopping_with_us] %>
-        <h1 class="mb-3">Thanks for shopping with us <%= current_user.full_name %>!</h1>
+        <h1 class="mb-3">Thanks for shopping with us <%= @order.user.full_name %>!</h1>
       <% end %>
 
       <div>
@@ -19,7 +19,7 @@
 
       <p>
         For your receipt, check out the confirmation email our payment processor will send
-        to <%= current_user.email %>.
+        to <%= @order.user.email %>.
       </p>
       <p>
         Please call or whatsapp ProcureSwift on
