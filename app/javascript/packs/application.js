@@ -15,7 +15,7 @@ require('channels')
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import 'scss/app.scss'
+import 'src/application.scss'
 import 'bootstrap'
 
 import { dom, library } from '@fortawesome/fontawesome-svg-core'
