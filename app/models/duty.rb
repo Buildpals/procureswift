@@ -152,7 +152,7 @@ class Duty
   def import_duty
     # TODO: Figure out import_duty rate based on HSCODE using 10 for now
     # 0%, 5%, 10% or 20%
-    @cif * (5 / 100.0)
+    @cif * (10 / 100.0)
   end
 
   def import_vat
