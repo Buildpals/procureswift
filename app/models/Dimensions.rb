@@ -7,17 +7,38 @@ class Dimensions
     if zinc_product_details['package_dimensions'].nil?
       raise ArgumentError, 'package_dimensions is nil'
     end
-    if zinc_product_details['package_dimensions']['size'].nil?
-      raise ArgumentError, 'package_dimensions >> size'
+    if zinc_product_details['package_dimensions']['weight'].nil?
+      raise ArgumentError, "zinc_product_details['package_dimensions']['weight'] is nil"
     end
-    if zinc_product_details['package_dimensions']['size']['depth'].nil?
-      raise ArgumentError, 'package_dimensions >> size >> depth'
-    end
-    if zinc_product_details['package_dimensions']['size']['depth']['amount'].nil?
-      raise ArgumentError, 'package_dimensions >> size >> depth >> amount'
+    if zinc_product_details['package_dimensions']['weight']['amount'].nil?
+      raise ArgumentError, "zinc_product_details['package_dimensions']['weight']['amount'] is nil"
     end
 
     @zinc_product_details = zinc_product_details
+  end
+
+  def weight
+    @zinc_product_details['package_dimensions']['weight']['amount']
+  end
+
+  def weight_unit
+    if @zinc_product_details['package_dimensions']['weight']['unit'].nil?
+      return nil
+    end
+
+    @zinc_product_details['package_dimensions']['weight']['unit']
+  end
+
+  def weight_in_pounds
+    # TODO: Add for Kilograms and grams as well
+    case weight_unit
+    when 'pounds'
+      weight
+    when 'ounces'
+      weight * OUNCE_TO_POUND_RATIO
+    else
+      weight
+    end
   end
 
   def depth
@@ -98,35 +119,6 @@ class Dimensions
     return nil if depth.nil?
 
     width * length * depth
-  end
-
-  def weight
-    return nil if @zinc_product_details['package_dimensions']['weight'].nil?
-    if @zinc_product_details['package_dimensions']['weight']['amount'].nil?
-      return nil
-    end
-
-    @zinc_product_details['package_dimensions']['weight']['amount']
-  end
-
-  def weight_unit
-    return nil if @zinc_product_details['package_dimensions']['weight'].nil?
-    if @zinc_product_details['package_dimensions']['weight']['unit'].nil?
-      return nil
-    end
-
-    @zinc_product_details['package_dimensions']['weight']['unit']
-  end
-
-  def weight_in_pounds
-    case weight_unit
-    when 'pounds'
-      weight
-    when 'ounces'
-      weight * OUNCE_TO_POUND_RATIO
-    else
-      weight
-    end
   end
 
   def hash

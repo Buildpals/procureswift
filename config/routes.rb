@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :products
     resources :carts
     resources :orders
+    resources :users
   end
 
   devise_for :users
