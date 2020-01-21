@@ -12,6 +12,9 @@
     </div>
 
     <div class="col-lg-8">
+      <p class="ml-2 mb-2 lead">
+        <%= @cart.user.full_name %>, <%= @cart.user.email %>, tel: <%= @cart.user.phone_number %>
+      </p>
       <ul class="list-group mb-4">
         <% @cart.cart_items.order(created_at: :desc).each do |cart_item| %>
           <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
