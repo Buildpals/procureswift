@@ -5,7 +5,7 @@ class Admin::CartsController < AdminController
 
   # GET /carts
   def index
-    @carts = Cart.all
+    @carts = Cart.all.order(created_at: :desc)
   end
 
   # GET /carts/1

@@ -5,7 +5,7 @@ class Admin::ProductsController < AdminController
 
   # GET /products
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
   end
 
   # GET /products/1

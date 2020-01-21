@@ -5,7 +5,7 @@ class Admin::UsersController < AdminController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
 
   # GET /users/1
