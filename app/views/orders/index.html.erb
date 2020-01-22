@@ -11,7 +11,7 @@
         <div class="card mb-4">
           <div class="card-header">
             <div class="d-flex w-100 justify-content-between flex-wrap">
-              <div>Order Placed: <%= order.cart&.purchased_at&.to_date&.to_s(:long) %></div>
+              <div>Order Placed: <%= order.cart&.paid_at&.to_date&.to_s(:long) %></div>
               <div>Total: <%= number_to_currency_gh dollar_to_cedi order.order_total %></div>
               <div>Ship To: <%= order.cart.full_name %></div>
               <div>

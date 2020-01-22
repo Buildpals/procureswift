@@ -17,7 +17,7 @@ class RavePayVerifier
     end
   end
 
-  def purchased?(transaction_reference)
+  def paid?(transaction_reference)
     header = {'Content-Type': 'application/json'}
     payload = {
       'SECKEY' => @merchant_secret_key,

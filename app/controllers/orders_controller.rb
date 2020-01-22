@@ -21,12 +21,12 @@ class OrdersController < ApplicationController
     @order = current_cart.build_order(order_params)
     @order.user = current_user
 
-    if RavePayVerifier.new(current_cart).purchased?(order_params[:txtref]) == false
+    if RavePayVerifier.new(current_cart).paid?(order_params[:txtref]) == false
       flash.now[:alert] = 'There was an issue while trying to process your payment.'
       render(:new) && return
     end
 
-    @order.cart.update!(purchased_at: Time.current)
+    @order.cart.update!(paid_at: Time.current)
     @order.save!
     redirect_to @order, notice: 'Order was placed successfully.', flash: { thanks_for_shopping_with_us: true }
   end

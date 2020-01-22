@@ -11,7 +11,9 @@ RailsAdmin.config do |config|
 
   ## Authorization
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.admin?
+    unless current_user.admin?
+      redirect_to main_app.root_path, notice: 'You are not authorized to view that page.'
+    end
   end
 
   ## == CancanCan ==

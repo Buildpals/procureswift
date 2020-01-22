@@ -64,8 +64,8 @@ class Cart < ApplicationRecord
   end
 
   def estimated_delivery_date
-    if purchased_at.present?
-      purchased_at + 2.weeks
+    if paid_at.present?
+      paid_at + 2.weeks
     else
       2.weeks.from_now
     end

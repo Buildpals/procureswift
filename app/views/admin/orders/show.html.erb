@@ -7,7 +7,7 @@
         <h3>Order Details</h3>
 
         <div class="d-flex flex-wrap">
-          <div class="mr-5">Ordered on <%= @order.cart.purchased_at.to_date.to_s(:long) %></div>
+          <div class="mr-5">Ordered on <%= @order.cart.paid_at.to_date.to_s(:long) %></div>
           <div>Order# <%= @order.id %></div>
         </div>
       </div>

@@ -2,42 +2,61 @@
 
   <div class="row mt-3">
 
-    <div class="col-md-12">
+    <div class="col-md-10 mx-auto">
 
       <h3>Admin / Orders</h3>
       <hr>
 
-      <% @orders.each do |order| %>
-        <div class="card mb-4">
-          <div class="card-header">
-            <div class="d-flex w-100 justify-content-between flex-wrap">
-              <div>Order Placed: <%= order.cart.purchased_at.to_date.to_s(:long) %></div>
-              <div>Total: <%= number_to_currency_gh dollar_to_cedi order.order_total %></div>
-              <div>Ship To: <%= order.cart.full_name %></div>
-              <div>
-                <a href="<%= admin_order_path order %>">Order Details</a>
-              </div>
-            </div>
-          </div>
-
-          <ul class="list-group list-group-flush">
-            <% order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
-              <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
-                <a href="<%= admin_product_path cart_item.product %>">
-                  <div class="d-flex w-100 justify-content-start">
-                    <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
-                    <div>
-                      <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
-                      <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
-                      <div>Qty: <%= cart_item.quantity %></div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            <% end %>
-          </ul>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <% Order.statuses.keys.each do |status| %>
+            <a class="nav-item nav-link" id="nav-<%= status %>-tab" data-toggle="tab" href="#nav-<%= status %>" role="tab" aria-controls="nav-<%= status %>" aria-selected="false">
+              <%= status.titleize %>
+              <span class="badge badge-accent">
+                <%= @orders.where(status: status).count %>
+              </span>
+            </a>
+          <% end %>
         </div>
-      <% end %>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <% Order.statuses.keys.each do |status| %>
+          <div class="tab-pane fade" id="nav-<%= status %>" role="tabpanel" aria-labelledby="nav-<%= status %>-tab">
+          <% @orders.where(status: status).each do |order| %>
+            <div class="card shadow-sm my-5">
+              <div class="card-header">
+                <div class="d-flex w-100 justify-content-between flex-wrap">
+                  <div>Order Placed: <%= order.cart.paid_at.to_date.to_s(:long) %></div>
+                  <div>Total: <%= number_to_currency_gh dollar_to_cedi order.order_total %></div>
+                  <div>Ship To: <%= order.cart.full_name %></div>
+                  <div>
+                    <a href="<%= admin_order_path order %>">Order Details</a>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="list-group list-group-flush">
+                <% order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+                  <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
+                    <a href="<%= admin_product_path cart_item.product %>">
+                      <div class="d-flex w-100 justify-content-start">
+                        <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                        <div>
+                          <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
+                          <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
+                          <div>Qty: <%= cart_item.quantity %></div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
 
     </div>
   </div>
