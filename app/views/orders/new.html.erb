@@ -37,7 +37,13 @@
       <% end %>
 
       <%= render(layout: 'carts/costs_card', locals: {cart: current_cart}) do %>
-        <button class="btn btn-accent btn-block" onclick="payWithRave()">
+        <button class="btn btn-accent btn-block"
+                data-ravepay
+                data-ravepay-key="<%= Rails.env.production? ? Rails.application.credentials.config[:ravepay][:live][:public_key] : Rails.application.credentials.config[:ravepay][:test][:public_key]%>"
+                data-transaction-reference="<%= "#{current_cart.id}_#{rand().to_s.split('.')[1]}" %>"
+                data-order-total="<%= dollar_to_cedi current_cart.order_total %>"
+                data-customer-email="<%= escape_javascript current_user.email %>"
+                data-customer-phone="<%= escape_javascript current_user.phone_number %>">
           Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
         </button>
       <% end %>
@@ -45,68 +51,3 @@
 
   </div>
 </div>
-
-<% if Rails.env.development? || Rails.env.test? %>
-  <script src="https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-<% else %>
-  <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-<% end %>
-
-<script type="text/javascript" charset="utf-8">
-    <% if Rails.env.production? %>
-    const publicKey = "<%= Rails.application.credentials.config[:ravepay][:live][:public_key] %>";
-    <% else %>
-    const publicKey = "<%= Rails.application.credentials.config[:ravepay][:test][:public_key] %>";
-    <% end %>
-    var transactionReference = "Cart_<%= current_cart.id %>_" + Math.random().toString().split('.')[1];
-
-
-    function payWithRave() {
-        var price = parseInt("<%= dollar_to_cedi current_cart.order_total %>");
-        var x = getpaidSetup({
-            PBFPubKey: publicKey,
-            customer_email: "<%= escape_javascript current_user.email %>",
-            amount: price,
-            customer_phone: "<%= escape_javascript current_user.phone_number %>",
-            currency: "GHS",
-            country: 'GH',
-            payment_options: "mobilemoneyghana,card",
-            txref: transactionReference,
-            meta: [{
-                cart_id: "<%= current_cart.id %>",
-                subtotal: "<%= escape_javascript number_to_currency current_cart.subtotal %>",
-                shipping_and_insurance: "<%= escape_javascript number_to_currency current_cart.freight_insurance_handling %>",
-                duty: "<%= escape_javascript number_to_currency current_cart.duty %>",
-                total_cost: "<%= escape_javascript number_to_currency current_cart.order_total %>",
-                full_name: "<%= escape_javascript current_user.full_name %>",
-                email: "<%= escape_javascript current_user.email %>",
-                phone_number: "<%= escape_javascript current_user.phone_number %>"
-            }],
-            onclose: function () {
-            },
-            callback: function (response) {
-                var transactionReference = response.tx.txRef; // collect txRef returned and pass to a server page to complete status check.
-                console.log("This is the response returned after a charge", response);
-                console.log(transactionReference);
-                if (response.tx.chargeResponseCode == "00" || response.tx.chargeResponseCode == "0") {
-                    // Attempt to create the order
-                    document.getElementById("order_txtref").value = transactionReference;
-                    $('#order_form').submit();
-                } else {
-                    console.log("Displaying ravepay inline javascript error");
-                    $('#alert_container').html(
-                        '    <div class="alert alert-danger mt-3" role="alert">' +
-                        '      There was an issue while trying to process your payment.' +
-                        '      <button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                        '        <span aria-hidden="true">&times;</span>' +
-                        '      </button>' +
-                        '    </div>'
-                    );
-                }
-
-                x.close();
-            }
-        });
-    }
-
-</script>

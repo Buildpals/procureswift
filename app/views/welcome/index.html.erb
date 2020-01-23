@@ -13,22 +13,7 @@
 
         <div class="card mb-4">
           <div class="card-body">
-            <%= form_with(model: @product, local: false) do |form| %>
-
-              <% if @product.errors.any? %>
-                <div id="error_explanation mb-3">
-                  <h2>
-                    <%= pluralize(@product.errors.count, "error") %> prohibited your product from being
-                    processed:
-                  </h2>
-
-                  <ul class="text-danger">
-                    <% @product.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
+            <%= form_with(model: @product, local: true) do |form| %>
 
               <div class="form-group">
                 <%= form.label :item_url, "Link to the item on Amazon" %>
@@ -136,7 +121,6 @@
           <div class="card-deck mb-4">
             <% group.each do |product| %>
               <% unless product.nil? %>
-                <%= render product %>
               <% end %>
             <% end %>
           </div>

@@ -41,9 +41,66 @@ document.addEventListener('turbolinks:load', function () {
 import * as intlTelInput from 'intl-tel-input'
 
 document.addEventListener('turbolinks:load', function () {
-  // // Change initialize intlInput on all elements with the id phone
   const input = document.querySelector('.phone-input')
   if (input) {
     const instance = intlTelInput(input, { initialCountry: 'gh' })
   }
 })
+
+document.addEventListener('turbolinks:load', function () {
+  $('button[data-ravepay]').click(function (e) {
+    let price = parseInt($(this).data('order-total'))
+    let customerEmail = $(this).data('customer-email')
+    let customerPhone = $(this).data('customer-phone')
+    let transactionReference = $(this).data('transaction-reference')
+    let ravepayKey = $(this).data('ravepay-key')
+    payWithRave (
+      ravepayKey,
+      price,
+      customerEmail,
+      customerPhone,
+      transactionReference)
+  })
+})
+
+function payWithRave(
+  ravepayKey,
+  price,
+  customerEmail,
+  customerPhone,
+  transactionReference) {
+  let x = getpaidSetup({
+    PBFPubKey: ravepayKey,
+    customer_email: customerEmail,
+    amount: price,
+    customer_phone: customerPhone,
+    currency: 'GHS',
+    country: 'GH',
+    payment_options: 'mobilemoneyghana,card',
+    txref: transactionReference,
+    onclose: function () {
+    },
+    callback: function (response) {
+      var transactionReference = response.tx.txRef // collect txRef returned and pass to a server page to complete status check.
+      console.log('This is the response returned after a charge', response)
+      console.log(transactionReference)
+      if (response.tx.chargeResponseCode == '00' || response.tx.chargeResponseCode == '0') {
+        // Attempt to create the order
+        document.getElementById('order_txtref').value = transactionReference
+        $('#order_form').submit()
+      } else {
+        console.log('Displaying ravepay inline javascript error')
+        $('#alert_container').html(
+          '    <div class="alert alert-danger mt-3" role="alert">' +
+          '      There was an issue while trying to process your payment.' +
+          '      <button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+          '        <span aria-hidden="true">&times;</span>' +
+          '      </button>' +
+          '    </div>'
+        )
+      }
+
+      x.close()
+    }
+  })
+}

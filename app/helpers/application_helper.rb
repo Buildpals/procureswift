@@ -10,4 +10,13 @@ module ApplicationHelper
   def number_to_currency_gh(amount)
     number_to_currency(amount, unit: 'GH₵ ')
   end
+
+  def offer_choices(offers)
+    offers.map do |offer|
+      [
+        offer['offer_id'],
+        "#{number_to_currency(offer['price'])} #{offer['condition']}"
+      ]
+    end
+  end
 end

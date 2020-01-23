@@ -28,13 +28,13 @@ class Cart < ApplicationRecord
     item = cart_items.find_by(product_id: product.id)
     if item
       item.update!(quantity: item.quantity += 1,
-                   unit_price: product.default_price)
+                   unit_price: product.price)
       return item
     end
 
     cart_items.create!(product: product,
                        quantity: 1,
-                       unit_price: product.default_price)
+                       unit_price: product.price)
   end
 
   def number_of_items

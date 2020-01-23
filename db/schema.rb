@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_172707) do
+ActiveRecord::Schema.define(version: 2020_01_23_054952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 2020_01_22_172707) do
     t.json "zinc_product_offers"
     t.string "chosen_offer_id"
     t.boolean "featured", default: false, null: false
+    t.string "title"
+    t.string "main_image"
+    t.json "offers"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "weight", precision: 8, scale: 2
+    t.string "hs_code"
+    t.decimal "width", precision: 8, scale: 2
+    t.decimal "length", precision: 8, scale: 2
+    t.decimal "depth", precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|

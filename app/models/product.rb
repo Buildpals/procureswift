@@ -4,90 +4,65 @@ class Product < ApplicationRecord
   has_paper_trail
 
   include Shippable
-  include ActionView::Helpers::NumberHelper
 
   has_many :cart_items, inverse_of: :product, dependent: :destroy
 
-  CENTS_TO_DOLLARS_RATIO = 0.01
+  validates :item_url, presence: true, url: true
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :weight, presence: true
 
-  validate :valid_amazon_url?
-
-  delegate :weight,
-           :weight_unit,
-           :width,
-           :width_unit,
-           :length,
-           :length_unit,
-           :depth,
-           :depth_unit,
-           :volume,
-           :weight_in_pounds, to: :dimensions
-
-  def retailers_product_id
-    Amazon.get_asin_from_url(item_url)
-  end
-
-  def title
-    zinc_product_details['title']
-  end
-
-  def main_image
-    zinc_product_details['main_image']
-  end
-
-  def product_details
-    return nil if zinc_product_details['product_details'].nil?
-
-    zinc_product_details['product_details'].first
-  end
-
-  def offers
-    return [] if zinc_product_offers.nil?
-
-    zinc_product_offers['offers'].map do |offer|
-      [
-        "#{number_to_currency(offer['price'] * CENTS_TO_DOLLARS_RATIO)} #{offer['condition']} #{offer['handling_days.max']} #{offer['seller.name']}",
-        offer['offer_id']
-      ]
-    end
-  end
-
-  def default_price
-    return nil if chosen_offer_id.nil?
-    return nil if zinc_product_offers.nil?
-    return nil if zinc_product_offers['offers'].nil?
-
-    chosen_offer = zinc_product_offers['offers'].find do |offer|
-      offer['offer_id'] == chosen_offer_id
-    end
-
-    return nil if chosen_offer.nil?
-
-    chosen_offer['price'] * CENTS_TO_DOLLARS_RATIO
-  end
-
-  def dimensions
-    @dimensions ||= Dimensions.new(zinc_product_details)
-  end
-
-  def save_product_details_to_file
-    File.open("public/#{id}.json", 'w') do |f|
-      f.write(zinc_product_details.to_json)
-    end
-    File.open("public/#{id}_offers.json", 'w') do |f|
-      f.write(zinc_product_offers.to_json)
-    end
-  end
+  before_validation :fetch_product_information, on: [:create]
+  before_validation :set_chosen_offer, on: [:create]
+  before_validation :set_price_from_chosen_offer
+  before_validation :ensure_main_image_has_value
 
   private
 
-  def valid_amazon_url?
-    return unless retailers_product_id == false
+  def fetch_product_information
+    logger.info('Fetching product information from zincapi...')
+    @item_information = ItemInformationFetcher.new(self)
+    return unless @item_information.fetch_item_information
 
-    errors.add(:item_url, ': Please enter a valid Amazon link')
+    logger.info('Setting product fields from zinc_api response...')
+    self.title = @item_information.title
+    self.main_image = @item_information.main_image
+    self.offers = @item_information.offers
+    self.weight = @item_information.weight
+    self.width = @item_information.width
+    self.length = @item_information.length
+    self.depth = @item_information.depth
+    logger.info('Product fields set successfully from zinc_api response!')
   end
 
-  def add_custom_error(object = :base, error_message = 'Please provide a valid input')
-    errors.add(object, error_message)
+  def set_chosen_offer
+    logger.info('Setting chosen offer...')
+    return if offers.nil?
+    return if offers.empty?
+
+    self.chosen_offer_id = offers.first['offer_id']
+    logger.info('Chosen offer set successfully!')
+  end
+
+  def set_price_from_chosen_offer
+    logger.info('Setting price from chosen offer...')
+    return if chosen_offer_id.nil?
+    return if offers.nil?
+    return if offers.empty?
+
+    chosen_offer = offers.find { |offer| offer['offer_id'] == chosen_offer_id }
+    return if chosen_offer.nil?
+
+    self.price = chosen_offer['price']
+    logger.info('Price set successfully from chosen offer!')
+  end
+
+  def ensure_main_image_has_value
+    logger.info('Ensuring main image has a value...')
+    return unless main_image.nil?
+
+    self.main_image =
+      ActionController::Base.helpers.image_path('no_product_image')
+    logger.info('Main image set to placeholder "no_product_image!"')
   end
 end

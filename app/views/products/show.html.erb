@@ -10,37 +10,41 @@
 
     <div class="col-lg-4">
       <div class="card mb-3">
-        <div class="card-body pb-0">
-          <div class="h6 card-title mb-0">
+        <a href="<%= @product.item_url %>" target="_blank">
+          <img src="<%= @product.main_image %>"
+               class="card-img-top p-2 img-fluid">
+        </a>
+
+        <div class="card-body pt-0 pb-2">
+          <div class="h5 card-title mb-0">
             <%= @product.title %>
           </div>
         </div>
 
-        <a href="<%= @product.item_url %>" target="_blank">
-          <img src="<%= @product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
-        </a>
 
-
-        <div class="card-body">
-          <div class="mb-4">
-            <%= form_with(model: @product, local: false) do |form| %>
-              <div class="form-group">
-                <%= form.label :chosen_offer_id, "Price Offers" %>
-                <%= form.collection_radio_buttons :chosen_offer_id,
-                                                  collection = @product.offers,
-                                                  value_method = :last,
-                                                  text_method = :first,
-                                                  options = {},
-                                                  html_options = {} do |b| %>
-                  <div class="form-check">
-                    <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
-                    <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
+        <% if @product.offers %>
+          <div class="card-body">
+            <div class="mb-4">
+              <%= form_with(model: @product, local: false) do |form| %>
+                <div class="form-group">
+                  <%= form.label :chosen_offer_id, "Price Offers" %>
+                  <%= form.collection_radio_buttons :chosen_offer_id,
+                                                    collection = offer_choices(@product.offers),
+                                                    value_method = :first,
+                                                    text_method = :last,
+                                                    options = {},
+                                                    html_options = {} do |b| %>
+                    <div class="form-check">
+                      <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
+                      <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+
 
       </div>
     </div>
@@ -51,7 +55,7 @@
           <dl class="row mb-2">
             <dd class="col-8">Price:</dd>
             <dd class="col-4 text-right">
-              <%= number_to_currency(@product.default_price) %>
+              <%= number_to_currency(@product.price) %>
             </dd>
 
             <dd class="col-8">Shipping & Insurance:</dd>
@@ -117,24 +121,24 @@
           <div class="row mb-2">
             <div class="col-4">Width:</div>
             <div class="col-8 text-right">
-              <%= number_with_precision @product.width, precision: 2 %>  <%= @product.width_unit %>
+              <%= "#{number_with_precision(@product.width, precision: 2)} inches" if @product.width %>
             </div>
 
             <div class="col-4">Length:</div>
             <div class="col-8 text-right">
-              <%= number_with_precision @product.length, precision: 2 %> <%= @product.length_unit %>
+              <%= "#{number_with_precision(@product.length, precision: 2)} inches" if @product.length %>
             </div>
 
             <div class="col-4">Depth:</div>
             <div class="col-8 text-right">
-              <%= number_with_precision @product.depth, precision: 2 %>  <%= @product.depth_unit %>
+              <%= "#{number_with_precision(@product.depth, precision: 2)} inches" if @product.depth %>
             </div>
           </div>
 
           <div class="row">
             <div class="col-4">Weight:</div>
             <div class="col-8 text-right">
-              <%= number_with_precision @product.weight_in_pounds, precision: 2 %> pounds
+              <%= number_with_precision @product.weight, precision: 2 %> pounds
             </div>
           </div>
         </div>

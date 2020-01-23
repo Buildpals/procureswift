@@ -3,14 +3,12 @@
 class Freight
   GIGLOGISTICS_FREIGHT_RATE = 4.49
 
-  def initialize(weight_in_pounds)
-    raise ArgumentError, 'weight_in_pounds is nil' if weight_in_pounds.nil?
-
-    @weight_in_pounds = weight_in_pounds
+  def initialize(weight)
+    @weight = weight
   end
 
   def cost
-    @weight_in_pounds * GIGLOGISTICS_FREIGHT_RATE
+    @weight * GIGLOGISTICS_FREIGHT_RATE
   end
 
   def hash

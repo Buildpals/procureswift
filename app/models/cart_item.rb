@@ -7,7 +7,7 @@ class CartItem < ApplicationRecord
   belongs_to :product, inverse_of: :cart_items
 
   def subtotal
-    quantity * product.default_price
+    quantity * unit_price
   end
 
   def freight_insurance_handling
