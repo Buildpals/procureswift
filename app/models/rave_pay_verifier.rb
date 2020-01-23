@@ -18,7 +18,8 @@ class RavePayVerifier
   end
 
   def paid?(transaction_reference)
-    header = {'Content-Type': 'application/json'}
+    Rails.logger.info "Checking if txref #{transaction_reference} exists on ravepay..."
+    header = { 'Content-Type': 'application/json' }
     payload = {
       'SECKEY' => @merchant_secret_key,
       'txref' => transaction_reference
@@ -31,12 +32,29 @@ class RavePayVerifier
     response = http.request(request)
     body = JSON.parse(response.body)
 
-    unless body['data'] && body['data']['status'] == 'successful' && body['data']['chargecode'] == '00'
+    if body['data'] && body['data']['status'] == 'successful' && body['data']['chargecode'] == '00'
+      Rails.logger.info 'Txref exists on Ravepay!'
+    else
+      Rails.logger.warn 'Txref does not exist on Ravepay!'
       return false
     end
 
-    body['data']['amount'] == ApplicationController.helpers.dollar_to_cedi(@cart.order_total).round
+    Rails.logger.info 'Checking if order amount tallies with transaction amount on ravepay...'
+    if amounts_tally?(body)
+      Rails.logger.info 'Order amount is equal to transaction amount on ravepay!'
+      return true
+    else
+      Rails.logger.warn 'Order amount does not tally with transaction amount on ravepay!'
+      Rails.logger.warn "#{body['data']['amount']} #{@cart.order_total}"
+      return false
+    end
   rescue Net::OpenTimeout, SocketError
     false
+  end
+
+  private
+
+  def amounts_tally?(body)
+    body['data']['amount'] == ApplicationController.helpers.dollar_to_cedi(@cart.order_total).round
   end
 end
