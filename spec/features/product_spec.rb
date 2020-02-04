@@ -9,7 +9,7 @@ RSpec.feature 'Product Management', js: true do
   let!(:new_product) { FactoryBot.build(:product) }
   #let!(:new_order) { FactoryBot.build(:order, quantity: 1, delivery_method: :by_air) }
 
-  xscenario 'should be able to get a product details from Amazon' do
+  scenario 'should be able to get a product details from Amazon' do
     visit root_path
 
     fill_in :product_item_url, with: new_product.item_url
@@ -32,7 +32,7 @@ RSpec.feature 'Product Management', js: true do
     #expect(page).to have_content number_to_currency new_product.duty
   end
 
-  xscenario 'should force user to sign in if he hasn\'t signed in before checkout' do
+  scenario 'should force user to sign in if he hasn\'t signed in before checkout' do
     visit root_path
 
     fill_in :product_item_url, with: new_product.item_url
@@ -44,7 +44,7 @@ RSpec.feature 'Product Management', js: true do
     expect(page).to have_content 'Sign up'
   end
 
-  xscenario 'should allow user to add to cart' do
+  scenario 'should allow user to add to cart' do
     login_as customer
 
     visit root_path

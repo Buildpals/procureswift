@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Order Management', js: true do
-  let!(:user) { FactoryBot.build(:user) }
-  let(:product) { FactoryBot.create(:product) }
-  let!(:new_product) { FactoryBot.create(:product) }
-  let!(:new_order) { FactoryBot.build(:order, quantity: 1, delivery_method: :by_air) }
+  let!(:customer) { FactoryBot.create(:user) }
+  let!(:new_product) { FactoryBot.build(:product) }
 
-  xscenario 'should be able to order a product on ProcureSwift' do
+  xscenario 'should be able to order a product on ProcureSwift ' do
     visit product_path new_product
 
     choose '$278.00 New', match: :first
@@ -53,5 +51,36 @@ RSpec.feature 'Order Management', js: true do
     fill_in :order_phone, with: new_order.phone_number
 
     click_button "Make Payment #{number_to_currency new_order.order_total}"
+  end
+
+  scenario 'should be able to see payment modal' do
+    login_as customer
+
+    visit root_path
+
+    fill_in :product_item_url, with: new_product.item_url
+
+    click_button 'Get Shipping Cost', wait: 5 * 60
+
+    click_button 'Add to Cart'
+
+    click_link 'Checkout'
+
+    fill_in 'Full name', with: customer.full_name
+    fill_in 'Address', with: '19 Banana Street'
+    fill_in 'City/Town', with: 'Accra'
+    fill_in 'Phone number', with: '0509825831'
+
+    click_button 'Save and Continue'
+
+    click_button 'Make Payment'
+
+    find('iframe', wait: 5)
+
+    #puts page.body
+
+    #fill_in 'mmoney-phone-number', with: '0509825831'
+
+    # expect(page).to have_content 'Please enter your phone number to initiate the payment.'
   end
 end
