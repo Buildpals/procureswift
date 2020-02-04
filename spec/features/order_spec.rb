@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Product Management', js: true do
+RSpec.feature 'Order Management', js: true do
   let!(:user) { FactoryBot.build(:user) }
   let(:product) { FactoryBot.create(:product) }
   let!(:new_product) { FactoryBot.create(:product) }
