@@ -34,3 +34,9 @@ node_modules
 config/database.yml
 latest.dump
 latest.dump.*
+
+# User specific Rubymine project files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/inspectionProfiles/
+chr
