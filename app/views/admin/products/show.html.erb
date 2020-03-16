@@ -1,0 +1,138 @@
+<style>
+  .container {
+    max-width: 70rem;
+  }
+</style>
+
+<div class="container">
+
+  <div class="row mt-3">
+
+    <div class="col-lg-4">
+      <div class="card mb-3">
+        <div class="card-body pb-0">
+          <div class="h6 card-title mb-0">
+            <%= @product.title %>
+          </div>
+        </div>
+
+        <a href="<%= @product.item_url %>" target="_blank">
+          <img src="<%= @product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
+        </a>
+
+
+        <div class="card-body">
+          <div class="mb-4">
+            <%= form_with(model: @product, local: false) do |form| %>
+              <div class="form-group">
+                <%= form.label :chosen_offer_id, "Price Offers" %>
+                <%= form.collection_radio_buttons :chosen_offer_id,
+                                                  collection = @product.offers,
+                                                  value_method = :last,
+                                                  text_method = :first,
+                                                  options = {},
+                                                  html_options = {} do |b| %>
+                  <div class="form-check">
+                    <%= b.radio_button class: "form-check-input", onclick: 'this.form.submit();' %>
+                    <%= b.label class: "form-check-label", onclick: 'this.form.submit();' %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-4 order-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <dl class="row mb-2">
+            <dd class="col-8">Price:</dd>
+            <dd class="col-4 text-right">
+              <%= number_to_currency(@product.default_price) %>
+            </dd>
+
+            <dd class="col-8">Shipping & Insurance:</dd>
+            <dd class="col-4 text-right">
+              <%= number_to_currency @product.freight_insurance_handling %>
+            </dd>
+
+            <dd class="col-8 border-bottom">Estimated Duty:</dd>
+            <dd class="col-4 text-right border-bottom">
+              <%= number_to_currency @product.duty %>
+            </dd>
+
+            <dd class="col-6 text-truncate font-weight-bold text-danger">Total:</dd>
+            <dd class="col-6 text-right font-weight-bold text-danger">
+              <span id="order_total"><%= number_to_currency @product.total_cost %></span>
+              <br>
+              <span class="small">(<%= number_to_currency_gh dollar_to_cedi @product.total_cost %>)</span>
+            </dd>
+          </dl>
+
+
+          <div class="mb-4">
+            <div class="text-center">
+              Will be delivered by
+              <span class="text-success">
+              <%= 2.weeks.from_now.strftime("%A, %b. %e") %>
+              </span>
+              <br>
+              (2 weeks)
+            </div>
+
+            <div class="small text-center">
+              Duty charges are subject to changes by customs.
+            </div>
+          </div>
+
+
+          <div class="mb-4">
+            <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-block btn-accent' %>
+            <%= link_to 'Delete Product', admin_product_path(@product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
+            <%= link_to 'Back', admin_products_path, class: 'btn btn-block btn-info' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h6 class="card-title">
+            Product Dimensions
+          </h6>
+
+          <div class="row mb-2">
+            <div class="col-4">Width:</div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.width, precision: 2 %>  <%= @product.width_unit %>
+            </div>
+
+            <div class="col-4">Length:</div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.length, precision: 2 %> <%= @product.length_unit %>
+            </div>
+
+            <div class="col-4">Depth:</div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.depth, precision: 2 %>  <%= @product.depth_unit %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">Weight:</div>
+            <div class="col-8 text-right">
+              <%= number_with_precision @product.weight, precision: 2 %> pounds
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

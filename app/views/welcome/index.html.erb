@@ -15,18 +15,6 @@
           <div class="card-body">
             <%= form_with(model: @product, local: true) do |form| %>
 
-              <% if @product.errors.any? %>
-                <div id="error_explanation mb-3">
-                  <h2><%= pluralize(@product.errors.count, "error") %> prohibited your product from being processed:</h2>
-
-                  <ul class="error-text">
-                    <% @product.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
-
               <div class="form-group">
                 <%= form.label :item_url, "Link to the item on Amazon" %>
                 <%= form.text_field :item_url,
@@ -40,26 +28,7 @@
                 </small>
               </div>
 
-              <div class="form-group">
-                <%= form.label :full_name %>
-                <%= form.text_field :full_name,
-                                    required: true,
-                                    autocomplete: 'name',
-                                    class: "form-control" %>
-              </div>
-
-              <div class="form-group">
-                <%= form.label :phone_number %>
-                <%= form.telephone_field :phone_number,
-                                         required: true,
-                                         autocomplete: 'tel',
-                                         class: "form-control" %>
-                <small id="phone_help" class="form-text text-muted">
-                  This number should be active so we can reach you when we're delivering your item
-                </small>
-              </div>
-
-              <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block" %>
+              <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block", data: { disable_with: 'Please wait...' } %>
             <% end %>
           </div>
         </div>
@@ -132,7 +101,7 @@
           <img class="img-fluid rounded-circle mb-3 px-5" src="img/3.jpg" alt="">
           <h5>Sarah W.</h5>
           <p class="font-weight-light mb-0">
-            "Procureswift is amazing. I've been using it to ship all our agric products."
+            "ProcureSwift is amazing. I've been using it to ship all our agric products."
           </p>
         </div>
       </div>
@@ -140,27 +109,24 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer py-5">
+
+<!-- Products -->
+<section class="products py-5">
   <div class="container">
+    <h2 class="mb-5 text-center">What people bought recently</h2>
+
     <div class="row">
-      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-        <p class="text-muted small mb-4 mb-lg-0">&copy; ProcureSwift 2019. All Rights Reserved.</p>
-      </div>
-      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-        <ul class="list-inline mb-0">
-          <li class="list-inline-item mr-3">
-            <a href="https://web.facebook.com/procureswift/">
-              <i class="fab fa-facebook fa-2x fa-fw text-accent"></i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.instagram.com/procureswift/">
-              <i class="fab fa-instagram fa-2x fa-fw text-accent"></i>
-            </a>
-          </li>
-        </ul>
+      <div class="col-md-12 mx-auto">
+        <% @recent_products.in_groups_of(3).each do |group| %>
+          <div class="card-deck mb-4">
+            <% group.each do |product| %>
+              <% unless product.nil? %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
+
   </div>
-</footer>
+</section>

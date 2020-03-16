@@ -1,0 +1,62 @@
+<footer class="bg-primary pt-5 footer mt-auto">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-2">
+        <a href="<%= root_path %>">
+          <%= image_tag "/img/Procurewift-17.png", height: "60", alt: "", style: "margin: -1.25rem" %>
+        </a>
+        <small class="d-block mb-2 text-muted">&copy; 2017 - <%= Date.today.year %></small>
+      </div>
+      <div class="col-md-3 mb-2">
+        <h6 class="text-light">Let us help you</h6>
+        <ul class="list-unstyled small">
+          <!--<li><a class="text-muted" href="#">Partner us</a></li>
+          <li><a class="text-muted" href="#">How it works</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>-->
+          <li><a class="text-muted" href="<%= refund_policy_path %>">Refund and return policy</a></li>
+          <!--<li><a class="text-muted" href="#">Corporate and bulk purchase</a></li>-->
+        </ul>
+      </div>
+      <div class="col-md-3 mb-2">
+        <h6 class="text-light">About ProcureSwift</h6>
+        <ul class="list-unstyled small">
+          <!--<li><a class="text-muted" href="#">Careers</a></li>
+          <li><a class="text-muted" href="#">About Us</a></li>
+          <li><a class="text-muted" href="#">Testimonials</a></li>-->
+          <li><a class="text-muted" href="<%= privacy_policy_path %>">Privacy Policy</a></li>
+          <li><a class="text-muted" href="<%= terms_and_conditions_path %>">Terms and Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-2">
+        <h6 class="text-light">Contact Us</h6>
+        <ul class="list-unstyled small">
+          <li>
+            <a class="text-muted" href="mailto:procureswift@buildpals.com">
+              Email: procureswift@buildpals.com
+            </a>
+          </li>
+          <li>
+            <a class="text-muted" href="tel:+233541400077">
+              Phone: +233 541400077
+            </a>
+          </li>
+          <li>
+            <a class="text-muted"
+               href="https://www.google.com/maps/place/19+Banana+St,+Accra/@5.6453681,-0.1538217,17z"
+               target="_blank">
+              Address: 19 Banana Street, East Legon - Accra, Ghana
+            </a>
+          </li>
+          <li class="mt-3">
+            <a href="https://www.instagram.com/procureswift/" target="_blank">
+              <i class="fab fa-instagram fa-2x fa-fw text-white"></i>
+            </a>
+            <a href="https://web.facebook.com/procureswift/" target="_blank">
+              <i class="fab fa-facebook fa-2x fa-fw text-white"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

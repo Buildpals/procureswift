@@ -4,67 +4,100 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.feature 'Product Management', js: true do
-  let!(:user) { FactoryBot.build(:user) }
+  let!(:customer) { FactoryBot.create(:user) }
   let(:product) { FactoryBot.create(:product) }
   let!(:new_product) { FactoryBot.build(:product) }
-  let!(:new_order) { FactoryBot.build(:order, quantity: 1, delivery_method: :by_air) }
+  #let!(:new_order) { FactoryBot.build(:order, quantity: 1, delivery_method: :by_air) }
 
-  scenario 'should be able to add an Amazon product to procureswift' do
+  scenario 'should be able to get a product details from Amazon' do
     visit root_path
 
     fill_in :product_item_url, with: new_product.item_url
 
-    fill_in :product_full_name, with: new_product.full_name
-    fill_in :product_phone_number, with: new_product.phone_number
-
     click_button 'Get Shipping Cost', wait: 5 * 60
 
     expect(page).to have_content new_product.title
-    expect(page).to have_content 'Product was successfully created.'
-
-    choose '$278.00 New', match: :first
-    expect(page).to have_content 'Product was successfully updated.'
-
-    expect(page).to have_content '$64.57'
-    expect(page).to have_content '$40.96'
-
-    click_link 'Purchase through ProcureSwift'
-
-    click_link 'Sign up'
-
-    fill_in :user_full_name, with: user.full_name
-    fill_in :user_email, with: user.email
-    fill_in :user_phone_number, with: user.phone_number
-
-    fill_in :user_password, with: user.password
-    fill_in :user_password_confirmation, with: user.password
-
-    click_button 'Sign up'
-
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
-
-    click_button 'Purchase through ProcureSwift'
-
-    expect(page).to have_content 'Order was successfully created.'
-
-    choose '$278.00 New', match: :first
-    expect(page).to have_content 'Order was successfully updated.'
-
-    select new_order.quantity, from: :order_quantity
-    expect(page).to have_content 'Order was successfully updated.'
-
-    select new_order.delivery_method.titleize, from: :order_delivery_method
-    expect(page).to have_content 'Order was successfully updated.'
-
-    fill_in :order_full_name, with: new_order.full_name
-    fill_in :order_address, with: new_order.phone_number
-    fill_in :order_city_or_town, with: new_order.phone_number
-
-    select new_order.region.titleize, from: :order_region
-
-    fill_in :order_email, with: new_order.email
-    fill_in :order_phone_number, with: new_order.phone_number
-
-    click_button "Make Payment #{number_to_currency new_order.order_total}"
+    expect(page).to have_content 'Product Dimensions'
+    expect(page).to have_content 'Width'
+    expect(page).to have_content 'Length'
+    expect(page).to have_content 'Depth'
+    expect(page).to have_content 'Weight'
+    expect(page).to have_content 'Price'
+    expect(page).to have_content '7.60 inches'
+    expect(page).to have_content '8.80 inches'
+    expect(page).to have_content '3.00 inches'
+    expect(page).to have_content '1.67 pounds'
+    #expect(page).to have_content number_to_currency new_product.price
+    #expect(page).to have_content number_to_currency new_product.freight_insurance_handling
+    #expect(page).to have_content number_to_currency new_product.duty
   end
+
+  scenario 'should force user to sign in if he hasn\'t signed in before checkout' do
+    visit root_path
+
+    fill_in :product_item_url, with: new_product.item_url
+
+    click_button 'Get Shipping Cost', wait: 5 * 60
+
+    click_link 'Add to Cart'
+
+    expect(page).to have_content 'Sign up'
+  end
+
+  scenario 'should allow user to add to cart' do
+    login_as customer
+
+    visit root_path
+
+    fill_in :product_item_url, with: new_product.item_url
+
+    click_button 'Get Shipping Cost', wait: 5 * 60
+
+    click_button 'Add to Cart'
+
+    expect(page).to have_content 'Item added to cart successfully.'
+  end
+
+  xscenario 'should allow user to fill delivery details' do
+    login_as customer
+
+    visit root_path
+
+    fill_in :product_item_url, with: new_product.item_url
+
+    click_button 'Get Shipping Cost', wait: 5 * 60
+
+    click_button 'Add to Cart'
+
+    click_link 'Checkout'
+
+    expect(page).to have_content 'This number should be active so we can reach you when we\'re delivering your item'
+
+    expect(page).to have_content 'Delivery Address'
+  end
+
+  scenario 'should allow user to remove an item from his/her cart' do
+    login_as customer
+
+    visit root_path
+
+    fill_in :product_item_url, with: new_product.item_url
+
+    click_button 'Get Shipping Cost', wait: 5 * 60
+
+    click_button 'Add to Cart'
+
+    #number_of_cart_items = current_cart.number_of_items
+
+    click_button 'Remove'
+
+    expect(page).to have_content 'Item removed from cart successfully.'
+
+    expect(customer.carts.last.cart_items.count).to eq 0
+  end
+
+  def given_a_user_has_logged_in
+    login_as user, scope: :user
+  end
+
 end

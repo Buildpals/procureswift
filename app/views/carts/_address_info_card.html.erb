@@ -1,0 +1,12 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Delivery Address</h5>
+
+    <address>
+      <strong><%= cart.full_name %></strong><br>
+      <%= cart.address %><br>
+      <%= cart.city_or_town %>, <%= cart.region.titleize %><br>
+      Tel: <%= cart.phone_number %>
+    </address>
+  </div>
+</div>

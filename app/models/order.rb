@@ -6,64 +6,18 @@ class Order < ApplicationRecord
   include ActionView::Helpers::NumberHelper
 
   belongs_to :user, inverse_of: :orders
-  belongs_to :product, inverse_of: :orders
+  belongs_to :cart, inverse_of: :order
 
-  enum delivery_method: { by_air: 0, by_sea: 1 }
-  enum region: {
-    greater_accra_region: 0,
-    ashanti_region: 1,
-    brong_ahafo_region: 2,
-    central_region: 3,
-    eastern_region: 4,
-    northern_region: 5,
-    upper_east_region: 6,
-    upper_west_region: 7,
-    volta_region: 8,
-    western_region: 9
-  }
+  enum status: { paid: 0,
+                 bought: 1,
+                 received_at_warehouse: 3,
+                 shipped_to_ghana: 4,
+                 received_in_ghana: 5,
+                 delivered_to_client: 6 }
 
-  enum status: { pending: 0, failure: 1, success: 3 }
-
-  def order_total
-    return nil if items_cost.nil?
-    return nil if shipping_and_handling.nil?
-
-    items_cost + shipping_and_handling
-  end
-
-  def items_cost
-    return nil if price.nil?
-
-    price * quantity
-  end
-
-  def shipping_and_handling
-    if by_sea?
-      product.shipping_and_handling_by_sea(price, quantity)
-    else
-      product.shipping_and_handling_by_air(price, quantity)
-    end
-  end
-
-  def price
-    return nil if product.zinc_product_offers.nil?
-    return nil if product.zinc_product_offers['offers'].nil?
-    return nil if product.chosen_offer_id.nil?
-
-    chosen_offer = product.zinc_product_offers['offers'].find do |offer|
-      offer['offer_id'] == chosen_offer_id
-    end
-
-    return nil if chosen_offer.nil?
-
-    chosen_offer['price'] * Product::CENTS_TO_DOLLARS_RATIO
-  end
-
-  def estimated_delivery_date
-    if by_sea?
-      2.months.from_now.to_date
-    else
-      2.weeks.from_now.to_date
-    end
-  end
+  delegate :number_of_items,
+           :subtotal,
+           :freight_insurance_handling,
+           :duty,
+           :order_total, to: :cart
 end

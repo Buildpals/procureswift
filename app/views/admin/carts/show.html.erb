@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="row mt-3">
+
+    <div class="col-lg-4 order-lg-1">
+      <%= render(layout: 'carts/costs_card', locals: {cart: @cart}) do %>
+        
+        <%= link_to 'Edit', edit_admin_cart_path(@cart), class: 'btn btn-block btn-accent' %>
+        <%= link_to 'Delete Cart', admin_cart_path(@cart), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
+        <%= link_to 'Back', admin_carts_path, class: 'btn btn-block btn-info' %>
+      <% end %>
+    </div>
+
+    <div class="col-lg-8">
+      <p class="ml-2 mb-2 lead">
+        <%= @cart.user.full_name %>, <%= @cart.user.email %>, tel: <%= @cart.user.phone_number %>
+      </p>
+      <ul class="list-group mb-4">
+        <% @cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+          <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
+            <a href="<%= admin_product_path cart_item.product %>">
+              <div class="d-flex w-100 justify-content-start mb-2">
+                <img class="product-image mr-3" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                <div>
+                  <h6 class="mb-1"><%= truncate cart_item.product.title, length: 60 %></h6>
+
+                  <div class="text-danger ml-auto"><%= number_to_currency cart_item.unit_price %></div>
+                  <div>Qty: <%= cart_item.quantity %></div>
+                </div>
+              </div>
+            </a>
+
+            <div class="d-flex w-100 justify-content-end">
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    
+  </div>
+
+</div>

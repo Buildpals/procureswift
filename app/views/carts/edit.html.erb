@@ -1,0 +1,87 @@
+<div class="container">
+
+  <div class="row mt-3">
+
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Delivery Address</h5>
+
+          <%= form_with(model: @cart, local: false, id: 'order_form') do |form| %>
+            <% if @cart.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+                <ul>
+                  <% @cart.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label :full_name %>
+              <%= form.text_field :full_name,
+                                  required: true,
+                                  class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :address %>
+              <%= form.text_field :address,
+                                  required: true,
+                                  autocomplete: 'street-address',
+                                  class: "form-control" %>
+              <small>
+                Eg. Total Filling Station behind the Kanda Overhead, House no. 5
+              </small>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :city_or_town, "City/Town" %>
+              <%= form.text_field :city_or_town,
+                                  required: true,
+                                  placeholder: "eg. Accra",
+                                  class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :region, "Region" %>
+              <%= form.select :region,
+                              choices = Cart.regions.keys.map { |w| [w.titleize, w] },
+                              options = {
+                                  include_blank: false
+                              },
+                              html_options = {
+                                  class: "form-control"
+                              } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :phone_number %>
+              <%= form.telephone_field :phone_number,
+                                       required: true,
+                                       autocomplete: 'tel',
+                                       class: "form-control phone-input" %>
+              <small id="phone_help" class="form-text text-muted">
+                This number should be active so we can reach you when we're delivering your item
+              </small>
+            </div>
+
+            <div class="actions">
+              <%= form.submit "Save and Continue", class: "btn btn-accent btn-block" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <%= render partial: 'carts/costs_card', locals: { cart: @cart } %>
+    </div>
+
+  </div>
+
+</div>

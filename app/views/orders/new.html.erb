@@ -1,5 +1,53 @@
-<h1>New Order</h1>
+<div class="container">
+  <div class="row mt-3">
 
-<%= render 'form', order: @order %>
+    <div class="col-lg-8">
+      <%= render partial: 'carts/address_info_card', locals: {cart: current_cart} %>
 
-<%= link_to 'Back', orders_path %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Items in Your Cart</h5>
+
+          <ul class="list-group list-group-flush">
+            <% current_cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+              <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
+                <a href="<%= product_path cart_item.product %>">
+                  <div class="d-flex w-100 justify-content-start">
+                    <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                    <div>
+                      <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
+                      <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
+                      <div>Qty: <%= cart_item.quantity %></div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <a href="<%= cart_path current_cart %>">Modify Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <%= form_with(model: @order, local: false, id: 'order_form') do |form| %>
+        <%= form.hidden_field :txtref %>
+      <% end %>
+
+      <%= render(layout: 'carts/costs_card', locals: {cart: current_cart}) do %>
+        <button class="btn btn-accent btn-block"
+                data-ravepay
+                data-ravepay-key="<%= Rails.env.production? ? Rails.application.credentials.config[:ravepay][:live][:public_key] : Rails.application.credentials.config[:ravepay][:test][:public_key]%>"
+                data-transaction-reference="<%= "#{current_cart.id}_#{rand().to_s.split('.')[1]}" %>"
+                data-order-total="<%= dollar_to_cedi current_cart.order_total %>"
+                data-customer-email="<%= escape_javascript current_user.email %>"
+                data-customer-phone="<%= escape_javascript current_user.phone_number %>">
+          Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
+        </button>
+      <% end %>
+    </div>
+
+  </div>
+</div>

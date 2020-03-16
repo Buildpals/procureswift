@@ -10,48 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_145938) do
+ActiveRecord::Schema.define(version: 2020_01_23_054952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "product_id"
-    t.bigint "user_id"
-    t.string "chosen_offer_id"
+  create_table "cart_items", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity", default: 1, null: false
-    t.integer "delivery_method", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "unit_price", precision: 8, scale: 2
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["product_id"], name: "index_cart_items_on_product_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "paid_at"
     t.string "full_name"
     t.string "address"
     t.integer "region", default: 0, null: false
     t.string "city_or_town"
     t.string "phone_number"
-    t.string "email"
+    t.integer "delivery_method", default: 0, null: false
+    t.boolean "archived", default: false, null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "txtref"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.bigint "cart_id"
+    t.boolean "archived", default: false, null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "item_url"
-    t.integer "item_quantity"
-    t.integer "delivery_method", default: 0
-    t.integer "delivery_region", default: 0
     t.json "zinc_product_details"
-    t.string "full_name"
-    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "zinc_product_offers"
     t.string "chosen_offer_id"
-    t.string "email"
-    t.string "txtref"
-    t.integer "status", default: 0
-    t.string "address"
-    t.string "city_or_town"
+    t.boolean "featured", default: false, null: false
+    t.string "title"
+    t.string "main_image"
+    t.json "offers"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "weight", precision: 8, scale: 2
+    t.string "hs_code"
+    t.decimal "width", precision: 8, scale: 2
+    t.decimal "length", precision: 8, scale: 2
+    t.decimal "depth", precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +98,9 @@ ActiveRecord::Schema.define(version: 2019_12_02_145938) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-  add_foreign_key "orders", "products"
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "products"
+  add_foreign_key "carts", "users"
+  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
 end

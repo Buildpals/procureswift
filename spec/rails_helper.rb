@@ -60,4 +60,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Add Warden Test helpers for feature specs
+  # Allows you to call methods such as
+  #     login_as(publisher)
+  # etc
+  config.include Warden::Test::Helpers, type: :feature
 end

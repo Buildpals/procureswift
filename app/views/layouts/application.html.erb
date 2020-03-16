@@ -12,12 +12,18 @@
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= javascript_include_tag '/main.js', 'data-turbolinks-track': 'reload' %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <% if Rails.env.production? %>
+  <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js" defer></script>
+  <% else %>
+  <script src="https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js" defer></script>
+  <% end %>
+
+  <% if Rails.env.production? %>
+    <!-- Fullstory code-->
     <script>
         window['_fs_debug'] = false
         window['_fs_host'] = 'fullstory.com'
@@ -68,33 +74,43 @@
             }
         })(window, document, window['_fs_namespace'], 'script', 'user')
     </script>
-  <% end %>
 
-  <!-- Facebook Pixel Code -->
-  <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '468824533768359');
-      fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-                 src="https://www.facebook.com/tr?id=468824533768359&ev=PageView&noscript=1"
-    /></noscript>
-  <!-- End Facebook Pixel Code -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '468824533768359');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=468824533768359&ev=PageView&noscript=1"
+      /></noscript>
+    <!-- End Facebook Pixel Code -->
+  <% end %>
 </head>
 
-<body>
+<body class="d-flex flex-column" style="min-height: 100vh;">
 <!-- Just an image -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">
-      <%= image_tag "/img/Procurewift-17.png", height: "60", alt: "" %>
+      <%= image_tag "/img/Procurewift-17.png", height: "60", style: "margin: -0.5rem;" %>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,9 +119,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="<%= products_path %>">Products</a>
-        </li>
+        <% if user_signed_in? && controller_name != 'welcome' %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= root_path %>">
+              Purchase new item
+            </a>
+          </li>
+        <% end %>
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -118,10 +138,17 @@
               <%= current_user.full_name %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#"><%= current_user.email %></a>
+              <%= link_to current_user.email, edit_user_registration_path, class: 'dropdown-item' %>
               <div class="dropdown-divider"></div>
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= cart_path(current_cart) %>">
+              <span class="fa fa-shopping-cart"></span>
+              Cart
+              (<%= current_cart.number_of_items %>)
+            </a>
           </li>
         <% else %>
           <li class="nav-item">
@@ -137,7 +164,7 @@
   </div>
 </nav>
 
-<section class="container">
+<section class="container" id="alert_container">
   <% if notice %>
     <div class="alert alert-info mt-3" role="alert">
       <%= notice %>
@@ -157,6 +184,12 @@
   <% end %>
 </section>
 
+
 <%= yield %>
+
+
+<!-- Footer -->
+<%= render :partial => 'application/footer' %>
+
 </body>
 </html>

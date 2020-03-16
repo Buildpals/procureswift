@@ -7,6 +7,21 @@ class ApplicationController < ActionController::Base
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
+  before_action :authenticate_user!
+
+  def current_cart
+    if session[:cart_id]
+      @current_cart ||= Cart.find(session[:cart_id])
+      session[:cart_id] = nil if @current_cart.paid_at
+    end
+    create_cart if session[:cart_id].nil?
+    @current_cart
+  rescue ActiveRecord::RecordNotFound
+    create_cart
+  end
+
+  helper_method :current_cart
+
   protected
 
   def configure_permitted_parameters
@@ -14,6 +29,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def create_cart
+    @current_cart = Cart.create!(user: current_user)
+    session[:cart_id] = @current_cart.id
+    @current_cart
+  end
 
   # Its important that the location is NOT stored if:
   # - The request method is not GET (non idempotent)

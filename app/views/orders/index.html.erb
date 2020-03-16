@@ -1,118 +1,44 @@
-<div class="container-fluid">
+<div class="container">
+  
   <div class="row mt-3">
+
     <div class="col-md-12">
 
-      <table class="table table-responsive table-striped table-hover mb-5" id="products_table">
-        <thead>
-        <tr>
-          <th>Item</th>
-          <th>Title</th>
-          <th>Details</th>
-          <th>Qty</th>
-          <th>Price</th>
-          <th>By Air</th>
-          <th>By Sea</th>
-          <th>Total</th>
-          <th>Method</th>
-          <th>Paid?</th>
-          <th>Bought?</th>
-          <th>Address</th>
-          <th></th>
-          <th></th>
-        </tr>
-        </thead>
+      <h3>Your Orders</h3>
+      <hr>
 
-        <tbody>
-        <% @orders.each do |order| %>
-          <tr>
-            <td style="width: 100px">
-              <a href="<%= order.product.item_url %>" target="_blank">
-                <img src="<%= order.product.main_image %>" class="card-img-top p-2 img-fluid" alt="...">
-              </a>
-            </td>
-            <td class="small" style="width: 200px;">
-              <%= truncate order.product.title, length: 200 %>
-            </td>
-            <td class="small" style="min-width: 200px;">
-              <div class="mb-2">
-                <div>width: <%= number_with_precision order.product.width, precision: 2 %>  <%= order.product.width_unit %></div>
-                <div>length: <%= number_with_precision order.product.length, precision: 2 %>  <%= order.product.length_unit %></div>
-                <div>depth: <%= number_with_precision order.product.depth, precision: 2 %>  <%= order.product.depth_unit %></div>
-                <div>volume: <%= number_with_precision order.product.volume, precision: 2 %> cubic inches</div>
-              </div>
-
+      <% @orders.each do |order| %>
+        <div class="card mb-4">
+          <div class="card-header">
+            <div class="d-flex w-100 justify-content-between flex-wrap">
+              <div>Order Placed: <%= order.cart&.paid_at&.to_date&.to_s(:long) %></div>
+              <div>Total: <%= number_to_currency_gh dollar_to_cedi order.order_total %></div>
+              <div>Ship To: <%= order.cart.full_name %></div>
               <div>
-                <div>weight: <%= number_with_precision order.product.weight, precision: 2 %> <%= order.product.weight_unit %></div>
-                <div>
-                  weight_in_pounds: <%= number_with_precision order.product.item_weight_in_pounds, precision: 2 %>
-                  pounds
-                </div>
+                <a href="<%= order_path order %>">Order Details</a>
               </div>
-            </td>
+            </div>
+          </div>
 
-            <td><%= order.quantity %></td>
-            <td>
-              <%= number_to_currency order.product.default_price %>
-            </td>
-
-            <td>
-              <%= number_to_currency order.shipping_and_handling %>
-            </td>
-
-            <td>
-              <%= number_to_currency order.order_total %>
-            </td>
-            <td><%= order.delivery_method&.titleize %></td>
-            <td>
-              <%= order.status&.titleize %>
-            </td>
-            <td>
-              pending_purchase
-              <!--              purchased-->
-            </td>
-
-            <td class="small" style="width: 200px;">
-              <address>
-                <%= order.region&.titleize %>
-                <br>
-                <br>
-                <strong><%= order.full_name %></strong>
-                <br>
-                <%= order.address %>
-                <br>
-                <%= order.city_or_town %>
-                <br>
-                <%= order.email %>
-                <br>
-                <a href="tel:<%= order.phone_number %>"><%= order.phone_number %></a>
-              </address>
-            </td>
-
-            <td>
-              <%= link_to "Show", product_order_path(order.product, order) %>
-              <% if current_user.admin? %>
-                <%= link_to "Edit", edit_product_order_path(order.product, order) %>
-              <% end %>
-            </td>
-            <td><%= link_to 'Destroy', [order.product, order], method: :delete, data: {confirm: 'Are you sure?'} %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+          <ul class="list-group list-group-flush">
+            <% order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
+              <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
+                <a href="<%= product_path cart_item.product %>">
+                  <div class="d-flex w-100 justify-content-start">
+                    <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                    <div>
+                      <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
+                      <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
+                      <div>Qty: <%= cart_item.quantity %></div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
     </div>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function () {
-        console.log($('#products_table'))
-        $('#products_table').DataTable({
-            paging: false,
-            fixedHeader: true
-        });
-    });
-</script>

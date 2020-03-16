@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row mt-3">
+
+    <div class="col-lg-8 mx-auto">
+      <div class="card mb-3">
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-6">Full Name</dt>
+            <dd class="col-6"><%= @user.full_name %></dd>
+            <dt class="col-6">Phone number</dt>
+            <dd class="col-6"><%= @user.phone_number %></dd>
+            <dt class="col-6">Email</dt>
+            <dd class="col-6"><%= @user.email %></dd>
+            <dt class="col-6">Admin?</dt>
+            <dd class="col-6"><%= @user.admin? %></dd>
+            <dt class="col-6">Created At</dt>
+            <dd class="col-6"><%= @user.created_at.to_s(:long) %></dd>
+            <dt class="col-6">Updated At</dt>
+            <dd class="col-6"><%= @user.updated_at.to_s(:long) %></dd>
+          </dl>
+
+
+          <a href="<%= edit_admin_user_path @user %>" class="card-link">Edit</a>
+          <a href="<%= admin_users_path %>" class="card-link">Back</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

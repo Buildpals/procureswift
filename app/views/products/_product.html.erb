@@ -1,0 +1,34 @@
+<div class="card">
+  <img class="card-img-top product-image"
+       src="<%= product.main_image %>" alt="<%= product.title %>"
+       style="height: 250px;">
+  <div class="card-body">
+    <a class="card-title small stretched-link text-decoration-none mb-1" href="<%= product_path product %>">
+      <%= truncate product.title, length: 60 %>
+    </a>
+
+    <dl class="row small mb-0">
+      <dd class="col-8">Price:</dd>
+      <dd class="col-4 text-right">
+        <%= number_to_currency(product.default_price) %>
+      </dd>
+
+      <dd class="col-8">Shipping & Insurance:</dd>
+      <dd class="col-4 text-right">
+        <%= number_to_currency product.freight_insurance_handling %>
+      </dd>
+
+      <dd class="col-8 border-bottom">Estimated Duty:</dd>
+      <dd class="col-4 text-right border-bottom">
+        <%= number_to_currency product.duty %>
+      </dd>
+
+      <dd class="col-6 text-truncate font-weight-bold">Total:</dd>
+      <dd class="col-6 text-right font-weight-bold">
+        <span id="order_total"><%= number_to_currency product.total_cost %></span>
+        <br>
+        <span class="text-danger"><%= number_to_currency_gh dollar_to_cedi product.total_cost %></span>
+      </dd>
+    </dl>
+  </div>
+</div>
