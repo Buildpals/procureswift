@@ -1,34 +1,20 @@
-<div class="card">
-  <img class="card-img-top product-image"
-       src="<%= product.main_image %>" alt="<%= product.title %>"
-       style="height: 250px;">
-  <div class="card-body">
-    <a class="card-title small stretched-link text-decoration-none mb-1" href="<%= product_path product %>">
-      <%= truncate product.title, length: 60 %>
-    </a>
-
-    <dl class="row small mb-0">
-      <dd class="col-8">Price:</dd>
-      <dd class="col-4 text-right">
-        <%= number_to_currency(product.default_price) %>
-      </dd>
-
-      <dd class="col-8">Shipping & Insurance:</dd>
-      <dd class="col-4 text-right">
-        <%= number_to_currency product.freight_insurance_handling %>
-      </dd>
-
-      <dd class="col-8 border-bottom">Estimated Duty:</dd>
-      <dd class="col-4 text-right border-bottom">
-        <%= number_to_currency product.duty %>
-      </dd>
-
-      <dd class="col-6 text-truncate font-weight-bold">Total:</dd>
-      <dd class="col-6 text-right font-weight-bold">
-        <span id="order_total"><%= number_to_currency product.total_cost %></span>
-        <br>
-        <span class="text-danger"><%= number_to_currency_gh dollar_to_cedi product.total_cost %></span>
-      </dd>
-    </dl>
+<li class="media border-bottom py-3">
+  <a href="<%= product_path product.id %>">
+    <img class="mr-5 product-image"
+         src="<%= product.main_image %>"
+         alt="<%= product.title %>"
+         style="width: 223px; height: 213px">
+  </a>
+  <div class="media-body">
+    <a href="<%= product_path product.id %>"><h5 class="h6 mt-0 mb-1"><%= product.title %></h5></a>
+    <div class="h5">
+      <%= number_to_currency(product.price) %>
+    </div>
+    <div>
+      Stars: <%= product.stars %>
+    </div>
+    <div>
+      Reviewers: <%= product.num_reviews %>
+    </div>
   </div>
-</div>
+</li>

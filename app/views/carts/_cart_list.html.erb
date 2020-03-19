@@ -1,0 +1,8 @@
+<ul class="list-group list-group-flush" id="cart_list">
+  <%= render(partial: 'cart_items/cart_item',
+             collection: cart.cart_items.order(created_at: :desc),
+             locals: local_assigns) ||
+          content_tag(:div,
+                      'There are no items in this cart.',
+                      class: 'list-group-item text-muted') %>
+</ul>

@@ -9,38 +9,13 @@
     </div>
 
     <div class="col-lg-8">
-      <ul class="list-group mb-4">
-        <% @cart.cart_items.order(created_at: :desc).each do |cart_item| %>
-          <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
-            <a href="<%= product_path cart_item.product %>">
-              <div class="d-flex w-100 justify-content-start mb-2">
-                <img class="product-image mr-3" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
-                <div>
-                  <h6 class="mb-1"><%= truncate cart_item.product.title, length: 60 %></h6>
+      <div class="card mb-4">
+        <div class="card-body border-bottom pb-1">
+          <h5 class="card-title">Items in Your Cart</h5>
+        </div>
 
-                  <div class="text-danger ml-auto"><%= number_to_currency cart_item.unit_price %></div>
-                </div>
-              </div>
-            </a>
-
-
-            <div class="d-flex w-100 justify-content-end">
-              <%= form_with(model: cart_item, local: false, class: 'form-inline') do |form| %>
-                <%= form.select :quantity,
-                                choices = (1..50).map { |w| [w, w] },
-                                options = {
-                                    include_blank: false
-                                },
-                                html_options = {
-                                    class: "form-control form-control-sm ml-2",
-                                    onchange: 'this.form.submit();'
-                                } %>
-              <% end %>
-              <%= button_to "Remove", cart_item_path(cart_item), method: :delete, class: 'btn btn-sm btn-secondary ml-2' %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+        <%= render partial: 'carts/cart_list', locals: { cart: @cart, edit_buttons: true } %>
+      </div>
     </div>
   </div>
 

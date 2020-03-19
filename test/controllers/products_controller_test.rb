@@ -17,7 +17,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { delivery_method: @product.delivery_method, delivery_region: @product.delivery_region, full_name: @product.full_name, item_quantity: @product.item_quantity, item_url: @product.item_url, phone_number: @product.phone_number, zinc_product_details: @product.zinc_product_details } }
+      post products_url, params: { product: {delivery_method: @product.delivery_method, delivery_region: @product.delivery_region, full_name: @product.full_name, item_quantity: @product.item_quantity, item_url: @product.item_url, phone_number: @product.phone_number, product_details_json: @product.product_details_json } }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -34,7 +34,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { delivery_method: @product.delivery_method, delivery_region: @product.delivery_region, full_name: @product.full_name, item_quantity: @product.item_quantity, item_url: @product.item_url, phone_number: @product.phone_number, zinc_product_details: @product.zinc_product_details } }
+    patch product_url(@product), params: { product: {delivery_method: @product.delivery_method, delivery_region: @product.delivery_region, full_name: @product.full_name, item_quantity: @product.item_quantity, item_url: @product.item_url, phone_number: @product.phone_number, product_details_json: @product.product_details_json } }
     assert_redirected_to product_url(@product)
   end
 

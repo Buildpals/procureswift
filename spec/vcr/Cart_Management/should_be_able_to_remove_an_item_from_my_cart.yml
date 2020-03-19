@@ -1,0 +1,2576 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07G4MNFS1?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Mar 2020 20:26:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"36bbbbf76175dc7f27b95b30417eacd0618029cf"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584563176,
+          "status": "completed",
+          "feature_bullets": [
+            "Digital Noise Canceling: Industry Leading Anc Lends a Personalized, Virtually Soundproof Experience",
+            "Voice Assistant: Alexa Enabled for Voice Access to Music, Information and More. Activate with a Simple Touch",
+            "Quick Attention Mode: Cover the Right Ear Cup to Turn Down Your Music for Instant, Easy Conversation",
+            "Smart Listening: Adjusts the Ambient Sound to Your Activity to Give You the Best Noise Cancellation",
+            "Touch Controls: Control Music Tracks and Volume, Activate Your Voice Assistant and Take Phone Calls",
+            "Long Battery Life: A Single Charge Provides Up to 30 Hrs of Playtime for Reliable All Day Listening",
+            "Comfortable to Wear: Ergonomically Redesigned Foldable Earphones for Easy Travel / Listening Comfort",
+            "In the Box: Foldable Headphone, Carry Case, Charging Cable and Audio Cable for a Wired Connection"
+          ],
+          "title": "Sony Noise Cancelling Headphones WH1000XM3: Wireless Bluetooth Over the Ear Headphones with Mic and Alexa voice control - Industry Leading Active Noise Cancellation - Black",
+          "meta_keywords": "Sony Noise Cancelling Headphones WH1000XM3: Wireless Bluetooth Over the Ear Headphones with Mic and Alexa voice control - Industry Leading Active Noise Cancellation - Black,Sony,WH1000XM3/B",
+          "videos": [
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/DII1K/50468b34d3e74527a25d5aad0f6e9b9e/V61/2b5b249e13cc41f2bad72229761b8e87/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167589&Signature=bxJpscvfIxwADg90nIKimTpG3dVew4tY9Xdld8rVdBhi9-GWrSg100YycfZ2R8WyEeMc78PFCKH1qd0-KVntqCsxyASaFVWiU3~BBKOOwgFud3YgNfoZHI-xaKsbIfKoPUiJzmR8gcPbTCJXQXUKpyaF-p4Wg1ibtZP~AYebsHU_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "4:37",
+              "vendor": "Digital Trends"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/DII1K/a504ffa8a4ce4cae9d2541da9cfb46af/V1/7ed4bd68353f415588f0a9d7dce91d92/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167377&Signature=dCQKIJcujEjpbjIn9mc9Zf~W7h90M8fw3ScWhn0GHhUmCovDYCpjnJ27j52ew1D10BIeFDoUY-VihycJjbCSTNGMSrxY-U5kRtHHQy6OB9HIt4GCCqYItjaWNGshWM42OMYBoYbiZIJqcCu42YzS~Z8vdayVF1VwEgB6U1zt89o_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "9:51",
+              "vendor": "Digital Trends"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/RTINL/4ab5358c53794e3fa9fdb179758b42a3/V2/0ec3e5e1d91d4df9b160330cf42a5538/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167220&Signature=iueoeK7hv~kHhEul6zcD699yzjTsIH~1YcC--vMgwJgxTaNuuaQwxEDf9kSXZv6B~mfTnBDPjxVuSGjl8EpZeuY0NyUvE3LJ24Lr2p7sIGLFu6FAT-Sn0v6HgV7z83EIsPhwNqyMs8zJtiojarII1OjM7hAa3pdGLD6nDmHap24_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "16:23",
+              "vendor": "RTINGS.com"
+            },
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/2a0292ad-b375-4a5a-a4b3-4a457fd068fa/default.jobtemplate.hls.m3u8",
+              "duration": "20:02",
+              "vendor": "RTINGS.com"
+            },
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/c64646f0-1b05-46ae-80a0-1ff41389f77b/default.jobtemplate.hls.m3u8",
+              "duration": "12:37",
+              "vendor": "RTINGS.com"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/UGCPR/ab59409e86fd4f558db57ccdef377ef7/V1/181bfcff29424ae6bb898f4d8dd6233b/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167681&Signature=f4hWbdk3mlTybDCyErDAi4bvhKX5FOc6cdLLRTfv6kWFOREgi9x4c2uekDudmiVxCjM9p-wGrypJ7MaD4~xIxe8~Cj2vI2VkUP3uN9F1usQ4uozH7YI7M2Kx~xetKt7S4KfueRSDvQ2I-39tmE1tnHfNOQgTaqQalgk7kcroEOY_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "7:50",
+              "vendor": "Sebastian Rodriguez"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/DII1K/710902d21bf84f979a2fd18d0984e7e8/V25/8525d3e94216493eaa34aa160cd8cf1a/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167465&Signature=i8YjgkzbZgQY9gwuIiNbFH5Ck1wzE-HQMpsyWJ1lTXgVdlcXao1nsxbq04w1Zq~aNMlYd5cRCf~3J3khlEQ3WoDzPSg1RHZsD-c3ZlttSZP1wKjDAaMsjeG--Vij2WlDwIG6Gsm4b6fN1yL1CxSdGEZoOrvJh4zuAcmSzr-0ONA_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "5:16",
+              "vendor": "Digital Trends"
+            },
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/4ff03448-8f01-44ac-b7c6-7aedfc737535/default.jobtemplate.hls.m3u8",
+              "duration": "7:36",
+              "vendor": "Revisione"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/DII1K/33db26ae90d64ee0bc5f221adf51a4c5/V1/9b06bbd1df424d359546a331d0cc5728/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167640&Signature=hm6lZx0y5pQ4dbdewDpETZPdTqos~4~TzZ8D-qMlEARDRTHr-FZg7V3C9N6DTehFdWtUILnv8BW7K7CKLK-kLz3BCrwNg01vn61xFGqRQ8n2migIpGH~cxX5UQfRNnGq7aRd5AcSvDQ0X7r96a0m7FQVgde8d6bw1NTVlAVWrL0_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "5:16",
+              "vendor": "Digital Trends"
+            },
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/c86f6163-d5b3-46b5-a01c-eb787186f73c/default.jobtemplate.hls.m3u8",
+              "duration": "4:13",
+              "vendor": "Ezvid Wiki"
+            }
+          ],
+          "html_product_description": "<div id=\"productDescription\" class=\"a-section a-spacing-small\">\n        \n\n\n\n\n\n  \n    \n       \n        \n          \n        <div class=\"disclaim\">\n          \n            \n            \n            \n             Color:<strong>Black</strong>\n            \n          \n          </div>\n        \n      \n    \n  \n\n\n        \n        \n     \n\t       \n     \n\n     \n\n     \n\n     \n                              \n     \n       \n        <!-- show up to 2 reviews by default -->\n        \n          \n          \n            \n              <p>Sony industry-leading noise cancellation evolves to further immerse you in your music. The addition of Sony proprietary HD noise canceling processor Qn1 masterfully eliminates the noise around you. Listen all day with up to 30 hours of battery life. Quick charging gives five hours of playback with just a 10-minute charge. Cord Length: Headphone cable (approx. 3.94 ft, OFC strands, gold-plated stereo mini plug); Frequency Response: 4 Hz-40,000 Hz; NFC: Yes; Cord Type: Single-sided (detachable); Volume Sensor: Touch Sensor. Diaphragm - Aluminium-coated LCP\n                \n              </p>\n            \n            \n          \n        \n        \n        \n      \n      \n    \n    </div>",
+          "product_description": "Color:Black Sony industry-leading noise cancellation evolves to further\nimmerse you in your music. The addition of Sony proprietary HD noise canceling\nprocessor Qn1 masterfully eliminates the noise around you. Listen all day with\nup to 30 hours of battery life. Quick charging gives five hours of playback\nwith just a 10-minute charge. Cord Length: Headphone cable (approx. 3.94 ft,\nOFC strands, gold-plated stereo mini plug); Frequency Response: 4 Hz-40,000\nHz; NFC: Yes; Cord Type: Single-sided (detachable); Volume Sensor: Touch\nSensor. Diaphragm - Aluminium-coated LCP",
+          "related_asins": [
+            "B07H2DBFQZ",
+            "B07HJ87WJD",
+            "B0756CYWWD",
+            "B07Q9MJKBV",
+            "B07HGT1PW2",
+            "B079GPFLT1",
+            "B07RM8WQ8G",
+            "B07RMPVX1D",
+            "B07H2DGZJR",
+            "B0756GB78C",
+            "B01E3XLNA0",
+            "B07NXDPLJ9",
+            "B07J9YNRWF",
+            "B0117RGG8E",
+            "B07RF2QP2H",
+            "B074KDJVS2",
+            "B07Q4QK379",
+            "B019U00D7K",
+            "B01MSZSL4I",
+            "B07X5F81JS",
+            "B07RD2LKVH",
+            "B075G56GZD",
+            "B075X9M9R4",
+            "B07T81554H",
+            "B079GV1M9Z",
+            "B077YG22Y9",
+            "B07LDCLP11",
+            "B07ZQR9P1V",
+            "B07RQ366VK",
+            "B00M1NEUKK",
+            "B07PGL8J8G",
+            "B07HGT1DL7",
+            "B07VW98ZKG",
+            "B07BMQXVLB",
+            "B07C6CC7TJ",
+            "B07THXD9N1",
+            "B00SNI44CQ",
+            "B079NM341X",
+            "B07TBH34XC",
+            "B01MY4P9EZ",
+            "B07JYMFFVR",
+            "B07HKVCVSY",
+            "B07RQN1575",
+            "B07SQBLY94",
+            "B0848TSWDF",
+            "B07GYNSQBQ",
+            "B07WRGZ7PF",
+            "B01E3SNO1G",
+            "B0756XMGV1",
+            "B0844PMWP8"
+          ],
+          "images": [
+            "https://images-na.ssl-images-amazon.com/images/I/51IdLe-%2B6kL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51ZzMxZBq1L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71ypiO7wJkL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71xuqJMtvML.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/618VbxytH%2BL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71hg8x7EVLL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71A89ieikFL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61In%2BXcJeAL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71cWLDwQ8rL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71x47nS3PsL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/819SYgdrG0L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71gWIQcJ3mL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/91z9UCv4TwL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/810WPz2ffQL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61zd-XqzWRL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51Q4cAkLiwL.jpg"
+          ],
+          "main_image": "https://images-na.ssl-images-amazon.com/images/I/51IdLe-%2B6kL.jpg",
+          "product_details": [
+            "Product Dimensions: 7.3 x 2.9 x 10.4 inches",
+            "Item Weight: 9 ounces",
+            "Shipping Weight: 1.65 pounds",
+            "California residents: Click here for Proposition 65 warning",
+            "Item model number: WH1000XM3/B",
+            "Batteries: 1 Lithium Polymer batteries required. (included)"
+          ],
+          "brand": "Sony",
+          "categories": [
+            "Electronics",
+            "Headphones",
+            "Over-Ear Headphones"
+          ],
+          "original_retail_price": 34999,
+          "package_dimensions": {
+            "size": {
+              "width": {
+                "amount": 7.299999992554,
+                "unit": "inches"
+              },
+              "depth": {
+                "amount": 3.099999996838,
+                "unit": "inches"
+              },
+              "length": {
+                "amount": 8.799999991024,
+                "unit": "inches"
+              }
+            },
+            "weight": {
+              "amount": 1.64905771976,
+              "unit": "pounds"
+            }
+          },
+          "all_variants": [
+            {
+              "product_id": "B07G4MNFS1",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Black"
+                }
+              ]
+            },
+            {
+              "product_id": "B07G4YL6BM",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Silver"
+                }
+              ]
+            }
+          ],
+          "tag_title": "Sony Noise Cancelling Headphones WH1000XM3",
+          "variant_specifics": [
+            {
+              "dimension": "Color",
+              "value": "Black"
+            }
+          ],
+          "asin": "B07G4MNFS1",
+          "product_id": "B07G4MNFS1",
+          "retailer": "amazon",
+          "stars": 4.6,
+          "review_count": 8496,
+          "question_count": null,
+          "fresh": false,
+          "pantry": false,
+          "handmade": false,
+          "digital": false,
+          "buyapi_hint": true,
+          "customer_images": [
+            "https://images-na.ssl-images-amazon.com/images/I/619+0UFgO+L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61DKC-5wDiL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61u7+mvjFCL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71AeJEgou8L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/810sUAPu68L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81c6Rg5PX0L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81c6Rg5PX0L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81xOiTU-D6L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61GhkxKFFdL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81RMJIGL4UL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81HSTnJEjTL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81fzoG3SwlL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81m3faC66HL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81vY6OSO0BL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81Yqbqt2PML.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61Jj6zXMx7L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61NAi++y0bL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71ihOLRjjwL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81ONNJ4n99L.jpg"
+          ],
+          "price": 27800,
+          "ship_price": 0,
+          "epids": [
+            {
+              "type": "MPN",
+              "value": "WH1000XM3/B"
+            },
+            {
+              "type": "EAN",
+              "value": "0027242911574"
+            },
+            {
+              "type": "UPC",
+              "value": "027242911574"
+            }
+          ],
+          "epids_map": {
+            "MPN": "WH1000XM3/B",
+            "EAN": "0027242911574",
+            "UPC": "027242911574"
+          }
+        }
+    http_version: null
+  recorded_at: Wed, 18 Mar 2020 20:26:12 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07G4MNFS1/offers?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Mar 2020 20:26:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"ba88c5885947adb04e5f1022278aecce21d28b40"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584563181,
+          "status": "completed",
+          "offers": [
+            {
+              "seller": {
+                "name": "Audio Advice Online",
+                "id": "A17IVE6SUAZA2P",
+                "num_ratings": 1451,
+                "percent_positive": 98,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtGJZgZdb9BEn68R%2B8meyv4y4lujkS0NTKyE8v7VwIJCsQStiuO1w38gnBlJMvJTSTXzDiOQvs2Dx9eMdYTvlXr4c36GK7JgCjI7EVI6FPbhPW356%2BOv%2Fw%2BQTzQJ2Hi4YO22yyKbErN4Ks3HurPrXhsBkWilC8T47h",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "US-Appliance",
+                "id": "A24MPJ9S1XC8EX",
+                "num_ratings": 3084,
+                "percent_positive": 96,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtktfBYToYDo%2Fhf0V%2FLTIyanwnPc6nb3aAb7moZUFSA9aDGENV%2FF1RQAOmWi0ZKuSoCD0aOGwUhQmblMLW1ou7JSUs5ASryo3OurZZe5Cy%2BPU2aUZn3iGqfLsuT2E4NCo06iSAPWYpdn5SIG0CchDuau8cXMkBQBvn",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "OneCall",
+                "id": "AHF4SYKP09WBH",
+                "num_ratings": 55765,
+                "percent_positive": 100,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtvhl2VY6l3IzajBV6mrE8M0oDCUc70EnzahYJGhK0ZeGEA1IeYfjrow6tf70R5tzTUWkNCT2K7RGuukQIZvcUUnbzEJ%2B5cW35VRkIZsZ9UL3PIK09Vev7olnwSAdcg9GWQSGHObyAMM6hjtK28XLxpA%3D%3D",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "GRAMOPHONE",
+                "id": "A2XGE4CX5AV74X",
+                "num_ratings": 4197,
+                "percent_positive": 97,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtIb3%2BcM6A5HMsEKI3M9z7qkWFRpxMIoswBYhaOtxUJ8sqZNoqcGpUtJbGfQKxXto0cPlW2aa5B%2Fn9xRg4yNgzsTy2kUFJkboyWz1icYr4jfl8hQYchPqGxILnW66VPxE2WXEnhdN%2BVKnJWfq9iacPcV1m4wPO3ie%2F",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "1 SHOP DIRECT",
+                "id": "A2A1PSFKVUV14G",
+                "num_ratings": 4502,
+                "percent_positive": 99,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwt658E8y6DZJ684c%2BfeaZE6WaZ50%2FUEddQ7Lhpd%2Fff3EwRcdvkVgNoYkRD17ggyhpqR9c%2FkhP3RdjPYvbkxkjHObBi0ZBSmAsF4JAE90aC%2B5hoHx%2BoUSkIhm0SITpzQa5gh3jar6QS2BspazbsqtN0q8hD0tG9dSsd",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "HAWTHORNE",
+                "id": "A3CXCUO4TQ7GJP",
+                "num_ratings": 2435,
+                "percent_positive": 96,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwt34pTbMxl3XWZrovKt2iX%2BITbaGatd3zshlDqoN%2BvESF5qQ6b0ZBdkjBa%2B0BkkaR%2BUiWBcn%2B%2B1HI056AYFI%2BeLvkzKtUGQe3caSDRSRQLd%2Bc6y2IaF6CTFTVTXvARX0DsKVg3CsVUpt%2BGTjFq5JZpm86p9hUQVJG7",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon.com",
+                "id": "ATVPDKIKX0DER",
+                "num_ratings": 1000000,
+                "percent_positive": 100,
+                "first_party": true
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtyV6bj7j1fL028H8B1V4Nscse44ZZ7xK9PExjkzQI2cTvrCgcJ%2FQE4h7o6isxji0YsX5rsSiWFP9sDts7FxCNjI49QRZSH5c2mrl%2BVe43%2FcMGiqf59zolkA%3D%3D",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Focus Camera LLC",
+                "id": "AXCB29L39I26U",
+                "num_ratings": 101496,
+                "percent_positive": 95,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtDF6JcWd84gE5%2B6HOwsQTnnBmzKYdPhF7qUCFafRVJhlIrzON902xSdksF0BguvZDOnjjJ0tPNND84VyJQQU3ZYFO7gC%2BOHmd9L5ON4LDCVwtghlYOMdBaqRL%2BFarXv7OeP2qi0aGuWpW6U6PF0BBKQ%3D%3D",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Beach Camera Same Day Shipping",
+                "id": "A13BNE3P7C8THK",
+                "num_ratings": 337081,
+                "percent_positive": 92,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtSsO5gbvbZLDddLZd7%2FvqGCmjcwdpNLYsStOMI3rHvaS%2FDMLiviq2nH6SO9U4YiGEdJWPNy%2FdY2KjqmWB6huEPvXii93LSmfi7e2JPnTr4YtaxmRjcCM1ARUnOO5CIbIQKMwzeunkDKOpB31THGYaL0Z%2B0gO1i7w7",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Huppins",
+                "id": "AAK72K4OIWDXL",
+                "num_ratings": 24942,
+                "percent_positive": 100,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z44iIiP8JHx3CQrNvAws75Itm6iwozwtDArzjbTq8zwgvrAOwC4E2ahs5nYv7%2BsiYvxWz6yt1F2Gdj17xQ4679EBu1Mi8lEG3HrDdYtJaCd8hN1r2guxeVskiP8UXd1feGPT8ADJR3tI2vJ6sK0ziPM%2FYILsxugGRZP3l%2FRy4RVtq%2F9hzAd4xw%3D%3D",
+              "price": 27800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "bestitemsforless",
+                "id": "A2R5XWX7NKY36",
+                "num_ratings": 25,
+                "percent_positive": 90,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1E8SH2PpLdxo6qCSo0AE%2F%2B2Sqoo2JsfL%2FZFfbXpS07etkhW4J0seY%2FA8taByVDwUUtiBBVPsK7rqOLc1OD2XjfPBnLV0ant3xDskl2AF9N6KSW1kuWWVwINLgXUOZQdcFq8jl2ydXPG22fqqycWsxDQj1TMuVUMJjL",
+              "price": 19448,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 549,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Headphones come with all original accessories - carrying case, AUX (audio) cable, USB-C charging cable and airplane adapter. Like new 100% working condition. No scratches or any other defects. No retail package or manual.",
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "WBB LLC",
+                "id": "A1BLA4PO74TMAU",
+                "num_ratings": 3274,
+                "percent_positive": 86,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1EAb6rRIOWG4qdr3dOacLQzxaO7EtabT6vbBkbNW2yx3TX%2FZW0x9mn1KwNaQP0iD1akHhV1KoYfk8ozLGh2ck2cMPGNKfzC5fOvLdgvo7vBJnCPeGGCZyW8LVJ0mrGily%2BtxsB%2FaQN%2FK848HQP2vKWoNIhzUQDG6Jw",
+              "price": 19999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 8
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 24-26.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1E7ToW5D%2B9HA3t%2FVfTnCRRISSWW%2BzlJMv%2FORo2L6lmZIEaltt9Xc%2F%2BL7wV1kCyvt4y2SBxQGNQfW1WjsYMyxLbClyEOO6eq0Z3sXLUCYlGrg4Zt2W6ykNDK69u6S1VhilgokLbdSv%2FH1MRLtU75sKPcqb02zmz4IzK",
+              "price": 20483,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "Used - Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Small cosmetic imperfection on interior of item. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "6ave",
+                "id": "ALAQLAKJ574UN",
+                "num_ratings": 105555,
+                "percent_positive": 97,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1Ed6tJCTcK5yTkUOpQnFA8IdgAC3aBkUZ7He0mbGIVn9s2D75Aff9RblcmYZ%2BKupqmkoDLC0qUNjLyccKTrjn9%2Fpe%2BCvM39ss3SxUWl6EVx1S0hr6TzmwD2DzT6XCLpBPceRMIXx5gBhB%2FiKaLcOjJk%2BtoAh1d%2BnqH",
+              "price": 22661,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 8
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 24-26.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazing-Deals4U",
+                "id": "AK8RB2KGO7RQ6",
+                "num_ratings": 171,
+                "percent_positive": 94,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1Es9IAap%2B4eMck8qRpAQLf5Rs8Fdseukcsu4TFMquRiwbzzFMMzB3DPhdIKVMiFG5coYO1iZSqaWYkhQZC3En%2Bc%2BXpY7ASCYhZaiECFwz%2Fx2cUMV2Pmol0tEAUMV%2Fl8laZiGVTgacAnyvAcgR%2F70E7aOsiXH986fBx",
+              "price": 21995,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 5,
+                "max": 8
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 23-26.",
+                  "price": 697,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Tested and works great, will be shipped with priority mail. Charging cable is included. Original case and box are not included. Will be shipped with signature confirmation. Box a82 thank you",
+              "greytext": "Arrives between March 23-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "JOY AND ELAINE JEWELRY",
+                "id": "A1ZTSQF0F4C8Y7",
+                "num_ratings": 42,
+                "percent_positive": 93,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1ESCxZLlGb%2BtbCj%2BsOCiKGyM6nmZLzvkAXJLxOE9ES04kY3x6g2h36uhZvhy8ckYMfx%2FcRqd9TG1E5no9fHpESFwyGzLivUE4lw1Qahi3NUkqgXaBpQFU%2Fpvntl%2Fhf1t2KGO82ft0lUqNTdbNYqdAMUisfyl18ax87",
+              "price": 21800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 1094,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Direct-Bargain",
+                "id": "AVQ0A48QMRQYM",
+                "num_ratings": 186,
+                "percent_positive": 83,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1ERF2s2XAc0pygFjHb8XskX6pRYJHjZq96YYTaMKLspf58P083EP3CQOxt7JQJnEPA%2BKq5iUGvPA3ftZ%2B7CllbAQ27JTjuDml4fWR4XQiJ6oqAQkfyro0I9jjdN%2FMnskYWRD2CkoSSvXms6CRHy7ahbIt%2FAyGT97vc",
+              "price": 24049,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 8
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 24-26.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Ocean Reef Electronics",
+                "id": "A2OZYZ8487VWZF",
+                "num_ratings": 169999,
+                "percent_positive": 89,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1EzEcdfR%2BE2mADg7IgyHCz0GT1rU3QT6ukOo7lRhKp1LUJE3sa7%2BLUYRs%2BEHqOCMfvKrhvIGImpZ2phcViNiKdhZ5DIuKr2e6ohN%2FX1iQwG5mLyzRaoRVZHLfdm0tXfwp80CIFiN8jf%2FWKqjy8gFOppQ%3D%3D",
+              "price": 24400,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 8
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 24-26.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "PORTABLE GUY",
+                "id": "A1L9D0A8YQ4I2J",
+                "num_ratings": 112036,
+                "percent_positive": 93,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1ETF6pNteFGx%2F9SqS0cup6vS9O1QOpzwnMA02l01X6X4tsEebb5D%2BixEb4Pa3w%2FSEcOx6H08%2BEZhYScvq7OBt1TbQ6qk7Xbr%2Bho78DOZ4L6G7h6oWW0vA1XGSK9Zml6vtIh7Giy9bShuAHN9myWxDilw%3D%3D",
+              "price": 24800,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Action Gear",
+                "id": "A241IAO8OWIZ0F",
+                "num_ratings": 47366,
+                "percent_positive": 87,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "%2BUcFDx8ECOYLYK%2F15N8Q52o1G7Pi3P1EZSf%2F2Cy5%2BjU%2FCUasAkvCTE59QV8ro9LSYzoSMj7FYAQGcasz%2F8iKrcOjmDnrWLo3exuW2KD7SQPrChwYVU9BReiBj8pRigkof5dOiy7mw09GLiNIV%2F1HXf61c%2FFvEeVa05Zz4aPu6Frj1N21KXB2nQ%3D%3D",
+              "price": 25195,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 8
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 8
+                  },
+                  "greytext": "Arrives between March 24-26.",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-26.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07G4MNFS1",
+              "buy_box_winner": null
+            }
+          ],
+          "asin": "B07G4MNFS1",
+          "retailer": "amazon",
+          "expired_product_id": false,
+          "strategy": "fullscrape"
+        }
+    http_version: null
+  recorded_at: Wed, 18 Mar 2020 20:26:17 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07P8MQHSH?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Mar 2020 20:26:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"a70131388da6a49cb023edb5f4e676b48c98a157"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584563188,
+          "status": "completed",
+          "feature_bullets": [
+            "Capture the perfect shot every time, get things done with the Google Assistant,1 enjoy an all-day battery, and more.",
+            "Get everyone in the picture with Group Selfiesno selfie stick required. Snap portraits like a pro with Portrait Mode. Capture smiles, not blinks, for a great photo every time.",
+            "Pixel 3 comes with a battery that charges fast and wirelessly, and lasts all day. It's even smart enough to limit battery usage for the apps you don't use often to keep you going longer.",
+            "Get help from the Google Assistant: reserve a table at your favorite restaurant, buy tickets, get commute times, weather info, and moreall with a simple squeeze, or just by using your voice.",
+            "Screen spam, scams, and other nuisance calls. Get real-time transcription and block unwanted callers so youll never hear from them again.",
+            "Search what you see with Google Lens6 to look up clothing and home decor, copy and translate text, and identify landmarks, plants, and animals.",
+            "Display Type: Fhd+ Flexible Oled At 443Ppi",
+            "Included Components: Usb-C Digital Earbud",
+            "Operating System: Android;Chrome Os"
+          ],
+          "title": "Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black",
+          "meta_keywords": "Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black,Google LLC,G013A",
+          "videos": [
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/33120560-5831-4f83-98b6-1208d5ce902e/default.jobtemplate.hls.m3u8",
+              "duration": "6:00",
+              "vendor": "Digital Trends"
+            },
+            {
+              "url": "https://d2y5sgsy8bbmb8.cloudfront.net/6b49a414-696d-492c-b07d-1d983b575834/default.jobtemplate.hls.m3u8",
+              "duration": "1:45",
+              "vendor": "Jose"
+            },
+            {
+              "url": "https://d1y6jrbzotnyjg.cloudfront.net/V3MSA/790821b079dd4eb090615ac3a3393ec0/V1/ee0cbd2808e447a29ef9e9699caaaf83/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4?Expires=1585167008&Signature=CmbX2eM-IuxaXWHUb~7~h0Uf1t6Ch9KKdC3eElsegqcLIAu0cngwHJdITciy7b3H~fQHHBLtIVQ~WVnzbtxA5Sc4mdS-dK3R1-Ay7e2GdyDVHzUlyLpZxMFHS6MH63z55aCR7t1ctxNTt1orDiEbyhLKxBKR6UiBDMY1TpuGi4w_&Key-Pair-Id=APKAJ62XWKZ35EOVO4XA",
+              "duration": "0:06",
+              "vendor": "Manufacturer Video"
+            }
+          ],
+          "html_product_description": "<div id=\"productDescription\" class=\"a-section a-spacing-small\">\n        \n\n\n\n\n\n  \n    \n       \n        \n          \n        <div class=\"disclaim\">\n          \n            \n            \n            \n             Color:<strong>Just Black</strong>\n            \n          \n            \n            \n            \n                &#160;|&#160;\n            \n             Size:<strong>64 GB</strong>\n            \n          \n            \n            \n            \n                &#160;|&#160;\n            \n             Style:<strong>Pixel 3</strong>\n            \n          \n            \n            \n            \n                &#160;|&#160;\n            \n             Pattern Name:<strong>Single</strong>\n            \n          \n          </div>\n        \n      \n    \n  \n\n\n        \n        \n     \n\t       \n     \n\n     \n\n     \n\n     \n                              \n     \n       \n        <!-- show up to 2 reviews by default -->\n        \n          \n          \n            \n              <p>Meet the Google Pixel 3. Capture the perfect shot every time, get things done with the Google Assistant, enjoy an all-day battery, and more. A camera so good it deserves unlimited storage. Get everyone in the picture with Group Selfies&#8212;no selfie stick required. Snap portraits like a pro with Portrait Mode. Capture smiles, not blinks, for a great photo every time. And save all your favorite moments with free, unlimited photo storage. Charges fast. Lasts long. Pixel 3 comes with a battery that charges fast and wirelessly, and lasts all day. It's even smart enough to limit battery usage for the apps you don't use often to keep you going longer. Your Google Assistant. Get help from the Google Assistant: reserve a table at your favorite restaurant, buy tickets, get commute times, weather info, and more&#8212;all with a simple squeeze, or just by using your voice. Avoid unwanted calls. Screen spam, scams, and other nuisance calls. Get real-time transcription and block unwanted callers so you&#8217;ll never hear from them again. The joy of missing out. Disconnect from your phone when and where you want with Digital Wellbeing. It lets you focus on time with family and friends by setting timers on apps and turning off visual notifications. Use the wind down mode to turn the screen to gray scale and get ready for a good night's sleep.\n                \n              </p>\n            \n            \n          \n        \n        \n        \n      \n      \n    \n    </div>",
+          "product_description": "Color:Just Black | Size:64 GB | Style:Pixel 3 | Pattern Name:Single Meet the\nGoogle Pixel 3. Capture the perfect shot every time, get things done with the\nGoogle Assistant, enjoy an all-day battery, and more. A camera so good it\ndeserves unlimited storage. Get everyone in the picture with Group Selfies\u2014no\nselfie stick required. Snap portraits like a pro with Portrait Mode. Capture\nsmiles, not blinks, for a great photo every time. And save all your favorite\nmoments with free, unlimited photo storage. Charges fast. Lasts long. Pixel 3\ncomes with a battery that charges fast and wirelessly, and lasts all day. It's\neven smart enough to limit battery usage for the apps you don't use often to\nkeep you going longer. Your Google Assistant. Get help from the Google\nAssistant: reserve a table at your favorite restaurant, buy tickets, get\ncommute times, weather info, and more\u2014all with a simple squeeze, or just by\nusing your voice. Avoid unwanted calls. Screen spam, scams, and other nuisance\ncalls. Get real-time transcription and block unwanted callers so you\u2019ll never\nhear from them again. The joy of missing out. Disconnect from your phone when\nand where you want with Digital Wellbeing. It lets you focus on time with\nfamily and friends by setting timers on apps and turning off visual\nnotifications. Use the wind down mode to turn the screen to gray scale and get\nready for a good night's sleep.",
+          "related_asins": [
+            "B07HKP9Y8H",
+            "B07R7DY911",
+            "B07P148SZF",
+            "B07HKPMFZ5",
+            "B07YMNLXL3",
+            "B07HKPBTVV",
+            "B07HKQJ6H1",
+            "B07KX8DXW8",
+            "B07KPLW14W",
+            "B07R9PTDTZ",
+            "B07HKPN611",
+            "B07R5CJDD7",
+            "B07WRDZXW8",
+            "B07HKN1GL6",
+            "B07HKNQJSM",
+            "B07JVDQP47",
+            "B07HKP5PK6",
+            "B07YMLHSM8",
+            "B07R5CBGY4",
+            "B07RBNTVMV",
+            "B07ND4ZN2X",
+            "B07YMM3P8V",
+            "B07HKT2BY1",
+            "B07J6FWNBT",
+            "B07H5S33FL",
+            "B07R4C6KQY",
+            "B07L36VF1C",
+            "B07L36YGM9",
+            "B07L375RS6",
+            "B07YMJ9WFN",
+            "B07NLHLC88",
+            "B07L377DRS",
+            "B07HKRCFXR",
+            "B07J9RD2DT",
+            "B07J6F3PVZ",
+            "B07L6QGX7K",
+            "B082YF9MMW",
+            "B07L6DSQVR",
+            "B07YMG37J4",
+            "B07YMHGW9X",
+            "B07YMN2N6M",
+            "B07H5QBRPV",
+            "B07YMKZVHJ",
+            "B07J6B7HTN",
+            "B07P13M213",
+            "B07ND57FFZ",
+            "B0787V183F"
+          ],
+          "images": [
+            "https://images-na.ssl-images-amazon.com/images/I/71-s0qpYaZL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71tY%2BBezTSL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71SjuEvwXPL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71W44-CwzSL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71B8ruKs0hL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71%2BvHP1RSHL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71OyTczwujL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71FQnI1k72L.jpg"
+          ],
+          "main_image": "https://images-na.ssl-images-amazon.com/images/I/71-s0qpYaZL.jpg",
+          "product_details": [
+            "Product Dimensions: 5.7 x 0.3 x 2.7 inches",
+            "Item Weight: 5.3 ounces",
+            "Shipping Weight: 1.3 pounds",
+            "Item model number: G013A",
+            "Batteries: 1 Lithium Polymer batteries required. (included)"
+          ],
+          "brand": "Google",
+          "categories": [
+            "Cell Phones & Accessories",
+            "Cell Phones",
+            "Carrier Cell Phones"
+          ],
+          "original_retail_price": 79900,
+          "package_dimensions": {
+            "size": {
+              "width": {
+                "amount": 3.899999996022,
+                "unit": "inches"
+              },
+              "depth": {
+                "amount": 1.899999998062,
+                "unit": "inches"
+              },
+              "length": {
+                "amount": 7.099999992758,
+                "unit": "inches"
+              }
+            },
+            "weight": {
+              "amount": 1.3007273457999997,
+              "unit": "pounds"
+            }
+          },
+          "all_variants": [
+            {
+              "product_id": "B07K5HMW15",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Not Pink"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07P8MQHSH",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07K5GLZ8J",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07KSSQQLZ",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Not Pink"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07KSRGQ6H",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07KGMQ5WQ",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Not Pink"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07K3X5JTP",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07KSKB618",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Clearly White"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07YKLB7XF",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Phone + Case"
+                }
+              ]
+            },
+            {
+              "product_id": "B07P8MQD6F",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Clearly White"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07P9R5HF4",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Clearly White"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B0822WLJ7S",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Phone + Case"
+                }
+              ]
+            },
+            {
+              "product_id": "B07WGYLHBT",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Just Black"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "64 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL + Charger"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07KSR3929",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Not Pink"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3 XL"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            },
+            {
+              "product_id": "B07K5GWS2H",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Clearly White"
+                },
+                {
+                  "dimension": "Size",
+                  "value": "128 GB"
+                },
+                {
+                  "dimension": "Style",
+                  "value": "Pixel 3"
+                },
+                {
+                  "dimension": "Pattern Name",
+                  "value": "Single"
+                }
+              ]
+            }
+          ],
+          "tag_title": "Amazon.com: Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black",
+          "variant_specifics": [
+            {
+              "dimension": "Color",
+              "value": "Just Black"
+            },
+            {
+              "dimension": "Size",
+              "value": "64 GB"
+            },
+            {
+              "dimension": "Style",
+              "value": "Pixel 3"
+            },
+            {
+              "dimension": "Pattern Name",
+              "value": "Single"
+            }
+          ],
+          "asin": "B07P8MQHSH",
+          "product_id": "B07P8MQHSH",
+          "retailer": "amazon",
+          "stars": 4.1,
+          "review_count": 356,
+          "question_count": 100,
+          "fresh": false,
+          "pantry": false,
+          "handmade": false,
+          "digital": false,
+          "buyapi_hint": true,
+          "customer_images": [
+            "https://images-na.ssl-images-amazon.com/images/I/81n-B5MQnpL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71GbRxxOCSL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71c3wIHnRcL.jpg"
+          ],
+          "price": 42299,
+          "ship_price": 0,
+          "epids": [
+            {
+              "type": "MPN",
+              "value": "G013A"
+            },
+            {
+              "type": "EAN",
+              "value": "0842776107404"
+            },
+            {
+              "type": "UPC",
+              "value": "842776107404"
+            }
+          ],
+          "epids_map": {
+            "MPN": "G013A",
+            "EAN": "0842776107404",
+            "UPC": "842776107404"
+          }
+        }
+    http_version: null
+  recorded_at: Wed, 18 Mar 2020 20:26:24 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07P8MQHSH/offers?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Mar 2020 20:26:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"504eff5d0cc29073860daaa0406c91af5d28b317"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584563192,
+          "status": "completed",
+          "offers": [
+            {
+              "seller": {
+                "name": "TTP Retail",
+                "id": "ANIVUW1SREVVT",
+                "num_ratings": 4951,
+                "percent_positive": 97,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "mTWpALl8qUgepvV48tB8%2BXthHBB%2BayGoxPa8suGPF0N36G9NwpsneDjCSHAshgGts%2Ba2wwNaIbCpva1T4pnfdAFlsXolSU75ZZIstH9hx0ZP%2BsiCNPGZsMJtA3fwSqpIPMJmXhoIx%2Bm2xo6aPGk7ypdZzORj30f24ov5F9idYgJYNoW4zO4BGJY4V30780Vs",
+              "price": 42299,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 3,
+                    "max": 3
+                  },
+                  "greytext": "Want it delivered Saturday, March 21?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Saturday, March 21?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "USA Supply Source",
+                "id": "AQD8CSXUPVRAZ",
+                "num_ratings": 13667,
+                "percent_positive": 95,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "mTWpALl8qUgepvV48tB8%2BXthHBB%2BayGofBhrL2yANn1mp1PoZIu8kXN7UxjXluRRa8OaTd7qZFiu%2FrT%2FRGpwSGE4X6X1%2Bd%2FQffhPIk8J%2BOQDZI3S1KHCAk%2BdiwelMxFfy1B0eyvuyugDhoFRu5QmCVzfhM%2FmTURVofbYygbD9diDIMlQCECp8g%3D%3D",
+              "price": 42299,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "price": 0
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Back-ordered.  Due in stock March 18 -- order now to reserve yours",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Mobile Stream",
+                "id": "A3S6UKR56C3UQ",
+                "num_ratings": 300,
+                "percent_positive": 86,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "mTWpALl8qUgepvV48tB8%2BXthHBB%2BayGoNP6t31KVK7%2Bn7YCCYNi7EJSMnAMebSgWn8TOk1sRZisQtiPx3rYtAll2WEPeAPXtyiNv%2FqTut6OqrAn%2BXpIn%2Bk%2Foxhon9aZwP5veZQnVVFOn0tG7u8AM7vGxuiqX6cvkDXCkcNsBrlj0xOM0U7PAcvk%2Bbn%2Bo365d",
+              "price": 43499,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "RUSS Cellular",
+                "id": "A1K3J6B4EZ5MRV",
+                "num_ratings": 515,
+                "percent_positive": 90,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "mTWpALl8qUgepvV48tB8%2BXthHBB%2BayGoq6M2A52m8mA0vG3h1QxhKrb99%2Fb0Piw1NlirrpplB97fnOXFHQUq5WIO8EpALMDoKGw0lhAFigUmycGpTrs6FGiKT7f3aC1SghhJzZ9KRCAYHhOku7AZQK2PK7ue%2FvFHFcgeBilKWeElFUmYSf%2BPzwh2Gms3MplA",
+              "price": 43999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 3,
+                    "max": 3
+                  },
+                  "greytext": "Want it delivered Saturday, March 21?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Saturday, March 21?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon.com",
+                "id": "ATVPDKIKX0DER",
+                "num_ratings": 1000000,
+                "percent_positive": 100,
+                "first_party": true
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "mTWpALl8qUgepvV48tB8%2BXthHBB%2BayGoMXaa19aLGfxODhUlmFGu2uAVByS9mWC%2BAAUq9Hwhhtw9o5HqbgCvLNMQjK2CRDik%2Bg3lNqWzHxuflwsvgUAY%2BZ4ruNIRsf0HVklUiOhHI0iLopUAFoHNxg%3D%3D",
+              "price": 49999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Networkstore",
+                "id": "AR1FTLUUZC24W",
+                "num_ratings": 1197,
+                "percent_positive": 90,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJj5v1Kqi18%2BvmDKkdQFzzby2kAmFbWYFO6yVxrXGkEQ1WxpeGNhwz3b3mry3f8BcQtb5Xv7ICMN2sWi0gUm2Chw3kIlWIBDNFzKK3MFE02okr5sfF5IpecNn5S8ZEaGht13jJ9PRszc%2FwhlmOU96Yqfi%2FRzVKp3%2Fy",
+              "price": 19997,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 8,
+                    "max": 8
+                  },
+                  "greytext": "Want it delivered Thursday, March 26? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Acceptable",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Wireless zone",
+                "id": "A2GU1UP6GG7LEN",
+                "num_ratings": 28,
+                "percent_positive": 86,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJUNKIyjHmCP8S8OrW7d3kwAdbyVvmc6hMP3htMYaeYFyW44kifke8U2Y1RigA0znX%2B7INriVzSAaqWV2wxT2d%2FxQXqB%2FJ%2BphozkUT278qGJecHDpBsOKGNJAnPER6qKNyQO24GWBRzl7%2FQlcBvCUUo%2BhmwKgJcIYp",
+              "price": 20999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 3,
+                "max": 3
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "price": 0
+                }
+              ],
+              "condition": "Used - Acceptable",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "The device is compatible with all GSM carriers. It is in a Used-Acceptable Condition. It has scratches/scuffs or discoloration around the metal body or backdoor. Fully Tested and Fully functional. It comes in its own Google Pixel 3 Box with a Charging Cable, Charging Adapter, USB connecter, and a Sim Ejector Pin. Please see the pictures for further details.",
+              "greytext": "Back-ordered.  Due in stock March 21 -- order now to reserve yours",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJH8mbHHdjDz7dvxGELCtQ0XfJSgjsTCEnIL8aFxVAcCXh8wBNqP2tZvrT%2BCT5%2Fd%2FdmPFrxpOFygby8d25fgAmQe%2B7q2eme58RiKTZ%2BqURMKmWeLORZK%2FQiSVxdWwag%2F%2FRcv1Yp6%2FAyy9J2iSihr%2FHkGjp0YqslGrI",
+              "price": 21272,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "Used - Acceptable",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Display has cosmetic imperfections but is usable. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Monday, March 23?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazing Deals Stores",
+                "id": "A3O4MSZWH6L3GN",
+                "num_ratings": 489,
+                "percent_positive": 94,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJu80y3qJ9uGLdNxGgI%2FyVPZXjq5FP96JVRzR8XTpkIL1qfpOA6nCyr8N2V1rritqQuZhXnVvmPBrVkD5bWWppdpQj1TKmXNkgdf09i2%2B9hZz6PpbbMAJisZ58NHS71FJFwVN4JP%2F39A7Rmi16y3Iltid0IkmD3DB5",
+              "price": 21999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 4,
+                    "max": 4
+                  },
+                  "greytext": "Want it delivered Sunday, March 22? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "Used - Acceptable",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Has a very small ink mark in the side or corner of screen. Fully functional, otherwise flawless. comes with charger and cable",
+              "greytext": "Want it delivered Sunday, March 22?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Edge Cellular",
+                "id": "A2NYPDFB973723",
+                "num_ratings": 10753,
+                "percent_positive": 89,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJYLAaaNgEkc4LJJ%2F%2BwWlHKilwxe4KQL8Kv7RF%2BDy6%2BcdK92YZrTKDpPoWD%2BRhhGTt92MDOIQbNC2chsKPUp8wJxCEyG56WdSHM6yhNZQT3PAp1NISglElNFlT3xXhkzGTrnv0tpT4OlrN%2BNprziLnZHJq9aO%2FfnJU",
+              "price": 22995,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Monday, March 23? Choose One-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "one-day"
+                }
+              ],
+              "condition": "Used - Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "*30 DAY MONEY BACK GUARANTEE* Phone is in good working condition. Shows signs of use such as scratches and scuffs from normal usage. Unlocked (Sim card NOT included). Comes with charger, cable (aftermarket). Original box not included.",
+              "greytext": "Want it delivered Monday, March 23?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "OlympicWireless",
+                "id": "A1S7YS0EBKHU3D",
+                "num_ratings": 19761,
+                "percent_positive": 92,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJ5anAqwL2%2BmsKDDJTRATKpHjL84TaqrAFxW%2F4VoazT25H430muzKne2RS4a9hOH0NfTnl7jGuUv%2Fp%2BPqw%2BKtzK3JWLMHgNMsVK4miZMaHmiHDIc3CR2l3VpcbQTD0kk1dq3%2Bja7i6Y6u1XdCGhagul5lflPITONwS",
+              "price": 26999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Light scratches on the body and screen that are noticeable but insignificant | Accessories Included - 90 DAY WARRANTY",
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Abe's Electronics Center",
+                "id": "A3DI1PQ3I3V3R1",
+                "num_ratings": 26060,
+                "percent_positive": 98,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJlRaPWHHGhbjoq0SHRy97UZx00StyrGVe3YVa%2FVcsLlfQzv1TOsqhDA9saYavfJjU%2FtymhBC%2FWuRcjPHFArJsatwZt5HCtOT9Su1TblPjwu117T6ckCShD1NOE8aWFW032y6O3K6OsyrBtg32ySLbIbuHP0Rv5GG0",
+              "price": 27495,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 3,
+                    "max": 3
+                  },
+                  "greytext": "Want it delivered Saturday, March 21?",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "Used - Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Saturday, March 21?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Pro apple stotre",
+                "id": "A37G37H2M08HK4",
+                "num_ratings": 1377,
+                "percent_positive": 94,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJx7ZSLROwlxtr4zqfVu6C6ZqJxFKXh0tc68r9d94TsPG4wFmjKzRy8xrtzTowEEk0mx%2BYgIxK%2Fmsro426uN%2FrR8dRFpSv4HFd2KpcHjQ%2FNwJHGfy2ZWXNkTlMnfb6EmxQKeOQPwVoKsROUYXv6kaAN%2BzwG1L5N%2BzW",
+              "price": 28500,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 6,
+                "max": 9
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 9
+                  },
+                  "greytext": "Arrives between March 24-27.",
+                  "price": 514,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 8,
+                    "max": 8
+                  },
+                  "greytext": "Want it delivered Thursday, March 26? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "SHIPS USPS PRIORITY MAIL!! GREAT CONDITION 8.5/10, NO SCRATCHES ON THE GLASS. COMES WITH NEW USB CABLE AND WALL CHARGER!",
+              "greytext": "Arrives between March 24-27.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "CrownProducts",
+                "id": "AE1L4W7L4O2MX",
+                "num_ratings": 972,
+                "percent_positive": 94,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJJz6LETvfrl0gagPMftssGY5KEzweE6qR2loPRU8HwyS6Wzo%2BKZNvCOHkD0GdzIV%2BNecDo8tZRXB0GI%2FnHGqtr2%2F6RDhezhpFn9sWcRVSAGRu3nKEL%2F9l5fSLdDvP4TNoz9Oklwp1OUMQAHZTXTvmsFEGPsJRCfIB",
+              "price": 29900,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 4,
+                    "max": 4
+                  },
+                  "greytext": "Want it delivered Sunday, March 22? Choose Two-Day Shipping at checkout.",
+                  "price": 0,
+                  "name": "two-day"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Sunday, March 22?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "infinity_plus_one",
+                "id": "A3BVN2QBNPBHCR",
+                "num_ratings": 75,
+                "percent_positive": 95,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "z%2F92Ay114LzVEiuySRfhveWpgG9L6OtJBWdAW2dATwNwX5wacZTyWJ5uw3QGgplHgbjBHfddijSQ1%2Fh27VcVV4x84HtkxkYLbZ9hAi760y%2BJEn6m3EEkY6nJUVJjNHcucljHd%2Ba%2BrHyq9jWA5RbZcataEnhcq3DQbwrlUVdGHtgfcrm0MPwipg%3D%3D",
+              "price": 35000,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 7,
+                "max": 22
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 22
+                  },
+                  "greytext": "Arrives between Mar. 25 - April 9.",
+                  "price": 549,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 12,
+                    "max": 12
+                  },
+                  "greytext": "Want it delivered Monday, March 30? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between Mar. 25 - April 9.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07P8MQHSH",
+              "buy_box_winner": null
+            }
+          ],
+          "asin": "B07P8MQHSH",
+          "retailer": "amazon",
+          "expired_product_id": false,
+          "strategy": "fullscrape"
+        }
+    http_version: null
+  recorded_at: Wed, 18 Mar 2020 20:26:28 GMT
+recorded_with: VCR 5.1.0

@@ -1,0 +1,176 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=%7B:query=%3E%22iphone%22,%20:retailer=%3E%22amazon%22%7D&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 17 Mar 2020 10:49:06 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"bb9fd3e41b6e055b4d285b246c329ee8f334abc1"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584442146,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [
+            {
+              "prime": true,
+              "product_id": "B07QZNQ6X6",
+              "title": "iConnect By Timex Classic Square Touchscreen Smartwatch with Heart Rate, Notifications and Two-Way Bluetooth Calling",
+              "image": "https://m.media-amazon.com/images/I/81HT5fnXuxL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 31,
+              "stars": 2.7,
+              "fresh": false,
+              "price": 5647,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01FWI06EY",
+              "title": "GadgetWraps 20mm Gizmo Watch Silicone Watch Band Strap with Quick Release Pins \u2013 Compatible with Gizmo Watch, Samsung, Pebble \u2013 20mm Quick Release Watch Band (Pastel Yellow, 20mm)",
+              "image": "https://m.media-amazon.com/images/I/71+1-JWDnmL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1723,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 1395,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B018HC6PVA",
+              "title": "Blink Indoor Home Security Camera System with Motion Detection, HD Video, 2-Year Battery Life and Cloud Storage Included - 3 Camera Kit",
+              "image": "https://m.media-amazon.com/images/I/61-R7o5pC0L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1784,
+              "stars": 4.1,
+              "fresh": false,
+              "price": 18999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B00Q3D9TNC",
+              "title": "High Quality Glass Lens Reading Glasses with UV Blocking Comfort Tint in Designer European Acetate Frame Available +0.25 to +3.00 Magnification (+1.75)",
+              "image": "https://m.media-amazon.com/images/I/51SwHUcA4oL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 14,
+              "stars": 4.8,
+              "fresh": false,
+              "price": 6499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B00LJOQHFI",
+              "title": "Eyekepper Mens Vintage Reading Glasses-5 Pack,Black-Clear Frame +4.00",
+              "image": "https://m.media-amazon.com/images/I/61VOwFOX8XL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 5858,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 1200,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B00BKEQBI0",
+              "title": "Pebble Smartwatch Black",
+              "image": "https://m.media-amazon.com/images/I/611f+HByBML._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 4921,
+              "stars": 3.4,
+              "fresh": false,
+              "price": 8399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07CTP4XGW",
+              "title": "ThinOptics Reading Glasses + Keychain Case | Black Frames, 1.50 Strength - Amazon Bookstore Featured Product",
+              "image": "https://m.media-amazon.com/images/I/61Q7WASnq3L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 35,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 1818,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01469HTIQ",
+              "title": "Eyecedar Metal Half-Frame Reading Glasses Men 5-Pack Spring Hinges Stainless Steel Material Includes Sun Readers +2.00",
+              "image": "https://m.media-amazon.com/images/I/51gILxh8n9L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 702,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 2290,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B083TPKJN1",
+              "title": "Blink XT2 Camera Vinyl Siding Clips Hooks, No-Hole Needed Outdoor Siding Screws Hanger for Mounting Blink Camera Home Security System, Weatherproof Stainless Steel Blink Siding Mount(12 Pack)",
+              "image": "https://m.media-amazon.com/images/I/610iZ0MVTPL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 39,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 979,
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 3,
+            "end": 3,
+            "of": 3
+          }
+        }
+    http_version: null
+  recorded_at: Tue, 17 Mar 2020 10:49:04 GMT
+recorded_with: VCR 5.1.0

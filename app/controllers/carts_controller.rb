@@ -4,9 +4,7 @@ class CartsController < ApplicationController
   before_action :set_cart
 
   # GET /carts/1
-  def show
-    @cart = current_cart
-  end
+  def show; end
 
   def edit; end
 

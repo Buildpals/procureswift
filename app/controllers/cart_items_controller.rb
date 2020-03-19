@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
   before_action :set_cart_item, only: %i[update destroy]
 
   def create
-    current_cart.add_product(cart_item_params)
+    current_cart.add_cart_item(cart_item_params)
 
     if current_cart.save
       redirect_to cart_path(current_cart), notice: 'Item added to cart successfully.'
@@ -37,8 +37,30 @@ class CartItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def cart_item_params
-    params.require(:cart_item).permit(:product_id,
+    params.require(:cart_item).permit(:seller_num_ratings,
+                                      :seller_percent_positive,
+                                      :seller_first_party,
+                                      :seller_name,
+                                      :seller_id,
+                                      :marketplace_fulfilled,
+                                      :international,
+                                      :offer_id,
+                                      :available,
+                                      :handling_days_max,
+                                      :handling_days_min,
+                                      :prime_only,
+                                      :condition,
+                                      :addon,
+                                      :shipping_options,
+                                      :product_id,
+                                      :retailer,
+                                      :unit_price,
+                                      :weight,
                                       :quantity,
-                                      :chosen_offer_id)
+                                      :title,
+                                      :main_image,
+                                      :width,
+                                      :length,
+                                      :depth)
   end
 end

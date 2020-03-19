@@ -20,7 +20,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Item quantity", with: @product.item_quantity
     fill_in "Item url", with: @product.item_url
     fill_in "Phone number", with: @product.phone_number
-    fill_in "Zinc product details", with: @product.zinc_product_details
+    fill_in "Zinc product details", with: @product.product_details_json
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -37,7 +37,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Item quantity", with: @product.item_quantity
     fill_in "Item url", with: @product.item_url
     fill_in "Phone number", with: @product.phone_number
-    fill_in "Zinc product details", with: @product.zinc_product_details
+    fill_in "Zinc product details", with: @product.product_details_json
     click_on "Update Product"
 
     assert_text "Product was successfully updated"

@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class Handling
-  BUILDPALS_MARKUP_RATE = 0.01
-  BUILDPALS_MARKUP_BASE = 10
+class Insurance
+  # Insurance package supplied by MyUS, make sure it is ticked when
+  # shipping the item
+  INSURANCE_RATE = 0.03
 
-  def initialize(price, quantity=1)
+  def initialize(price)
     raise ArgumentError, 'price is nil' if price.nil?
 
     @price = price
-    @quantity = quantity
   end
 
   def cost
-    (@price * BUILDPALS_MARKUP_RATE + BUILDPALS_MARKUP_BASE) * @quantity
+    @price * INSURANCE_RATE
   end
 
   def hash
@@ -24,6 +24,6 @@ class Handling
   end
 
   def to_s
-    value.to_s
+    cost.to_s
   end
 end

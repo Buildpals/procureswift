@@ -10,20 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_054952) do
+ActiveRecord::Schema.define(version: 2020_03_19_105733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
     t.bigint "cart_id", null: false
-    t.bigint "product_id", null: false
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "unit_price", precision: 8, scale: 2
+    t.decimal "weight", precision: 8, scale: 2
+    t.integer "seller_num_ratings"
+    t.decimal "seller_percent_positive"
+    t.boolean "seller_first_party"
+    t.string "seller_name"
+    t.string "seller_id"
+    t.boolean "marketplace_fulfilled"
+    t.boolean "international"
+    t.string "offer_id"
+    t.boolean "available"
+    t.integer "handling_days_max"
+    t.integer "handling_days_min"
+    t.boolean "prime_only"
+    t.string "condition"
+    t.boolean "addon"
+    t.string "shipping_options"
+    t.string "product_id"
+    t.string "retailer"
+    t.string "title"
+    t.string "main_image"
+    t.decimal "width", precision: 8, scale: 2
+    t.decimal "length", precision: 8, scale: 2
+    t.decimal "depth", precision: 8, scale: 2
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
-    t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -53,25 +74,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_054952) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "item_url"
-    t.json "zinc_product_details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.json "zinc_product_offers"
-    t.string "chosen_offer_id"
-    t.boolean "featured", default: false, null: false
-    t.string "title"
-    t.string "main_image"
-    t.json "offers"
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "weight", precision: 8, scale: 2
-    t.string "hs_code"
-    t.decimal "width", precision: 8, scale: 2
-    t.decimal "length", precision: 8, scale: 2
-    t.decimal "depth", precision: 8, scale: 2
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "phone_number", null: false
@@ -99,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_054952) do
   end
 
   add_foreign_key "cart_items", "carts"
-  add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"

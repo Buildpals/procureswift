@@ -1,0 +1,343 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=pixel%204&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Mar 2020 13:11:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"e513ea6b48ae789a4be616105e9cc2a5a83451db"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584537108,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [
+            {
+              "prime": true,
+              "product_id": "B0824B6LQ2",
+              "title": "Google Pixel 4 XL - Clearly White - 64GB - Unlocked (Renewed)",
+              "image": "https://m.media-amazon.com/images/I/61D4hZNZ5jL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 12,
+              "stars": 2.8,
+              "fresh": false,
+              "price": 55995,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07R7DY911",
+              "title": "Google - Pixel 3a with 64GB Memory Cell Phone (Unlocked) - Just Black - G020G",
+              "image": "https://m.media-amazon.com/images/I/81T-FKC695L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 3047,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 36020,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07J6FWNBT",
+              "title": "Google Pixel 3 XL 128GB Unlocked GSM & CDMA 4G LTE Android Phone w/ 12.2MP Rear & Dual 8MP Front Camera - Clearly White (Renewed)",
+              "image": "https://m.media-amazon.com/images/I/418rjuYEeVL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 495,
+              "stars": 4.1,
+              "fresh": false,
+              "price": 30995,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZJKL9XG",
+              "title": "Google Pixel 4 G020M 64GB 5.7 inch Android (GSM Only, No CDMA) Factory Unlocked 4G/LTE Smartphone - International Version (Clearly White)",
+              "image": "https://m.media-amazon.com/images/I/61gi4NwGPOL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 5,
+              "stars": 4,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YMNLXL3",
+              "title": "Google GA01187-US Pixel 4 - Just Black - 64GB - Unlocked",
+              "image": "https://m.media-amazon.com/images/I/61C9GrXEp4L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 236,
+              "stars": 4.1,
+              "fresh": false,
+              "price": 54900,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VHL9J5B",
+              "title": "OMOTON [4 Pack] Screen Protector for Google Pixel 4, Tempered Glass/Alignment Frame/Scratch Resistant/Only Cover Display Area",
+              "image": "https://m.media-amazon.com/images/I/61ijN69w2wL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 738,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TDPH6QV",
+              "title": "Spigen Rugged Armor Designed for Google Pixel 4 Case (2019) - Matte Black",
+              "image": "https://m.media-amazon.com/images/I/61AGRWB00iL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 502,
+              "stars": 4.8,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YCC1CWS",
+              "title": "[3 Pack] QITAYO Screen Protector for Google Pixel 4, [Tempered Glass] [Scratch Resistant] [Alignment Frame] Google Pixel 4 Screen Protector",
+              "image": "https://m.media-amazon.com/images/I/71bg9HxImNL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 584,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07TYDGQ2R",
+              "title": "Bluetooth Headphones 5.0, Wireless Bluetooth Earbuds Stereo Earphone Cordless Sport Headsets, Bluetooth in-Ear Earphones with Built-in Mic for Smart Phones",
+              "image": "https://m.media-amazon.com/images/I/51kqo1nnxNL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 247,
+              "stars": 3.6,
+              "fresh": false,
+              "price": 2299,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07P8MQHSH",
+              "title": "Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black",
+              "image": "https://m.media-amazon.com/images/I/71-s0qpYaZL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 356,
+              "stars": 4.1,
+              "fresh": false,
+              "price": 42299,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YWKFVCG",
+              "title": "RhinoShield Bumper Case for Google Pixel 4 CrashGuard - Shock Absorbent Slim Design Protective Cover 3.5M/11ft Drop Protection - Black",
+              "image": "https://m.media-amazon.com/images/I/61HZzwiCCqL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 8,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 2499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VCJHS76",
+              "title": "[4 Pack] OMOTON Google Pixel 4 XL Screen Protector, Tempered Glass Screen Protector for Google Pixel 4XL 2019 Released with/Alignment Frame/Scratch Resistant/Bubble Free",
+              "image": "https://m.media-amazon.com/images/I/61fx0KuD6CL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1236,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B0828177YC",
+              "title": "NEWDERY Upgraded Pixel 4 Battery Case Qi Wireless Charging Compatible, 5000mAh Rechargeable Extended Battery Charging Charger Case with Raised Bezel, Add 150% Extra Juice (5.7 Inches Black)",
+              "image": "https://m.media-amazon.com/images/I/51lBW3TynIL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 20,
+              "stars": 2.9,
+              "fresh": false,
+              "price": 4999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCR5RCG",
+              "title": "Spigen Liquid Air Armor Designed for Google Pixel 4 Case (2019) - Matte Black",
+              "image": "https://m.media-amazon.com/images/I/61xTe4njl4L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 286,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 1197,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YV3PBNS",
+              "title": "Shields Up Google Pixel 4 Wallet Case, [Detachable] Magnetic Wallet Case, Durable and Slim, Lightweight with Card/Cash Slots, Wrist Strap, [Vegan Leather] Cover for Google Pixel 4 -Brown",
+              "image": "https://m.media-amazon.com/images/I/81-YOYZGQaL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 23,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 1499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X7HL49V",
+              "title": "Moment Protective Pixel 4 Case - Durable Wrist Strap Friendly Case for Photography and Camera Lovers (Walnut Wood)",
+              "image": "https://m.media-amazon.com/images/I/819WI-mTkXL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 11,
+              "stars": 5,
+              "fresh": false,
+              "price": 3999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YMKD4Y3",
+              "title": "OtterBox Defender Series SCREENLESS Edition Case for Google Pixel 4 - Black",
+              "image": "https://m.media-amazon.com/images/I/61bJJ7UZykL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 48,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 3740,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCR26NT",
+              "title": "Spigen Neo Hybrid Designed for Google Pixel 4 Case (2019) - Gunmetal",
+              "image": "https://m.media-amazon.com/images/I/61v+o1ueTFL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 186,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 1399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B071JY98QL",
+              "title": "Digiroot Universal Stylus,[2-in-1] Disc Stylus Pen 2018 UPDATED Touch Screen Pens for All Touch Screens Cell phones, Tablets, Laptops with 9 Replacement Tips(6 Discs, 3 Fiber Tips Included) - (Black)",
+              "image": "https://m.media-amazon.com/images/I/61GS6mNYcoL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1622,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 1199,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Y8KWXDP",
+              "title": "60W PD Charger Cable Cord for Google Pixel 4 3A XL 3 2/LG G8 G7 V50 V40 Thinq V30/Pixel4 Pixel3 Pixel2 4XL 3AXL 3XL,USB Type C to USB C Charging Phone Data Wire,Fast Charge Power Delivery 3FT 3FT 6FT",
+              "image": "https://m.media-amazon.com/images/I/71xzFzcQPYL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 195,
+              "stars": 4,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B0817RD82B",
+              "title": "HongXingHai for Google Pixel 4 Aluminum Metal Case with Kickstand Dustproof Shockproof Case Built-in Screen Protector Military Grade Cover for Google Pixel 4 (Silver, for Pixel 4)",
+              "price": 2399,
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 0,
+              "fresh": false,
+              "image": "https://m.media-amazon.com/images/I/61JupmrfziL._AC_UY218_ML3_.jpg",
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YGSKZLN",
+              "title": "ZIZO Bolt Series Google Pixel 4 Case | Heavy-Duty Military-Grade Drop Protection w/Kickstand Included Belt Clip Holster Tempered Glass Lanyard (Metal Gray/Black)",
+              "image": "https://m.media-amazon.com/images/I/818cdnnJJlL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 47,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 1899,
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 1,
+            "end": 16,
+            "of": 1000
+          }
+        }
+    http_version: null
+  recorded_at: Wed, 18 Mar 2020 13:11:44 GMT
+recorded_with: VCR 5.1.0

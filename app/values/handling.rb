@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class Insurance
-  INSURANCE_RATE = 0.10
+class Handling
+  BUILDPALS_MARKUP_BASE = 10
+  BUILDPALS_MARKUP_RATE = 0.01
 
   def initialize(price)
     raise ArgumentError, 'price is nil' if price.nil?
@@ -10,7 +11,7 @@ class Insurance
   end
 
   def cost
-    @price * INSURANCE_RATE
+    BUILDPALS_MARKUP_BASE + @price * BUILDPALS_MARKUP_RATE
   end
 
   def hash
@@ -22,6 +23,6 @@ class Insurance
   end
 
   def to_s
-    cost.to_s
+    value.to_s
   end
 end

@@ -2,38 +2,20 @@
 
   <div class="row mt-3">
     <div class="col-lg-12">
-      <h3>Products</h3>
+      <h3>Showing results for <em><%= params[:query] %></em></h3>
       <hr>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 mx-auto">
-      <% @products.in_groups_of(3).each do |group| %>
-        <div class="card-deck mb-4">
-          <% group.each do |product| %>
-            <% unless product.nil? %>
-              <%= render product %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+      <ul class="list-unstyled">
+        <%= render(@products) ||
+                content_tag(:li,
+                            "No results for #{params[:query]} on #{params[:retailer]&.titleize}.",
+                            class: 'media border-bottom py-3') %>
+      </ul>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="text-center">
-            <a href="<%= root_path %>" class="card-link">
-              Purchase an item that is not above
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>

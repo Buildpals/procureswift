@@ -30,7 +30,7 @@
             </td>
             <td>
               <code>
-                <%= truncate product.zinc_product_details.to_s, length: 100 %>
+                <%= truncate product.product_details_json.to_s, length: 100 %>
               </code>
             </td>
             <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
