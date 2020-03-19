@@ -1,24 +1,15 @@
 # frozen_string_literal: true
 
-class ProductSearcher
+class Zinc
   require 'net/http'
   require 'uri'
 
-  def initialize(query, retailer = 'amazon')
-    @query = query
-    @retailer = retailer
-  end
-
-  def search
-    response = make_api_call
+  def search(query, retailer = 'amazon')
+    response = make_api_call(query, retailer)
     build_products(response)
   rescue Net::OpenTimeout, SocketError
     Rails.logger.warn 'Network error while fetching product information!'
     false
-  end
-
-  def zinc_product_search_url
-    "https://api.zinc.io/v1/search?query=#{@query}&page=1&retailer=#{@retailer}"
   end
 
   private
@@ -26,7 +17,7 @@ class ProductSearcher
   def build_products(response)
     response['results'].map do |result|
       Product.new(product_id: result['product_id'],
-                  retailer: @retailer,
+                  retailer: response['retailer'],
                   title: result['title'],
                   main_image: result['image'],
 
@@ -36,8 +27,9 @@ class ProductSearcher
     end
   end
 
-  def make_api_call
-    uri = URI.parse(zinc_product_search_url)
+  def make_api_call(query, retailer)
+    product_search_url = "https://api.zinc.io/v1/search?query=#{query}&page=1&retailer=#{retailer}"
+    uri = URI.parse(product_search_url)
     request = Net::HTTP::Get.new(uri)
     request.basic_auth(
       Rails.application.credentials.config[:zincapi][:client_token],
@@ -54,7 +46,7 @@ class ProductSearcher
     end
 
     response_json = ActiveSupport::JSON.decode(response.body)
-    Rails.logger.info "Product search for fetched successfully for #{@query}!"
+    Rails.logger.info "Product search for fetched successfully for #{query}!"
     Rails.logger.info response_json
 
     response_json

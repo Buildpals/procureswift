@@ -11,7 +11,6 @@ class CartItem < ApplicationRecord
     "#{self[:retailer]}_#{self[:product_id]}"
   end
 
-
   def price
     unit_price
   end

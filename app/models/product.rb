@@ -47,6 +47,6 @@ class Product
   end
 
   def self.search(query, retailer = 'amazon')
-    ProductSearcher.new(query, retailer).search
+    Zinc.new.search(query, retailer)
   end
 end
