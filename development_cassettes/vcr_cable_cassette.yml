@@ -7808,4 +7808,1999 @@ http_interactions:
         }
     http_version: null
   recorded_at: Thu, 19 Mar 2020 19:26:58 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=microwave&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:42:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"f35495e373de1d7a55e2d912bdf4308187f42b1a"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584661378,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [
+            {
+              "prime": true,
+              "product_id": "B076V72BZ6",
+              "title": "Toshiba EM925A5A-SS Microwave Oven with Sound On/Off ECO Mode and LED Lighting, 0.9 Cu. ft/900W, Stainless Steel",
+              "image": "https://m.media-amazon.com/images/I/51nV8Maj4tL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1632,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 8999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07894S727",
+              "title": "AmazonBasics Microwave, Small, 0.7 Cu. Ft, 700W, Works with Alexa",
+              "image": "https://m.media-amazon.com/images/I/51ngf55JmfL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 5858,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 5999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B071WCB1T6",
+              "title": "Toshiba EM131A5C-BS Microwave Oven with Smart Sensor, Easy Clean Interior, ECO Mode and Sound On/Off, 1.2 Cu.ft, 1100W, Black Stainless Steel",
+              "image": "https://m.media-amazon.com/images/I/61jkxDhI-EL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2530,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 11000,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07HGH1KG6",
+              "title": "BLACK+DECKER EM720CB7 Digital Microwave Oven with Turntable Push-Button Door,Child Safety Lock,700W, Stainless Steel, 0.7 Cu.Ft",
+              "image": "https://m.media-amazon.com/images/I/81gP22+jCVL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 810,
+              "stars": 4.4,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01DEWZUG4",
+              "title": "Panasonic Microwave Oven NN-SN686S Stainless Steel Countertop/Built-In with Inverter Technology and Genius Sensor, 1.2 Cu. Ft, 1200W",
+              "image": "https://m.media-amazon.com/images/I/61HUAFoa5jL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 3557,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 15052,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07W14WGSK",
+              "title": "Toshiba EM131A5C-BS Microwave Oven with Smart Sensor, Easy Clean Interior, ECO Mode and Sound On/Off, 1.2 Cu.ft, 1100W, Black Stainless Steel (Renewed)",
+              "image": "https://m.media-amazon.com/images/I/61cpn1UEh8L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 39,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 9900,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01DEWZWDU",
+              "title": "Panasonic Microwave Oven NN-SN966S Stainless Steel Countertop/Built-In with Inverter Technology and Genius Sensor, 2.2 Cu. Ft, 1250W",
+              "image": "https://m.media-amazon.com/images/I/71SFQpnYoQL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2401,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 22936,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07GV36BLD",
+              "title": "COMFEE' EM720CPL-PMB Countertop Microwave Oven with Sound On/Off, ECO Mode and Easy One-Touch Buttons, 0.7cu.ft, 700W, Black",
+              "image": "https://m.media-amazon.com/images/I/81dsDxFMqxL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 929,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 6499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VVMG7S6",
+              "title": "Kenmore 70923 0.9 cu. ft Small Compact 900 Watts Countertop Microwave with 10 Power Settings, 12 Heating Presets, Removable Turntable ADA Compliant, Stainless Steel",
+              "image": "https://m.media-amazon.com/images/I/71MJWhA4vaL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 390,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 8999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01EIZSF6I",
+              "title": "Farberware FMO11AHTBKB 1.1 Cu. Ft. Stainless Steel Countertop Microwave Oven With 6 Cooking Programs, LED Lighting, 1000 Watts",
+              "image": "https://m.media-amazon.com/images/I/81xxOPvz+9L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1618,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 9663,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VVMGCVJ",
+              "title": "Kenmore 70722 0.7 cu. ft Compact 700 Watts 10 Power Settings, 6 Heating Presets, Removable Turntable, ADA Compliant Small Countertop Microwave, White",
+              "image": "https://m.media-amazon.com/images/I/71iMUNtCMsL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 304,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 6999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07PSY2RVD",
+              "title": "Panasonic Compact Microwave Oven with 1200 Watts of Cooking Power, Sensor Cooking, Popcorn Button, Quick 30sec and Turbo Defrost - NN-SN67KS - 1.2 Cu. Ft (Stainless Steel / Silver)",
+              "image": "https://m.media-amazon.com/images/I/71uRdJEzvBL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 469,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 18995,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B01DEWZWFS",
+              "title": "Panasonic Microwave Oven NN-SN766S Stainless Steel Countertop/Built-In with Inverter Technology and Genius Sensor, 1.6 Cu. Ft, 1250W",
+              "image": "https://m.media-amazon.com/images/I/715d4zfF1eL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 299,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 18893,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B00AKI32O8",
+              "title": "RCA RMW733-WHITE Microwave, 0.7 cu. ft, White",
+              "image": "https://m.media-amazon.com/images/I/71dUMG7AyYL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1660,
+              "stars": 4,
+              "fresh": false,
+              "price": 5421,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VNT3L14",
+              "title": "Farberware Professional FMO12AHTBKE 1.2 Cu. Ft. 1100-Watt Microwave Oven With Smart Sensor Cooking and LED Lighting, Brushed Stainless Steel",
+              "image": "https://m.media-amazon.com/images/I/71QSJJG-60L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2,
+              "stars": 5,
+              "fresh": false,
+              "price": 12999,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07FDDJMLK",
+              "title": "Kenmore Black 70919 Countertop Microwave, 0.9 cu. ft",
+              "image": "https://m.media-amazon.com/images/I/81s8thPXCxL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 192,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 10990,
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 1,
+            "end": 16,
+            "of": 5000
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:42:58 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B076V72BZ6?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:43:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"d3edf3056b3182105066e6ad25c34d138bc41cdc"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584661412,
+          "status": "completed",
+          "feature_bullets": [
+            "Stylish Stainless Steel with timeless design, external Dimension (w*d*h): 19. 2*15. 9*11. 5 inches, internal Dimension (w*d*h): 12. 36*13. 66*8. 7 inches",
+            "Pre-programmed menu for 6 popular foods like popcorn, pizza, potato and more",
+            "One touch start - quick access to start the microwave from 1 to 6 minutes cooking at full power",
+            "Equipped with power-saving eco mode, sound on/off option and child safety lock",
+            "900 watts with 10 power settings, clock, and kitchen timer",
+            "Bright digital display, easy-to-read control panel, LED cavity light and 10. 6 inches glass turntable",
+            "If you wish to mute the buzzer of the microwave, pleas long press on the button \"8\" For 3-5 seconds. The buzzer is automatically switched off after a long beep.",
+            "The keypad was covered by a protection film during the shipment. Please Peel it off before your first use.",
+            "1 year, Please keep the packaging for contacting Toshiba After sales service And product returns."
+          ],
+          "title": "Toshiba EM925A5A-SS Microwave Oven with Sound On/Off ECO Mode and LED Lighting, 0.9 Cu. ft/900W, Stainless Steel",
+          "meta_keywords": "Toshiba EM925A5A-SS Microwave Oven with Sound On/Off ECO Mode and LED Lighting, 0.9 Cu. ft/900W, Stainless Steel,Toshiba,EM925A5A-SS",
+          "html_product_description": "<div id=\"productDescription\" class=\"a-section a-spacing-small\">\n        \n\n\n\n\n\n  \n    \n       \n        \n          \n        <div class=\"disclaim\">\n          \n            \n            \n            \n             Color:<strong>Stainless Steel</strong>\n            \n          \n          </div>\n        \n      \n    \n  \n\n\n        \n        \n     \n\t       \n     \n\n     \n\n     \n\n     \n                              \n     \n       \n        <!-- show up to 2 reviews by default -->\n        \n          \n          \n            \n              <p>This Toshiba 0. 9 Cu. '. 900 watts microwave oven with its (black) Stainless Steel finish and timeless look can match different kitchen styles. It features easy defrosting by weight/time, 6 auto menus, microwave cooking with 10 power levels, express cook buttons for 1-6 mines and memory function. It is equipped with bright A LED cavity light, a glass turntable, energy saving eco mode, mute button, clock and kitchen timer. The bright LED digital display, easy-to-read control panel and easy-to grip door handle further improve the user experience. The compact size is ideal for apartment kitchens, vacation homes, offices and dorms. for further information please kindly refer to the user manual provided as a PDF document below the product description section.\n                \n              </p>\n            \n            \n          \n        \n        \n        \n      \n      \n    \n    </div>",
+          "product_description": "Color:Stainless Steel This Toshiba 0. 9 Cu. '. 900 watts microwave oven with\nits (black) Stainless Steel finish and timeless look can match different\nkitchen styles. It features easy defrosting by weight/time, 6 auto menus,\nmicrowave cooking with 10 power levels, express cook buttons for 1-6 mines and\nmemory function. It is equipped with bright A LED cavity light, a glass\nturntable, energy saving eco mode, mute button, clock and kitchen timer. The\nbright LED digital display, easy-to-read control panel and easy-to grip door\nhandle further improve the user experience. The compact size is ideal for\napartment kitchens, vacation homes, offices and dorms. for further information\nplease kindly refer to the user manual provided as a PDF document below the\nproduct description section.",
+          "related_asins": [
+            "B071WCB1T6",
+            "B07VVMG7S6",
+            "B07HG9YGZY",
+            "B01DEWZUG4",
+            "B01EIZSF6I",
+            "B076VB5JFQ",
+            "B07HG9Y3VL",
+            "B07GV78ZKK",
+            "B07GV36BLD",
+            "B01DPZD2MO",
+            "B07PSY2RVD",
+            "B07HGHM83L",
+            "B07MY2XS3S",
+            "B07VYVP8H2",
+            "B07DR3DQPF",
+            "B00O7W98BY",
+            "B00785MVRA",
+            "B07R7TNCX5",
+            "B07VVMGCVJ",
+            "B01DEWZWDU",
+            "B01EIZSDSI",
+            "B00BGTRK66",
+            "B07894S727",
+            "B071WC9LT3",
+            "B076V5DJ4S",
+            "B07R7TQ6Q5",
+            "B07RC41J1W",
+            "B07VS476X8",
+            "B07KX7C31G",
+            "B071ZSCY1P",
+            "B009NA7VDW",
+            "B01DEWZWFS",
+            "B00FRD0PNC",
+            "B005DLZRIQ",
+            "B07QPDTYJ5",
+            "B01N3CX3TB",
+            "B010RX8GVY",
+            "B004G7N8W0",
+            "B01MT6JZMR",
+            "B01ND4JNO3",
+            "B074MJ7QC5",
+            "B0733HWTYF",
+            "B07DRFSQ9S",
+            "B00BGTO1WC",
+            "B01IB17RLE",
+            "B07WRDGRD1",
+            "B00CE2VIKS",
+            "B01DEWZWGC",
+            "B084XT16X3",
+            "B00XHE49PI"
+          ],
+          "images": [
+            "https://images-na.ssl-images-amazon.com/images/I/51nV8Maj4tL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61IIOYbyoFL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61D%2Bf8l3M0L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61m6jiPzNML.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71vCKk0NM1L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61zHL8X8TOL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/81DG0jKvKHL.jpg"
+          ],
+          "main_image": "https://images-na.ssl-images-amazon.com/images/I/51nV8Maj4tL.jpg",
+          "product_details": [
+            "Product Dimensions: 19.2 x 15.9 x 11.5 inches",
+            "Item Weight: 27.3 pounds",
+            "Shipping Weight: 30.5 pounds",
+            "Manufacturer: Toshiba",
+            "Item model number: EM925A5A-SS"
+          ],
+          "brand": "Toshiba",
+          "categories": [
+            "Home & Kitchen",
+            "Kitchen & Dining",
+            "Small Appliances",
+            "Microwave Ovens",
+            "Countertop Microwave Ovens"
+          ],
+          "package_dimensions": {
+            "size": {
+              "width": {
+                "amount": 17.449999982201,
+                "unit": "inches"
+              },
+              "depth": {
+                "amount": 13.299999986434,
+                "unit": "inches"
+              },
+              "length": {
+                "amount": 21.249999978325,
+                "unit": "inches"
+              }
+            },
+            "weight": {
+              "amount": 30.5009539477,
+              "unit": "pounds"
+            }
+          },
+          "all_variants": [
+            {
+              "product_id": "B072JML2GZ",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Black Stainless"
+                }
+              ]
+            },
+            {
+              "product_id": "B076V72BZ6",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Stainless Steel"
+                }
+              ]
+            }
+          ],
+          "tag_title": "Toshiba EM925A5A-SS Microwave Oven with Sound On/Off ECO Mode and LED Lighting, 0.9 Cu. ft/900W, Stainless Steel",
+          "variant_specifics": [
+            {
+              "dimension": "Color",
+              "value": "Stainless Steel"
+            }
+          ],
+          "asin": "B076V72BZ6",
+          "product_id": "B076V72BZ6",
+          "retailer": "amazon",
+          "stars": 4.3,
+          "review_count": 1632,
+          "question_count": 194,
+          "fresh": false,
+          "pantry": false,
+          "handmade": false,
+          "digital": false,
+          "buyapi_hint": true,
+          "customer_images": [
+            "https://images-na.ssl-images-amazon.com/images/I/71K3cJu6qsL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71SAwBy20rL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/714J4PY+SmL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71udZOThRtL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71kR7BMlQsL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61nLL+T6AiL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71ioTGMQVxL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71noG8OnukL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/719qsfiVj+L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71uhaV3VmGL.jpg"
+          ],
+          "price": 8999,
+          "ship_price": 0,
+          "epids": [
+            {
+              "type": "MPN",
+              "value": "EM925A5A-SS"
+            },
+            {
+              "type": "EAN",
+              "value": "0817986023820"
+            },
+            {
+              "type": "UPC",
+              "value": "817986023820"
+            }
+          ],
+          "epids_map": {
+            "MPN": "EM925A5A-SS",
+            "EAN": "0817986023820",
+            "UPC": "817986023820"
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:43:34 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B076V72BZ6/offers?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:43:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"d0bb3f84933f580db55e9b4b80069dfeecafca7d"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584661438,
+          "status": "completed",
+          "offers": [
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIeisUNyI3ueOBuZQ7JAn2ltvADP6dlPO9mY5UpO8EZ5gixtEtZQV65%2BPOEPDQ48AxN0T0u%2FSLk6Lzx2oXnEZLvGPM3wZDxTyhox3kciEsXsF5kVyhKGuir%2FS",
+              "price": 6299,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 12,
+                    "max": 12
+                  },
+                  "greytext": "Want it delivered Tuesday, March 31? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Acceptable",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Large cosmetic imperfection(s) on top, front or sides of item. Large cosmetic imperfection(s) on bottom or back of the item. Large cosmetic imperfection(s) on the corner of the item. Large cosmetic imperfection(s) on the interior of the item. Missing manual. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Tuesday, March 31?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIeiN7JVTqLUWAJoZetUzBb39qnKKN2BWRDE%2BkCLUjcvyrBD7muSlUuCbq8UCxmDW7sGsNbrMh1Zr6E6lYgCY4qawZxTlhuSnyUUfuYPnXYZsfGcGPV%2F8TqCg",
+              "price": 7648,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 5,
+                    "max": 5
+                  },
+                  "greytext": "Want it delivered Tuesday, March 24? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Small cosmetic imperfection on bottom or back of item. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Tuesday, March 24?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIejl78a4TLU5yncM8nsbVHlql253HbeNTZ7VJFdWx2DW%2BOCL1qfJKuDTdGrVeMxt3nEnnod7monO4peKyViUkNpefkcxPfhVzfJAmSIeOBuNbF0Yb2odrmHR",
+              "price": 7648,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 9,
+                    "max": 9
+                  },
+                  "greytext": "Want it delivered Saturday, March 28? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Small cosmetic imperfection on top, front or sides of item. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Saturday, March 28?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIegbiGJX0HreN0FTrg4qfsRL7CQQ%2BC1UxFaNcjpYh17eBnPxzXw4NdzUClErmKAxU6SO%2B%2Fe681PfOfMW1Xqt9GXdhv%2BcIQ6rUgKbRybHiLt1NcRdfjraO3iZ",
+              "price": 7648,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 6,
+                    "max": 6
+                  },
+                  "greytext": "Want it delivered Wednesday, March 25? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Wednesday, March 25?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIeisUNyI3ueOBrCuU1qjn2aTWDd6aiR1Nn5Or5XKg4ueU7YXDz33XCmjdnrl4Jz4ubiwHDupofdwSOyjGztHGViKGfjWYN1Nqfo09RREfQAD7WHkgr0Bgsmz",
+              "price": 7648,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Thursday, March 26? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Small cosmetic imperfection on top, front or sides of the item. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Thursday, March 26?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIeirvY7gIZtrtrbQdkLqOwN0gHURVEUOjmEfYclhYcfuUJFkFXqVd03muzI49KZWHKqIA6%2F8ytCZ9YZ%2BpnJQ6EJ9tJ0%2Bc45H%2B5t2%2FYFXk4iOuxXwhkfMXjY%2F",
+              "price": 7648,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 12,
+                    "max": 12
+                  },
+                  "greytext": "Want it delivered Tuesday, March 31? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "Used - Very Good",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": "Small cosmetic imperfections on the corner of the item. Item will come in original packaging. Packaging will be damaged.",
+              "greytext": "Want it delivered Tuesday, March 31?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon Warehouse",
+                "id": "A2L77EE7U53NWQ",
+                "num_ratings": null,
+                "percent_positive": null,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQwnr5%2F98yVDkt50p%2FMSce4FG9YDZQtXI2bOSZVmHIIeiqZCgsCRlZvuqaqj2nFdgSIzevBjKrXJxbABusrbOMGYdFQqg%2BNkl9WPk79GsnuUAJypPb23LV6cZ%2FjNNjZUBgKOlL0eA1S4Idq7tzARzhkI%2BUTmui513m",
+              "price": 8098,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": true,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "price": 0
+                }
+              ],
+              "condition": "Used - Like New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Shipping rates",
+              "known_greytext": false,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Amazon.com",
+                "id": "ATVPDKIKX0DER",
+                "num_ratings": 1000000,
+                "percent_positive": 100,
+                "first_party": true
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQnMaToH8Pj%2BIBMuJE4jdMeyb1V9Vv%2FBUJNUOuP2oQiK7zsZwmgFeXWpEcXWdq9CkNSqAbH46pCd6uA7L%2FkZLVxhfMo5rRXB0uJ0TH4gCZkZJWiDIrAjq9ww%3D%3D",
+              "price": 8999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 0,
+                "max": 0
+              },
+              "marketplace_fulfilled": true,
+              "fba_badge": false,
+              "prime_badge": true,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 7,
+                    "max": 7
+                  },
+                  "greytext": "Want it delivered Thursday, March 26? Choose Standard Shipping at checkout.",
+                  "price": 0,
+                  "name": "standard"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Want it delivered Thursday, March 26?",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Seen Shopping",
+                "id": "A3ECBA0V9WK9GC",
+                "num_ratings": 27,
+                "percent_positive": 56,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQFAvRwRgputOtHjNvPS7a1U9j1XntDWhRfNunYedmIEITxdzSLrWR9qDMvRkD63EK0AFz6e7vnu3rRmCK9pTHO6k3Sn2XE7y3rS2r46TzPVedWpYtIHKItqXIUNvp4aBvFpqSZjpZuyjgaojwk5MKcY1RkzfufRoZ",
+              "price": 11900,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 22,
+                "max": 35
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 22,
+                    "max": 35
+                  },
+                  "greytext": "Arrives between April 10-23.",
+                  "price": 0,
+                  "name": null
+                },
+                {
+                  "delivery_days": {
+                    "min": 27,
+                    "max": 27
+                  },
+                  "greytext": "Want it delivered Wednesday, April 15? Choose Expedited Shipping at checkout.",
+                  "price": null,
+                  "name": "expedited"
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between April 10-23.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            },
+            {
+              "seller": {
+                "name": "Charming Grace",
+                "id": "AAA7X9XBS3EXH",
+                "num_ratings": 7,
+                "percent_positive": 57,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "YLOzN0PGlU37XFJy49mJSQ6cjX1r7duQTbAlT2730TdGriEVlWmbhA0vC8r9Xlytcn0MgFnJhiN7GviCz7fGMauESVZajfxhUetsVNmDx7VUHFjBZtpgCJUFXSkneSPCl56ab0nic8VMCBwxTdfTIbJ4N%2BSU2WBcIgdrpxC96asfwZqqs7pfak2R%2FMl1PqqE",
+              "price": 14011,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 8,
+                "max": 13
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "delivery_days": {
+                    "min": 8,
+                    "max": 13
+                  },
+                  "greytext": "Arrives between Mar. 27 - April 1.",
+                  "price": 0,
+                  "name": null
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Arrives between Mar. 27 - April 1.",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B076V72BZ6",
+              "buy_box_winner": null
+            }
+          ],
+          "asin": "B076V72BZ6",
+          "retailer": "amazon",
+          "expired_product_id": false,
+          "strategy": "fullscrape"
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:43:53 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=pixel%204&retailer=walmart
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:44:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '246'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: UTF-8
+      string: '{"_type": "error", "status": "failed", "code": "internal_error", "data":
+        {"message": "Invalid job key"}, "message": "Zinc or the retailer you requested
+        is experiencing outages. Please try again or contact support@zinc.io if this
+        error persists."}'
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:44:22 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=pixel%204&retailer=amazon_uk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:45:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"c0d76e526454ff8de0e70aafaaf442401e31c1c0"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584661524,
+          "status": "completed",
+          "retailer": "amazon_uk",
+          "results": [
+            {
+              "prime": false,
+              "product_id": "B07ZJKL9XG",
+              "title": "Google Pixel 4 64GB Clearly White",
+              "image": "https://m.media-amazon.com/images/I/61gi4NwGPOL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 5,
+              "stars": 4.6,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZJLPWYQ",
+              "title": "Google Pixel 4 XL 128GB Just Black",
+              "image": "https://m.media-amazon.com/images/I/419QYX84xhL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1,
+              "stars": 5,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZJLDFTV",
+              "title": "Google Pixel 4 XL 64GB Just Black",
+              "image": "https://m.media-amazon.com/images/I/41CRxum8TBL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 3,
+              "stars": 3.3,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZTS5XPW",
+              "title": "Google Pixel 4 128GB Just Black",
+              "image": "https://m.media-amazon.com/images/I/71LjhpYy+cL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2,
+              "stars": 4.5,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07RL859ZT",
+              "title": "Google Pixel 3A Just Black 64GB, GA00747-UK",
+              "image": "https://m.media-amazon.com/images/I/61eQRrP5STL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 38,
+              "stars": 4.6,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07KPLW14W",
+              "title": "Google Pixel 3 XL, 64GB, Not pink, SIM Free",
+              "image": "https://m.media-amazon.com/images/I/61w9RXvJycL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 93,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 75498,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TDPH6QV",
+              "title": "Spigen, Rugged Armor, Compatible for Google Pixel 4 Case, Original Patent Design Flexible Protection Case for Pixel 4 (2019) - Black",
+              "image": "https://m.media-amazon.com/images/I/61AGRWB00iL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 502,
+              "stars": 4.8,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07S238TYX",
+              "title": "Alinsea Screen Protector for Google Pixel 4 Tempered Glass [4 Pack] [9H Hardness] [Anti-Scratch] 99.99% HD Clarity [Alignment Frame] [2.5D Round Edge] [Case Friendly] Tempered Glass for Google Pixel 4",
+              "image": "https://m.media-amazon.com/images/I/612HajGsUvL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 84,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 699,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCQVTPH",
+              "title": "Spigen, Tough Armor, Compatible for Google Pixel 4 Case, Extreme Protection Tough Gear Case for Pixel 4 (2019) - Black",
+              "image": "https://m.media-amazon.com/images/I/61ESGY6sZDL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 277,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 1499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Y82VPM5",
+              "title": "AHABIPERS Tempered Glass for Google Pixel 4 Screen Protector, Easy Bubble-Free Installation, 9H Hardness, 99.99% HD Clarity Tempered Glass Protector for Google 4-3 Pack",
+              "image": "https://m.media-amazon.com/images/I/5184W7VDjCL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 98,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 497,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07YNKWSWN",
+              "title": "Google Pixel Case for Pixel 4 - Protective Phone Cover with Tailored Fabric and Active Edge Compatible - Official Google Pixel Cover - Sorta Smokey",
+              "image": "https://m.media-amazon.com/images/I/81lhoNffOnL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 254,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 3213,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TDTZ41W",
+              "title": "Spigen, Ultra Hybrid, Compatible for Google Pixel 4 Case, Detachable Buttons Flexible Bumper Hard PC Back Case for Pixel 4 (2019) - Black",
+              "image": "https://m.media-amazon.com/images/I/51vtYCwvNyL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 421,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07T9P1XF7",
+              "title": "Spigen, Liquid Crystal, Compatible for Google Pixel 4 Case, Durable Transparent Flexible TPU Case for Pixel 4 (2019) - Crystal Clear",
+              "image": "https://m.media-amazon.com/images/I/61Zl3CnQ1NL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 258,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X1HCMQP",
+              "title": "MoKo Compatible with Google Pixel 4 Case, Reinforced Corners Shockproof TPU Bumper Edge & Anti-Yellow Anti-Scratch Hard Back Panel Cover Fit Google Pixel 4 5.7 inch 2019 - Crystal Clear",
+              "image": "https://m.media-amazon.com/images/I/71ga+ieT8jL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 31,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 799,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07TBPQ3BJ",
+              "title": "Spigen, Thin Fit, Compatible for Google Pixel 4 Case, Ultra Thin Hard PC Full Protection Case for Pixel 4 (2019) - Black",
+              "image": "https://m.media-amazon.com/images/I/51qf4m8Wa6L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 261,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 868,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCR26NT",
+              "title": "Spigen, Neo Hybrid, Compatible for Google Pixel 4 Case, Herringbone Pattern Dual Protective Case for Pixel 4 (2019) - Gunmetal",
+              "image": "https://m.media-amazon.com/images/I/61v+o1ueTFL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 186,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 1500,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07WYYD3WB",
+              "title": "ESR Google Pixel 4 Case, 9H Tempered Glass Hybrid Back Cover [Mimics The Glass Back] Scratch-Resistant + Soft TPU Bumper for Google Pixel 4, Clear (2019)",
+              "image": "https://m.media-amazon.com/images/I/61T80npdulL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 153,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 1399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YKVM1QT",
+              "title": "Spigen, 1Pack, Pixel 4 Screen Protector, Full screen coverage, Align Master, Auto Alignment Technology, Tempered Glass, 9H Hardness, Case Friendly, Pixel 4 Tempered Glass Screen Protector",
+              "image": "https://m.media-amazon.com/images/I/61cDlhjupaL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 135,
+              "stars": 3.7,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XXTQYNP",
+              "title": "Pleson Google Pixel 4 Case, [Crystal Clear] Ultra Thin Transparent Slim Flexible Silicone TPU Scratch-Resistant Protective Cover Case for Pixel 4",
+              "image": "https://m.media-amazon.com/images/I/61mWBrkqNnL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 8,
+              "stars": 4.8,
+              "fresh": false,
+              "price": 699,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07TCR5RCG",
+              "title": "Spigen, Liquid Air, Compatible for Google Pixel 4 Case, Ergonomic Grip Pattern Etched Case for Pixel 4 (2019) - Black",
+              "image": "https://m.media-amazon.com/images/I/61xTe4njl4L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 287,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 1042,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YDGTR41",
+              "title": "Tuopuna Compatible Google Pixel 4 Case, [Anti-Scratch PC + Shockproof Anti-Drop Soft TPU] Advanced Printing Pattern Phone Cases Glossy Drawing Design Cover For Google Pixel 4 - Falling Plum",
+              "image": "https://m.media-amazon.com/images/I/71dwwmzBqRL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 13,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 799,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07MXRM82T",
+              "title": "POETIC Google Pixel 3a Rugged Clear Case, Full-Body Hybrid Shockproof Bumper Cover, Built-in-Screen Protector, Guardian Series, Case for Google Pixel 3a (2019 Release), Black/Clear",
+              "image": "https://m.media-amazon.com/images/I/710aay3AH3L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 729,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 1695,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YS4V22S",
+              "title": "Tuopuna for Google Pixel 4 Case, [UV Varnish Printing Pattern] [Ultrathin Soft TPU] Advanced Perfect Phone Cases Glossy Drawing Design Cover for Google Pixel 4",
+              "image": "https://m.media-amazon.com/images/I/719JM6o3xAL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 13,
+              "stars": 4.9,
+              "fresh": false,
+              "price": 799,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B081ZJ2HM1",
+              "title": "POETIC Spartan Series Designed for Google Pixel 4 XL 4XL 6.3 inch, Full-Body Rugged Dual-Layer Metallic Color Accent with Premium Leather texture Shockproof Protective Cover with Kickstand, Gun Metal",
+              "image": "https://m.media-amazon.com/images/I/71fBJls8F8L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 20,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 1695,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XZ1NL14",
+              "title": "ESR for Google Pixel 4 Case, Air Armor Clear Case, [Shock-Absorbing] [Scratch-Resistant] [Military Grade Protection] Hard PC + Flexible TPU Frame, for The Google Pixel 4 (2019 Release), Clear",
+              "image": "https://m.media-amazon.com/images/I/61LPtkBsENL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 88,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07WYYDDYT",
+              "title": "ESR Google Pixel 4 Case, Metal Kickstand Case for Vertical and Horizontal Stand, [Reinforced Drop Protection] Flexible TPU Soft Back for Google Pixel 4, Clear (2019)",
+              "image": "https://m.media-amazon.com/images/I/51tsceHn1aL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 111,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 1399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07WZLDXC5",
+              "title": "Foluu Google Pixel 4 Case, Flip Folio Wallet Cover Slim Premium PU Leather Case ID Credit Card Slots Stand Kickstand And Magnetic Closure Clear TPU Bumper Cover for Google Pixel 4 (Gray)",
+              "image": "https://m.media-amazon.com/images/I/81K6wwBHaBL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 164,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCQ8KDT",
+              "title": "Spigen, Ultra Hybrid, Compatible for Google Pixel 4 Case, Flexible Bumper Hard PC Back Case for Pixel 4 (2019) - Crystal Clear",
+              "image": "https://m.media-amazon.com/images/I/61L87F4-g7L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 421,
+              "stars": 4.7,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07WXRJSRT",
+              "title": "TAURI [3 Pack] Screen Protector for Google Pixel 4 Tempered Glass [Alignment Frame] [2.5D Round Edge] [9H Hardness] [Bubble Free] Protective Film",
+              "image": "https://m.media-amazon.com/images/I/61iDBheBdTL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 55,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 599,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07ZT9MRWN",
+              "title": "ORETECH Google Pixel 4 Case, Thin Shockproof Hybrid Clear Google Pixel 4 Phone case,Anti Scratch Hard PC + Silicone TPU Bumper Frame Protective Cover Case for Google Pixel 4 -Transparent & Black",
+              "image": "https://m.media-amazon.com/images/I/71801qgyNxL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 10,
+              "stars": 5,
+              "fresh": false,
+              "price": 599,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07TCQKY47",
+              "title": "Spigen, Neo Hybrid, Compatible for Google Pixel 4 Case, Herringbone Pattern Dual Protective Case for Pixel 4 (2019) - Burgundy",
+              "image": "https://m.media-amazon.com/images/I/61XBFOb2s6L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 186,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 1499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X1PLG2F",
+              "title": "Foluu Google Pixel 4 Case, Flip Folio Wallet Cover Slim Premium PU Leather Case ID Credit Card Slots Stand Kickstand And Magnetic Closure Clear TPU Bumper Cover for Google Pixel 4 (Black)",
+              "image": "https://m.media-amazon.com/images/I/71U+c-36RlL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 164,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07T9P3PHZ",
+              "title": "Spigen, Liquid Crystal, Compatible for Google Pixel 4 XL Case, Durable Transparent Flexible TPU Case for Pixel 4XL (2019) - Crystal Clear",
+              "image": "https://m.media-amazon.com/images/I/61Zl3CnQ1NL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 352,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Y1S3PWS",
+              "title": "kwmobile TPU Silicone Case for Google Pixel 4 - Soft Flexible Shock Absorbent Protective Phone Cover - Coral",
+              "image": "https://m.media-amazon.com/images/I/610IBkk091L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 24,
+              "stars": 3.8,
+              "fresh": false,
+              "price": 599,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XBY2SLP",
+              "title": "SUPCASE Unicorn Beetle Pro Series Case for Google Pixel 4 (2019 Release)\uff0c Full-Body Rugged Holster Case with Built-In Screen Protector (Black)",
+              "image": "https://m.media-amazon.com/images/I/815rsFcmbiL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 117,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 1899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X9QZGWL",
+              "title": "i-Blason Cosmo Case Design for Google Pixel 4 (2019 Release), Protective Full-body Bumper Marble Design Case with Built-in Screen Protector (Marble)",
+              "image": "https://m.media-amazon.com/images/I/71VwB3XFirL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 183,
+              "stars": 4.4,
+              "fresh": false,
+              "price": 1799,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Z333C3H",
+              "title": "POETIC Revolution Series Case Designed for Google Pixel 4 5.7 inch (2019 Release), Full-Body Rugged Dual-Layer Shockproof Protective Cover with Kickstand and Built-In-Screen Protector, Black",
+              "image": "https://m.media-amazon.com/images/I/71HO0HZ1sSL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 43,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 1295,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZJGZKWQ",
+              "title": "Google Pixel 4 XL 64GB Clearly White",
+              "image": "https://m.media-amazon.com/images/I/61YvUyB5IZL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 3,
+              "stars": 3.3,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07YNKVQ8M",
+              "title": "Google Pixel Case for Pixel 4 - Protective Phone Cover with Tailored Fabric and Active Edge Compatible - Official Google Pixel Cover - Just Black",
+              "image": "https://m.media-amazon.com/images/I/81Be6VurJ2L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 254,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 3454,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07ZH7HCQY",
+              "title": "L K 3 Pack Screen Protector for Google Pixel 4, Tempered Glass Google Pixel 4 [HD Clear] [Bubble Free] [Case Friendly] [Scratch Resistance] [Alignment Frame Easy Installation] Screen Protective Film",
+              "image": "https://m.media-amazon.com/images/I/61l6Bxn-8pL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 32,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 599,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B081313XKS",
+              "title": "LXIAN Pixel 4 Screen Protector (2 Pack), [Ultra Clear] [Anti-scratch] [No-Bubble] [Easy-install] Tempered Glass for Google Pixel 4 (5.7 inch)",
+              "image": "https://m.media-amazon.com/images/I/61drEstE3+L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 17,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07V8HF2L4",
+              "title": "OMOTON [4 Pack] Screen Protectors Compatible with Google Pixel 4, Tempered Glass with [High Definition][Scratch Resist][Bubble Free][Case Friendly][Easy Installation]",
+              "image": "https://m.media-amazon.com/images/I/61hvpnGwUdL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 90,
+              "stars": 4,
+              "fresh": false,
+              "price": 699,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07ZJLMKC5",
+              "title": "Google Pixel 4 XL 128GB Clearly White",
+              "image": "https://m.media-amazon.com/images/I/414-t2pq0vL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 1,
+              "stars": 5,
+              "fresh": false,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YXV4XTK",
+              "title": "ANKENGS Google Pixel 4 Screen Protector [2 Pack], Google Pixel 4 Glass Screen Protector, [Full Coverage] [Anti-scratch] [Bubble Free] Tempered Glass for Google Pixel 4",
+              "image": "https://m.media-amazon.com/images/I/610wM16Qa1L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 63,
+              "stars": 3.8,
+              "fresh": false,
+              "price": 399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07WYYDZTL",
+              "title": "ESR Google Pixel 4 Case, Slim Clear Soft TPU Case for Google Pixel 4 (2019), Jelly Clear",
+              "image": "https://m.media-amazon.com/images/I/61nfI5uLh5L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 94,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 699,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07ZZ3CVF1",
+              "title": "Vzzn(2 Pack Screen Protector Glass Compatible with Google Pixel 4,Tempered Glass for Google Pixel 4 Full Coverage/HD Clarity/9H Hardness/Anti-Scratch/Easy Installation-Black",
+              "image": "https://m.media-amazon.com/images/I/61K5ZlystML._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 15,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 499,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07VGTR6T3",
+              "title": "Caseology Parallax, Google Pixel 4 Case Shockproof, Geometric Pattern, Designed for Google Pixel 4 (Burgundy)",
+              "image": "https://m.media-amazon.com/images/I/61nGGCWZ-DL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 124,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 1399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Z3X921H",
+              "title": "ANEWSIR for Google Pixel 4 Screen Protector with\uff083-Packs\uff09[Easy to Install] [Bubbles Free] [Easy to Apply] [Ultra-thin] Tempered Glass Screen Protector for Google Pixel 4",
+              "image": "https://m.media-amazon.com/images/I/61ycxx7DI-L._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 22,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 495,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07ZFT5YDM",
+              "title": "Snakehive Google Pixel 4 Wallet Case, Genuine Leather Wallet with Viewing Stand and Card Slots, Flip Cover Gift Boxed and Handmade in Europe for Google Pixel 4 - (Brown)",
+              "image": "https://m.media-amazon.com/images/I/71BpJnWVHkL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 34,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 2895,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Y1QNHP5",
+              "title": "kwmobile TPU Silicone Case for Google Pixel 4 - Soft Flexible Shock Absorbent Protective Phone Cover - Teal Matte",
+              "image": "https://m.media-amazon.com/images/I/51Xf7-IEgrL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 24,
+              "stars": 3.8,
+              "fresh": false,
+              "price": 799,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07YZM1MCJ",
+              "title": "TORRO Phone Case Compatible With Google Pixel 4 Genuine Quality Leather Flip Cover With [Card Slots] [Durable Frame] [Horizontal Viewing Stand] 5.7 Inch 2019 Release (Dark Brown)",
+              "image": "https://m.media-amazon.com/images/I/81Tc21+cePL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 21,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 2799,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X3VP1NP",
+              "title": "TiMOVO Cover Compatible with Google Pixel 4 Case, Slim Hybrid Transparent PC Hard Panel TPU Bumper Shockproof Anti-Scratch Anti-Yellow Case Fit Google Pixel 4 5.7 inch 2019 - Clear",
+              "image": "https://m.media-amazon.com/images/I/71Hp75uPIwL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 10,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 399,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XZ1NL14",
+              "title": "ESR for Google Pixel 4 Case, Air Armor Clear Case, [Shock-Absorbing] [Scratch-Resistant] [Military Grade Protection] Hard PC + Flexible TPU Frame, for The Google Pixel 4 (2019 Release), Clear",
+              "image": "https://m.media-amazon.com/images/I/61LPtkBsENL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 88,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 999,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B0811QDYV5",
+              "title": "AIDEAZ Wireless Power Bank Slim Portable Charger 5000mAh by Sticking to Phone, with Phone Finger Ring Holder Stand, Compatible with iPhone 8/X/Xs/Xs Max/XR/11/11 Pro, and Samsung S9/S9+/S10/S10+ etc.",
+              "image": "https://m.media-amazon.com/images/I/71Jra1L4ePL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 45,
+              "stars": 3.5,
+              "fresh": false,
+              "price": 3299,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XBY2SLP",
+              "title": "SUPCASE Unicorn Beetle Pro Series Case for Google Pixel 4 (2019 Release)\uff0c Full-Body Rugged Holster Case with Built-In Screen Protector (Black)",
+              "image": "https://m.media-amazon.com/images/I/815rsFcmbiL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 117,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 1899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07Y1QB1M5",
+              "title": "kwmobile Case for Google Pixel 4 - Protective Shockproof Back Cover in Canvas - Coral",
+              "image": "https://m.media-amazon.com/images/I/71NLOOk+JnL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 44,
+              "stars": 2.2,
+              "fresh": false,
+              "price": 699,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07X1QC9F4",
+              "title": "Foluu Google Pixel 4 XL Case, Flip Folio Wallet Cover Slim Premium PU Leather Case ID Credit Card Slots Stand Kickstand And Magnetic Closure Clear TPU Bumper Cover for Google Pixel 4 XL (Black)",
+              "image": "https://m.media-amazon.com/images/I/71U+c-36RlL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 164,
+              "stars": 4.5,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B081C242YG",
+              "title": "ICARER Google Pixel 4 Wallet Case, Protective PU Leather Flip Cover Case with Kickstand and Credit Card Holder Slots for Google Pixel 4 5.7 inch (Brown)",
+              "price": 1199,
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 0,
+              "fresh": false,
+              "image": "https://m.media-amazon.com/images/I/81lZLB3j9ML._AC_UL320_ML3_.jpg",
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07DFFMY5Z",
+              "title": "USB C Cable,5Pack[0.25M 0.5M 1M 2M 3M] Nylon Braided USB Type C Cable Fast Charging and Sync Data Cable Cord for Samsung Galaxy S10/S9/S8+,Huawei P30/P20/P10,Pixel,Xperia XZ,OnePlus",
+              "image": "https://m.media-amazon.com/images/I/71CSg8kw+yL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2003,
+              "stars": 4.2,
+              "fresh": false,
+              "price": 599,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "B07XDG5HC3",
+              "title": "ORNARTO Case for Pixel 4, Thin Fit Premium Hard Plastic Matte Finish Anti-Scratch Cover Cases for Google Pixel 4(2019) 5.7\" Frosted Army Green",
+              "image": "https://m.media-amazon.com/images/I/61MvoWPr8gL._AC_UL320_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 19,
+              "stars": 4.3,
+              "fresh": false,
+              "price": 899,
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 1,
+            "end": 48,
+            "of": 2000
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:45:20 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=pixel%204&retailer=costco
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:45:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '246'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: UTF-8
+      string: '{"_type": "error", "status": "failed", "code": "internal_error", "data":
+        {"message": "Invalid job key"}, "message": "Zinc or the retailer you requested
+        is experiencing outages. Please try again or contact support@zinc.io if this
+        error persists."}'
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:45:47 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=microwave&retailer=homedepot
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:47:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"d25c8b6e544d5b4d3ca3393eb99e850ddcaaa7ba"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_type": "error", "status": "failed", "code": "internal_error", "data":
+        {"key": "CamoException", "details": "", "hostname": "pn6", "error_id": "8316778442e24cbe97d224ec1b3267c8"},
+        "message": "Zinc or the retailer you requested is experiencing outages. Please
+        try again or contact support@zinc.io if this error persists."}'
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:47:19 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=microwave&retailer=lowes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 23:48:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '263'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: UTF-8
+      string: '{"_type": "error", "status": "failed", "code": "internal_error", "data":
+        {"message": "ValueError(''Invalid job type.'',)"}, "message": "Zinc or the
+        retailer you requested is experiencing outages. Please try again or contact
+        support@zinc.io if this error persists."}'
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 23:48:14 GMT
 recorded_with: VCR 5.1.0

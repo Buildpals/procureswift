@@ -1,0 +1,25 @@
+<%= form_with(url: "/products", method: "get", local: true, class: 'form w-100') do %>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <%= select_tag "retailer",
+                     options_for_select(
+                         Product::RETAILERS.keys.map {
+                             |r| [r.to_s.titleize, r]
+                         },
+                         selected = :amazon
+                     ),
+                     class: 'form-control' %>
+    </div>
+
+    <%= text_field_tag :query,
+                       "",
+                       class: "form-control",
+                       placeholder: 'Search a product...',
+                       autofocus: true,
+                       required: true %>
+
+    <div class="input-group-append">
+      <%= submit_tag("Search", class: "btn btn-accent", data: {disable_with: 'Please wait...'}) %>
+    </div>
+  </div>
+<% end %>

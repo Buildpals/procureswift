@@ -14,31 +14,12 @@
         <div class="card mb-4">
           <div class="card-body">
 
-            <%= form_with(url: "/products", method: "get", local: true) do %>
-              <div class="input-group mb-3">
-                <%= text_field_tag :query,
-                                   "",
-                                   class: "form-control",
-                                   placeholder: 'Search a product...',
-                                   autofocus: true,
-                                   required: true %>
-                <div class="input-group-append">
-                  <%= select_tag "retailer",
-                                 options_for_select(
-                                     Product::RETAILERS.keys.map {
-                                         |r| [r.to_s.titleize, r ]
-                                     },
-                                     selected = :amazon
-                                 ),
-                                 class: 'form-control'%>
-                </div>
-              </div>
-
-              <%= submit_tag("Search", class: "btn btn-accent btn-block", data: { disable_with: 'Please wait...' } ) %>
-          <% end %>
+            <%= render 'application/search_form' %>
 
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
@@ -73,7 +54,8 @@
             <i class="fas fa-truck fa-5x m-auto fa-fw text-accent"></i>
           </div>
           <h3>We purchase & deliver</h3>
-          <p class="mb-0">ProcureSwift purchases the item and delivers it to you in Ghana</p>
+          <p class="mb-0">ProcureSwift purchases the item and delivers it to you
+            in Ghana</p>
         </div>
       </div>
     </div>
@@ -108,7 +90,8 @@
           <img class="img-fluid rounded-circle mb-3 px-5" src="img/3.jpg" alt="">
           <h5>Sarah W.</h5>
           <p class="font-weight-light mb-0">
-            "ProcureSwift is amazing. I've been using it to ship all our agric products."
+            "ProcureSwift is amazing. I've been using it to ship all our agric
+            products."
           </p>
         </div>
       </div>
