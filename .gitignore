@@ -39,4 +39,5 @@ latest.dump.*
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/inspectionProfiles/
-chr
+
+coverage
