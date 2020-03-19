@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_132846) do
+ActiveRecord::Schema.define(version: 2020_03_19_105733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,25 +72,6 @@ ActiveRecord::Schema.define(version: 2020_03_17_132846) do
     t.boolean "archived", default: false, null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "item_url"
-    t.json "zinc_product_details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.json "zinc_product_offers"
-    t.string "chosen_offer_id"
-    t.boolean "featured", default: false, null: false
-    t.string "title"
-    t.string "main_image"
-    t.json "offers"
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "weight", precision: 8, scale: 2
-    t.string "hs_code"
-    t.decimal "width", precision: 8, scale: 2
-    t.decimal "length", precision: 8, scale: 2
-    t.decimal "depth", precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|
