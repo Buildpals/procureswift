@@ -2,38 +2,38 @@
 
   <div class="row mt-3">
     <div class="col-lg-12">
-      <h3>Products</h3>
+      <h3>Showing results for <em><%= params[:query] %></em></h3>
       <hr>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 mx-auto">
-      <% @products.in_groups_of(3).each do |group| %>
-        <div class="card-deck mb-4">
-          <% group.each do |product| %>
-            <% unless product.nil? %>
-              <%= render product %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="text-center">
-            <a href="<%= root_path %>" class="card-link">
-              Purchase an item that is not above
+      <ul class="list-unstyled">
+        <% @products.each do |product| %>
+          <li class="media border-bottom py-3">
+            <a href="<%= product_path product.id %>">
+              <img class="mr-5 product-image"
+                   src="<%= product.main_image %>"
+                   alt="<%= product.title %>"
+                   style="width: 223px; height: 213px">
             </a>
-          </div>
-        </div>
-      </div>
-
+            <div class="media-body">
+              <a href="<%= product_path product.id %>"><h5 class="h6 mt-0 mb-1"><%= product.title %></h5></a>
+              <div class="h5">
+                <%= number_to_currency(product.price) %>
+              </div>
+              <div>
+                Stars: <%= product.stars %>
+              </div>
+              <div>
+                Reviewers: <%= product.num_reviews %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
+
 </div>

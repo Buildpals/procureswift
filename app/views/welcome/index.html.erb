@@ -13,23 +13,30 @@
 
         <div class="card mb-4">
           <div class="card-body">
-            <%= form_with(model: @product, local: true) do |form| %>
 
-              <div class="form-group">
-                <%= form.label :item_url, "Link to the item on Amazon" %>
-                <%= form.text_field :item_url,
-                                    class: "form-control",
-                                    required: true,
-                                    placeholder: "eg. https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R/ref=gbps_rlm_m-6_323c_ac092e40?smid=ATVPDKIKX0DER" %>
-                <small id="item_url_help" class="form-text text-muted">
-                  Find the item you want to purchase on
-                  <a href="www.amazon.com" target="_blank">www.amazon.com</a>,
-                  copy the link to it, and paste it above.
-                </small>
+            <%= form_with(url: "/products", method: "get", local: true) do %>
+              <div class="input-group mb-3">
+                <%= text_field_tag :query,
+                                   "",
+                                   class: "form-control",
+                                   placeholder: 'Search a product...',
+                                   autofocus: true,
+                                   required: true %>
+                <div class="input-group-append">
+                  <%= select_tag "retailer",
+                                 options_for_select(
+                                     Product::RETAILERS.keys.map {
+                                         |r| [r.to_s.titleize, r ]
+                                     },
+                                     selected = :amazon
+                                 ),
+                                 class: 'form-control'%>
+                </div>
               </div>
 
-              <%= form.submit "Get Shipping Cost", class: "btn btn-accent btn-block", data: { disable_with: 'Please wait...' } %>
-            <% end %>
+              <%= submit_tag("Search", class: "btn btn-accent btn-block", data: { disable_with: 'Please wait...' } ) %>
+          <% end %>
+
           </div>
         </div>
       </div>
@@ -106,27 +113,5 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-<!-- Products -->
-<section class="products py-5">
-  <div class="container">
-    <h2 class="mb-5 text-center">What people bought recently</h2>
-
-    <div class="row">
-      <div class="col-md-12 mx-auto">
-        <% @recent_products.in_groups_of(3).each do |group| %>
-          <div class="card-deck mb-4">
-            <% group.each do |product| %>
-              <% unless product.nil? %>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
   </div>
 </section>

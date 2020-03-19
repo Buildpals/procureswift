@@ -1,10 +1,10 @@
-<div class="card mb-3">
+<div class="card mb-3" id="costs_card">
   <div class="card-body">
     <h5 class="card-title">Order Summary</h5>
     <dl class="row mt-4">
       <dd class="col-8">Items (<%= cart.number_of_items %>):</dd>
       <dd class="col-4 text-right">
-        <%= number_to_currency(cart.subtotal) %>
+        <%= number_to_currency(cart.cost) %>
       </dd>
 
       <dd class="col-8">Shipping & Insurance:</dd>

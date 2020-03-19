@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Insurance
-  INSURANCE_RATE = 0.10
+  # Insurance package supplied by MyUS, make sure it is ticked when
+  # shipping the item
+  INSURANCE_RATE = 0.03
 
   def initialize(price)
     raise ArgumentError, 'price is nil' if price.nil?

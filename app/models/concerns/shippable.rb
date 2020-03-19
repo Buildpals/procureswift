@@ -4,15 +4,16 @@ module Shippable
   include ActiveSupport::Concern
 
   def cost
-    price
+    quantity * price
   end
 
   def insurance
-    Insurance.new(price).cost
+    quantity * Insurance.new(price).cost
   end
 
   def freight
-    Freight.new(weight).cost
+    total_weight = quantity * weight
+    Freight.new(total_weight).cost
   end
 
   def duty
@@ -20,7 +21,8 @@ module Shippable
   end
 
   def handling
-    Handling.new(price).cost
+    total_price = quantity * price
+    Handling.new(total_price).cost
   end
 
   def freight_insurance_handling

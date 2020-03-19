@@ -7,13 +7,15 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product
-                .where.not(zinc_product_details: nil)
-                .order(created_at: :desc)
+    @products = Product.search(query = params[:query],
+                               retailer = params[:retailer])
   end
 
   # GET /products/1
-  def show; end
+  def show
+    @offer = @product.offers.find { |offer| offer.id == params[:offer_id] } ||
+             @product.offers.first
+  end
 
   # GET /products/new
   def new

@@ -7,12 +7,5 @@ FactoryBot.define do
     weight { 0.56 }
     width { 7.31 }
     length { 10.44 }
-    chosen_offer_id { 'BQskCjh%2FlY8uCnVP%2FEqJzK%2Bu8QmihjyJCPzYrJZIBsMhU41YvM9Zww1FdGdp0M4F4RbiMaD1WxAJ3%2FrfjgfyQMggFyTySS%2FUwUwiHVVql6wqWATJRQ5tfJtixM5o7ly3T3IQW50xJRslXByp0i0ytyGA0FvmKauC' }
-    zinc_product_details do
-      Rack::Test::UploadedFile.new('spec/fixtures/files/zinc_product_details.json', 'text/json')
-    end
-    zinc_product_offers do
-      Rack::Test::UploadedFile.new('spec/fixtures/files/zinc_product_offers.json', 'text/json')
-    end
   end
 end

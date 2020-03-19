@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class Handling
-  BUILDPALS_MARKUP_RATE = 0.01
   BUILDPALS_MARKUP_BASE = 10
+  BUILDPALS_MARKUP_RATE = 0.01
 
-  def initialize(price, quantity=1)
+  def initialize(price)
     raise ArgumentError, 'price is nil' if price.nil?
 
     @price = price
-    @quantity = quantity
   end
 
   def cost
-    (@price * BUILDPALS_MARKUP_RATE + BUILDPALS_MARKUP_BASE) * @quantity
+    BUILDPALS_MARKUP_BASE + @price * BUILDPALS_MARKUP_RATE
   end
 
   def hash

@@ -4,37 +4,32 @@ class ItemInformationFetcher
   require 'net/http'
   require 'uri'
 
-  ZINC_API_KEY = Rails.application.credentials.config[:zincapi][:client_token]
   OUNCE_TO_POUND_RATIO = 0.0625
   CENTS_TO_DOLLARS_RATIO = 0.01
   include ActionView::Helpers::NumberHelper
 
-  def initialize(product)
-    @product = product
-    @retailers_product_id = Amazon.get_asin_from_url(@product.item_url)
+  def initialize(retailer, product_id)
+    @retailer = retailer
+    @product_id = product_id
   end
 
   def fetch_item_information
-    return false if @retailers_product_id == false
+    return false if @product_id == false
 
     fetch_product_details
     fetch_product_offers
-    self
+    build_product
   rescue Net::OpenTimeout, SocketError
     Rails.logger.warn 'Network error while fetching product information!'
     false
   end
 
   def zinc_product_details_url
-    "https://api.zinc.io/v1/products/#{@retailers_product_id}?retailer=amazon"
+    "https://api.zinc.io/v1/products/#{@product_id}?retailer=#{@retailer}"
   end
 
   def zinc_product_offers_url
-    "https://api.zinc.io/v1/products/#{@retailers_product_id}/offers?retailer=amazon"
-  end
-
-  def item_url
-    @product.item_url
+    "https://api.zinc.io/v1/products/#{@product_id}/offers?retailer=#{@retailer}"
   end
 
   def title
@@ -54,15 +49,7 @@ class ItemInformationFetcher
   def offers
     return [] if @zinc_product_offers.nil?
 
-    @zinc_product_offers['offers'].map do |offer|
-      {
-        price: offer['price'] * CENTS_TO_DOLLARS_RATIO,
-        condition: offer['condition'],
-        handling_days_max: offer['handling_days.max'],
-        seller_name: offer['seller.name'],
-        offer_id: offer['offer_id']
-      }
-    end
+    @zinc_product_offers['offers']
   end
 
   def weight
@@ -147,10 +134,46 @@ class ItemInformationFetcher
 
   private
 
+  def build_product
+    product = Product.new
+    product.product_id = @product_id
+    product.retailer = @retailer
+    product.title = title
+    product.main_image = main_image
+    product.offers = offers.map do |offer_result|
+      Offer.new(
+        id: offer_result['offer_id'],
+        seller_num_ratings: offer_result['seller']['num_ratings'],
+        seller_percent_positive: offer_result['seller']['percent_positive'],
+        seller_first_party: offer_result['seller']['first_party'],
+        seller_name: offer_result['seller']['name'],
+        seller_id: offer_result['seller']['id'],
+        marketplace_fulfilled: offer_result['marketplace_fulfilled'],
+        international: offer_result['international'],
+        available: offer_result['available'],
+        handling_days_max: offer_result['handling_days']['max'],
+        handling_days_min: offer_result['handling_days']['min'],
+        price: offer_result['price'] * CENTS_TO_DOLLARS_RATIO,
+        prime_only: offer_result['prime_only'],
+        condition: offer_result['condition'],
+        addon: offer_result['addon'],
+        shipping_options: offer_result['shipping_options'],
+        product: product
+      )
+    end
+    product.weight = weight
+    product.width = width
+    product.length = length
+    product.depth = depth
+    product
+  end
+
   def fetch_product_details
     uri = URI.parse(zinc_product_details_url)
     request = Net::HTTP::Get.new(uri)
-    request.basic_auth(ZINC_API_KEY, '')
+    request.basic_auth(
+      Rails.application.credentials.config[:zincapi][:client_token], ''
+    )
 
     req_options = {
       use_ssl: uri.scheme == 'https'
@@ -162,7 +185,7 @@ class ItemInformationFetcher
     end
 
     response_json = ActiveSupport::JSON.decode(response.body)
-    Rails.logger.info "Product details fetched successfully for #{@product.item_url}!"
+    Rails.logger.info "Product details fetched successfully for #{@retailer}_#{@product_id}!"
     Rails.logger.info response_json
 
     @zinc_product_details = response_json
@@ -171,7 +194,10 @@ class ItemInformationFetcher
   def fetch_product_offers
     uri = URI.parse(zinc_product_offers_url)
     request = Net::HTTP::Get.new(uri)
-    request.basic_auth(ZINC_API_KEY, '')
+    request.basic_auth(
+      Rails.application.credentials.config[:zincapi][:client_token],
+      ''
+    )
 
     req_options = {
       use_ssl: uri.scheme == 'https'
@@ -187,7 +213,7 @@ class ItemInformationFetcher
     return if response_json['offers'].nil?
     return if response_json['offers'].empty?
 
-    Rails.logger.info "Product offers fetched successfully for #{@product.item_url}!"
+    Rails.logger.info "Product offers fetched successfully for #{@retailer}_#{@product_id}!"
     Rails.logger.info response_json
 
     @zinc_product_offers = response_json

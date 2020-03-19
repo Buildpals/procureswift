@@ -22,28 +22,33 @@ class Cart < ApplicationRecord
     western_region: 9
   }
 
-  def add_product(cart_item_params)
-    product = Product.find(cart_item_params[:product_id])
+  def add_cart_item(cart_item_params)
+    # TODO: Fetch unit_price, weight and dimensions via ZincAPI and
+    # override them in cart_item_params in order to prevent hackers from
+    # crafting cart_items with lower prices, weight or dimensions than
+    # actually specified on Amazon
 
-    item = cart_items.find_by(product_id: product.id)
+    item = cart_items.find_by(product_id: cart_item_params[:product_id],
+                              retailer: cart_item_params[:retailer])
+
+    cart_item_params[:quantity] = 1
+
     if item
-      item.update!(quantity: item.quantity += 1,
-                   unit_price: product.price)
+      cart_item_params[:quantity] += 1
+      item.update!(cart_item_params)
       return item
     end
 
-    cart_items.create!(product: product,
-                       quantity: 1,
-                       unit_price: product.price)
+    cart_items.create!(cart_item_params)
   end
 
   def number_of_items
     cart_items.calculate(:sum, :quantity)
   end
 
-  def subtotal
+  def cost
     cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.subtotal
+      sum + cart_item.cost
     end
   end
 
@@ -60,7 +65,7 @@ class Cart < ApplicationRecord
   end
 
   def order_total
-    subtotal + freight_insurance_handling + duty
+    cost + freight_insurance_handling + duty
   end
 
   def estimated_delivery_date

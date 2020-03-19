@@ -1,68 +1,52 @@
 # frozen_string_literal: true
 
-class Product < ApplicationRecord
-  has_paper_trail
+class Product
+  include ActiveModel::Model
 
-  include Shippable
+  RETAILERS = {
+    amazon: 0,
+    amazon_uk: 1,
+    # amazon_ca: 2, # We don't have a warehouse in this country
+    # amazon_de: 3, # We don't have a warehouse in this country
+    # amazon_mx: 4, # We don't have a warehouse in this country
+    costco: 5,
+    walmart: 6,
+    homedepot: 7,
+    lowes: 8,
+    # aliexpress: 9 # We don't have a warehouse in this country
+  }.freeze
 
-  has_many :cart_items, inverse_of: :product, dependent: :destroy
+  attr_accessor :product_id,
+                :retailer,
+                :title,
+                :main_image,
+                :price,
+                :stars,
+                :num_reviews,
+                :weight,
+                :width,
+                :length,
+                :depth,
+                :offers
 
-  validates :item_url, presence: true, url: true
-  validates :title, presence: true
-  validates :price, presence: true
-  validates :weight, presence: true
-
-  before_validation :fetch_product_information, on: [:create]
-  before_validation :set_chosen_offer, on: [:create]
-  before_validation :set_price_from_chosen_offer
-  before_validation :ensure_main_image_has_value
-
-  private
-
-  def fetch_product_information
-    logger.info('Fetching product information from zincapi...')
-    @item_information = ItemInformationFetcher.new(self)
-    return unless @item_information.fetch_item_information
-
-    logger.info('Setting product fields from zinc_api response...')
-    self.title = @item_information.title
-    self.main_image = @item_information.main_image
-    self.offers = @item_information.offers
-    self.weight = @item_information.weight
-    self.width = @item_information.width
-    self.length = @item_information.length
-    self.depth = @item_information.depth
-    logger.info('Product fields set successfully from zinc_api response!')
+  def id
+    "#{retailer}_#{product_id}"
   end
 
-  def set_chosen_offer
-    logger.info('Setting chosen offer...')
-    return if offers.nil?
-    return if offers.empty?
-
-    self.chosen_offer_id = offers.first['offer_id']
-    logger.info('Chosen offer set successfully!')
+  def item_url
+    "https://www.amazon.com/dp/#{id.split('_')[1]}"
   end
 
-  def set_price_from_chosen_offer
-    logger.info('Setting price from chosen offer...')
-    return if chosen_offer_id.nil?
-    return if offers.nil?
-    return if offers.empty?
+  def self.find(id)
+    # TODO: HACK must be replaced with more rubost system
+    retailer, product_id = id.split('_')
 
-    chosen_offer = offers.find { |offer| offer['offer_id'] == chosen_offer_id }
-    return if chosen_offer.nil?
-
-    self.price = chosen_offer['price']
-    logger.info('Price set successfully from chosen offer!')
+    Rails.logger.info('Fetching product information from zincapi...')
+    product = ItemInformationFetcher.new(retailer, product_id).fetch_item_information
+    product
   end
 
-  def ensure_main_image_has_value
-    logger.info('Ensuring main image has a value...')
-    return unless main_image.nil?
-
-    self.main_image =
-      ActionController::Base.helpers.image_path('no_product_image')
-    logger.info('Main image set to placeholder "no_product_image!"')
+  def self.search(query, retailer = 'amazon')
+    ProductSearcher.new(query, retailer).search
   end
 end
