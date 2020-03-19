@@ -1,50 +1,18 @@
 # frozen_string_literal: true
 
 class Admin::ProductsController < AdminController
-  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_product, only: %i[show]
 
   # GET /products
   def index
-    @products = Product.all.order(created_at: :desc)
+    @products = Product.search(query = params[:query],
+                               retailer = params[:retailer])
   end
 
   # GET /products/1
   def show
-    ItemInformationFetcher.new(@product).fetch_item_information
-  end
-
-  # GET /products/new
-  def new
-    @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit; end
-
-  # POST /products
-  def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      redirect_to admin_product_path(@product), notice: 'Product was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  # PATCH/PUT /products/1
-  def update
-    if @product.update(product_params)
-      redirect_to admin_product_path(@product), notice: 'Product was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /products/1
-  def destroy
-    @product.destroy
-    redirect_to admin_products_url, notice: 'Product was successfully destroyed.'
+    @offer = @product.offers.find { |offer| offer.id == params[:offer_id] } ||
+        @product.offers.first
   end
 
   private
@@ -52,10 +20,5 @@ class Admin::ProductsController < AdminController
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def product_params
-    params.require(:product).permit(:featured)
   end
 end
