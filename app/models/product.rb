@@ -6,7 +6,7 @@ class Product
 
   RETAILERS = {
     amazon: 0,
-    amazon_uk: 1,
+    # amazon_uk: 1, # Haven't implemented unit conversion for GBP, kg, centimetres, millimetres, etc
     # amazon_ca: 2, # We don't have a warehouse in this country
     # amazon_de: 3, # We don't have a warehouse in this country
     # amazon_mx: 4, # We don't have a warehouse in this country
