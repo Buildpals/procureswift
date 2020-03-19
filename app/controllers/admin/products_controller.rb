@@ -5,8 +5,8 @@ class Admin::ProductsController < AdminController
 
   # GET /products
   def index
-    @products = Product.search(query = params[:query],
-                               retailer = params[:retailer])
+    @products = Product.where(query = params[:query],
+                              retailer = params[:retailer])
   end
 
   # GET /products/1

@@ -12,52 +12,24 @@ class Duty
     @cif = @cost + @insurance + @freight
   end
 
-  def show_calculation
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts "cost #{@cost}"
-    puts "insurance #{@insurance}"
-    puts "freight #{@freight}"
-    puts "cif #{@cif}"
-    puts "-------------------"
-    puts "get_fund #{get_fund}"
-    puts "ecowas_levy #{ecowas_levy}"
-    puts "cassette_levy #{cassette_levy}"
-    puts "customs_inspection_fee #{customs_inspection_fee}"
-    puts "irs_tax_deposit #{irs_tax_deposit}"
-    puts "import_levy #{import_levy}"
-    puts "environmental_excise #{environmental_excise}"
-    puts "special_import_levy #{special_import_levy}"
-    puts "exim #{exim}"
-    puts "au_import_levy #{au_import_levy}"
-    puts "miscellaneous_pen #{miscellaneous_pen}"
-    puts "processing_fee #{processing_fee}"
-    puts "import_excise #{import_excise}"
-    puts "customs_penalty #{customs_penalty}"
-    puts "import_duty #{import_duty}"
-    puts "import_vat #{import_vat}"
-    puts "import_nhil #{import_nhil}"
-    puts "---------------"
-    puts "total_duty_payable #{total_duty_payable}"
-  end
-
   def total_duty_payable
     get_fund +
-        ecowas_levy +
-        cassette_levy +
-        customs_inspection_fee +
-        irs_tax_deposit +
-        import_levy +
-        environmental_excise +
-        special_import_levy +
-        exim +
-        au_import_levy +
-        miscellaneous_pen +
-        processing_fee +
-        import_excise +
-        customs_penalty +
-        import_duty +
-        import_vat +
-        import_nhil
+      ecowas_levy +
+      cassette_levy +
+      customs_inspection_fee +
+      irs_tax_deposit +
+      import_levy +
+      environmental_excise +
+      special_import_levy +
+      exim +
+      au_import_levy +
+      miscellaneous_pen +
+      processing_fee +
+      import_excise +
+      customs_penalty +
+      import_duty +
+      import_vat +
+      import_nhil
   end
 
   def get_fund
@@ -151,7 +123,7 @@ class Duty
 
   def import_duty
     # TODO: Figure out import_duty rate based on HSCODE using 10 for now
-    # 0%, 5%, 10% or 20%
+    # 0%, 5%, 10% or 20% depending on the hs_code
     @cif * (10 / 100.0)
   end
 
@@ -165,8 +137,36 @@ class Duty
     @cif * (2.5 / 100.0)
   end
 
+  def show_calculation
+    puts '>>>>>>>>>>>>>>>>>>>>>>>>>'
+    puts "cost #{@cost}"
+    puts "insurance #{@insurance}"
+    puts "freight #{@freight}"
+    puts "cif #{@cif}"
+    puts '-------------------'
+    puts "get_fund #{get_fund}"
+    puts "ecowas_levy #{ecowas_levy}"
+    puts "cassette_levy #{cassette_levy}"
+    puts "customs_inspection_fee #{customs_inspection_fee}"
+    puts "irs_tax_deposit #{irs_tax_deposit}"
+    puts "import_levy #{import_levy}"
+    puts "environmental_excise #{environmental_excise}"
+    puts "special_import_levy #{special_import_levy}"
+    puts "exim #{exim}"
+    puts "au_import_levy #{au_import_levy}"
+    puts "miscellaneous_pen #{miscellaneous_pen}"
+    puts "processing_fee #{processing_fee}"
+    puts "import_excise #{import_excise}"
+    puts "customs_penalty #{customs_penalty}"
+    puts "import_duty #{import_duty}"
+    puts "import_vat #{import_vat}"
+    puts "import_nhil #{import_nhil}"
+    puts '---------------'
+    puts "total_duty_payable #{total_duty_payable}"
+  end
+
   def hash
-    value.hash
+    total_duty_payable.hash
   end
 
   def eql?(other)
@@ -174,6 +174,6 @@ class Duty
   end
 
   def to_s
-    value.to_s
+    total_duty_payable.to_s
   end
 end

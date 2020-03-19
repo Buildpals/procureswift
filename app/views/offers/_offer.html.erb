@@ -1,0 +1,18 @@
+<a href="<%= product_path offer.product.id, params: { offer_id: offer.id } %>"
+   class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><%= number_to_currency offer.price %> - <%= offer.condition %></h5>
+    <small>
+      <%= number_to_percentage(offer.seller_percent_positive, precision: 0) %> positive reviews
+    </small>
+  </div>
+  <p class="mb-1">
+    <%= offer.seller_name %>
+  </p>
+  <small class="text-muted">
+    <%= number_with_delimiter offer.seller_num_ratings %> total reviews
+    <br>
+    Ships within
+    <%= offer.handling_days_min %> to <%= offer.handling_days_max %> days
+  </small>
+</a>

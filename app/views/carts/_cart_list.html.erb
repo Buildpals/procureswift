@@ -1,34 +1,8 @@
 <ul class="list-group list-group-flush" id="cart_list">
-  <% cart.cart_items.order(created_at: :desc).each do |cart_item| %>
-    <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
-      <a href="<%= product_path cart_item.product_id, params: { offer_id: cart_item.offer_id } %>">
-        <div class="d-flex w-100 justify-content-start mb-2">
-          <img class="product-image mr-3" src="<%= cart_item.main_image %>" width="100" style="height: 100px">
-          <div>
-            <h6 class="mb-1"><%= cart_item.title %></h6>
-
-            <div class="text-danger ml-auto"><%= number_to_currency cart_item.unit_price %></div>
-            <div>Qty: <%= cart_item.quantity %></div>
-          </div>
-        </div>
-      </a>
-
-      <% if local_assigns.has_key? :edit_buttons %>
-        <div class="d-flex w-100 justify-content-end">
-          <%= form_with(model: cart_item, local: false, class: 'form-inline') do |form| %>
-            <%= form.select :quantity,
-                            choices = (1..50).map { |w| [w, w] },
-                            options = {
-                                include_blank: false
-                            },
-                            html_options = {
-                                class: "form-control form-control-sm ml-2",
-                                onchange: 'this.form.submit();'
-                            } %>
-          <% end %>
-          <%= button_to "Remove", cart_item_path(cart_item), method: :delete, class: 'btn btn-sm btn-secondary ml-2' %>
-        </div>
-        <% end %>
-    </li>
-  <% end %>
+  <%= render(partial: 'cart_items/cart_item',
+             collection: cart.cart_items.order(created_at: :desc),
+             locals: local_assigns) ||
+          content_tag(:div,
+                      'There are no items in this cart.',
+                      class: 'list-group-item text-muted') %>
 </ul>

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This does not inherit from ActiveRecord, but instead inherits from ActiveModel
 class Product
   include ActiveModel::Model
 
@@ -12,7 +13,7 @@ class Product
     costco: 5,
     walmart: 6,
     homedepot: 7,
-    lowes: 8,
+    lowes: 8
     # aliexpress: 9 # We don't have a warehouse in this country
   }.freeze
 
@@ -29,24 +30,34 @@ class Product
                 :depth,
                 :offers
 
+  def self.find(id)
+    product_id, retailer = split_retailer_from_product_id(id)
+
+    product = Zinc.new.product_details(retailer, product_id)
+    offers = Zinc.new.product_offers(retailer, product_id)
+
+    product.offers = offers
+    offers.each { |offer| offer.product = product }
+
+    product
+  end
+
+  def self.where(query, retailer = 'amazon')
+    Zinc.new.product_search(query, retailer)
+  end
+
+  def self.split_retailer_from_product_id(id)
+    # TODO: HACK must be replaced with more robust splitting system
+    retailer, product_id = id.split('_')
+    [product_id, retailer]
+  end
+
   def id
     "#{retailer}_#{product_id}"
   end
 
   def item_url
-    "https://www.amazon.com/dp/#{id.split('_')[1]}"
-  end
-
-  def self.find(id)
-    # TODO: HACK must be replaced with more rubost system
-    retailer, product_id = id.split('_')
-
-    Rails.logger.info('Fetching product information from zincapi...')
-    product = ItemInformationFetcher.new(retailer, product_id).fetch_item_information
-    product
-  end
-
-  def self.search(query, retailer = 'amazon')
-    Zinc.new.search(query, retailer)
+    product_id, _retailer = Product.split_retailer_from_product_id(id)
+    "https://www.amazon.com/dp/#{product_id}"
   end
 end

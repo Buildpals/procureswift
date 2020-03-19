@@ -23,7 +23,7 @@
 #end
 #
 
-Product.where(zinc_product_details: nil).destroy_all
+Product.where(product_details_json: nil).destroy_all
 
 Product.all.each do |product|
   begin

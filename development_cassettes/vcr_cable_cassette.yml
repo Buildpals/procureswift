@@ -7266,4 +7266,546 @@ http_interactions:
       string: "<html><title>404: Not Found</title><body>404: Not Found</body></html>"
     http_version: null
   recorded_at: Wed, 18 Mar 2020 19:03:12 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07DHFPR8D?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 18:33:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"7af974bfa57d40f3789e4e97600945aaba85a81d"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584642422,
+          "status": "completed",
+          "feature_bullets": [
+            "Each dumbbell adjust from 11 lbs to 71.5 lbs in 5.5 lb increments.",
+            "With the unique dial system, you can rapidly switch from one exercise to the next.",
+            "Combines 12 sets of weights into one offering versatile workout for your whole body.",
+            "With one Adjustable Dial Dumbbell, there is no need for buying other dumbbells, which can save a lot of space for your home gym.",
+            "Worldwide Two Year Warranty. Shipped in multiple packages, may arrive at different time. Merax dumbbell is measured by kg."
+          ],
+          "title": "Merax Deluxe 71.5 Pounds Adjustable Dial Dumbbell with Weight Plate for Home Gym 2 PCS (2 x 71.5 LBS)",
+          "meta_keywords": "Merax Deluxe 71.5 Pounds Adjustable Dial Dumbbell with Weight Plate for Home Gym 2 PCS (2 x 71.5 LBS),Merax",
+          "html_product_description": "<div id=\"aplus3p_feature_div\" class=\"feature\" data-feature-name=\"aplus3p\">\n \n\n\n\n    \n\n    \n    \n    \n        \n        \n        \n            \n                \n                    \n\n\n    \n    \n    \n    \n    \n    \n\n\n\n\n    \n\n    <div id=\"aplus\" class=\"a-section a-spacing-extra-large bucket\">\n        <hr noshade=\"true\" size=\"1\" class=\"bucketDivider\"/>\n        \n            <h2>Product Description</h2>\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n    \n\n\n\n    \n\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n\n\n<div class=\"aplus-v2 desktop celwidget weblabRtl\" cel_widget_id=\"aplus\">\n    \n    \n        \n            \n                <div class=\"celwidget aplus-module 3p-module-b\" cel_widget_id=\"aplus-3p-module-b\">\n        \n            \n            \n            \n\n            \n                \n                \n                    \n                        \n                            \n\n\n\n<div class=\"aplus-3p-fixed-width\">\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n    \n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n\n    \n    \n        <img alt=\"dumbbells dial dumbbells adjustable dumbbells dumbbell set\" src=\"https://m.media-amazon.com/images/S/aplus-media/sc/05832645-5c9e-4091-a88e-be919ab89fba.__CR0,0,970,600_PT0_SX970_V1___.jpg\" class=\"a-spacing-base\"/>\n    \n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n      \n     \n\n  \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n    \n        <p class=\"a-spacing-base\">\n            With Merax adjustable dumbbells, you won&#8217;t waste another minute to add more dumbbell plates for switching the intensity of your workout. It comes with a unique dial system and plates in different sizes, allow you to adjust to desirable weights in this all-in-one equipment for multiple exercises. It is absolutely great for your upper body workouts, which helps tone and sculpt your arms, shoulders, back and also strengthen your muscles. The greater part is these dumbbells also come with a tray and a stable rack for secure storage of your units, without devoting too much floor space, and keep your home gym well organized.\n        </p>\n    \n\n    \n    \n\n    \n    \n        <p class=\"a-spacing-base\">\n            The Merax was built with the stronger athlete in mind so it offers a very wide weight range to work with, starting at 5 kg and going all the way up to 32.5 kg per dumbbell! The weight is adjustable in 5.5 lb increments, which gives you 12 different weight settings to choose from.\n        </p>\n    \n\n    \n    \n\n\n\n</div>\n\n                        \n                    \n                \n            \n\n            \n            \n        \n    </div>\n\n    \n    \n\n    <div class=\"celwidget aplus-module module-9\" cel_widget_id=\"aplus-module-9\">\n        \n            \n            \n            \n\n            \n                \n                    <div aria-live=\"polite\" data-a-expander-name=\"aplus-module-expander\" data-a-expander-collapsed-height=\"700\" class=\"a-expander-collapsed-height a-row a-expander-container a-expander-partial-collapse-container\" style=\"max-height:700px; _height:700px\">\n                        <div aria-expanded=\"false\" class=\"a-expander-content a-expander-partial-collapse-content\">\n                            \n                                \n                                    \n\n\n\n<div class=\"aplus-module-wrapper\">\n    <div class=\"apm-spacing apm-fixed-width\">\n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n        <table class=\"apm-fixed-width a-size-base apm-eventhirdcol-table\">\n            <tr>\n                <th class=\"apm-center\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        <p>\n                            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n    \n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n\n    \n    \n        <img alt=\"dumbbells dial dumbbells adjustable dumbbells dumbbell set\" src=\"https://m.media-amazon.com/images/S/aplus-media/sc/ad48aae2-3e90-4d61-9cf3-3ebe7c9a1250.__CR0,0,300,300_PT0_SX300_V1___.jpg\" class=\"a-spacing-mini\"/>\n    \n\n\n                            <br/>\n                            \n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n\n                        </p>\n                    </div>\n                </th>\n                <th class=\"apm-center\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        <p>\n                            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n    \n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n\n    \n    \n        <img alt=\"\" src=\"https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/ATVPDKIKX0DER/A1W84D9JGPQCVV/B075K5Q21K/CB6TSjbMQySB._UX300_TTW__.jpg\" class=\"a-spacing-mini\"/>\n    \n\n\n                            <br/>\n                            \n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n\n                        </p>\n                    </div>\n                </th>\n                <th class=\"apm-center\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        <p>\n                            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n    \n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n\n    \n    \n        <img alt=\"\" src=\"https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/ATVPDKIKX0DER/A1W84D9JGPQCVV/B075K5Q21K/ZULv4DlITpqV._UX300_TTW__.jpg\" class=\"a-spacing-mini\"/>\n    \n\n\n                            <br/>\n                            \n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n\n                        </p>\n                    </div>\n                </th>\n            </tr>\n            <tr>\n                <td class=\"apm-top\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    <h4 class=\"a-spacing-mini\">\n\n        Dumbbell Stand\n    </h4>\n\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n      \n     \n       \n  \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n    \n        <p>\n            Merax adjustable dumbbell comes with a convenient weight tray to help you store your unit, prevent it from rolling over.<br/> <br/>  \n        </p>\n    \n\n\n\n                    </div>\n                </td>\n                <td class=\"apm-top\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    <h4 class=\"a-spacing-mini\">\n\n        Unique Dial System\n    </h4>\n\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n      \n     \n       \n  \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n    \n        <p>\n            Combining 12 sets of weights into one, Merax adjustable dumbbell allows you to adjust the weight from 11 lbs to 71.5 lbs in 5.5 increments with an effortless twist.\n        </p>\n    \n\n\n\n                    </div>\n                </td>\n                <td class=\"apm-top\">\n                    <div class=\"apm-eventhirdcol apm-floatleft\">\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n \n     \n    \n\n    \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    <h4 class=\"a-spacing-mini\">\n\n        Dumbbell Rack\n    </h4>\n\n                        \n\n\n\n\n\n\n\n\n\n\n\n\n      \n     \n       \n  \n\n\n    \n    \n        \n    \n\n\n\n\n\n\n    \n    \n        <p>\n            Pair these adjustable dumbbells with a compact and sturdy rack for easy pick up, secure storage, and maximized efficiency of your workout space.<br/>  \n        </p>\n    \n\n\n\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n</div>\n<div style=\"clear:both\"/>\n\n                                \n                            \n                        </div>\n                        <div class=\"a-expander-header a-expander-partial-collapse-header a-text-left\"><div class=\"a-expander-content-fade\"/><a href=\"javascript:void(0)\" data-action=\"a-expander-toggle\" class=\"a-declarative\" data-a-expander-toggle=\"{&quot;allowLinkDefault&quot;:true, &quot;expand_prompt&quot;:&quot;Read more&quot;, &quot;collapse_prompt&quot;:&quot;Read less&quot;}\"><i class=\"a-icon a-icon-extender-expand\"/><span class=\"a-expander-prompt\">Read more</span></a></div>\n                    </div>\n                \n                \n            \n\n            \n            \n        \n    </div>\n\n    \n    \n\n    <div class=\"celwidget aplus-module module-11\" cel_widget_id=\"aplus-module-11\">\n        \n            \n            \n            \n\n            \n                \n                    <div aria-live=\"polite\" data-a-expander-name=\"aplus-module-expander\" data-a-expander-collapsed-height=\"360\" class=\"a-expander-collapsed-height a-row a-expander-container a-expander-partial-collapse-container\" style=\"max-height:360px; _height:360px\">\n                        <div aria-expanded=\"false\" class=\"a-expander-content a-expander-partial-collapse-content\">\n                            \n                                \n                                    \n\n\n\n<div class=\"aplus-module-wrapper apm-spacing apm-floatnone\">\n    <div class=\"apm-sidemodule aplus-module-content\">\n        <div class=\"apm-hero-image\">\n            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n    \n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\n\n    \n    \n        <img alt=\"dumbbells dial dumbbells adjustable dumbbells dumbbell set\" src=\"https://m.media-amazon.com/images/S/aplus-media/sc/93b8589c-d0bc-456c-8647-f4a0d57c7c66.__CR0,0,970,300_PT0_SX970_V1___.jpg\"/>\n    \n\n\n        </div>\n\n        \n    </div>\n    <div style=\"clear:both\">\n        \n\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n\n    </div>\n</div>\n\n\n                                \n                            \n                        </div>\n                        <div class=\"a-expander-header a-expander-partial-collapse-header a-text-left\"><div class=\"a-expander-content-fade\"/><a href=\"javascript:void(0)\" data-action=\"a-expander-toggle\" class=\"a-declarative\" data-a-expander-toggle=\"{&quot;allowLinkDefault&quot;:true, &quot;expand_prompt&quot;:&quot;Read more&quot;, &quot;collapse_prompt&quot;:&quot;Read less&quot;}\"><i class=\"a-icon a-icon-extender-expand\"/><span class=\"a-expander-prompt\">Read more</span></a></div>\n                    </div>\n                \n                \n            \n\n            \n            \n        \n    </div>\n\n    \n    \n\n    <div class=\"celwidget aplus-module module-5\" cel_widget_id=\"aplus-module-5\">\n        \n            \n            \n            \n\n            \n                \n                \n                    \n                        \n                            \n\n\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n            \n        \n    \n\n    \n        \n            \n            \n        \n        \n    \n\n    \n        \n        \n            \n        \n    \n\n    \n        \n        \n            \n        \n    \n\n    \n        \n            \n            \n        \n        \n    \n\n    \n        \n            \n            \n        \n        \n    \n\n\n\n\n\n\n    \n        \n    \n    \n\n\n<div class=\"aplus-module-wrapper\">\n    <div class=\"apm-spacing aplus-module-content\">\n        <div class=\"apm-tablemodule\">\n            <table class=\"apm-tablemodule-table\" cellspacing=\"0\" cellpadding=\"0\">\n                <tbody>\n                <tr class=\"apm-tablemodule-imagerows\">\n                    <th class=\"apm-tablemodule-blankkeyhead\"/>\n                    \n                        \n                        \n                    \n                        \n                        \n                          <th class=\"apm-tablemodule-image \">\n                              \n                                  \n                                      \n                                          <a href=\"/dp/B074V8Y6BX/ref=emc_b_5_i\">\n                                              <img alt=\"\" src=\"https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/ATVPDKIKX0DER/A1W84D9JGPQCVV/84fcc310-eb03-44e7-a3d9-efba70dbb102._CR0,0,150,300_PT0_SX150__.jpg\" width=\"150px\"/>\n                                          </a>\n                                      \n                                      \n                                  \n                              \n                          </th>\n                        \n                    \n                        \n                        \n                    \n                        \n                        \n                    \n                        \n                        \n                          <th class=\"apm-tablemodule-image \">\n                              \n                                  \n                                      \n                                          <a href=\"/dp/B07DNVFD2P/ref=emc_b_5_i\">\n                                              <img alt=\"\" src=\"https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/ATVPDKIKX0DER/A1W84D9JGPQCVV/6d4d286c-4cbc-426e-8fb2-667469116c17._CR0,0,150,300_PT0_SX150__.jpg\" width=\"150px\"/>\n                                          </a>\n                                      \n                                      \n                                  \n                              \n                          </th>\n                        \n                    \n                        \n                        \n                          <th class=\"apm-tablemodule-image \">\n                              \n                                  \n                                      \n                                          <a href=\"/dp/B07DNW11D9/ref=emc_b_5_i\">\n                                              <img alt=\"\" src=\"https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/ATVPDKIKX0DER/A1W84D9JGPQCVV/cf192d9d-c23b-4775-8e1d-2df988a3bcd4._CR0,0,150,300_PT0_SX150__.jpg\" width=\"150px\"/>\n                                          </a>\n                                      \n                                      \n                                  \n                              \n                          </th>\n                        \n                    \n                </tr>\n                <tr class=\"apm-tablemodule-imagerows\">\n                    <th class=\"apm-tablemodule-blankkeyhead\"/>\n                    \n                        \n                        \n                    \n                        \n                        \n                          <th>\n                              \n                                  \n                                      <a href=\"/dp/B074V8Y6BX/ref=emc_b_5_t\">\n                                          Merax Deluxe Foldable Utility Weight Bench Adjustable Sit Up AB Incline Bench \n                                      </a>\n                                  \n                                  \n                              \n                          </th>\n                        \n                    \n                        \n                        \n                    \n                        \n                        \n                    \n                        \n                        \n                          <th>\n                              \n                                  \n                                      <a href=\"/dp/B07DNVFD2P/ref=emc_b_5_t\">\n                                          Merax Deluxe Adjustable Dial Dumbbell &amp; Foldable Utility Weight Bench Set\n                                      </a>\n                                  \n                                  \n                              \n                          </th>\n                        \n                    \n                        \n                        \n                          <th>\n                              \n                                  \n                                      <a href=\"/dp/B07DNW11D9/ref=emc_b_5_t\">\n                                          Merax Deluxe Adjustable Dial Dumbbell &amp; Foldable Utility Weight Bench Set\n                                      </a>\n                                  \n                                  \n                              \n                          </th>\n                        \n                    \n                </tr>\n                \n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n<div style=\"clear:both\"/>\n\n                        \n                    \n                \n            \n\n            \n            \n        \n    </div>\n\n\n        \n    \n</div>\n\n\n\n\n    </div>\n\n\n\n                \n                \n            \n        \n        \n        \n        \n        \n    \n    \n    \n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    </div>",
+          "product_description": "With Merax adjustable dumbbells, you won\u2019t waste another\nminute to add more dumbbell plates for switching the intensity of your\nworkout. It comes with a unique dial system and plates in different sizes,\nallow you to adjust to desirable weights in this all-in-one equipment for\nmultiple exercises. It is absolutely great for your upper body workouts, which\nhelps tone and sculpt your arms, shoulders, back and also strengthen your\nmuscles. The greater part is these dumbbells also come with a tray and a\nstable rack for secure storage of your units, without devoting too much floor\nspace, and keep your home gym well organized. The Merax was built with the\nstronger athlete in mind so it offers a very wide weight range to work with,\nstarting at 5 kg and going all the way up to 32.5 kg per dumbbell! The weight\nis adjustable in 5.5 lb increments, which gives you 12 different weight\nsettings to choose from. Dumbbell Stand Merax adjustable dumbbell comes with a\nconvenient weight tray to help you store your unit, prevent it from rolling\nover. Unique Dial System Combining 12 sets of weights into one, Merax\nadjustable dumbbell allows you to adjust the weight from 11 lbs to 71.5 lbs in\n5.5 increments with an effortless twist. Dumbbell Rack Pair these adjustable\ndumbbells with a compact and sturdy rack for easy pick up, secure storage, and\nmaximized efficiency of your workout space. Read more Read more Merax Deluxe\nFoldable Utility Weight Bench Adjustable Sit Up AB Incline Bench Merax Deluxe\nAdjustable Dial Dumbbell & Foldable Utility Weight Bench Set Merax Deluxe\nAdjustable Dial Dumbbell & Foldable Utility Weight Bench Set",
+          "related_asins": [
+            "B01MA1YYG0",
+            "B07X64MXBS",
+            "B07YV8PP52",
+            "B07DNV8FKH",
+            "B00VEAH5SA",
+            "B006UK9V3Q",
+            "B01LF6X85G",
+            "B00COQTLNU",
+            "B000A6T9I8",
+            "B01EBU7SMC",
+            "B07BDRWPXD",
+            "B000NWTX6W",
+            "B07X642NMZ",
+            "B07GCFJVZZ",
+            "B083GP713G",
+            "B07V4R4S1X",
+            "B07YL1XKHK",
+            "B000BH283O",
+            "B081ZVCS6T"
+          ],
+          "images": [
+            "https://images-na.ssl-images-amazon.com/images/I/71h4blNnQpL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/618ROhfMRBL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71JZjZRIn0L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71uxNe-IGKL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71jNILJduFL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71SATWE6adL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61DPJoIJZ0L.jpg"
+          ],
+          "main_image": "https://images-na.ssl-images-amazon.com/images/I/71h4blNnQpL.jpg",
+          "product_details": [
+            "#105 in Exercise & Fitness Dumbbells"
+          ],
+          "brand": "Merax",
+          "categories": [
+            "Sports & Outdoors",
+            "Sports & Fitness",
+            "Exercise & Fitness",
+            "Strength Training Equipment",
+            "Dumbbells"
+          ],
+          "all_variants": [
+            {
+              "product_id": "B07D9CKP3Y",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Pair. Set"
+                }
+              ]
+            },
+            {
+              "product_id": "B07869BT7R",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Stand Only"
+                }
+              ]
+            },
+            {
+              "product_id": "B07DHFPR8D",
+              "variant_specifics": [
+                {
+                  "dimension": "Color",
+                  "value": "Pair with Stand Set"
+                }
+              ]
+            }
+          ],
+          "tag_title": "Merax Deluxe 71.5 Pounds Adjustable Dial Dumbbell with Weight Plate for Home Gym 2 PCS (2 x 71.5 LBS)",
+          "variant_specifics": [
+            {
+              "dimension": "Color",
+              "value": "Pair with Stand Set"
+            }
+          ],
+          "asin": "B07DHFPR8D",
+          "product_id": "B07DHFPR8D",
+          "retailer": "amazon",
+          "stars": 4.4,
+          "review_count": 212,
+          "question_count": 92,
+          "fresh": false,
+          "pantry": false,
+          "handmade": false,
+          "digital": false,
+          "buyapi_hint": true,
+          "customer_images": [
+            "https://images-na.ssl-images-amazon.com/images/I/71GOTQ1AwXL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71eSUdPQW3L.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71cQrBLT9VL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71IiVbIbDkL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/71vj-rIsZvL.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61aefdmuG-L.jpg"
+          ],
+          "price": null,
+          "ship_price": null,
+          "epids": [
+            {
+              "type": "EAN",
+              "value": "0843438108500"
+            },
+            {
+              "type": "UPC",
+              "value": "843438108500"
+            }
+          ],
+          "epids_map": {
+            "EAN": "0843438108500",
+            "UPC": "843438108500"
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 18:32:59 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/products/B07DHFPR8D/offers?retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 18:33:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"c3e3de553f20fc4d5d5514c5047617018f60b249"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584642424,
+          "status": "completed",
+          "offers": [
+            {
+              "seller": {
+                "name": "Buymaxus",
+                "id": "A1RU24EGSVIC4U",
+                "num_ratings": 1824,
+                "percent_positive": 90,
+                "first_party": false
+              },
+              "coupon_discount_percent": null,
+              "coupon_discount_fixed": null,
+              "offer_id": "tJUXupzfRZL%2BBOZgMy9mWeCvpBE9oscboEBUuEkbNTK0fK3Nbiq8VJTUaCoCuNoPJnTCZeeLiT1SNwdZHw5%2BxhmJiw%2FvrFlXxq3N9ytQE7PKxd4hfv%2BoCqy7a2rtQNIDsdtn%2BFXunFC4CxJ5eQbUL2V5oPePEpUHXFZtEa4aadA1JtEfOCYVrDCAjfT9kAXr",
+              "price": 52999,
+              "currency": "USD",
+              "available": true,
+              "handling_days": {
+                "min": 36,
+                "max": 36
+              },
+              "marketplace_fulfilled": false,
+              "fba_badge": false,
+              "prime_badge": false,
+              "shipping_options": [
+                {
+                  "price": 5999
+                }
+              ],
+              "condition": "New",
+              "minimum_quantity": null,
+              "prime_only": false,
+              "addon": false,
+              "comments": null,
+              "greytext": "Back-ordered.  Due in stock April 24 -- order now to reserve yours",
+              "known_greytext": true,
+              "international": false,
+              "expired_product_id": false,
+              "asin": "B07DHFPR8D",
+              "buy_box_winner": null
+            }
+          ],
+          "asin": "B07DHFPR8D",
+          "retailer": "amazon",
+          "expired_product_id": false,
+          "strategy": "fullscrape"
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 18:33:01 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=adsfafa&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 19:22:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"2b0ef6bb8aae4ba25774d730c575377138f7c8ab"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584645752,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [],
+          "showing": null
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 19:22:29 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=adfadsf&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 19:26:34 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"85fb10bab3b8dbce68449df83dd36d1e12a5d3f7"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584645994,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [
+            {
+              "prime": false,
+              "product_id": "B084VTFNGW",
+              "title": "tbd adfadsf adfa dafaf ds fasf - (Color: 10pc random colour)",
+              "price": 1509,
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 0,
+              "fresh": false,
+              "image": "https://m.media-amazon.com/images/I/5139IjRPlXL._AC_UY218_ML3_.jpg",
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 1,
+            "end": 1,
+            "of": 1
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 19:26:31 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=ff&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 19:26:47 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"cd34508e01a2e9429406e991e599db91b28184a8"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584646007,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [
+            {
+              "prime": false,
+              "product_id": "B000I9TX24",
+              "title": "Dora the Explorer Season 1",
+              "image": "https://m.media-amazon.com/images/I/915u3f7+m-L._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 2751,
+              "stars": 4.6,
+              "fresh": false,
+              "price": 199,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B07M6SQ1NG",
+              "title": "The Cat in the Hat Knows a Lot About That!",
+              "image": "https://m.media-amazon.com/images/I/71CFHV3AoSL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 14,
+              "stars": 5,
+              "fresh": false,
+              "price": 199,
+              "addon": false
+            },
+            {
+              "prime": true,
+              "product_id": "0800794575",
+              "title": "Christ the Healer",
+              "image": "https://m.media-amazon.com/images/I/71lTVCyb74L._AC_UY218_ML3_.jpg",
+              "brand": "F. F. Bosworth and Robert Bosworth | Sep 1, 2008",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 546,
+              "stars": 4.8,
+              "fresh": false,
+              "price": 1023,
+              "addon": false
+            },
+            {
+              "prime": false,
+              "product_id": "B085WM3HKG",
+              "title": "Lesbian Only Petals: Mixed Lesbian F-F Romance Book Collection",
+              "image": "https://m.media-amazon.com/images/I/81GcbfRXgdL._AC_UY218_ML3_.jpg",
+              "product_details": [],
+              "pantry": false,
+              "num_reviews": 0,
+              "fresh": false,
+              "brand": "Tammy Compton",
+              "addon": false
+            }
+          ],
+          "showing": {
+            "start": 1,
+            "end": 16,
+            "of": 5000
+          }
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 19:26:44 GMT
+- request:
+    method: get
+    uri: https://api.zinc.io/v1/search?page=1&query=adsfadsfad&retailer=amazon
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.zinc.io
+      Authorization:
+      - Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 19 Mar 2020 19:27:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"b509447682286506579769e706d0ad489a090ad8"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=15768000
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp": 1584646021,
+          "status": "completed",
+          "retailer": "amazon",
+          "results": [],
+          "showing": null
+        }
+    http_version: null
+  recorded_at: Thu, 19 Mar 2020 19:26:58 GMT
 recorded_with: VCR 5.1.0
