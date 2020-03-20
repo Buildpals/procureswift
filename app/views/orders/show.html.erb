@@ -4,21 +4,24 @@
 
     <div class="col-lg-12">
       <% if flash[:thanks_for_shopping_with_us] %>
-        <h1 class="mb-3">Thanks for shopping with us <%= @order.user.full_name %>!</h1>
+        <h1 class="mb-3">Thanks for shopping with
+          us <%= @order.user.full_name %>!</h1>
       <% end %>
 
       <div>
         <h3>Order Details</h3>
 
         <div class="d-flex flex-wrap">
-          <div class="mr-5">Ordered on <%= @order.cart&.paid_at&.to_date&.to_s(:long) %></div>
+          <div class="mr-5">Ordered
+            on <%= @order.cart&.paid_at&.to_date&.to_s(:long) %></div>
           <div>Order# <%= @order.id %></div>
         </div>
       </div>
       <hr>
 
       <p>
-        For your receipt, check out the confirmation email our payment processor will send
+        For your receipt, check out the confirmation email our payment processor
+        will send
         to <%= @order.user.email %>.
       </p>
       <p>
@@ -43,13 +46,16 @@
           </div>
         </div>
 
-        <%= render partial: 'carts/cart_list', locals: { cart: @order.cart } %>
+        <%= render partial: 'carts/cart_list', locals: {cart: @order.cart} %>
 
       </div>
     </div>
 
     <div class="col-lg-4">
-      <%= render(partial: 'carts/costs_card', locals: {cart: @order.cart}) %>
+      <%= render(partial: 'carts/costs_card',
+                 locals: {
+                     shippingCalculator: ShippingCalculator.new(@cart)
+                 }) %>
     </div>
 
   </div>

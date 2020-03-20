@@ -11,9 +11,10 @@ class Freight
   end
 
   def myus_shipping_cost
-    # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
     return nil if @weight.nil?
+    return 0 if @weight.zero?
 
+    # TODO: Confirm these values by entering the ranges in https://www.myus.com/pricing/
     case @weight
     when 0..1
       16.99

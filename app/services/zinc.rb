@@ -16,9 +16,6 @@ class Zinc
     product_search_json = make_api_call(product_search_url)
 
     build_products(product_search_json)
-  rescue Net::OpenTimeout, SocketError
-    Rails.logger.warn NETWORK_ERROR
-    []
   end
 
   def product_details(retailer, product_id)
@@ -30,9 +27,6 @@ class Zinc
     product_details_json = make_api_call(product_details_url)
 
     build_product(product_details_json)
-  rescue Net::OpenTimeout, SocketError
-    Rails.logger.warn NETWORK_ERROR
-    nil
   end
 
   def product_offers(retailer, product_id)
@@ -44,9 +38,6 @@ class Zinc
     product_offers_json = make_api_call(product_offers_url)
 
     build_offers(product_offers_json)
-  rescue Net::OpenTimeout, SocketError
-    Rails.logger.warn NETWORK_ERROR
-    raise ActiveRecord::RecordNotFound
   end
 
   private
@@ -79,6 +70,9 @@ class Zinc
     Rails.logger.info "Response for #{url}:\n#{response_json.to_json}"
 
     response_json
+  rescue Net::OpenTimeout, SocketError
+    Rails.logger.error NETWORK_ERROR
+    raise ZincError, NETWORK_ERROR
   end
 
   def build_products(products_search_json)

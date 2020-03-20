@@ -141,7 +141,7 @@
             <a class="nav-link" href="<%= cart_path(current_cart) %>">
               <span class="fa fa-shopping-cart"></span>
               Cart
-              (<%= current_cart.number_of_items %>)
+              (<%= ShippingCalculator.new(current_cart).number_of_items %>)
             </a>
           </li>
         <% else %>

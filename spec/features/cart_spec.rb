@@ -38,7 +38,7 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 2.weeks.from_now.to_date.to_s(:long), normalize_ws: true
 
       expect(page).to have_content 'Duty charges are subject to changes by ' \
-                                   'customs officers on arrival Checkout',
+                                   'customs officers on arrival',
                                    normalize_ws: true
     end
   end
@@ -73,14 +73,14 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
 
     within '#costs_card' do
       expect(page).to have_content 'Order Summary'
-      expect(page).to have_content 'Items (2): $700.99 ', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $106.02 ', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $284.31 ', normalize_ws: true
-      expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65) ', normalize_ws: true
+      expect(page).to have_content 'Items (2): $700.99', normalize_ws: true
+      expect(page).to have_content 'Shipping & Insurance: $79.03', normalize_ws: true
+      expect(page).to have_content 'Estimated Duty: $278.12', normalize_ws: true
+      expect(page).to have_content 'Order Total: $1,058.14 (GH₵ 6,137.19)', normalize_ws: true
       expect(page).to have_content 2.weeks.from_now.to_date.to_s(:long), normalize_ws: true
 
       expect(page).to have_content 'Duty charges are subject to changes by ' \
-                                   'customs officers on arrival Checkout',
+                                   'customs officers on arrival',
                                    normalize_ws: true
     end
   end
@@ -120,7 +120,7 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 2.weeks.from_now.to_date.to_s(:long), normalize_ws: true
 
       expect(page).to have_content 'Duty charges are subject to changes by ' \
-                                   'customs officers on arrival Checkout',
+                                   'customs officers on arrival',
                                    normalize_ws: true
     end
 
@@ -166,13 +166,13 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
     within '#costs_card' do
       expect(page).to have_content 'Order Summary'
       expect(page).to have_content 'Items (2): $700.99 ', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $106.02 ', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $284.31 ', normalize_ws: true
-      expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65) ', normalize_ws: true
+      expect(page).to have_content 'Shipping & Insurance: $79.03', normalize_ws: true
+      expect(page).to have_content 'Estimated Duty: $278.12 ', normalize_ws: true
+      expect(page).to have_content 'Order Total: $1,058.14 (GH₵ 6,137.19) ', normalize_ws: true
       expect(page).to have_content 2.weeks.from_now.to_date.to_s(:long), normalize_ws: true
 
       expect(page).to have_content 'Duty charges are subject to changes by ' \
-                                   'customs officers on arrival Checkout',
+                                   'customs officers on arrival',
                                    normalize_ws: true
     end
 
@@ -210,9 +210,9 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
     expect(page).to have_content "Phone number This number should be active so we can reach you when we're delivering your item"
     expect(page).to have_content 'Order Summary'
     expect(page).to have_content 'Items (2): $700.99'
-    expect(page).to have_content 'Shipping & Insurance: $106.02'
-    expect(page).to have_content 'Estimated Duty: $284.31'
-    expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65)'
+    expect(page).to have_content 'Shipping & Insurance: $79.03'
+    expect(page).to have_content 'Estimated Duty: $278.12'
+    expect(page).to have_content 'Order Total: $1,058.14 (GH₵ 6,137.19)'
     expect(page).to have_content 2.weeks.from_now.to_date.to_s(:long)
     expect(page).to have_content 'Duty charges are subject to changes by customs officers on arrival'
   end

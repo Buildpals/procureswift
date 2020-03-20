@@ -41,38 +41,4 @@ class Cart < ApplicationRecord
 
     cart_items.create!(cart_item_params)
   end
-
-  def number_of_items
-    cart_items.calculate(:sum, :quantity)
-  end
-
-  def cost
-    cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.cost
-    end
-  end
-
-  def freight_insurance_handling
-    cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.freight_insurance_handling
-    end
-  end
-
-  def duty
-    cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.duty
-    end
-  end
-
-  def order_total
-    cost + freight_insurance_handling + duty
-  end
-
-  def estimated_delivery_date
-    if paid_at.present?
-      paid_at + 2.weeks
-    else
-      2.weeks.from_now
-    end
-  end
 end

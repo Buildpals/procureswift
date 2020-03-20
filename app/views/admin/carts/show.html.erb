@@ -3,8 +3,10 @@
   <div class="row mt-3">
 
     <div class="col-lg-4 order-lg-1">
-      <%= render(layout: 'carts/costs_card', locals: {cart: @cart}) do %>
-        
+      <%= render(layout: 'carts/costs_card', locals: {
+          shippingCalculator: ShippingCalculator.new(@cart)
+      }) do %>
+
         <%= link_to 'Edit', edit_admin_cart_path(@cart), class: 'btn btn-block btn-accent' %>
         <%= link_to 'Delete Cart', admin_cart_path(@cart), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-block btn-danger' %>
         <%= link_to 'Back', admin_carts_path, class: 'btn btn-block btn-info' %>
@@ -13,7 +15,8 @@
 
     <div class="col-lg-8">
       <p class="ml-2 mb-2 lead">
-        <%= @cart.user.full_name %>, <%= @cart.user.email %>, tel: <%= @cart.user.phone_number %>
+        <%= @cart.user.full_name %>, <%= @cart.user.email %>,
+        tel: <%= @cart.user.phone_number %>
       </p>
       <ul class="list-group mb-4">
         <% @cart.cart_items.order(created_at: :desc).each do |cart_item| %>
@@ -36,7 +39,7 @@
         <% end %>
       </ul>
     </div>
-    
+
   </div>
 
 </div>

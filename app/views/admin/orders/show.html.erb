@@ -7,14 +7,16 @@
         <h3>Order Details</h3>
 
         <div class="d-flex flex-wrap">
-          <div class="mr-5">Ordered on <%= @order.cart.paid_at.to_date.to_s(:long) %></div>
+          <div class="mr-5">Ordered
+            on <%= @order.cart.paid_at.to_date.to_s(:long) %></div>
           <div>Order# <%= @order.id %></div>
         </div>
       </div>
       <hr>
 
       <p>
-        For your receipt, check out the confirmation email our payment processor will send
+        For your receipt, check out the confirmation email our payment processor
+        will send
         to <%= @order.user.email %>.
       </p>
       <p>
@@ -58,7 +60,9 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render(layout: 'carts/costs_card', locals: {cart: @order.cart}) do %>
+      <%= render(layout: 'carts/costs_card', locals: {
+          shippingCalculator: ShippingCalculator.new(@order.cart)
+      }) do %>
         <%= link_to 'Edit', edit_admin_order_path(@order), class: 'btn btn-block btn-accent' %>
         <%= link_to 'Back', admin_orders_path, class: 'btn btn-block btn-info' %>
       <% end %>

@@ -45,7 +45,8 @@ class RavePayVerifier
       return true
     else
       Rails.logger.warn 'Order amount does not tally with transaction amount on ravepay!'
-      Rails.logger.warn "#{body['data']['amount']} #{ApplicationController.helpers.dollar_to_cedi(@cart.order_total).floor}"
+      byebug
+      Rails.logger.warn "#{body['data']['amount']} #{ApplicationController.helpers.dollar_to_cedi(ShippingCalculator.new(@cart).order_total).floor}"
       return false
     end
   rescue Net::OpenTimeout, SocketError
@@ -55,6 +56,6 @@ class RavePayVerifier
   private
 
   def amounts_tally?(body)
-    body['data']['amount'] == ApplicationController.helpers.dollar_to_cedi(@cart.order_total).floor
+    body['data']['amount'] == ApplicationController.helpers.dollar_to_cedi(ShippingCalculator.new(@cart).order_total).floor
   end
 end

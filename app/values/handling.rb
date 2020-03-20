@@ -11,6 +11,8 @@ class Handling
   end
 
   def cost
+    return 0 if @price.zero?
+
     BUILDPALS_MARKUP_BASE + @price * BUILDPALS_MARKUP_RATE
   end
 

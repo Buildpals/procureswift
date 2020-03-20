@@ -3,8 +3,13 @@
   <div class="row mt-3">
 
     <div class="col-lg-4 order-lg-1">
-      <%= render(layout: 'carts/costs_card', locals: {cart: @cart}) do %>
-        <%= link_to 'Checkout', edit_cart_path(current_cart), class: 'btn btn-block btn-accent' %>
+      <%= render(layout: 'carts/costs_card',
+                 locals: {
+                     shippingCalculator: ShippingCalculator.new(@cart)
+                 }) do %>
+        <% unless @cart.cart_items.empty? %>
+          <%= link_to 'Checkout', edit_cart_path(current_cart), class: 'btn btn-block btn-accent' %>
+        <% end %>
       <% end %>
     </div>
 
@@ -14,7 +19,7 @@
           <h5 class="card-title">Items in Your Cart</h5>
         </div>
 
-        <%= render partial: 'carts/cart_list', locals: { cart: @cart, edit_buttons: true } %>
+        <%= render partial: 'carts/cart_list', locals: {cart: @cart, edit_buttons: true} %>
       </div>
     </div>
   </div>

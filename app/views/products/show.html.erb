@@ -47,7 +47,8 @@
             </p>
           <% end %>
 
-          <div class="mb-3">
+          <% if @offer && @offer.weight && @offer.price %>
+            <div class="mb-3">
             <% if current_user %>
               <%= form_with(model: CartItem.new, local: true) do |form| %>
                 <%= form.hidden_field :seller_num_ratings, value: @offer.seller_num_ratings %>
@@ -88,6 +89,12 @@
                           notice: 'You need to login before you can purchase' %>
             <% end %>
           </div>
+          <% else %>
+            <div class="card-body text-center text-danger">
+              Item cannot be shipped by ProcureSwift because we could not
+              determine it's weight.
+            </div>
+          <% end %>
 
         </div>
       </div>

@@ -10,7 +10,8 @@
           <%= form_with(model: @cart, local: false, id: 'order_form') do |form| %>
             <% if @cart.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this order from being saved:</h2>
+                <h2><%= pluralize(@cart.errors.count, "error") %> prohibited
+                  this order from being saved:</h2>
 
                 <ul>
                   <% @cart.errors.full_messages.each do |message| %>
@@ -65,7 +66,8 @@
                                        autocomplete: 'tel',
                                        class: "form-control phone-input" %>
               <small id="phone_help" class="form-text text-muted">
-                This number should be active so we can reach you when we're delivering your item
+                This number should be active so we can reach you when we're
+                delivering your item
               </small>
             </div>
 
@@ -79,7 +81,9 @@
     </div>
 
     <div class="col-lg-4">
-      <%= render partial: 'carts/costs_card', locals: { cart: @cart } %>
+      <%= render(partial: 'carts/costs_card', locals: {
+          shippingCalculator: ShippingCalculator.new(@cart)
+      }) %>
     </div>
 
   </div>

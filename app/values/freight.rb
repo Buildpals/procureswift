@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Freight
-  GIGLOGISTICS_FREIGHT_RATE = 4.49
-
   def initialize(weight)
     raise ArgumentError, 'weight is nil' if weight.nil?
 

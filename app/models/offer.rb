@@ -2,7 +2,6 @@
 
 class Offer
   include ActiveModel::Model
-  include Shippable
 
   attr_accessor :id,
                 :seller_num_ratings,

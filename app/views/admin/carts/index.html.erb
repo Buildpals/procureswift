@@ -12,7 +12,7 @@
           <div class="card-header">
             <div class="d-flex w-100 justify-content-between flex-wrap">
               <div>Cart Created: <%= cart.created_at.to_date.to_s(:long) %></div>
-              <div>Total: <%= number_to_currency_gh dollar_to_cedi cart.order_total %></div>
+              <div>Total: <%= number_to_currency_gh dollar_to_cedi ShippingCalculator.new(cart).order_total %></div>
               <div>Ship To: <%= "#{cart.user.full_name} <#{cart.user.email}>" %></div>
               <div>
                 <a href="<%= admin_cart_path cart %>">Cart Details</a>

@@ -2,32 +2,36 @@
   <div class="card-body">
     <h5 class="card-title">Order Summary</h5>
     <dl class="row mt-4">
-      <dd class="col-8">Items (<%= cart.number_of_items %>):</dd>
+      <dd class="col-8">Items (<%= shippingCalculator.number_of_items %>):</dd>
       <dd class="col-4 text-right">
-        <%= number_to_currency(cart.cost) %>
+        <%= number_to_currency(shippingCalculator.cost) %>
       </dd>
 
       <dd class="col-8">Shipping & Insurance:</dd>
       <dd class="col-4 text-right">
-        <%= number_to_currency cart.freight_insurance_handling %>
+        <%= number_to_currency shippingCalculator.freight_insurance_handling %>
       </dd>
 
       <dd class="col-8 border-bottom">Estimated Duty:</dd>
       <dd class="col-4 text-right border-bottom">
-        <%= number_to_currency cart.duty %>
+        <%= number_to_currency shippingCalculator.duty %>
       </dd>
 
-      <dd class="col-6 text-truncate font-weight-bold text-danger">Order Total:</dd>
+      <dd class="col-6 text-truncate font-weight-bold text-danger">Order
+        Total:
+      </dd>
       <dd class="col-6 text-right font-weight-bold text-danger">
-        <span id="order_total"><%= number_to_currency cart.order_total %></span>
+        <span id="order_total"><%= number_to_currency shippingCalculator.order_total %></span>
         <br>
-        <span class="small">(<%= number_to_currency_gh dollar_to_cedi cart.order_total %>)</span>
+        <span class="small">
+          (<%= number_to_currency_gh dollar_to_cedi shippingCalculator.order_total %>)
+        </span>
       </dd>
     </dl>
     <div class="text-center">
       Estimated delivery
       <span class="text-success">
-        <%= cart.estimated_delivery_date.to_date.to_s(:long) %>
+        <%= shippingCalculator.estimated_delivery_date.to_date.to_s(:long) %>
       </span>
     </div>
     <div class="small text-center">

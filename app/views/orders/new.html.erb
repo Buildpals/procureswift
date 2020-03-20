@@ -2,17 +2,17 @@
   <div class="row mt-3">
 
     <div class="col-lg-8">
-      <%= render partial: 'carts/address_info_card', locals: {cart: current_cart} %>
+      <%= render partial: 'carts/address_info_card', locals: {cart: @order.cart} %>
 
       <div class="card mb-4">
         <div class="card-body border-bottom pb-1">
           <h5 class="card-title">Items in Your Cart</h5>
         </div>
 
-        <%= render partial: 'carts/cart_list', locals: { cart: current_cart } %>
+        <%= render partial: 'carts/cart_list', locals: {cart: @order.cart} %>
 
         <div class="card-footer">
-          <a href="<%= cart_path current_cart %>">Modify Cart</a>
+          <a href="<%= cart_path @order.cart %>">Modify Cart</a>
         </div>
       </div>
     </div>
@@ -22,15 +22,18 @@
         <%= form.hidden_field :txtref %>
       <% end %>
 
-      <%= render(layout: 'carts/costs_card', locals: {cart: current_cart}) do %>
+      <%= render(layout: 'carts/costs_card', locals: {
+          shippingCalculator: ShippingCalculator.new(@order.cart)
+      }) do %>
         <button class="btn btn-accent btn-block"
                 data-ravepay
-                data-ravepay-key="<%= Rails.env.production? ? Rails.application.credentials.config[:ravepay][:live][:public_key] : Rails.application.credentials.config[:ravepay][:test][:public_key]%>"
-                data-transaction-reference="<%= "#{current_cart.id}_#{rand().to_s.split('.')[1]}" %>"
-                data-order-total="<%= dollar_to_cedi current_cart.order_total %>"
+                data-ravepay-key="<%= Rails.env.production? ? Rails.application.credentials.config[:ravepay][:live][:public_key] : Rails.application.credentials.config[:ravepay][:test][:public_key] %>"
+                data-transaction-reference="<%= "#{@order.cart.id}_#{rand().to_s.split('.')[1]}" %>"
+                data-order-total="<%= dollar_to_cedi ShippingCalculator.new(@order.cart).order_total %>"
                 data-customer-email="<%= escape_javascript current_user.email %>"
                 data-customer-phone="<%= escape_javascript current_user.phone_number %>">
-          Make Payment (<%= number_to_currency_gh dollar_to_cedi @order.order_total %>)
+          Make Payment
+          (<%= number_to_currency_gh dollar_to_cedi ShippingCalculator.new(@order.cart).order_total %>)
         </button>
       <% end %>
     </div>
