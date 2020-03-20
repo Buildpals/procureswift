@@ -8,8 +8,8 @@ class Zinc
   NETWORK_ERROR = 'Network error while fetching product information!'
 
   def product_search(query, retailer = 'amazon')
-    raise ArgumentError, 'query is nil' if query.nil?
-    raise ArgumentError, 'retailer is nil' if retailer.nil?
+    raise ZincArgumentError, 'query is nil' if query.nil?
+    raise ZincArgumentError, 'retailer is nil' if retailer.nil?
 
     product_search_url = "https://api.zinc.io/v1/search?query=#{query}" \
                          "&page=1&retailer=#{retailer}"
@@ -22,8 +22,8 @@ class Zinc
   end
 
   def product_details(retailer, product_id)
-    raise ArgumentError, 'retailer is nil' if retailer.nil?
-    raise ArgumentError, 'product_id is nil' if product_id.nil?
+    raise ZincArgumentError, 'retailer is nil' if retailer.nil?
+    raise ZincArgumentError, 'product_id is nil' if product_id.nil?
 
     product_details_url = "https://api.zinc.io/v1/products/#{product_id}" \
                          "?retailer=#{retailer}"
@@ -36,8 +36,8 @@ class Zinc
   end
 
   def product_offers(retailer, product_id)
-    raise ArgumentError, 'retailer is nil' if retailer.nil?
-    raise ArgumentError, 'product_id is nil' if product_id.nil?
+    raise ZincArgumentError, 'retailer is nil' if retailer.nil?
+    raise ZincArgumentError, 'product_id is nil' if product_id.nil?
 
     product_offers_url = "https://api.zinc.io/v1/products/#{product_id}" \
                          "/offers?retailer=#{retailer}"
@@ -100,5 +100,8 @@ class Zinc
   end
 
   class ZincError < StandardError
+  end
+
+  class ZincArgumentError < StandardError
   end
 end

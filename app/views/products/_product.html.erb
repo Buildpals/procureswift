@@ -1,9 +1,8 @@
 <li class="media border-bottom py-3">
   <a href="<%= product_path product.id %>">
-    <img class="mr-5 product-image"
+    <img class="ml-1 mr-3 product-image product-search-image"
          src="<%= product.main_image %>"
-         alt="<%= product.title %>"
-         style="width: 223px; height: 213px">
+         alt="<%= product.title %>">
   </a>
   <div class="media-body">
     <a href="<%= product_path product.id %>"><h5 class="h6 mt-0 mb-1"><%= product.title %></h5></a>

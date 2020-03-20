@@ -19,11 +19,11 @@ import 'src/application.scss'
 import 'bootstrap'
 
 import { dom, library } from '@fortawesome/fontawesome-svg-core'
-import { faHandHoldingUsd, faTruck, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faHandHoldingUsd, faTruck, faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faAmazon, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 // We are only using the faTruck, faHandHoldingUsd, faAmazon, faFacebook, faInstagram icons
-library.add(faTruck, faHandHoldingUsd, faAmazon, faFacebook, faInstagram, faShoppingCart)
+library.add(faTruck, faHandHoldingUsd, faAmazon, faFacebook, faInstagram, faShoppingCart, faSearch)
 
 // Replace any existing <i> tags with <svg> and set up a MutationObserver to
 // continue doing this as the DOM changes.

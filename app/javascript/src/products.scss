@@ -5,3 +5,15 @@
 .product-image {
   object-fit: contain;
 }
+
+.product-search-image {
+  width: 100px;
+  height: 100px;
+}
+
+@include media-breakpoint-up(md) {
+  .product-search-image {
+    width: 223px;
+    height: 213px;
+  }
+}

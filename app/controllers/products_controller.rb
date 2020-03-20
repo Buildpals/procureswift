@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
+    session[:query] = params[:query]
     session[:retailer] = params[:retailer]
     @products = Product.where(query = params[:query],
                               retailer = params[:retailer])
@@ -24,5 +25,7 @@ class ProductsController < ApplicationController
     redirect_to root_path, alert: "Sorry, we couldn't connect to " \
                                   "#{retailer.titleize} at this time, " \
                                   'please try again later.'
+  rescue Zinc::ZincArgumentError
+    raise ActionController::RoutingError, "Sorry we couldn't find that page."
   end
 end

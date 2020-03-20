@@ -11,7 +11,7 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
 
     fill_in :query, with: 'pixel 4'
 
-    click_button 'Search', wait: 5 * 60
+    click_button :search
 
     expect(page).to have_content 'Showing results for pixel 4'
 

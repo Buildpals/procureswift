@@ -1,0 +1,49 @@
+<%= form_with(url: "/products", method: "get", local: true, class: 'form w-100') do %>
+  <div class="input-group" data-toggle="modal" data-target="#searchModal">
+    <%= text_field_tag :query,
+                       session[:query] || "",
+                       class: "form-control",
+                       placeholder: 'Search products...' %>
+
+    <div class="input-group-append">
+      <%= button_tag(type: "submit", class: "btn btn-accent", data: {disable_with: 'Please wait...'}) do %>
+        <span class="fa fa-search"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="form-group">
+            <%= text_field_tag :query,
+                               session[:query] || "",
+                               class: "form-control",
+                               placeholder: 'Search products...',
+                               autofocus: true,
+                               required: true %>
+
+          </div>
+          <div class="form-group">
+            <% label_tag "retailer" %>
+            <%= select_tag "retailer",
+                           options_for_select(
+                               Product::RETAILERS.keys.map {
+                                   |r| [r.to_s.titleize, r]
+                               },
+                               selected = session[:retailer] || :amazon
+                           ),
+                           class: 'form-control' %>
+          </div>
+
+          <%= button_tag(type: "submit", class: "btn btn-block btn-accent", data: {disable_with: 'Please wait...'}) do %>
+            Search
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
