@@ -6,7 +6,7 @@
                          Product::RETAILERS.keys.map {
                              |r| [r.to_s.titleize, r]
                          },
-                         selected = :amazon
+                         selected = session[:retailer] || :amazon
                      ),
                      class: 'form-control' %>
     </div>

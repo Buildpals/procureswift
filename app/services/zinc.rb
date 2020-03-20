@@ -70,6 +70,12 @@ class Zinc
     end
 
     response_json = ActiveSupport::JSON.decode(response.body)
+
+    if response_json['status'] == 'failed'
+      Rails.logger.error "Response for #{url}:\n#{response_json.to_json}"
+      raise ZincError, response_json['message']
+    end
+
     Rails.logger.info "Response for #{url}:\n#{response_json.to_json}"
 
     response_json
@@ -91,5 +97,8 @@ class Zinc
     product_offers_json['offers'].map do |product_offer_json|
       OfferBuilder.new(product_offer_json, nil).build
     end
+  end
+
+  class ZincError < StandardError
   end
 end

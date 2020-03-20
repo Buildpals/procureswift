@@ -3,24 +3,26 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  before_action :set_product, only: %i[show]
-
   # GET /products
   def index
+    session[:retailer] = params[:retailer]
     @products = Product.where(query = params[:query],
                               retailer = params[:retailer])
+  rescue Zinc::ZincError
+    redirect_to root_path, alert: "Sorry, we couldn't connect to " \
+                                  "#{params[:retailer].titleize} at this " \
+                                  'time, please try again later.'
   end
 
   # GET /products/1
   def show
+    @product = Product.find(params[:id])
     @offer = @product.offers.find { |offer| offer.id == params[:offer_id] } ||
              @product.offers.first
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_product
-    @product = Product.find(params[:id])
+  rescue Zinc::ZincError
+    retailer, _product_id = Product.split_retailer_from_product_id(params[:id])
+    redirect_to root_path, alert: "Sorry, we couldn't connect to " \
+                                  "#{retailer.titleize} at this time, " \
+                                  'please try again later.'
   end
 end
