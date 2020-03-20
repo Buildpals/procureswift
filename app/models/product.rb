@@ -25,7 +25,7 @@ class Product
                 :offers
 
   def self.find(id)
-    product_id, retailer = split_retailer_from_product_id(id)
+    retailer, product_id = split_retailer_from_product_id(id)
 
     product = Zinc.new.product_details(retailer, product_id)
     offers = Zinc.new.product_offers(retailer, product_id)
@@ -42,7 +42,7 @@ class Product
 
   def self.split_retailer_from_product_id(id)
     retailer, product_id = id.split(RETAILER_PRODUCT_ID_SEPARATOR)
-    [product_id, retailer]
+    [retailer, product_id]
   end
 
   def self.merge_retailer_with_product_id(retailer, product_id)
@@ -54,7 +54,7 @@ class Product
   end
 
   def item_url
-    product_id, retailer = Product.split_retailer_from_product_id(id)
+    retailer, product_id = Product.split_retailer_from_product_id(id)
     case retailer
     when :amazon.to_s
       "https://www.amazon.com/dp/#{product_id}"
