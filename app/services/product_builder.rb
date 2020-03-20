@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ProductBuilder
-  OUNCE_TO_POUND_RATIO = 0.0625
   CENTS_TO_DOLLARS_RATIO = 0.01
 
   def initialize(product_details_json, offers)
@@ -42,15 +41,9 @@ class ProductBuilder
     end
 
     weight = @product_details_json['package_dimensions']['weight']['amount']
-    weight_unit = @product_details_json['package_dimensions']['weight']['unit']
-    case weight_unit
-    when 'pounds'
-      return weight
-    when 'ounces'
-      return weight * OUNCE_TO_POUND_RATIO
-    else # TODO: Check for kilograms and grams and convert as necessary
-      return weight
-    end
+    unit = @product_details_json['package_dimensions']['weight']['unit']
+
+    Unitwise(weight, unit.singularize).to_pound.to_f
   end
 
   def depth
@@ -66,10 +59,10 @@ class ProductBuilder
       return nil
     end
 
+    depth = @product_details_json['package_dimensions']['size']['depth']['amount']
     unit = @product_details_json['package_dimensions']['size']['depth']['unit']
 
-    # TODO: convert to inches based on unit
-    @product_details_json['package_dimensions']['size']['depth']['amount']
+    Unitwise(depth, unit.singularize).to_inch.to_f
   end
 
   def length
@@ -85,10 +78,10 @@ class ProductBuilder
       return nil
     end
 
+    length = @product_details_json['package_dimensions']['size']['length']['amount']
     unit = @product_details_json['package_dimensions']['size']['length']['unit']
 
-    # TODO: convert to inches based on unit
-    @product_details_json['package_dimensions']['size']['length']['amount']
+    Unitwise(length, unit.singularize).to_inch.to_f
   end
 
   def width
@@ -104,10 +97,11 @@ class ProductBuilder
       return nil
     end
 
-    unit = @product_details_json['package_dimensions']['size']['width']['unit']
 
-    # TODO: convert to inches based on unit
-    @product_details_json['package_dimensions']['size']['width']['amount']
+    unit = @product_details_json['package_dimensions']['size']['width']['unit']
+    width = @product_details_json['package_dimensions']['size']['width']['amount']
+
+    Unitwise(width, unit.singularize).to_inch.to_f
   end
 
   def price
