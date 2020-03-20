@@ -255,24 +255,15 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Positive Reviews: 97%'
       expect(page).to have_content 'Number of Reviews: 4,951'
       expect(page).to have_content 'Ships within 0 to 0 days'
+      expect(page).to have_button 'Add to Cart'
     end
 
     within '#product_dimensions' do
-      expect(page).to have_content 'Product Dimensions'
+      expect(page).to have_content 'Product Details'
       expect(page).to have_content 'Width: 3.90 inches', normalize_ws: true
       expect(page).to have_content 'Length: 7.10 inches', normalize_ws: true
       expect(page).to have_content 'Depth: 1.90 inches', normalize_ws: true
       expect(page).to have_content 'Weight: 1.30 pounds', normalize_ws: true
-    end
-
-    within '#costs_card' do
-      expect(page).to have_content 'Price: $422.99', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $55.91', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $169.37', normalize_ws: true
-      expect(page).to have_content 'Total: $648.27 (GH₵ 3,759.98)', normalize_ws: true
-      expect(page).to have_content "Will be delivered by #{2.weeks.from_now.strftime('%A, %b.%e')} (2 weeks)", normalize_ws: true
-      expect(page).to have_content 'Duty charges are subject to changes by customs.', normalize_ws: true
-      expect(page).to have_button 'Add to Cart'
     end
 
     within '#other_offers' do

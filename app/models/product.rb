@@ -22,7 +22,8 @@ class Product
                 :width,
                 :length,
                 :depth,
-                :offers
+                :offers,
+                :product_description
 
   def self.find(id)
     retailer, product_id = split_retailer_from_product_id(id)

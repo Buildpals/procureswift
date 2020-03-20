@@ -21,6 +21,7 @@ class ProductBuilder
     product.depth = depth
 
     product.price = price
+    product.product_description = product_description
     product.stars = @product_details_json['stars']
     product.num_reviews = @product_details_json['num_reviews']
 
@@ -29,6 +30,10 @@ class ProductBuilder
   end
 
   private
+
+  def product_description
+    @product_details_json['html_product_description'] || @product_details_json['product_description']
+  end
 
   def weight
     return nil if @product_details_json['package_dimensions'].nil?

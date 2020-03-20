@@ -55,6 +55,7 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Positive Reviews: 97%'
       expect(page).to have_content 'Number of Reviews: 4,951'
       expect(page).to have_content 'Ships within 0 to 0 days'
+      expect(page).to have_link 'Add to Cart'
     end
 
     within '#product_dimensions' do
@@ -63,16 +64,6 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Length: 7.10 inches', normalize_ws: true
       expect(page).to have_content 'Depth: 1.90 inches', normalize_ws: true
       expect(page).to have_content 'Weight: 1.30 pounds', normalize_ws: true
-    end
-
-    within '#costs_card' do
-      expect(page).to have_content 'Price: $422.99', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $55.91', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $169.37', normalize_ws: true
-      expect(page).to have_content 'Total: $648.27 (GH₵ 3,759.98)', normalize_ws: true
-      expect(page).to have_content "Will be delivered by #{2.weeks.from_now.strftime('%A, %b.%e')} (2 weeks)", normalize_ws: true
-      expect(page).to have_content 'Duty charges are subject to changes by customs.', normalize_ws: true
-      expect(page).to have_link 'Add to Cart'
     end
 
     within '#other_offers' do
@@ -103,24 +94,15 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Positive Reviews: 97%'
       expect(page).to have_content 'Number of Reviews: 4,951'
       expect(page).to have_content 'Ships within 0 to 0 days'
+      expect(page).to have_link 'Add to Cart'
     end
 
     within '#product_dimensions' do
-      expect(page).to have_content 'Product Dimensions'
+      expect(page).to have_content 'Product Details'
       expect(page).to have_content 'Width: 3.90 inches', normalize_ws: true
       expect(page).to have_content 'Length: 7.10 inches', normalize_ws: true
       expect(page).to have_content 'Depth: 1.90 inches', normalize_ws: true
       expect(page).to have_content 'Weight: 1.30 pounds', normalize_ws: true
-    end
-
-    within '#costs_card' do
-      expect(page).to have_content 'Price: $422.99', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $55.91', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $169.37', normalize_ws: true
-      expect(page).to have_content 'Total: $648.27 (GH₵ 3,759.98)', normalize_ws: true
-      expect(page).to have_content "Will be delivered by #{2.weeks.from_now.strftime('%A, %b.%e')} (2 weeks)", normalize_ws: true
-      expect(page).to have_content 'Duty charges are subject to changes by customs.', normalize_ws: true
-      expect(page).to have_link 'Add to Cart'
     end
 
     within '#other_offers' do
@@ -143,26 +125,6 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
     visit product_path Product.merge_retailer_with_product_id('amazon',
                                                               'B07P8MQHSH')
 
-    within '#product_details' do
-      expect(page).to have_content 'Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black'
-      expect(page).to have_content 'by unknown'
-      expect(page).to have_content '$199.97'
-      expect(page).to have_content 'Condition: Used'
-      expect(page).to have_content 'Positive Reviews: 94%'
-      expect(page).to have_content 'Number of Reviews: 1,196'
-      expect(page).to have_content 'Ships within 0 to 0 days'
-    end
-
-    within '#costs_card' do
-      expect(page).to have_content 'Price: $199.97', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $46.99', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $85.64', normalize_ws: true
-      expect(page).to have_content 'Total: $332.60 (GH₵ 1,929.09)', normalize_ws: true
-      expect(page).to have_content "Will be delivered by #{2.weeks.from_now.strftime('%A, %b.%e')} (2 weeks)", normalize_ws: true
-      expect(page).to have_content 'Duty charges are subject to changes by customs.', normalize_ws: true
-      expect(page).to have_link 'Add to Cart'
-    end
-
     within '#other_offers' do
       click_link '$241.08 - Used 79% positive reviews unknown 4,188,165 total reviews Ships within 0 to 0 days'
     end
@@ -175,17 +137,6 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Positive Reviews: 79%'
       expect(page).to have_content 'Number of Reviews: 4,188,165'
       expect(page).to have_content 'Ships within 0 to 0 days'
-    end
-
-    # The price should change to reflect the selected offer
-    within '#costs_card' do
-      expect(page).to have_content 'Price: $241.08', normalize_ws: true
-      expect(page).to have_content 'Shipping & Insurance: $48.63', normalize_ws: true
-      expect(page).to have_content 'Estimated Duty: $101.08', normalize_ws: true
-      expect(page).to have_content 'Total: $390.79 (GH₵ 2,266.58)', normalize_ws: true
-      expect(page).to have_content "Will be delivered by #{2.weeks.from_now.strftime('%A, %b.%e')} (2 weeks)", normalize_ws: true
-      expect(page).to have_content 'Duty charges are subject to changes by customs.', normalize_ws: true
-      expect(page).to have_link 'Add to Cart'
     end
 
     # The original offer should now be part of the other offers

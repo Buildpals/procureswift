@@ -47,109 +47,49 @@
             </p>
           <% end %>
 
-        </div>
-      </div>
-    </div>
+          <div class="mb-3">
+            <% if current_user %>
+              <%= form_with(model: CartItem.new, local: true) do |form| %>
+                <%= form.hidden_field :seller_num_ratings, value: @offer.seller_num_ratings %>
+                <%= form.hidden_field :seller_percent_positive, value: @offer.seller_percent_positive %>
+                <%= form.hidden_field :seller_first_party, value: @offer.seller_first_party %>
+                <%= form.hidden_field :seller_name, value: @offer.seller_name %>
+                <%= form.hidden_field :seller_id, value: @offer.seller_id %>
+                <%= form.hidden_field :marketplace_fulfilled, value: @offer.marketplace_fulfilled %>
+                <%= form.hidden_field :international, value: @offer.international %>
+                <%= form.hidden_field :offer_id, value: @offer.id %>
+                <%= form.hidden_field :available, value: @offer.available %>
+                <%= form.hidden_field :handling_days_max, value: @offer.handling_days_max %>
+                <%= form.hidden_field :handling_days_min, value: @offer.handling_days_min %>
+                <%= form.hidden_field :prime_only, value: @offer.prime_only %>
+                <%= form.hidden_field :condition, value: @offer.condition %>
+                <%= form.hidden_field :addon, value: @offer.addon %>
+                <%= form.hidden_field :shipping_options, value: @offer.shipping_options %>
 
-    <div class="col-lg-4 order-lg-3">
-      <div class="card mb-3" id="costs_card">
-        <% if @offer && @offer.weight && @offer.price %>
-          <div class="card-body">
-            <dl class="row mb-2">
-              <dd class="col-8">Price:</dd>
-              <dd class="col-4 text-right">
-                <%= number_to_currency(@offer.price) %>
-              </dd>
+                <%= form.hidden_field :unit_price, value: @offer.price %>
+                <%= form.hidden_field :weight, value: @offer.product.weight %>
 
-              <dd class="col-8">Shipping & Insurance:</dd>
-              <dd class="col-4 text-right">
-                <%= number_to_currency @offer.freight_insurance_handling %>
-              </dd>
+                <%= form.hidden_field :product_id, value: @offer.product.product_id %>
+                <%= form.hidden_field :retailer, value: @offer.product.retailer %>
 
-              <dd class="col-8 border-bottom">Estimated Duty:</dd>
-              <dd class="col-4 text-right border-bottom">
-                <%= number_to_currency @offer.duty %>
-              </dd>
+                <%= form.hidden_field :title, value: @offer.product.title %>
+                <%= form.hidden_field :main_image, value: @offer.product.main_image %>
+                <%= form.hidden_field :width, value: @offer.product.width %>
+                <%= form.hidden_field :length, value: @offer.product.length %>
+                <%= form.hidden_field :depth, value: @offer.product.depth %>
 
-              <dd class="col-6 text-truncate font-weight-bold text-danger">
-                Total:
-              </dd>
-              <dd class="col-6 text-right font-weight-bold text-danger">
-                <span id="order_total">
-                  <%= number_to_currency @offer.total_cost %>
-                </span>
-                <br>
-                <span class="small">
-                  (<%= number_to_currency_gh dollar_to_cedi @offer.total_cost %>)
-                </span>
-              </dd>
-            </dl>
-
-
-            <div class="mb-4">
-              <div class="text-center">
-                Will be delivered by
-                <span class="text-success">
-              <%= 2.weeks.from_now.strftime("%A, %b. %e") %>
-              </span>
-                <br>
-                (2 weeks)
-              </div>
-
-              <div class="small text-center">
-                Duty charges are subject to changes by customs.
-              </div>
-            </div>
-
-
-            <div class="mb-4">
-              <% if current_user %>
-                <%= form_with(model: CartItem.new, local: true) do |form| %>
-                  <%= form.hidden_field :seller_num_ratings, value: @offer.seller_num_ratings %>
-                  <%= form.hidden_field :seller_percent_positive, value: @offer.seller_percent_positive %>
-                  <%= form.hidden_field :seller_first_party, value: @offer.seller_first_party %>
-                  <%= form.hidden_field :seller_name, value: @offer.seller_name %>
-                  <%= form.hidden_field :seller_id, value: @offer.seller_id %>
-                  <%= form.hidden_field :marketplace_fulfilled, value: @offer.marketplace_fulfilled %>
-                  <%= form.hidden_field :international, value: @offer.international %>
-                  <%= form.hidden_field :offer_id, value: @offer.id %>
-                  <%= form.hidden_field :available, value: @offer.available %>
-                  <%= form.hidden_field :handling_days_max, value: @offer.handling_days_max %>
-                  <%= form.hidden_field :handling_days_min, value: @offer.handling_days_min %>
-                  <%= form.hidden_field :prime_only, value: @offer.prime_only %>
-                  <%= form.hidden_field :condition, value: @offer.condition %>
-                  <%= form.hidden_field :addon, value: @offer.addon %>
-                  <%= form.hidden_field :shipping_options, value: @offer.shipping_options %>
-
-                  <%= form.hidden_field :unit_price, value: @offer.price %>
-                  <%= form.hidden_field :weight, value: @offer.product.weight %>
-
-                  <%= form.hidden_field :product_id, value: @offer.product.product_id %>
-                  <%= form.hidden_field :retailer, value: @offer.product.retailer %>
-
-                  <%= form.hidden_field :title, value: @offer.product.title %>
-                  <%= form.hidden_field :main_image, value: @offer.product.main_image %>
-                  <%= form.hidden_field :width, value: @offer.product.width %>
-                  <%= form.hidden_field :length, value: @offer.product.length %>
-                  <%= form.hidden_field :depth, value: @offer.product.depth %>
-
-                  <%= form.submit 'Add to Cart', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
-                <% end %>
-              <% else %>
-                <%= link_to 'Add to Cart',
-                            new_user_registration_path,
-                            class: 'btn btn-block btn-accent',
-                            id: 'checkout_button',
-                            notice: 'You need to login before you can purchase' %>
+                <%= form.submit 'Add to Cart', class: 'btn btn-block btn-accent', id: 'checkout_button' %>
               <% end %>
-            </div>
+            <% else %>
+              <%= link_to 'Add to Cart',
+                          new_user_registration_path,
+                          class: 'btn btn-block btn-accent',
+                          id: 'checkout_button',
+                          notice: 'You need to login before you can purchase' %>
+            <% end %>
           </div>
-        <% else %>
-          <div class="card-body text-center text-danger">
-            Item cannot be shipped by ProcureSwift because we could not
-            determine it's weight.
-          </div>
-        <% end %>
+
+        </div>
       </div>
     </div>
 
@@ -157,7 +97,7 @@
       <div class="card mb-3" id="product_dimensions">
         <div class="card-body">
           <h6 class="card-title">
-            Product Dimensions
+            Product Details
           </h6>
 
           <div class="row mb-2">
@@ -177,15 +117,22 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row mb-4">
             <div class="col-4">Weight:</div>
             <div class="col-8 text-right">
               <%= number_with_precision @product.weight, precision: 2 %> pounds
             </div>
           </div>
+
+          <div>
+            <%= raw @product.product_description %>
+          </div>
         </div>
       </div>
 
+    </div>
+
+    <div class="col-lg-4">
       <div class="card mb-3" id="other_offers">
         <div class="card-body pb-0 mb-0 border-bottom">
           <h6 class="card-title">
@@ -200,7 +147,6 @@
                               class: 'list-group-item text-muted') %>
         </div>
       </div>
-
     </div>
 
   </div>
