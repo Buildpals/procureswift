@@ -6,16 +6,10 @@ class Product
 
   RETAILERS = {
     amazon: 0,
-    # amazon_uk: 1, # Haven't implemented unit conversion for GBP, kg, centimetres, millimetres, etc
-    # amazon_ca: 2, # We don't have a warehouse in this country
-    # amazon_de: 3, # We don't have a warehouse in this country
-    # amazon_mx: 4, # We don't have a warehouse in this country
-    costco: 5,
-    walmart: 6,
-    homedepot: 7,
-    lowes: 8
-    # aliexpress: 9 # We don't have a warehouse in this country
+    amazon_uk: 1
   }.freeze
+
+  RETAILER_PRODUCT_ID_SEPARATOR = '___'
 
   attr_accessor :product_id,
                 :retailer,
@@ -47,17 +41,27 @@ class Product
   end
 
   def self.split_retailer_from_product_id(id)
-    # TODO: HACK must be replaced with more robust splitting system
-    retailer, product_id = id.split('_')
+    retailer, product_id = id.split(RETAILER_PRODUCT_ID_SEPARATOR)
     [product_id, retailer]
   end
 
+  def self.merge_retailer_with_product_id(retailer, product_id)
+    "#{retailer}#{RETAILER_PRODUCT_ID_SEPARATOR}#{product_id}"
+  end
+
   def id
-    "#{retailer}_#{product_id}"
+    Product.merge_retailer_with_product_id(retailer, product_id)
   end
 
   def item_url
-    product_id, _retailer = Product.split_retailer_from_product_id(id)
-    "https://www.amazon.com/dp/#{product_id}"
+    product_id, retailer = Product.split_retailer_from_product_id(id)
+    case retailer
+    when :amazon.to_s
+      "https://www.amazon.com/dp/#{product_id}"
+    when :amazon_uk.to_s
+      "https://www.amazon.co.uk/dp/#{product_id}"
+    else
+      raise ArgumentError, 'retailer is invalid!'
+    end
   end
 end

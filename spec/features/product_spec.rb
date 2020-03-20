@@ -92,7 +92,8 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
   end
 
   scenario 'should be able to view details of a particular product' do
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
 
     within '#product_details' do
       expect(page).to have_content 'Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black'
@@ -139,7 +140,8 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
   end
 
   scenario 'should be able to select another offer for a product' do
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
 
     within '#product_details' do
       expect(page).to have_content 'Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black'

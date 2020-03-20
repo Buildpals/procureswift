@@ -4,7 +4,7 @@ require 'rails_helper'
 include ApplicationHelper
 include ActionView::Helpers::NumberHelper
 
-RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
+RSpec.feature 'Order Management', vcr: {allow_playback_repeats: true} do
   let!(:user) { FactoryBot.create(:user) }
   let!(:cart) { FactoryBot.build(:cart) }
 
@@ -21,10 +21,12 @@ RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to fill in delivery details for my order' do
     login_as user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart', wait: 5 * 60
 
     click_link 'Cart (2)'
@@ -36,7 +38,7 @@ RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
     expect(page).to have_content 'Shipping & Insurance: $106.02'
     expect(page).to have_content 'Estimated Duty: $284.31'
     expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65)'
-    expect(page).to have_content 'Estimated delivery April 02, 2020'
+    expect(page).to have_content "Estimated delivery #{2.weeks.from_now.to_date.to_s(:long)}"
     expect(page).to have_content 'Duty charges are subject to changes by customs officers on arrival'
 
     expect(page).to have_content 'Delivery Address'
@@ -72,7 +74,7 @@ RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
     within '#costs_card' do
       expect(page).to have_content 'Order Summary'
       expect(page).to have_content 'Items (2): $700.99 Shipping & Insurance: $106.02 Estimated Duty: $284.31 Order Total: $1,091.32 (GH₵ 6,329.65)'
-      expect(page).to have_content 'Estimated delivery April 02, 2020'
+      expect(page).to have_content "Estimated delivery #{2.weeks.from_now.to_date.to_s(:long)}"
       expect(page).to have_content 'Duty charges are subject to changes by customs officers on arrival'
       expect(page).to have_content 'Make Payment (GH₵ 6,329.65)'
     end
@@ -96,7 +98,7 @@ RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
     expect(page).to have_content 'Shipping & Insurance: $106.02', normalize_ws: true
     expect(page).to have_content 'Estimated Duty: $284.31', normalize_ws: true
     expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65)', normalize_ws: true
-    expect(page).to have_content 'Estimated delivery April 02, 2020', normalize_ws: true
+    expect(page).to have_content "Estimated delivery #{2.weeks.from_now.to_date.to_s(:long)}"
     expect(page).to have_content 'Duty charges are subject to changes by customs officers on arrival'
 
     expect(page).to have_content 'Delivery Address'
@@ -135,7 +137,7 @@ RSpec.feature 'Order Management', vcr: { allow_playback_repeats: true } do
       expect(page).to have_content 'Shipping & Insurance: $106.02', normalize_ws: true
       expect(page).to have_content 'Estimated Duty: $284.31', normalize_ws: true
       expect(page).to have_content 'Order Total: $1,091.32 (GH₵ 6,329.65)', normalize_ws: true
-      expect(page).to have_content 'Estimated delivery April 02, 2020', normalize_ws: true
+      expect(page).to have_content "Estimated delivery #{2.weeks.from_now.to_date.to_s(:long)}"
       expect(page).to have_content 'Duty charges are subject to changes by customs officers on arrival'
       expect(page).to have_content 'Make Payment (GH₵ 6,329.65)'
     end

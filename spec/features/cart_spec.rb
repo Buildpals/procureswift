@@ -9,7 +9,8 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   let(:cart_item3) { FactoryBot.create(:cart_item, cart: cart, quantity: 3) }
 
   scenario 'should force user to sign in if he hasn\'t signed in before checkout' do
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_link 'Add to Cart'
     expect(page).to have_content 'Sign up'
     expect(page).to have_content 'Full name'
@@ -45,10 +46,12 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to add a product to the cart' do
     login_as cart.user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart'
 
     click_link 'Cart (2)'
@@ -85,10 +88,12 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to change the quantity of a product in my cart', js: true do
     login_as cart.user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart'
 
     expect(page).to have_content 'Items in Your Cart'
@@ -135,13 +140,13 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to remove an item from my cart' do
     login_as cart.user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart'
-
-    click_link 'Cart (2)'
 
     expect(page).to have_content 'Items in Your Cart'
 
@@ -187,13 +192,13 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to click checkout and be taken to the checkout page' do
     login_as cart.user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart'
-
-    click_link 'Cart (2)'
 
     click_link 'Checkout'
 
@@ -215,10 +220,12 @@ RSpec.feature 'Cart Management', vcr: { allow_playback_repeats: true } do
   scenario 'should be able to click an item in my cart and be taken to the items product page' do
     login_as cart.user
 
-    visit product_path 'amazon_B07G4MNFS1'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07G4MNFS1')
     click_button 'Add to Cart'
 
-    visit product_path 'amazon_B07P8MQHSH'
+    visit product_path Product.merge_retailer_with_product_id('amazon',
+                                                              'B07P8MQHSH')
     click_button 'Add to Cart'
 
     expect(page).to have_content 'Items in Your Cart'

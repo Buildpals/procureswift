@@ -8,7 +8,7 @@ class CartItem < ApplicationRecord
   belongs_to :cart, inverse_of: :cart_items
 
   def product_id
-    "#{self[:retailer]}_#{self[:product_id]}"
+    Product.merge_retailer_with_product_id(self[:retailer], self[:product_id])
   end
 
   def price
