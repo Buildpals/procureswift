@@ -54,7 +54,7 @@
     <div class="col-lg-4">
       <%= render(partial: 'carts/costs_card',
                  locals: {
-                     shippingCalculator: ShippingCalculator.new(@cart)
+                     shippingCalculator: @shipping_cart
                  }) %>
     </div>
 

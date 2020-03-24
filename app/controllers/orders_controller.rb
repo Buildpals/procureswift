@@ -9,7 +9,9 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1
-  def show; end
+  def show
+    @shipping_cart = ShippingCalculator.new(@order.cart)
+  end
 
   # GET /orders/new
   def new
