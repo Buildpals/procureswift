@@ -2,6 +2,9 @@
 
 # TODO: Kwaku, please write unit tests for this very important class so
 # Procureswift does not lose money.
+
+# Unit tests have startedt.
+# Write tests now for handling,freight and duty
 class ShippingCalculator
   def initialize(cart)
     @cart = cart

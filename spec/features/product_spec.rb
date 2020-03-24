@@ -31,26 +31,28 @@ RSpec.feature 'Product Management', vcr: { allow_playback_repeats: true } do
 
     fill_in :query, with: 'pixel 4'
 
-    click_button 'Search', wait: 5 * 60
+    click_button :search, wait: 5 * 60
 
     expect(page).to have_content 'Showing results for pixel 4'
 
-    expect(page).to have_content 'Google Pixel 4 XL - Clearly White - 64GB - Unlocked (Renewed)'
-    expect(page).to have_content '$559.95'
-    expect(page).to have_content 'Stars: 2.8'
-    expect(page).to have_content 'Reviewers: 12'
-
-    expect(page).to have_link 'ZIZO Bolt Series Google Pixel 4 Case | Heavy-Duty Military-Grade Drop Protection w/Kickstand Included Belt Clip Holster Tempered Glass Lanyard (Metal Gray/Black)'
-    expect(page).to have_content '$18.99'
-    expect(page).to have_content 'Stars: 4.3'
+    expect(page).to have_content 'Google Pixel 4 - Just Black - 128GB - Unlocked'
+    expect(page).to have_content '$649.00'
+    expect(page).to have_content 'Stars: 3.9'
     expect(page).to have_content 'Reviewers: 47'
 
-    click_link 'Google Pixel 4 XL - Clearly White - 64GB - Unlocked (Renewed)'
+    expect(page).to have_link 'Google - Pixel 3a with 64GB Memory Cell Phone (Unlocked) - Just Black - G020G'
+    expect(page).to have_content '$359.00'
+    expect(page).to have_content 'Stars: 4.4'
+    expect(page).to have_content 'Reviewers: 3053'
+
+    within '.col-md-12.mx-auto' do
+      click_link find('.item-name', match: :first)
+    end
 
     within '#product_details' do
       expect(page).to have_content 'Google - Pixel 3 with 64GB Memory Cell Phone (Unlocked) - Just Black'
       expect(page).to have_content 'by TTP Retail'
-      expect(page).to have_content '$422.99'
+      expect(page).to have_content '$649.00'
       expect(page).to have_content 'Condition: New'
       expect(page).to have_content 'Positive Reviews: 97%'
       expect(page).to have_content 'Number of Reviews: 4,951'

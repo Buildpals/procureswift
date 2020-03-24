@@ -48,5 +48,9 @@ FactoryBot.define do
     width { Faker::Number.within(range: 0.1..120) }
     length { Faker::Number.within(range: 0.1..120) }
     depth { Faker::Number.within(range: 0.1..120) }
+
+    trait :single_quantity do
+      quantity {1}
+    end
   end
 end
