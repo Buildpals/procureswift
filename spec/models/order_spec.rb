@@ -26,7 +26,6 @@ RSpec.describe Order, type: :model do
     end
 
     it 'ensures cost of item is correct' do
-      total_cost = (cart_item1.cost * cart_item1.quantity) + (cart_item2.cost * cart_item2.quantity)
       expect(ship.cost).to eq(total_cost)
     end
 
@@ -36,14 +35,24 @@ RSpec.describe Order, type: :model do
     end
 
     it 'ensures insurance is correct' do
-      total_cost = (cart_item1.cost * cart_item1.quantity) + (cart_item2.cost * cart_item2.quantity)
       expect(ship.insurance).to eq(total_cost * Insurance::INSURANCE_RATE)
     end
 
-    # it 'ensures handling is correct' do
-    #  total_cost = (cart_item1.cost * cart_item1.quantity) + (cart_item2.cost * cart_item2.quantity)
-    #  expect(ship.insurance).to eq(BUILDPALS_MARKUP_BASE + total_cost * BUILDPALS_MARKUP_RATE)
-    # end
+    it 'ensures handling is correct' do
+      expect(ship.handling).to eq(Handling::BUILDPALS_MARKUP_BASE + total_cost * Handling::BUILDPALS_MARKUP_RATE)
+    end
+
+    it 'ensures freight is correct' do
+      # TO DO
+    end
+
+    it 'ensures duty is correct' do
+      # TO DO
+    end
+
+    def total_cost
+      (cart_item1.cost * cart_item1.quantity) + (cart_item2.cost * cart_item2.quantity)
+    end
 
   end
 end
