@@ -21,7 +21,8 @@ class Order < ApplicationRecord
   enum api_status: {
     pending: 7,
     aborted: 8,
-    account_locked_verification_required: 9
+    account_locked_verification_required: 9,
+    success: 10
   }
 
   def purchase; end

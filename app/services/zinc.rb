@@ -43,6 +43,7 @@ class Zinc
 
   def place_order(order_body)
     response = ''
+    request_ids = []
     order_body.each do |v|
       response = make_order_call v unless v[:products].empty?
     end

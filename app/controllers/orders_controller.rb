@@ -29,8 +29,13 @@ class OrdersController < ApplicationController
     end
 
     @order.cart.update!(paid_at: Time.current)
+    builder = OrderBuilder.new @order
+    builder.get_retailers
+    zinc_api = Zinc.new
+    request_ids = zinc_api.place_order builder.get_request_body
+    @order.api_hash = request_ids
+    @order.api_status = 7
     @order.save!
-    # TO DO: automate purcahse here
     redirect_to @order, notice: 'Order was placed successfully.', flash: { thanks_for_shopping_with_us: true }
   end
 
