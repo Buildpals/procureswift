@@ -5,7 +5,6 @@ class OrderBuilder
 
   def get_request_body
     # TO DO: Loop through retailer hash then create an order for every key
-    static_body = Hash.new
     static_body = { 
       "max_price": 2300, 
       "shipping_address": {    
@@ -66,18 +65,25 @@ class OrderBuilder
     # end
     # puts product
 
-    product = []
+    amazon_products = []
+    amazon_uk_products =[]
     @retailers[:amazon].each do |k,v|
-      product << v
+      amazon_products << v
     end
-
-    body_hash = Hash.new
-     body_hash = {
-       "retailer": "amazon",
-       "products": product
+    @retailers[:amazon_uk].each do |k,v|
+      amazon_uk_products << v
+    end
+    amazon_order_hash = {
+      "retailer": "amazon",
+      "products": amazon_products
     }
-    body_hash.merge!(static_body)
-    body_hash
+    amazon_uk_order_hash = {
+      "retailer": "amazon_uk",
+      "products": amazon_uk_products
+    }
+    amazon_order_hash.merge!(static_body)
+    amazon_uk_order_hash.merge!(static_body)
+    [amazon_order_hash, amazon_uk_order_hash]
   end
 
   def get_retailers

@@ -41,8 +41,10 @@ class Zinc
     build_offers(product_offers_json)
   end
 
-  def place_order(body)
-    make_order_call(body)
+  def place_order(order_body)
+    order_body.each do |v|
+      make_order_call v unless v[:products].empty?
+    end
   end
 
   private
