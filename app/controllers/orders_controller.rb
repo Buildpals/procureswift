@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
 
     @order.cart.update!(paid_at: Time.current)
     @order.save!
+    # TO DO: automate purcahse here
     redirect_to @order, notice: 'Order was placed successfully.', flash: { thanks_for_shopping_with_us: true }
   end
 

@@ -14,4 +14,8 @@ class Order < ApplicationRecord
                  shipped_to_ghana: 4,
                  received_in_ghana: 5,
                  delivered_to_client: 6 }
+
+  def purchase
+    
+  end
 end

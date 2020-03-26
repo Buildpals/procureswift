@@ -4,6 +4,7 @@
 class Zinc
   require 'net/http'
   require 'uri'
+  require "json"
 
   NETWORK_ERROR = 'Network error while fetching product information!'
 
@@ -40,6 +41,10 @@ class Zinc
     build_offers(product_offers_json)
   end
 
+  def place_order(body)
+    make_order_call(body)
+  end
+
   private
 
   def make_api_call(url)
@@ -73,6 +78,19 @@ class Zinc
   rescue Net::OpenTimeout, SocketError
     Rails.logger.error NETWORK_ERROR
     raise ZincError, NETWORK_ERROR
+  end
+
+  def make_order_call(body = Hash.new)
+    url = URI("https://api.zinc.io/v1/orders")
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(url)
+    request['Content-Type'] = 'application/json'
+    request['Authorization'] = 'Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg=='
+    request.body = body.to_json
+    response = https.request(request)
+    puts response.read_body
+    # TO DO HANDLE ERRORS AND SUCCESS HERE
   end
 
   def build_products(products_search_json)
