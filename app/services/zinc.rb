@@ -42,9 +42,11 @@ class Zinc
   end
 
   def place_order(order_body)
+    response = ''
     order_body.each do |v|
-      make_order_call v unless v[:products].empty?
+      response = make_order_call v unless v[:products].empty?
     end
+    request_ids << response
   end
 
   private
@@ -91,8 +93,16 @@ class Zinc
     request['Authorization'] = 'Basic NkY4NDRFM0JEQzc2Qzc5MTBEQTk3NDRGOg=='
     request.body = body.to_json
     response = https.request(request)
-    puts response.read_body
+    response_json = ActiveSupport::JSON.decode(response.read_body)
+    puts response_json
+    if response_json['request_id'].nil?
+      Rails.logger.error "Response for #{url}:\n#{response_json.to_json}"
+      raise ZincError, response_json['message']
+    else
+      response_json['request_id']
+    end
     # TO DO HANDLE ERRORS AND SUCCESS HERE
+    # ON SUCCESS STORE REQUEST ID IN DATABASE
   end
 
   def build_products(products_search_json)

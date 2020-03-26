@@ -1,12 +1,12 @@
 class OrderBuilder
   def initialize(order)
     @order = order
+    @shipping_info = ShippingCalculator.new @order.cart
   end
 
   def get_request_body
-    # TO DO: Loop through retailer hash then create an order for every key
     static_body = { 
-      "max_price": 2300, 
+      "max_price": @shipping_info.cost / ProductBuilder::CENTS_TO_DOLLARS_RATIO, 
       "shipping_address": {    
                             "first_name": "Tim",  
                             "last_name": "Beaver",  
@@ -60,11 +60,6 @@ class OrderBuilder
                       } 
     }
 
-    # product = @retailers[:amazon].inject([]) do |result, element|
-     # result << element
-    # end
-    # puts product
-
     amazon_products = []
     amazon_uk_products =[]
     @retailers[:amazon].each do |k,v|
@@ -94,7 +89,7 @@ class OrderBuilder
     products = Hash.new
     i = 0
     @order.cart.cart_items.each do |item|
-      i = i + 1
+      i += 1
       item_hash = { 'product_id': Product.split_retailer_from_product_id(item.product_id)[1], 'quantity': item.quantity }
       products[i] = item_hash
       @retailers[item.retailer.to_sym].merge!(products)
