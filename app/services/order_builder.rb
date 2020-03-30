@@ -1,4 +1,27 @@
 class OrderBuilder
+  US_ADDRESS = {    
+    "first_name": "Tim",  
+    "last_name": "Beaver",  
+    "address_line1": "77 Massachusetts Avenue",  
+    "address_line2": "",  
+    "zip_code": "02139",  
+    "city": "Cambridge",  
+    "state": "MA",  
+    "country": "US",  
+    "phone_number": "5551230101" 
+  }
+  UK_ADDRESSS = {    
+    "first_name": "Tim",  
+    "last_name": "Beaver",  
+    "address_line1": "77 Massachusetts Avenue",  
+    "address_line2": "",  
+    "zip_code": "02139",  
+    "city": "Cambridge",  
+    "state": "MA",  
+    "country": "US",  
+    "phone_number": "5551230101" 
+  }
+
   def initialize(order)
     @order = order
     @shipping_info = ShippingCalculator.new @order.cart
@@ -70,11 +93,16 @@ class OrderBuilder
     end
     amazon_order_hash = {
       "retailer": "amazon",
-      "products": amazon_products
+      "products": amazon_products,
+      "shipping_address": US_ADDRESS,
+      "billing_address": US_ADDRESS
+
     }
     amazon_uk_order_hash = {
       "retailer": "amazon_uk",
-      "products": amazon_uk_products
+      "products": amazon_uk_products,
+      "shipping_address": UK_ADDRESSS,
+      "billing_address": UK_ADDRESSS
     }
     amazon_order_hash.merge!(static_body)
     amazon_uk_order_hash.merge!(static_body)
