@@ -5,7 +5,11 @@
       <div>Total: <%= number_to_currency_gh dollar_to_cedi ShippingCalculator.new(order.cart).order_total %></div>
       <div>Ship To: <%= order.cart.full_name %></div>
       <div>
-        <a href="<%= order_path order %>">Order Details</a>
+        <% if current_user.admin.eql?(true) %>
+          <a href="<%= admin_order_path order %>">Order Details</a>
+        <% else %>
+          <a href="<%= order_path order %>">Order Details</a>
+        <% end %>
       </div>
     </div>
   </div>

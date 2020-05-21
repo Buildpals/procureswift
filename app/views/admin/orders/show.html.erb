@@ -43,11 +43,11 @@
         <ul class="list-group list-group-flush">
           <% @order.cart.cart_items.order(created_at: :desc).each do |cart_item| %>
             <li class="list-group-item d-flex flex-column w-100 justify-content-start px-2">
-              <a href="<%= product_path cart_item.product %>">
+              <a href="<%= product_path cart_item %>">
                 <div class="d-flex w-100 justify-content-start">
-                  <img class="product-image mr-2" src="<%= cart_item.product.main_image %>" width="100" style="height: 100px">
+                  <img class="product-image mr-2" src="<%= cart_item.main_image %>" width="100" style="height: 100px">
                   <div>
-                    <h6 class="mb-2"><%= truncate cart_item.product.title, length: 60 %></h6>
+                    <h6 class="mb-2"><%= truncate cart_item.title, length: 60 %></h6>
                     <div class="text-danger ml-auto mb-2"><%= number_to_currency_gh dollar_to_cedi cart_item.unit_price %></div>
                     <div>Qty: <%= cart_item.quantity %></div>
                   </div>
