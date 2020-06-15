@@ -11,6 +11,10 @@
   height: 100px;
 }
 
+.corona-virus-alert {
+  font-size: 14px;
+}
+
 @include media-breakpoint-up(md) {
   .product-search-image {
     width: 223px;

@@ -159,6 +159,14 @@
 </nav>
 
 <section class="container" id="alert_container">
+
+  <% unless controller_name == 'welcome' %>
+    <div class="alert alert-dark mt-2 corona-virus-alert" role="alert">
+      <p><%= Date.today.strftime("%d %B %Y") %>: Due to a surge in eCommerce business from the US and the implementation of additional COVID-19 health and safety procedures at ProcureSwift, as recommended by the US Government, we are experiencing some login and customer services delays.</p>
+      <p>We are currently logging in packages that arrived at ProcureSwift on <%= 7.days.ago.to_date.strftime("%d %B %Y") %>. We are working around the clock to log and ship your packages. We apologize for any inconvenience this may cause.</p>
+    </div>
+  <% end %>
+
   <% if notice %>
     <div class="alert alert-info mt-3" role="alert">
       <%= notice %>
