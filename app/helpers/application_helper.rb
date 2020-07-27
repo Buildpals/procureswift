@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  DOLLAR_TO_CEDI_RATIO = 5.8
+  DOLLAR_TO_CEDI_RATIO = 6.2
 
   def dollar_to_cedi(dollar_amount)
     dollar_amount * DOLLAR_TO_CEDI_RATIO
